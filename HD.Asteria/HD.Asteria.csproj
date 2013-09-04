@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7BD04302-6058-4D31-907C-6E1B9CFE8122}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HD.Asteria</RootNamespace>
+    <AssemblyName>HD.Asteria</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\Admin\AddCommand.cs" />
+    <Compile Include="Commands\Admin\AdminCommand.cs" />
+    <Compile Include="Commands\Admin\ClearCommand.cs" />
+    <Compile Include="Commands\Admin\ClearFlagsCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapAmbientCommand.cs" />
+    <Compile Include="Commands\Admin\SwitchCommand.cs" />
+    <Compile Include="Commands\Admin\GiveCommand.cs" />
+    <Compile Include="Commands\Admin\DisownCommand.cs" />
+    <Compile Include="Commands\Admin\FlagCommand.cs" />
+    <Compile Include="Commands\Admin\GotoCommand.cs" />
+    <Compile Include="Commands\Admin\InfoCommand.cs" />
+    <Compile Include="Commands\Admin\KitCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapExtraLivesCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapCreateCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapDeleteCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapFillCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapFillWallCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapGenerateCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapGravityCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapInfoCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapLavaLevelCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapLoadCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapLockTierCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapMusicCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapNameCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapReplaceCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapSaveCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapsCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapSeaLevelCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapSpawnCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\MapTierCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\ResetCommand.cs" />
+    <Compile Include="Commands\Admin\Maps\ToggleCommand.cs" />
+    <Compile Include="Commands\Admin\NameCommand.cs" />
+    <Compile Include="Commands\Admin\OwnCommand.cs" />
+    <Compile Include="Commands\Admin\SaveCommand.cs" />
+    <Compile Include="Commands\Admin\SetCommand.cs" />
+    <Compile Include="Commands\Admin\SummonCommand.cs" />
+    <Compile Include="Commands\HelpCommand.cs" />
+    <Compile Include="Commands\LocationCommand.cs" />
+    <Compile Include="Commands\Multiplayer\MapDownloadCommand.cs" />
+    <Compile Include="Commands\Multiplayer\MultiplayerCommand.cs" />
+    <Compile Include="Commands\SayCommand.cs" />
+    <Compile Include="Commands\StuckCommand.cs" />
+    <Compile Include="Commands\TimeCommand.cs" />
+    <Compile Include="Commands\WhoCommand.cs" />
+    <Compile Include="Enemies.cs" />
+    <Compile Include="Items.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Projectiles.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HD.Core\HD.Core.csproj">
+      <Project>{235F12D2-872E-4DC1-8D34-A922AE33A785}</Project>
+      <Name>HD.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)\Content</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
