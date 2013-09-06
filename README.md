@@ -19,11 +19,11 @@ Someday when we switch to MonoGame you'll be able to use any Visual Studio versi
 
 ### Enemy Creation Tutorial
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=CwBFFtkam44" target="_blank"><img src="http://img.youtube.com/vi/CwBFFtkam44/0.jpg" width="480" height="3600" border="10" /></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=CwBFFtkam44" target="_blank"><img src="http://img.youtube.com/vi/CwBFFtkam44/0.jpg" width="480" height="360" border="10" /></a>
 
 ### Source Code Tour Video
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=jGR0EVYc_Bo" target="_blank"><img src="http://img.youtube.com/vi/jGR0EVYc_Bo/0.jpg" width="480" height="3600" border="10" /></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=jGR0EVYc_Bo" target="_blank"><img src="http://img.youtube.com/vi/jGR0EVYc_Bo/0.jpg" width="480" height="360" border="10" /></a>
 
 I know I said "uh" way too much in the video. I've not done a lot of videos and I'll slow it down a bit next time.
 
