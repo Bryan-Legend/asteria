@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\Admin\AddCommand.cs" />
-    <Compile Include="Commands\Admin\AdminCommand.cs" />
     <Compile Include="Commands\Admin\ClearCommand.cs" />
     <Compile Include="Commands\Admin\ClearFlagsCommand.cs" />
     <Compile Include="Commands\Admin\Maps\MapAmbientCommand.cs" />
@@ -105,7 +104,6 @@
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="Commands\LocationCommand.cs" />
     <Compile Include="Commands\Multiplayer\MapDownloadCommand.cs" />
-    <Compile Include="Commands\Multiplayer\MultiplayerCommand.cs" />
     <Compile Include="Commands\SayCommand.cs" />
     <Compile Include="Commands\StuckCommand.cs" />
     <Compile Include="Commands\TimeCommand.cs" />

@@ -71,7 +71,7 @@ namespace HD.Asteria
                 IsConsumed = true,
                 Tier = 1,
                 ListPriority = 5,
-                Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Ectoplasm, 2), } },
+                Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Ectoplasm, 10), } },
                 OnUse = (item) => { item.Player.Heal(40); },
                 CanUse = (player, alreadyUsing) => {
                     if (player.Health != player.MaxHealth)
@@ -360,34 +360,6 @@ namespace HD.Asteria
             seeker.Tier = 8;
             seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Obsidian, 5), new Component(ItemId.Detector, 1), } };
             ItemBase.AddItem(seeker);
-
-            ItemBase.AddItem(new ItemType()
-            {
-                Id = ItemId.Immobilizer,
-                Tier = 5,
-                ListPriority = 10,
-                Category = ItemCategory.Useable,
-                NameSource = "{TierType} Enemy Immobilizer",
-                Description = "Stops movement of all enemys within range.",
-                IsConsumed = true,
-                Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 5), new Component(ItemId.Gold, 2) } },
-                OnUse = (item) =>
-                {
-                    item.Player.Map.AddEntity(new ParticleEmitter() { Position = item.Player.Position, Color = Color.LightGoldenrodYellow, Type = ParticleEffect.Explode2, Value = 150 });
-                    foreach (var e in item.Player.Map.Entities)
-                    {
-                        var enemy = e as Enemy;
-                        if (enemy != null && enemy.IsTargetCloserThan(1000) && !enemy.Type.IsBoss) {
-                            enemy.Delay(100, () =>
-                            {
-                                enemy.IsImmobilized = true;
-                                enemy.AddCombatText("Immobilized", CombatTextType.EnemyDamage);
-                            });
-                        }
-                    }
-                },
-                
-            });
         }
 
         static void AddComponents()
@@ -410,7 +382,7 @@ namespace HD.Asteria
             ItemBase.TypesById[ItemId.Ectoplasm].Tier = 1;
             ItemBase.TypesById[ItemId.Ectoplasm].ListPriority = 61;
             ItemBase.TypesById[ItemId.EctoplasmCore].Tier = 2;
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EctoplasmCore }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Ectoplasm, 5), } });
+            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EctoplasmCore }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Ectoplasm, 25), } });
 
             ItemBase.TypesById[ItemId.RedCrystal].Tier = 1;
             ItemBase.TypesById[ItemId.RedCrystal].Description = "A red crystal found on earth based monsters.";
@@ -883,7 +855,7 @@ namespace HD.Asteria
             ItemBase.AddItem(lockedDoor);
 
             ItemBase.AddItem(new ItemType() {
-                Id = ItemId.HypercubeOfHolding,
+                Id = ItemId.Hypercube,
                 Description = "Holds up to 24 items.",
                 Category = ItemCategory.Placable,
                 SpriteAnimation = SpriteAnimation.Cycle10,
@@ -908,7 +880,7 @@ namespace HD.Asteria
             });
 
             ItemBase.AddItem(new ItemType() {
-                Id = ItemId.WorldHypercubeOfHolding,
+                Id = ItemId.WorldHypercube,
                 Description = "Holds up to 24 items that every player can take a copy of.",
                 Category = ItemCategory.Placable,
                 SpriteAnimation = SpriteAnimation.Cycle10,
@@ -939,8 +911,8 @@ namespace HD.Asteria
                 }
             });
 
-            var rewardChest = ItemBase.Get(ItemId.WorldHypercubeOfHolding).Clone();
-            rewardChest.Id = ItemId.RewardHypercubeOfHolding;
+            var rewardChest = ItemBase.Get(ItemId.WorldHypercube).Clone();
+            rewardChest.Id = ItemId.RewardHypercube;
             rewardChest.Description = "Acts like a world chest but disappears after 5 minutes.";
             rewardChest.IsTemporary = true;
             rewardChest.Light = Color.FromNonPremultiplied(255, 252, 0, 200);
@@ -955,7 +927,7 @@ namespace HD.Asteria
             ItemBase.AddItem(rewardChest);
 
             ItemBase.AddItem(new ItemType() {
-                Id = ItemId.PersonalHypercubeOfHolding,
+                Id = ItemId.PersonalHypercube,
                 Description = "Holds up to 24 items and is only usable by it's owner.",
                 Category = ItemCategory.Placable,
                 SpriteAnimation = SpriteAnimation.Cycle10,
@@ -981,7 +953,7 @@ namespace HD.Asteria
                     }
                     return false;
                 },
-                Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.HypercubeOfHolding, 1), new Component(ItemId.Thyratron, 3), } },
+                Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Hypercube, 1), new Component(ItemId.Thyratron, 3), } },
             });
 
             ItemBase.AddItem(new ItemType() {
@@ -2063,8 +2035,8 @@ namespace HD.Asteria
                 ListPriority = 49,
                 Category = ItemCategory.Accessory,
                 Description = "An attactment that gives off light.",
-                OnEquip = (p, i) => { p.CastLight = Color.FromNonPremultiplied(255, 255, 255, 200); },
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.MercuryCell, 1), new Component(ItemId.Silver, 15), new Component(ItemId.Aluminum, 1), new Component(ItemId.Glass, 2), new Component(ItemId.FieldEffectTransistor, 5), } },
+                OnEquip = (p, i) => { p.CastLight = Color.FromNonPremultiplied(128, 128, 128, 128); },
+                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.MercuryCell, 1), new Component(ItemId.Silver, 15), new Component(ItemId.Aluminum, 1), new Component(ItemId.Glass, 200), new Component(ItemId.FieldEffectTransistor, 5), new Component(ItemId.LightOrb, 1000) } },
             });
             ItemBase.AddItem(new ItemType() {
                 Id = ItemId.Carbonite,
@@ -2372,25 +2344,6 @@ namespace HD.Asteria
                     Projectile.Shoot(ProjectileId.Grenade_2, item.Player, item.GetTier());
                 },
             });
-
-            ItemBase.AddItem(new ItemType()
-            {
-                Id = ItemId.RainbowBlaster,
-                NameSource = "{TierType} Rainbow Blaster",
-                Tier = 9,
-                Category = ItemCategory.Blaster,
-                Description = "High power gun that shoots Rainbows.\n{5} Damage\n{CoolDown:N0}ms Cool Down",
-                CoolDown = 100,
-                PlaceAndActivateRange = 10000,
-                IsManualFire = true,
-                Light = Color.White,
-                //Recipe = new Recipe() { Location = ItemId.Forge, Components = new Component[] { new Component(ItemId.GrenadeBarrel), new Component(ItemId.Darksteel, 20), new Component(ItemId.Sapphire, 20), new Component(ItemId.GunnDiode, 3), } },
-                OnUse = (item) =>
-                {
-                    Projectile.Shoot(ProjectileId.Rainbow, item.Player, item.GetTier());
-                },
-            });
-
             weapon = ItemBase.Get(ItemId.GrenadeLauncher6).Clone();
             weapon.Id = ItemId.GrenadeLauncher7;
             weapon.Tier = 7;

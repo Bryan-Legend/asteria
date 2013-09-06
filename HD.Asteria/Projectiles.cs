@@ -16,25 +16,6 @@ namespace HD.Asteria
             ProjectileBase.AddType(new ProjectileType() { Id = ProjectileId.DigLarge, UseTierParticleColor = true, IsSlowBloom = true, InitialParticleBurst = 10, DigBrush = Brush.Size7, MaxAge = 600, Speed = 540, FireSound = Sound.MiningToolFire, TechName = "Mining Tool", UseTierTextures = true, });
             ProjectileBase.AddType(new ProjectileType() { Id = ProjectileId.DigExtraLarge, UseTierParticleColor = true, IsSlowBloom = true, InitialParticleBurst = 10, DigBrush = Brush.Size9, MaxAge = 600, Speed = 560, FireSound = Sound.MiningToolFire, TechName = "Mining Tool", UseTierTextures = true, });
 
-            ProjectileBase.AddType(new ProjectileType()
-            {
-                Id = ProjectileId.Rainbow,
-                BaseDamage = 1000,
-                MaxAge = 2000,
-                Speed = 1500,
-                //InitialParticleBurst = 1,
-                UseTierParticleColor = true,
-                UseTierTextures = false,
-                FireSound = Sound.BlasterFire,
-                HitSound = Sound.BlasterHit,
-                Knockback = 1000,
-                //ParticleStream = true,
-                OnProjectileMove = (projectile, material) =>
-                {
-                    Particles.AddRainbow(projectile.Position, 1);
-                },
-            });
-
             ProjectileBase.AddType(new ProjectileType() {
                 Id = ProjectileId.Blaster,
                 BaseDamage = 5,
@@ -195,7 +176,7 @@ namespace HD.Asteria
 
             ProjectileBase.AddType(new ProjectileType() {
                 Id = ProjectileId.Fireball,
-                BaseDamage = 100,
+                BaseDamage = 25,
                 Speed = 1000,
                 MaxAge = 2000,
                 DigBrush = Brush.Size10,

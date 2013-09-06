@@ -35,16 +35,6 @@ namespace HD.Asteria
                     if (enemy.IsBlocked) {
                         enemy.IsFacingLeft = !enemy.IsFacingLeft;
                     }
-
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Move);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -93,16 +83,6 @@ namespace HD.Asteria
                     if (enemy.IsBlocked) {
                         enemy.IsFacingLeft = !enemy.IsFacingLeft;
                     }
-
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Move);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -148,16 +128,6 @@ namespace HD.Asteria
                     } else {
                         if (Utility.Roll16() && enemy.Target == null || enemy.IsBlocked)
                             enemy.SetRandomAngle();
-                    }
-
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () =>  {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            //enemy.SetAnimation(Animation.Move);
-                        });
                     }
                 },
                 GetFrame = (animation, age) => {
@@ -216,16 +186,6 @@ namespace HD.Asteria
 
                     if (enemy.IsBlocked)
                         enemy.SetRandomAngle();
-
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            //enemy.SetAnimation(Animation.Move);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -295,16 +255,6 @@ namespace HD.Asteria
                         enemy.PlaySound(Sound.TurretDeactivate);
                         enemy.Bag.IsDeactivated = false;
                         enemy.Bag.DeactivatedSoundPlayed = true;
-                    }
-
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            //enemy.SetAnimation(Animation.Move);
-                        });
                     }
                 },
                 OnDie = (enemy) => {
@@ -426,16 +376,6 @@ namespace HD.Asteria
                             enemy.Bag.ExplosionAge = enemy.Age + 2000;
                         }
                     }
-
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Move);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -500,14 +440,6 @@ namespace HD.Asteria
                                 enemy.Direction = (float)Math.PI;
                             });
                         }
-                    }
-                    
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                        });
                     }
                 },
                 GetFrame = (animation, age) => {
@@ -613,16 +545,6 @@ namespace HD.Asteria
 
                     } else if (enemy.Target != null && enemy.IsTargetCloserThan(280) && enemy.CooldownCheck(75)) {
                         enemy.ShootAtTarget(ProjectileId.Disruptor);
-                    }
-
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () =>  {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Move);
-                        });
                     }
                 },
                 GetFrame = (animation, age) => {
@@ -735,16 +657,6 @@ namespace HD.Asteria
 
                     if (enemy.Target != null)
                         enemy.WalkTowardTarget();
-
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Move);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -826,16 +738,6 @@ namespace HD.Asteria
                             enemy.Speed = 0;
                         }
                     }
-                    
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Attack1);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -886,16 +788,6 @@ namespace HD.Asteria
                         enemy.IsFacingLeft = !enemy.IsFacingLeft;
                     if (enemy.Target != null)
                         enemy.WalkTowardTarget();
-
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Move);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -982,18 +874,6 @@ namespace HD.Asteria
 
                     if (enemy.Target != null && enemy.IsTargetCloserThan(420) && !MaterialInfo.IsLiquid(enemy.Map.GetMaterialAtPixel(enemy.FacePosition)))
                         enemy.ShootAtTarget(ProjectileId.Blaster);
-
-                    if (enemy.IsImmobilized)
-                    {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () =>
-                        {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Move);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -1049,16 +929,6 @@ namespace HD.Asteria
                         if (Utility.Roll16())
                             enemy.SetRandomAngle();
                     }
-
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Move);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -1107,15 +977,6 @@ namespace HD.Asteria
                     } else {
                         if (Utility.Roll16())
                             enemy.SetRandomAngle();
-                    }
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Move);
-                        });
                     }
                 },
                 GetFrame = (animation, age) => {
@@ -1195,18 +1056,6 @@ namespace HD.Asteria
                         }
                         enemy.Velocity = Vector2.Zero;
                     }
-                    
-                    if (enemy.IsImmobilized)
-                    {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () =>
-                        {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Move);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -1238,19 +1087,6 @@ namespace HD.Asteria
                 OnSpawn = (enemy, tier) => {
                     enemy.SetAnimation(Animation.Idle1);
                     enemy.AnimationStart += TimeSpan.FromSeconds(Utility.NextDouble());
-                },
-                OnLongThink = (enemy) => {
-                    if (enemy.IsImmobilized)
-                    {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () =>
-                        {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Idle1);
-                        });
-                    }
                 },
                 OnHit = (enemy, amount) => {
                     if (Utility.Flip()) {
@@ -1348,18 +1184,6 @@ namespace HD.Asteria
                         enemy.TargetEnemy = target;
                         //enemy.Velocity = Vector2.Zero;
                     }
-
-                    if (enemy.IsImmobilized)
-                    {
-                        enemy.Speed = 0;
-                        //enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () =>
-                        {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            //enemy.SetAnimation(Animation.Move);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -1438,18 +1262,6 @@ namespace HD.Asteria
                                 enemy.SetAnimation(Animation.Idle1);
                             }
                         }
-                    }
-
-                    if (enemy.IsImmobilized)
-                    {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () =>
-                        {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Idle1);
-                        });
                     }
                 },
                 OnDie = (enemy) => {
@@ -1691,16 +1503,6 @@ namespace HD.Asteria
                         enemy.SetAnimation(Animation.Attack2);
                         enemy.Speed = 25;
                     }
-
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Attack2);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -1774,16 +1576,6 @@ namespace HD.Asteria
                         enemy.SetRandomAngle();
 
                     enemy.Speed = 60 + (enemy.AnimationAge / 100 % 9);
-
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Move);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -1930,18 +1722,6 @@ namespace HD.Asteria
 
                     if (enemy.Target == null)
                         enemy.Bag.TrooperShotFirst = true;
-
-                    if (enemy.IsImmobilized)
-                    {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () =>
-                        {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Move);
-                        });
-                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -2010,16 +1790,6 @@ namespace HD.Asteria
 
                     if (enemy.IsBlocked)
                         enemy.SetRandomAngle();
-                    
-                    if (enemy.IsImmobilized) {
-                        enemy.Speed = 0;
-                        enemy.SetAnimation(Animation.None);
-                        enemy.Delay(10000, () => {
-                            enemy.IsImmobilized = false;
-                            enemy.Speed = enemy.Type.Speed;
-                            enemy.SetAnimation(Animation.Move);
-                        });
-                    }
                 },
                 OnDie = (enemy) => {
                     enemy.Map.AddEntity(new ParticleEmitter() { Position = enemy.Position + Utility.RandomVector() * 200, Type = ParticleEffect.SmallExplosion });
@@ -2249,7 +2019,7 @@ namespace HD.Asteria
                     enemy.Drop(ItemId.Ectoplasm, 15);
 
                     //Reward Chest
-                    var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercubeOfHolding), enemy.Position);
+                    var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercube), enemy.Position);
                     chest.AddItem(new Item() { TypeId = ItemId.SteelSuperconductor, Amount = 1 });
                     chest.AddItem(new Item() { TypeId = ItemId.LightOrb, Amount = 5 });
                     chest.AddItem(new Item() { TypeId = ItemId.Steel, Amount = 10 });
@@ -2380,7 +2150,7 @@ namespace HD.Asteria
                         bossDoor.IsSolid = false;
 
                     if (LootLocation != null) {
-                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercubeOfHolding), LootLocation.Position);
+                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercube), LootLocation.Position);
                         chest.AddItem(new Item() { TypeId = ItemId.Gold, Amount = 10 });
                         chest.AddItem(new Item() { TypeId = ItemId.LightOrb, Amount = 10 });
                         chest.AddItem(new Item() { TypeId = ItemId.Emerald, Amount = 7 });
@@ -2487,7 +2257,7 @@ namespace HD.Asteria
                     var LootLocation = enemy.Map.FindPlaceables("SlimeChest").FirstOrDefault();
 
                     if (LootLocation != null) {
-                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercubeOfHolding), LootLocation.Position);
+                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercube), LootLocation.Position);
                         chest.AddItem(new Item() { TypeId = ItemId.Silver, Amount = 10 });
                         chest.AddItem(new Item() { TypeId = ItemId.LightOrb, Amount = 15 });
                         chest.AddItem(new Item() { TypeId = ItemId.Emerald, Amount = 9 });
@@ -2500,7 +2270,7 @@ namespace HD.Asteria
                     LootLocation = enemy.Map.FindPlaceables("WaterBossLoot").FirstOrDefault();
 
                     if (LootLocation != null) {
-                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercubeOfHolding), LootLocation.Position);
+                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercube), LootLocation.Position);
                         chest.AddItem(new Item() { TypeId = ItemId.Darksteel, Amount = 10 });
                         chest.AddItem(new Item() { TypeId = ItemId.LightOrb, Amount = 15 });
                         chest.AddItem(new Item() { TypeId = ItemId.Sapphire, Amount = 9 });
@@ -2578,7 +2348,7 @@ namespace HD.Asteria
                     var LootLocation = enemy.Map.FindPlaceables("skyLoot").FirstOrDefault();
 
                     if (LootLocation != null) {
-                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercubeOfHolding), LootLocation.Position);
+                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercube), LootLocation.Position);
                         chest.AddItem(new Item() { TypeId = ItemId.SilverSuperconductor, Amount = 1 });
                         chest.AddItem(new Item() { TypeId = ItemId.LightOrb, Amount = 5 });
                         chest.AddItem(new Item() { TypeId = ItemId.Silver, Amount = 5 });
@@ -2589,7 +2359,8 @@ namespace HD.Asteria
 
             EnemyBase.AddItem(new EnemyType {
                 Id = 103,
-                Name = "Dungeon 6 Boss",
+                Name = "Dragon",
+                Description = "Boss for the Vesuvius Dungeon",
                 SpriteWidth = 320,
                 SpriteHeight = 320,
                 MaxHealth = 900,
@@ -2598,9 +2369,8 @@ namespace HD.Asteria
                 IsBoss = true,
                 IsFlying = true,
                 IsFlyingHeightFixed = false,
-                PenetrateWalls = false,
+                PenetrateWalls = false, // since this is set the health of this enemy will never clear
                 Speed = 300,
-                DeathAnimationLengthInSeconds = 10,
                 CanMoveWhileDead = true,
                 IsImmuneToKnockback = true,
                 CanSeeThruWalls = true,
@@ -2608,26 +2378,16 @@ namespace HD.Asteria
                     enemy.SetAnimation(Animation.Hovering);
                 },
                 OnLongThink = (enemy) => {
-                    if (enemy.IsDead) {
-                        if (enemy.TargetPlaceable != null)
-                            enemy.SetAngleToTargetPlaceable();
-                        return;
-                    }
-
-                    if (enemy.Target == null || enemy.Target.IsDead) {
-                        var spawn = enemy.Map.FindPlaceables("Spawn").FirstOrDefault();
-                        if (spawn != null) {
-                            enemy.TargetPlaceable = spawn;
-                        }
-                    }
-
                     switch (enemy.Animation) {
                         case Animation.Hovering:
                             enemy.Speed = 300;
-                            if (Utility.Roll8()) { // clear target placeable occasionally
+
+                            // clear target placeable occasionally
+                            if (Utility.Roll8()) {
                                 enemy.TargetPlaceable = null;
                             }
 
+                            // go towards one of the pathing points of interest
                             if (enemy.TargetPlaceable == null) {
                                 var targets = enemy.Map.FindPlaceables("Pathing").ToArray();
                                 if (targets.Length > 0)
@@ -2636,14 +2396,14 @@ namespace HD.Asteria
                                 enemy.SetAngleToTargetPlaceable();
                             }
 
-                            enemy.Velocity = Vector2.Zero;
-
                             if (enemy.Target != null) {
                                 if (enemy.CooldownCheck(500)) {
+                                    // A large fireball that trails fire and does 25% damage.
                                     enemy.ShootAtTarget(ProjectileId.Fireball, Utility.RandomAngle(15));
                                 }
 
                                 if (Utility.Roll4()) {
+                                    // this is the gun that penetrates walls
                                     enemy.ShootAtTarget(ProjectileId.LongRangeBlaster);
                                 }
 
@@ -2654,6 +2414,7 @@ namespace HD.Asteria
                             }
                             break;
                         case Animation.Attack1:
+                            // charge attack that will break thru walls
                             if (enemy.IsTargetCloserThan(150))
                                 enemy.SetAnimation(Animation.Idle1);
 
@@ -2663,16 +2424,15 @@ namespace HD.Asteria
                                 enemy.Map.RenderBrush(enemy.FacePosition + new Vector2(0, -160), Brush.Size10, Material.Air, 7);
                                 enemy.Map.RenderBrush(enemy.FacePosition + new Vector2(0, 160), Brush.Size10, Material.Air, 7);
                                 enemy.Map.RenderBrush(enemy.FacePosition + new Vector2(0, 0), Brush.Size10, Material.Air, 7);
-                                enemy.Damage((int)Math.Pow(2, enemy.Tier) + enemy.AnimationAge);
                                 enemy.SetAnimation(Animation.Idle1);
                             }
+
                             if (enemy.IsOnGround || enemy.IsAgainstCeiling) {
                                 enemy.Map.RenderBrush(enemy.FacePosition + new Vector2(80, 0), Brush.Size10, Material.Air, 7);
                                 enemy.Map.RenderBrush(enemy.FacePosition + new Vector2(-80, 0), Brush.Size10, Material.Air, 7);
                                 enemy.Map.RenderBrush(enemy.FacePosition + new Vector2(-160, 0), Brush.Size10, Material.Air, 7);
                                 enemy.Map.RenderBrush(enemy.FacePosition + new Vector2(160, 0), Brush.Size10, Material.Air, 7);
                                 enemy.Map.RenderBrush(enemy.FacePosition + new Vector2(0, 0), Brush.Size10, Material.Air, 7);
-                                enemy.Damage((int)Math.Pow(2, enemy.Tier));
                                 enemy.SetAnimation(Animation.Idle1);
                             } else {
                                 if (enemy.AnimationAge < 1500) {
@@ -2694,9 +2454,9 @@ namespace HD.Asteria
                     }
                 },
                 OnDie = (enemy) => {
-                    var chestPoI = enemy.TargetPlaceable = enemy.Map.FindPlaceables("Death").FirstOrDefault();
-                    if (enemy.Map.FindPlaceables("Death").FirstOrDefault() != null) {
-                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercubeOfHolding), chestPoI.Position);
+                    var chestPoI = enemy.Map.FindPlaceables("Death").FirstOrDefault();
+                    if (chestPoI != null) {
+                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercube), chestPoI.Position);
                         chest.AddItem(new Item() { TypeId = ItemId.Uranium, Amount = 10 });
                         chest.AddItem(new Item() { TypeId = ItemId.LightOrb, Amount = 15 });
                         chest.AddItem(new Item() { TypeId = ItemId.Diamond, Amount = 9 });
@@ -2801,7 +2561,7 @@ namespace HD.Asteria
 
                     var LootPointOfIntrest = enemy.Map.FindPlaceables("harpyLoot").FirstOrDefault();
                     if (LootPointOfIntrest != null) {
-                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercubeOfHolding), LootPointOfIntrest.Position);
+                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercube), LootPointOfIntrest.Position);
 
                         chest.AddItem(new Item() { TypeId = ItemId.CopperOre, Amount = 15 });
                         chest.AddItem(new Item() { TypeId = ItemId.LightOrb, Amount = 10 });
@@ -2854,7 +2614,7 @@ namespace HD.Asteria
                     //Botanica Version Loot
                     var lootLocation = enemy.Map.FindPlaceables("BotanicaLoot2").FirstOrDefault();
                     if (lootLocation != null) {
-                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercubeOfHolding), lootLocation.Position);
+                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercube), lootLocation.Position);
 
                         chest.AddItem(new Item() { TypeId = ItemId.Topaz, Amount = 8 });
                         chest.AddItem(new Item() { TypeId = ItemId.GunnDiode, Amount = 5 });
@@ -2864,7 +2624,7 @@ namespace HD.Asteria
                     //Jungle Version of Loot
                     lootLocation = enemy.Map.FindPlaceables("JungleLoot1").FirstOrDefault();
                     if (lootLocation != null) {
-                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercubeOfHolding), lootLocation.Position);
+                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercube), lootLocation.Position);
 
                         chest.AddItem(new Item() { TypeId = ItemId.Emerald, Amount = 8 });
                         chest.AddItem(new Item() { TypeId = ItemId.GunnDiode, Amount = 5 });
@@ -3019,7 +2779,7 @@ namespace HD.Asteria
                     enemy.Drop(ItemId.Ectoplasm, Utility.Next(15));
 
                     //Botanica's loot
-                    var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercubeOfHolding), enemy.Position);
+                    var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercube), enemy.Position);
                     if (chest != null) {
                         chest.AddItem(new Item() { TypeId = ItemId.LightOrb, Amount = 5 });
                         chest.AddItem(new Item() { TypeId = ItemId.LesserEnergyCell, Amount = 5 });
@@ -3031,7 +2791,7 @@ namespace HD.Asteria
                     //Portal Loot
                     var chestLocation = enemy.Map.FindPlaceables("PortalLoot").FirstOrDefault();
                     if (chestLocation != null) {
-                        chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercubeOfHolding), chestLocation.Position);
+                        chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercube), chestLocation.Position);
                     }
                     if (chest != null) {
                         chest.AddItem(new Item() { TypeId = ItemId.LightOrb, Amount = 5 });
@@ -3127,7 +2887,7 @@ namespace HD.Asteria
                     var LootLocation = enemy.Map.FindPlaceables("FireChest").FirstOrDefault();
 
                     if (LootLocation != null) {
-                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercubeOfHolding), LootLocation.Position);
+                        var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercube), LootLocation.Position);
                         chest.AddItem(new Item() { TypeId = ItemId.Gold, Amount = 10 });
                         chest.AddItem(new Item() { TypeId = ItemId.LightOrb, Amount = 15 });
                         chest.AddItem(new Item() { TypeId = ItemId.Emerald, Amount = 9 });
