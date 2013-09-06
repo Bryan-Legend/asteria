@@ -31,6 +31,12 @@ This is a tour of the source code release explaning the various parts and quickl
 
 I know I said "uh" way too much in that video. I've not done a lot of videos and I'll slow it down a bit next time.
 
+### World Generator Tour
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=mn_wW8uZ6eQ" target="_blank"><img src="http://img.youtube.com/vi/mn_wW8uZ6eQ/0.jpg" width="480" height="360" border="10" /></a>
+
+Here I give a quick introduction to the map generator code that you can use as a base to build your own procedurally generated worlds with.
+
 ## Support
 
 Use our development forum for any questions or problems that come up: http://forum.playasteria.com/category/development
