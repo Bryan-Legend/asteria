@@ -27,4 +27,6 @@ Someday when we switch to MonoGame you'll be able to use any Visual Studio versi
 
 I know I said "uh" way too much in the video. I've not done a lot of videos and I'll slow it down a bit next time.
 
+## Support
 
+Use our development forum for any questions or problems that come up: http://forum.playasteria.com/category/development
