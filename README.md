@@ -19,13 +19,17 @@ Someday when we switch to MonoGame you'll be able to use any Visual Studio versi
 
 ### Enemy Creation Tutorial
 
+In this 10 minute video I show you how create a proximity mine enemy type. It shows the basics of the EnemyType class and how to do things like play an animation, delay an action using the enemy scheduler and create an explosion in the map terrain engine. It also explains how to setup your plugin project.
+
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=CwBFFtkam44" target="_blank"><img src="http://img.youtube.com/vi/CwBFFtkam44/0.jpg" width="480" height="360" border="10" /></a>
 
 ### Source Code Tour Video
 
+This is a tour of the source code release explaning the various parts and quickly shows how they work.
+
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=jGR0EVYc_Bo" target="_blank"><img src="http://img.youtube.com/vi/jGR0EVYc_Bo/0.jpg" width="480" height="360" border="10" /></a>
 
-I know I said "uh" way too much in the video. I've not done a lot of videos and I'll slow it down a bit next time.
+I know I said "uh" way too much in that video. I've not done a lot of videos and I'll slow it down a bit next time.
 
 ## Support
 
