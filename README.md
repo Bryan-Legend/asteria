@@ -23,7 +23,7 @@ This 10 minute video shows you how create a proximity mine enemy type. It shows 
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=CwBFFtkam44" target="_blank"><img src="http://img.youtube.com/vi/CwBFFtkam44/0.jpg" width="480" height="360" border="10" /></a>
 
-### Source Code Tour Video
+### Source Code Tour
 
 This is a tour of the source code release explaning the various parts and quickly shows how they work.
 
