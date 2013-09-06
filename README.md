@@ -30,3 +30,5 @@ I know I said "uh" way too much in the video. I've not done a lot of videos and 
 ## Support
 
 Use our development forum for any questions or problems that come up: http://forum.playasteria.com/category/development
+
+If you create a mod please announce it on or mod forum: http://forum.playasteria.com/category/mods
