@@ -5,7 +5,11 @@ Official Shared Source from the Asteria Game - http://playasteria.com
 
 This is the source for the core of the game. It builds into a .net assembly dll thst is loaded at runtime by the game engine.
 
-Feel free to use any of this code as a base for your own Asteria plugins.
+The language is C#, which is the same language the game is built in so it's very tightly integrated. It's not so much a scripting language like JS but actually loading code directly into the core of the game. There's no scripting plugin barrier, everything is exposed directly to you. And strong typing and intellisense will make your life a lot easier.
+
+I am using a very loose hacky Javascript style of coding though. It looks a lot like JSON with all the Object Initalizers and has pretty heavy use of lambda expressions (Anonymous Methods in .Net lingo). Check it out: https://github.com/Lone-Coder/asteria/blob/master/HD.Asteria/Items.cs
+
+Feel free to use any of this code in your own Asteria mods.
 
 ### Building
 
