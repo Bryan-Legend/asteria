@@ -60,7 +60,6 @@ namespace HD
                 }
 
                 if (tier < 6 && tier >= 4) {
-                    IssueAndEquip(player, ItemBase.Get(ItemId.EnergyBooster3), 4);
                     IssueAndEquip(player, ItemBase.Get(ItemId.EnergyShield1), 5);
                     //IssueAndEquip(player, ItemBase.Get(ItemId.EnergyRegenerator1), 6);
                 }

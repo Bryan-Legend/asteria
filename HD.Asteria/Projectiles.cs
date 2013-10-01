@@ -24,6 +24,7 @@ namespace HD.Asteria
                 InitialParticleBurst = 10,
                 UseTierParticleColor = true,
                 UseTierTextures = true,
+                ParticleStream = true,
                 FireSound = Sound.BlasterFire,
                 HitSound = Sound.BlasterHit,
                 Knockback = 1000,
@@ -35,7 +36,7 @@ namespace HD.Asteria
             blasterCharged.BaseDamage = 20;
             blasterCharged.Speed = 1000;
             blasterCharged.Knockback = 10;
-            blasterCharged.UseTierTextures = false; // remove when port gets all the textures for these.
+            blasterCharged.UseTierTextures = true;
             blasterCharged.FireSound = Sound.BlasterChargedFire;
             ProjectileBase.AddType(blasterCharged);
 
@@ -73,7 +74,6 @@ namespace HD.Asteria
                 HitSound = Sound.ElectricityHit,
             });
 
-
             ProjectileBase.AddType(new ProjectileType() {
                 Id = ProjectileId.Disruptor,
                 BaseDamage = 6,
@@ -81,20 +81,20 @@ namespace HD.Asteria
                 Speed = 750,
                 InitialParticleBurst = 5,
                 UseTierTextures = true,
-                ParticleColor = Color.Orange,
+                UseTierParticleColor = true,
                 FireSound = Sound.DisruptorFire,
                 HitSound = Sound.DisruptorHit,
             });
 
             ProjectileBase.AddType(new ProjectileType() {
                 Id = ProjectileId.LaserRifle,
-                BaseDamage = 22,
+                BaseDamage = 13,
                 MaxAge = 1000,
                 Speed = 1000,
                 //CoolDown = 500,
                 InitialParticleBurst = 15,
                 UseTierTextures = true,
-                ParticleColor = Color.OrangeRed,
+                UseTierParticleColor = true,
                 FireSound = Sound.LaserRifleFire,
                 HitSound = Sound.LaserRifleHit,
             });
@@ -134,24 +134,24 @@ namespace HD.Asteria
             acidSpit.HitSound = Sound.AcidSplat;
             ProjectileBase.AddType(acidSpit);
 
-            var explosiveAcidSpit = ProjectileBase.Get(ProjectileId.HomingMissile).Clone();
-            explosiveAcidSpit.Id = ProjectileId.ExplosiveAcidSpit;
-            explosiveAcidSpit.Name = "Explosive AcidSpit";
-            explosiveAcidSpit.Penetrate = true;
-            explosiveAcidSpit.IsHoming = false;
-            explosiveAcidSpit.UseTierTextures = false;
-            explosiveAcidSpit.MaxAge = 6000;
-            explosiveAcidSpit.Speed = 250;
-            explosiveAcidSpit.ParticleColor = Color.FromNonPremultiplied(194, 245, 65, 200);
-            explosiveAcidSpit.FireSound = Sound.FireBreath;
-            explosiveAcidSpit.HitSound = Sound.AcidSplat;
-            explosiveAcidSpit.OnProjectileHitTerrain = (projectile, material) => {
-                    projectile.Map.RenderBrush(projectile.Position, Brush.Size4, Material.Acid, 0);
-                };
-            explosiveAcidSpit.OnProjectileHit = (projectile, target, amount) => {
-                projectile.Map.RenderBrush(projectile.Position, Brush.Size4, Material.Acid, 0);
-            };
-            ProjectileBase.AddType(explosiveAcidSpit);
+            //var explosiveAcidSpit = ProjectileBase.Get(ProjectileId.HomingMissile).Clone();
+            //explosiveAcidSpit.Id = ProjectileId.ExplosiveAcidSpit;
+            //explosiveAcidSpit.Name = "Explosive AcidSpit";
+            //explosiveAcidSpit.Penetrate = true;
+            //explosiveAcidSpit.IsHoming = false;
+            //explosiveAcidSpit.UseTierTextures = false;
+            //explosiveAcidSpit.MaxAge = 6000;
+            //explosiveAcidSpit.Speed = 400;
+            //explosiveAcidSpit.ParticleColor = Color.FromNonPremultiplied(194, 245, 65, 200);
+            //explosiveAcidSpit.FireSound = Sound.FireBreath;
+            //explosiveAcidSpit.HitSound = Sound.AcidSplat;
+            //explosiveAcidSpit.OnProjectileHitTerrain = (projectile, material) => {
+            //        projectile.Map.RenderBrush(projectile.Position, Brush.Size4, Material.Acid, 0);
+            //    };
+            //explosiveAcidSpit.OnProjectileHit = (projectile, target, amount) => {
+            //    projectile.Map.RenderBrush(projectile.Position, Brush.Size4, Material.Acid, 0);
+            //};
+            //ProjectileBase.AddType(explosiveAcidSpit);
 
             ProjectileBase.AddType(new ProjectileType() {
                 Id = ProjectileId.FlameThrower,
@@ -214,8 +214,6 @@ namespace HD.Asteria
                 DigStrength = 7,
                 HasGravity = true,
                 FireSound = Sound.FireBreath,
-                OnProjectileMove = (projectile, material) => {
-                },
                 OnProjectileHitTerrain = (projectile, material) => {
                     projectile.Map.RenderBrush(projectile.Position, Brush.Size4, Material.Fire, 0);
                 },
@@ -230,9 +228,8 @@ namespace HD.Asteria
                 MaxAge = 2000,
                 Speed = 750,
                 InitialParticleBurst = 15,
-                ParticleColor = Color.Green,
+                ParticleColor = Color.FromNonPremultiplied(114, 118, 20, 255),
                 FireSound = Sound.Spike,
-
             });
 
             var project = ProjectileBase.Get(ProjectileId.Spike).Clone();
@@ -267,15 +264,15 @@ namespace HD.Asteria
 
             ProjectileBase.AddType(new ProjectileType() {
                 Id = ProjectileId.DiggingAndDamaging,
-                BaseDamage = 4.5,
+                BaseDamage = 10,
                 DigBrush = Brush.Size7,
-                DigStrength = 8,
+                DigStrength = 7,
                 ParticleColor = Color.FromNonPremultiplied(248, 113, 241, 100),
                 MaxAge = 3000,
                 Speed = 500,
                 FireSound = Sound.SpaceShipBlaster,
                 OnProjectileHitTerrain = (projectile, material) => {
-                    projectile.Map.RenderBrush(projectile.Position, Brush.Size7, Material.Fire, 1);
+                    projectile.Map.RenderBrush(projectile.Position, Brush.Size8, Material.Fire, 1);
                 },
             });
 

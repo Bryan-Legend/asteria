@@ -30,6 +30,7 @@ namespace HD
             result.AppendLine();
             result.AppendLine("Music: " + map.Music);
             result.AppendLine();
+            result.AppendLine("Extra Lives: " + map.ExtraLives);
             result.AppendLine("Tier: " + map.Tier);
             result.AppendLine("Gravity: " + map.Gravity);
             result.AppendLine("Auto Spawn: " + map.IsAutospawn);
@@ -37,6 +38,7 @@ namespace HD
             result.AppendLine("Reset On Leave: " + map.IsResetOnLeave);
             result.AppendLine("Terrain Locked: " + map.IsTerrainLocked);
             result.AppendLine("Terrain Lock Tier (Includes Enemy and Placeables): " + (map.LockTier == 0 ? "Disabled" : map.LockTier.ToString()));
+            result.AppendLine("Despawn Out Of Range Enemies: " + map.DespawnOutOfRangeEnemies);
             result.AppendLine();
             result.AppendLine("Player Count: " + map.Players.Count);
             result.AppendLine("Entity Count: " + map.Entities.Count);

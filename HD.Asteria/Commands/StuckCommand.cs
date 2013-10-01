@@ -18,11 +18,7 @@ namespace HD
             if (player == null)
                 return "No character";
 
-            player.StartPosition = Vector2.Zero;
-            player.SendTo(World.Overworld);
-
-            if (player.GetMiningTier() == 0)
-                player.GiveItem(ItemId.MiningTool1);
+            player.ReturnToOverworld();
 
             return "Stay Calm and Respawn!";
         }

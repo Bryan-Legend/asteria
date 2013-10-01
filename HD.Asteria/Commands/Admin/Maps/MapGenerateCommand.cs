@@ -184,11 +184,11 @@ namespace HD
 
             portal = AddPortal(new Vector2(Utility.Next(1000, map.PixelWidth - 1000), map.GetTierAltitude(6) - Utility.Next(300, sectionHeight * Map.BlockHeight - 300)), Material.Bone);
             portal.Name = "Dungeon Tier 6";
-            portal.Value = "Water";
+            portal.Value = "CaveDive";
 
             portal = AddPortal(new Vector2(Utility.Next(1000, map.PixelWidth - 1000), map.GetTierAltitude(7) - Utility.Next(300, sectionHeight * Map.BlockHeight - 300)), Material.Bone);
             portal.Name = "Dungeon Tier 7";
-            portal.Value = "Portal";
+            portal.Value = "Water";
 
             portal = AddPortal(new Vector2(Utility.Next(1000, map.PixelWidth - 1000), map.GetTierAltitude(8) - Utility.Next(300, sectionHeight * Map.BlockHeight - 300)), Material.Bone);
             portal.Name = "Dungeon Tier 8";
@@ -403,7 +403,7 @@ namespace HD
                                  new Item() { TypeId = ItemId.BlueLightOrb, Amount = 10 },
                                  
                                  new Item() { TypeId = ItemId.Energy, Amount = 5 },
-                                 new Item() { TypeId = ItemId.Entropy, Amount = 5 },
+                                 new Item() { TypeId = ItemId.Entropy, Amount = 1 },
 
                                  new Item() { TypeId = ItemId.EnergyCell, Amount = 10 },
                                  new Item() { TypeId = ItemId.MinorEnergyCell, Amount = 10 },
@@ -443,7 +443,6 @@ namespace HD
                                 new Item() { TypeId = ItemId.EnergyShield3, Amount = 1 },
                                 new Item() { TypeId = ItemId.EnergyShield5, Amount = 1 },
                                 new Item() { TypeId = ItemId.EnergyBooster1, Amount = 1 },
-                                new Item() { TypeId = ItemId.EnergyBooster3, Amount = 1 },
                                 new Item() { TypeId = ItemId.EnergyBooster5, Amount = 1 },
                                 new Item() { TypeId = ItemId.EnergyBooster7, Amount = 1 },
 

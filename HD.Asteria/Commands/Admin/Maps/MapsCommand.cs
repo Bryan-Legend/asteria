@@ -18,7 +18,7 @@ namespace HD
             var result = new StringBuilder();
             result.AppendLine("World Maps");
 
-            foreach (var map in World.Maps) {
+            foreach (var map in from m in World.Maps orderby m.Tier select m) {
                 result.Append(map.ToString());
             }
 

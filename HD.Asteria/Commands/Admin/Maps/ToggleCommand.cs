@@ -9,7 +9,7 @@ namespace HD
     {
         public override string Description
         {
-            get { return "/Toggle AutoSpawn|Lock|ResetOnDie|ResetOnLeave: Toggles flags on the current map."; }
+            get { return "/Toggle AutoSpawn|Lock|ResetOnDie|ResetOnLeave|DespawnOutOfRangeEnemies: Toggles flags on the current map."; }
         }
 
         public override string Execute(Player player, string args)
@@ -27,6 +27,9 @@ namespace HD
                 case "RESETONDIE":
                     player.Map.IsResetOnDie = !player.Map.IsResetOnDie;
                     return "Map ResetOnDie set to " + player.Map.IsResetOnDie;
+                case "DESPAWNOUTOFRANGEENEMIES":
+                    player.Map.DespawnOutOfRangeEnemies = !player.Map.DespawnOutOfRangeEnemies;
+                    return "Map DespawnOutOfRangeEnemies set to " + player.Map.DespawnOutOfRangeEnemies;
                 default:
                     return "Unknown flag " + args;
             }
