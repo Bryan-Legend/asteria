@@ -218,7 +218,7 @@ namespace HD.Asteria
                 IsConsumed = true,
                 Tier = 8,
                 ListPriority = 5,
-                Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EctoplasmCore, 6), new Component(ItemId.Uranium, 3), new Component(ItemId.Aluminum, 10), } },
+                Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EctoplasmCore, 6), new Component(ItemId.Einsteinium, 3), new Component(ItemId.Aluminum, 10), } },
                 OnUse = (item) => { item.Player.Heal(item.Player.MaxHealth); },
                 CanUse = (player, alreadyUsing) => {
                     if (player.Health != player.MaxHealth)
@@ -351,13 +351,13 @@ namespace HD.Asteria
             seeker = ItemBase.Get(ItemId.PortalSeeker2).Clone();
             seeker.Id = ItemId.PortalSeeker8;
             seeker.Tier = 8;
-            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Adamantium, 5), new Component(ItemId.Obsidian, 150), new Component(ItemId.Detector, 1), } };
+            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Adamantium, 5), new Component(ItemId.Obsidian, 150), new Component(ItemId.Diamond, 5), new Component(ItemId.Detector, 1), } };
             ItemBase.AddItem(seeker);
 
             seeker = ItemBase.Get(ItemId.PortalSeeker2).Clone();
             seeker.Id = ItemId.PortalSeeker9;
             seeker.Tier = 9;
-            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Adamantium, 15), new Component(ItemId.Obsidian, 300), new Component(ItemId.Detector, 1), } };
+            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Adamantium, 15), new Component(ItemId.Obsidian, 300), new Component(ItemId.Diamond, 15), new Component(ItemId.Detector, 1), } };
             ItemBase.AddItem(seeker);
         }
 
@@ -409,21 +409,16 @@ namespace HD.Asteria
 
             ItemBase.TypesById[ItemId.GunnDiode].Tier = 1;
             ItemBase.TypesById[ItemId.GunnDiode].ListPriority = 61;
-            ItemBase.TypesById[ItemId.GunnDiode].Description = "Small aliens are known to be made out of these.";
             ItemBase.TypesById[ItemId.FieldEffectTransistor].Tier = 1;
             ItemBase.TypesById[ItemId.FieldEffectTransistor].ListPriority = 61;
-            ItemBase.TypesById[ItemId.FieldEffectTransistor].Description = "Flying aliens are known to be made out of these.";
             ItemBase.TypesById[ItemId.Thyratron].Tier = 1;
             ItemBase.TypesById[ItemId.Thyratron].ListPriority = 61;
-            ItemBase.TypesById[ItemId.Thyratron].Description = "Small aliens are known to be made of these.";
             ItemBase.TypesById[ItemId.MercuryCell].Tier = 1;
             ItemBase.TypesById[ItemId.MercuryCell].ListPriority = 61;
-            ItemBase.TypesById[ItemId.MercuryCell].Description = "Used to power mechanical tools and alien machines.";
 
 
             ItemBase.TypesById[ItemId.PhotovoltaicCell].Tier = 1;
             ItemBase.TypesById[ItemId.PhotovoltaicCell].ListPriority = 61;
-            ItemBase.TypesById[ItemId.PhotovoltaicCell].Description = "A rare component found sometimes on alien machines and monsters.";
             ItemBase.TypesById[ItemId.Thermistor].Tier = 1;
             ItemBase.TypesById[ItemId.Thermistor].ListPriority = 61;
 
@@ -532,7 +527,7 @@ namespace HD.Asteria
 
             RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.LaserGlass }, Location = ItemId.NuclearReactor, Components = new Component[] { new Component(ItemId.Dilithium, 1), new Component(ItemId.Glass, 5), new Component(ItemId.Sodium, 15), } });
             RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Uranium }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.UraniumOre, 5), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Plutonium }, Location = ItemId.NuclearReactor, Components = new Component[] { new Component(ItemId.Uranium, 1), new Component(ItemId.Sodium, 25), } });
+            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Plutonium }, Location = ItemId.NuclearReactor, Components = new Component[] { new Component(ItemId.Uranium, 1), new Component(ItemId.Sodium, 10), } });
             RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Adamantium }, Location = ItemId.NuclearReactor, Components = new Component[] { new Component(ItemId.Darksteel, 1), new Component(ItemId.Radium, 3), } });
             RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Einsteinium }, Location = ItemId.NuclearReactor, Components = new Component[] { new Component(ItemId.Adamantium, 1), new Component(ItemId.Plutonium, 2), } });
 
@@ -549,7 +544,7 @@ namespace HD.Asteria
             RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.RubyScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Adamantium, 2), new Component(ItemId.OcularLens, 1), } });
             ItemBase.TypesById[ItemId.RubyScope].ListPriority = 61;
             ItemBase.TypesById[ItemId.DiamondScope].Tier = 8;
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.DiamondScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Obsidian, 20), new Component(ItemId.OcularLens, 1), } });
+            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.DiamondScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Diamond, 30), new Component(ItemId.OcularLens, 1), } });
             ItemBase.TypesById[ItemId.DiamondScope].ListPriority = 61;
             ItemBase.TypesById[ItemId.DiamondTacticalScope].Tier = 9;
             RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.DiamondTacticalScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Einsteinium, 5), new Component(ItemId.OcularLens, 1), } });
@@ -585,7 +580,7 @@ namespace HD.Asteria
             RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.RedMetal }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 1), new Component(ItemId.Steel, 1), } });
             RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.WhiteMetal }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 1), new Component(ItemId.Steel, 1), } });
 
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Platform, Amount = 5 }, CreateAmount = 5, Components = new Component[] { new Component(ItemId.Iron, 1) }, });
+            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Platform, Amount = 25 }, CreateAmount = 25, Components = new Component[] { new Component(ItemId.Iron, 25) }, });
         }
 
         static void AddPlaceables()
@@ -966,6 +961,9 @@ namespace HD.Asteria
                 Category = ItemCategory.Placable,
                 Tier = 5,
                 ListPriority = -1,
+                Light = Color.FromNonPremultiplied(255, 214, 14, 255),
+                SpriteAnimation = SpriteAnimation.Oscillate9,
+                SpriteAnimationDelay = 150,
                 Description = "Used for making Chemical-Based components.",
                 OnActivate = (player, placeable) => {
                     player.ActivePlaceable = placeable;
@@ -989,6 +987,9 @@ namespace HD.Asteria
                 Category = ItemCategory.Placable,
                 Tier = 8,
                 ListPriority = -1,
+                Light = Color.FromNonPremultiplied(255, 214, 14, 255),
+                SpriteAnimation = SpriteAnimation.Oscillate9,
+                SpriteAnimationDelay = 150,
                 OnActivate = (player, placeable) => {
                     player.ActivePlaceable = placeable;
                     player.PlaySound(Sound.ChemicalReactor);
@@ -1020,7 +1021,7 @@ namespace HD.Asteria
                     player.ActivePlaceable = placeable;
                     player.PlaySound(Sound.WorkBench);
                 },
-                Recipe = new Recipe() { Components = new Component[] { new Component(ItemId.Iron, 10), } },
+                Recipe = new Recipe() { Components = new Component[] { new Component(ItemId.Iron, 25), } },
                 CanUse = (player, alreadyUsing) => {
                     if (!player.Map.IsTerrainLocked)
                         return true;
@@ -1428,7 +1429,7 @@ namespace HD.Asteria
             suit.Tier = 4;
             suit.Description = "+300 Energy";
             suit.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Silver, 30), new Component(ItemId.Amethyst, 10), } };
-            suit.OnEquip = (p, i) => { p.MaxHealth += 200; };
+            suit.OnEquip = (p, i) => { p.MaxHealth += 300; };
             ItemBase.AddItem(suit);
 
             suit = ItemBase.Get(ItemId.Suit2).Clone();
@@ -1622,7 +1623,7 @@ namespace HD.Asteria
             energyShield.Tier = 8;
             energyShield.Description = "+16 Defense";
             energyShield.OnEquip = (p, i) => { p.Defense += 16; };
-            energyShield.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EchoCrystal, 5), new Component(ItemId.Obsidian, 150), } };
+            energyShield.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EchoCrystal, 5), new Component(ItemId.Obsidian, 300), new Component(ItemId.Diamond, 5), } };
             ItemBase.AddItem(energyShield);
 
             energyShield = ItemBase.Get(ItemId.EnergyShield1).Clone();
@@ -1631,7 +1632,7 @@ namespace HD.Asteria
             energyShield.Tier = 8;
             energyShield.Description = " +32 Armor\n  -320 Energy\n -16 Regeneration";
             energyShield.OnEquip = (p, i) => { p.Defense += 32; p.MaxHealth -= 320; p.Regeneration -= 16; };
-            energyShield.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EchoCrystal, 3), new Component(ItemId.MercuryCell, 2), new Component(ItemId.Obsidian, 150), } };
+            energyShield.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EchoCrystal, 3), new Component(ItemId.MercuryCell, 2), new Component(ItemId.Obsidian, 300), new Component(ItemId.Diamond, 5), } };
             ItemBase.AddItem(energyShield);
 
             energyShield = ItemBase.Get(ItemId.EnergyShield1).Clone();
@@ -1640,7 +1641,7 @@ namespace HD.Asteria
             energyShield.Tier = 8;
             energyShield.Description = " +32 Armor\n-8 Regeneration\n -640 Energy";
             energyShield.OnEquip = (p, i) => { p.Defense += 32; p.MaxHealth -= 630; p.Regeneration -= 8; };
-            energyShield.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EchoCrystal, 2), new Component(ItemId.MercuryCell, 3), new Component(ItemId.Obsidian, 150), } };
+            energyShield.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EchoCrystal, 2), new Component(ItemId.MercuryCell, 3), new Component(ItemId.Obsidian, 300), new Component(ItemId.Diamond, 5), } };
             ItemBase.AddItem(energyShield);
 
             ItemBase.AddItem(new ItemType() {
@@ -1667,7 +1668,7 @@ namespace HD.Asteria
             energyBooster.Tier = 8;
             energyBooster.Description = "+640 Energy";
             energyBooster.OnEquip = (p, i) => { p.MaxHealth += 640; };
-            energyBooster.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EctoplasmCore, 2), new Component(ItemId.Obsidian, 150), } };
+            energyBooster.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EctoplasmCore, 2), new Component(ItemId.Obsidian, 300), new Component(ItemId.Diamond, 5), } };
             ItemBase.AddItem(energyBooster);
 
             energyBooster = ItemBase.Get(ItemId.EnergyBooster1).Clone();
@@ -1676,7 +1677,7 @@ namespace HD.Asteria
             energyBooster.Tier = 8;
             energyBooster.Description = "+1280 Energy\n-16 Regeneration\n-8 Defense";
             energyBooster.OnEquip = (p, i) => { p.MaxHealth += 1280; p.Regeneration -= 16; p.Defense -= 8; };
-            energyBooster.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EctoplasmCore, 4), new Component(ItemId.Obsidian, 100), } };
+            energyBooster.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EctoplasmCore, 4), new Component(ItemId.Obsidian, 200), new Component(ItemId.Diamond, 5), } };
             ItemBase.AddItem(energyBooster);
 
             energyBooster = ItemBase.Get(ItemId.EnergyBooster1).Clone();
@@ -1685,7 +1686,7 @@ namespace HD.Asteria
             energyBooster.Tier = 8;
             energyBooster.Description = "+1280 Energy\n-16 Defense\n-8 Regeneration";
             energyBooster.OnEquip = (p, i) => { p.MaxHealth += 1280; p.Defense -= 16; p.Regeneration -= 8; };
-            energyBooster.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EctoplasmCore, 4), new Component(ItemId.Obsidian, 70), } };
+            energyBooster.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EctoplasmCore, 4), new Component(ItemId.Obsidian, 150), new Component(ItemId.Diamond, 5), } };
             ItemBase.AddItem(energyBooster);
 
             ItemBase.AddItem(new ItemType() {
@@ -1712,7 +1713,7 @@ namespace HD.Asteria
             energyReg.Tier = 8;
             energyReg.Description = "+16 Regeneration";
             energyReg.OnEquip = (p, i) => { p.Regeneration += 16; };
-            energyReg.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.PhotovoltaicCell, 2), new Component(ItemId.Obsidian, 150), } };
+            energyReg.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.PhotovoltaicCell, 2), new Component(ItemId.Obsidian, 300), new Component(ItemId.Diamond, 5), } };
             ItemBase.AddItem(energyReg);
 
             energyReg = ItemBase.Get(ItemId.EnergyRegenerator1).Clone();
@@ -1721,7 +1722,7 @@ namespace HD.Asteria
             energyReg.Tier = 8;
             energyReg.Description = "+32 Regeneration\n-640 Energy\n-8 Defense";
             energyReg.OnEquip = (p, i) => { p.Regeneration += 32; p.MaxHealth += 640; p.Defense -= 8; };
-            energyReg.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.PhotovoltaicCell, 10), new Component(ItemId.Obsidian, 50), } };
+            energyReg.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.PhotovoltaicCell, 10), new Component(ItemId.Obsidian, 100), new Component(ItemId.Diamond, 5), } };
             ItemBase.AddItem(energyReg);
 
             energyReg = ItemBase.Get(ItemId.EnergyRegenerator1).Clone();
@@ -2295,6 +2296,7 @@ namespace HD.Asteria
                 CoolDown = 0,
                 Tier = 2,
                 ListPriority = 19,
+                PlaceAndActivateRange = 200,
                 Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Steel, 10), } },
                 OnStartUsing = (item) => {
                     if (item.Player.Map.IsTerrainLocked) {
@@ -2322,25 +2324,28 @@ namespace HD.Asteria
                     if (item.Player.Map.IsTerrainLocked)
                         return;
 
-                    if (item.Player.Keyboard.IsShift()) {
-                        var position = item.Player.GetToolTargetPosition(1);
-                        var x = (int)position.X / Map.BlockWidth;
-                        var y = (int)position.Y / Map.BlockWidth;
-                        var material = item.Player.Map.GetWallMaterial(x, y);
-                        var materialInfo = MaterialInfo.MaterialTypes[(int)material];
-                        if (MaterialInfo.IsLooseOrSolid(material) && materialInfo.Hardness <= item.Player.GetMiningTier()) {
-                            item.Player.Map.SetWallMaterial(x, y, Material.Air);
-                            item.Player.GiveItem(materialInfo.Item.TypeId);
-                            item.Player.PlaySound(Sound.Dematerialize);
-                        }
-                    } else {
-                        var position = item.Player.GetToolTargetPosition(1);
-                        var material = item.Player.Map.GetMaterialAtPixel(position);
-                        var materialInfo = MaterialInfo.MaterialTypes[(int)material];
-                        if (MaterialInfo.IsLooseOrSolid(material) && materialInfo.Hardness <= item.Player.GetMiningTier()) {
-                            item.Player.Map.SetMaterialAtPixel(position, Material.Air);
-                            item.Player.GiveItem(materialInfo.Item.TypeId);
-                            item.Player.PlaySound(Sound.Dematerialize);
+                    var position = item.Player.GetToolTargetPosition(1);
+                    if (item.Player.WithinRange(position, item.Type.PlaceAndActivateRange)) {
+                        if (item.Player.Keyboard.IsShift()) {
+                            var x = (int)position.X / Map.BlockWidth;
+                            var y = (int)position.Y / Map.BlockWidth;
+                            var material = item.Player.Map.GetWallMaterial(x, y);
+                            var materialInfo = MaterialInfo.MaterialTypes[(int)material];
+                            if (MaterialInfo.IsLooseOrSolid(material) && materialInfo.Hardness <= item.Player.GetMiningTier()) {
+                                item.Player.Map.SetWallMaterial(x, y, Material.Air);
+                                item.Player.GiveItem(materialInfo.Item.TypeId);
+                                item.Player.Map.AddEntity(new ParticleEmitter() { Position = position, Type = ParticleEffect.Dust });
+                                item.Player.PlaySound(Sound.Dematerialize);
+                            }
+                        } else {
+                            var material = item.Player.Map.GetMaterialAtPixel(position);
+                            var materialInfo = MaterialInfo.MaterialTypes[(int)material];
+                            if (MaterialInfo.IsLooseOrSolid(material) && materialInfo.Hardness <= item.Player.GetMiningTier()) {
+                                item.Player.Map.SetMaterialAtPixel(position, Material.Air);
+                                item.Player.GiveItem(materialInfo.Item.TypeId);
+                                item.Player.Map.AddEntity(new ParticleEmitter() { Position = position, Type = ParticleEffect.Dust });
+                                item.Player.PlaySound(Sound.Dematerialize);
+                            }
                         }
                     }
                 },

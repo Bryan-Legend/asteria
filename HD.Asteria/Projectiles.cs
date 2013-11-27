@@ -183,6 +183,8 @@ namespace HD.Asteria
                 DigStrength = 7,
                 FireSound = Sound.FireBreath,
                 ParticleColor = Color.FromNonPremultiplied(255, 113, 95, 200),
+                ParticleStream = true,
+                InitialParticleBurst = 20,
                 OnProjectileHitTerrain = (projectile, material) => {
                     projectile.Map.RenderBrush(projectile.Position, Brush.Size5, Material.Fire, 0);
                 },
@@ -199,6 +201,8 @@ namespace HD.Asteria
                 Penetrate = true,
                 FireSound = Sound.FireBreath,
                 ParticleColor = Color.FromNonPremultiplied(255, 113, 95, 200),
+                ParticleStream = true,
+                InitialParticleBurst = 20,
                 OnProjectileHit = (projectile, target, amount) => {
                     projectile.Map.RenderBrush(projectile.Position, Brush.Size10, Material.Fire, 0);
                 }
@@ -209,6 +213,8 @@ namespace HD.Asteria
                 BaseDamage = 10,
                 Speed = 500,
                 ParticleColor = Color.FromNonPremultiplied(255, 43, 61, 175),
+                ParticleStream = true,
+                InitialParticleBurst = 20,
                 MaxAge = 2000,
                 DigBrush = Brush.Size10,
                 DigStrength = 7,
@@ -229,6 +235,7 @@ namespace HD.Asteria
                 Speed = 750,
                 InitialParticleBurst = 15,
                 ParticleColor = Color.FromNonPremultiplied(114, 118, 20, 255),
+                ParticleStream = true,
                 FireSound = Sound.Spike,
             });
 
@@ -247,6 +254,7 @@ namespace HD.Asteria
                 FireSound = Sound.BoseEinsteinCondenserFire,
                 InitialParticleBurst = 5,
                 ParticleColor = Color.LightBlue,
+                ParticleStream = true,
                 OnProjectileMove = (projectile, material) => {
                     if (MaterialInfo.IsLiquid(material)) {
                         projectile.Map.RenderBrush(projectile.Position, Brush.Size9, Material.Ice, 0);
@@ -268,8 +276,9 @@ namespace HD.Asteria
                 DigBrush = Brush.Size7,
                 DigStrength = 7,
                 ParticleColor = Color.FromNonPremultiplied(248, 113, 241, 100),
+                ParticleStream = true,
                 MaxAge = 3000,
-                Speed = 500,
+                Speed = 600,
                 FireSound = Sound.SpaceShipBlaster,
                 OnProjectileHitTerrain = (projectile, material) => {
                     projectile.Map.RenderBrush(projectile.Position, Brush.Size8, Material.Fire, 1);
@@ -280,7 +289,8 @@ namespace HD.Asteria
             ProjectileBase.AddType(new ProjectileType() {
                 Id = ProjectileId.Grenade,
                 BaseDamage = 5,
-                ParticleColor = Color.White,
+                ParticleColor = Color.FromNonPremultiplied(109, 247, 27, 255),
+                ParticleStream = true,
                 Speed = 500,
                 MaxAge = 3000,
                 FireSound = Sound.HomingMissileFire,
@@ -300,7 +310,8 @@ namespace HD.Asteria
                 MaxAge = 6000,
                 HasGravity = true,
                 FireSound = Sound.GrenadeFire,
-                ParticleColor = Color.White,
+                ParticleColor = Color.FromNonPremultiplied(109, 247, 27, 255),
+                ParticleStream = true,
                 //OnProjectileMove = (projectile, material) =>
                 //{
                 //    if (projectile.Age > 2800)
@@ -314,12 +325,24 @@ namespace HD.Asteria
                 }
             });
 
-            ProjectileBase.AddType(new ProjectileType() { Id = ProjectileId.MiniFlame, BaseDamage = 5, DigBrush = Brush.Size7, DigStrength = 8, ParticleColor = Color.White, MaxAge = 5000, Speed = 300, Penetrate = true });
+            ProjectileBase.AddType(new ProjectileType() {
+                Id = ProjectileId.MiniFlame,
+                BaseDamage = 5,
+                DigBrush = Brush.Size7,
+                DigStrength = 8,
+                ParticleColor = Color.FromNonPremultiplied(255, 80, 98, 255),
+                ParticleStream = true,
+                InitialParticleBurst = 30,
+                MaxAge = 5000,
+                Speed = 300,
+                Penetrate = true
+            });
 
             ProjectileBase.AddType(new ProjectileType() {
                 Id = ProjectileId.MiniFlame_2,
                 BaseDamage = 5,
                 ParticleColor = Color.FromNonPremultiplied(255, 80, 98, 255),
+                ParticleStream = true,
                 MaxAge = 5000,
                 Speed = 650,
                 FireSound = Sound.MiniFlame,

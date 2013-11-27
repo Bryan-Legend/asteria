@@ -90,37 +90,33 @@ namespace HD.Asteria
                             return 0;
                     }
                 },
-                OnDie = (enemy) => {
-                    //if (Utility.Roll128())
-                    //    enemy.Drop(ItemId.Blaster9);
-                    //else if (Utility.Roll128())
-                    //    enemy.Drop(ItemId.Disruptor9);
-                    //else if (Utility.Roll128())
-                    //    enemy.Drop(ItemId.GrenadeLauncher9);
-                    //else if (Utility.Roll128())
-                    //    enemy.Drop(ItemId.LaserRifle9);
-                    //else if (Utility.Roll128())
-                    //    enemy.Drop(ItemId.Homing9);
-                },
             });
 
             EnemyBase.AddItem(new EnemyType {
                 Id = 2,
                 Name = "Drake",
                 Description = "Flies at players",
-                SpriteWidth = 32,
-                SpriteHeight = 32,
+                SpriteWidth = 78,
+                SpriteHeight = 127,
+                SpriteFramesPerRow = 4,
+                BoundingBox = new Rectangle(-39, 22, 78, 44),
                 MaxHealth = 10,
                 Speed = 200,
                 CollisionDamage = 6,
                 CollisionKnockback = 300,
                 IsFlying = true,
+                IsHoming = true,
                 IsAutoSpawn = true,
                 MinSpawnTier = 2,
                 OnSpawn = (enemy, tier) => {
                     enemy.SetRandomAngle();
+                    enemy.SetAnimation(Animation.Move);
+                    enemy.TurningRateInRadiansPerSecond = 1f;
                 },
                 OnLongThink = (enemy) => {
+                    if (enemy.Target != null)
+                        enemy.IsFacingLeft = enemy.Target.Position.X < enemy.Position.X;
+
                     if (enemy.Target != null && enemy.IsTargetCloserThan(800)) {
                         enemy.SetAngleToTarget();
                     } else {
@@ -131,7 +127,9 @@ namespace HD.Asteria
                 GetFrame = (animation, age) => {
                     switch (animation) {
                         case Animation.Move:
-                            return age / 100 % 9;
+                            return age / 100 % 14;
+                        case Animation.Attack1:
+                            return (age / 40 % 6) + 14;
                         default:
                             return 0;
                     }
@@ -152,41 +150,53 @@ namespace HD.Asteria
                 Name = "Flame Drake",
                 SoundName = "Drake",
                 Description = "Flies and shoots at players",
-                SpriteWidth = 32,
-                SpriteHeight = 32,
+                SpriteWidth = 78,
+                SpriteHeight = 127,
+                SpriteFramesPerRow = 4,
+                ShootingOrigin = new Vector2(25, 29),
                 MaxHealth = 10,
                 Speed = 200,
                 CollisionDamage = 4,
                 CollisionKnockback = 600,
                 IsFlying = true,
+                IsHoming = true,
                 MinSpawnTier = 3,
                 IsAutoSpawn = true,
                 SpawnRateLimitInSeconds = 180,
+                BoundingBox = new Rectangle(-39, 22, 78, 44),
                 OnSpawn = (enemy, tier) => {
                     enemy.SetRandomAngle();
                     enemy.IsImmuneToEnvironment = true;
+                    enemy.TurningRateInRadiansPerSecond = 1f;
                 },
                 OnLongThink = (enemy) => {
-                    ///Hover over player
-                    if (!enemy.IsTargetCloserThan(300))
-                        enemy.SetAngleToTarget();
+                    if (enemy.Target != null)
+                        enemy.IsFacingLeft = enemy.Target.Position.X < enemy.Position.X;
 
-                    if (enemy.IsTargetCloserThan(150))
-                        enemy.SetAngleAwayFromTarget();
+                    switch (enemy.Animation) {
+                        case Animation.None:
+                            enemy.SetAnimation(Animation.Move);
+                            break;
 
-                    if (enemy.Target != null && enemy.CooldownCheck(1250) && enemy.IsTargetCloserThan(600))
-                        enemy.ShootAtTarget(ProjectileId.MiniFlame_2);
+                        case Animation.Move:
+                            if ((enemy.Target == null && Utility.Roll16()) || enemy.IsBlocked)
+                                enemy.SetRandomAngle();
 
-                    if (Utility.Roll16() && enemy.Target == null)
-                        enemy.SetRandomAngle();
-
-                    if (enemy.IsBlocked)
-                        enemy.SetRandomAngle();
+                            if (enemy.Target != null && enemy.CooldownCheck(1250) && enemy.IsTargetCloserThan(600)) {
+                                enemy.SetAnimation(Animation.Attack1, false, 600);
+                                enemy.Delay(400, () => {
+                                    enemy.ShootAtTarget(ProjectileId.MiniFlame_2);
+                                });
+                            }
+                            break;
+                    }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
                         case Animation.Move:
-                            return age / 100 % 9;
+                            return age / 100 % 14;
+                        case Animation.Attack1:
+                            return (age / 100 % 6) + 14;
                         default:
                             return 0;
                     }
@@ -577,10 +587,10 @@ namespace HD.Asteria
                     else
                         enemy.Drop(ItemId.Ectoplasm, Utility.Next(enemy.Tier) + 1);
 
+                    if (Utility.Roll8())
+                        enemy.Drop(ItemId.OcularLens);
                     if (Utility.Roll16())
-                        enemy.Drop(ItemId.OcularLens, 1);
-                    if (Utility.Roll16())
-                        enemy.Drop(ItemId.PhotovoltaicCell, 1);
+                        enemy.Drop(ItemId.PhotovoltaicCell);
                 },
             });
 
@@ -803,7 +813,6 @@ namespace HD.Asteria
                 SpriteHeight = 43,
                 SpriteFramesPerRow = 5,
                 RotateRender = true,
-                IsRotationFixed = true,
                 UpperRotationBounds = (float)(Math.PI / 6),
                 LowerRotationBounds = (float)(5 * Math.PI / 6),
                 MaxHealth = 17,
@@ -957,7 +966,6 @@ namespace HD.Asteria
                 },
                 OnLongThink = (enemy) => {
                     if (enemy.Map.GetMaterialAtPixel(enemy.FacePosition) == Material.Air) {
-                        enemy.PlaySound(Sound.PlaceMaterial);
                         enemy.Map.RenderBrush(enemy.BackPosition, Brush.Size6, Material.Dirt, 1);
                     }
 
@@ -1281,129 +1289,64 @@ namespace HD.Asteria
                 Id = 19,
                 Name = "Spitter",
                 SoundName = "Floater",
-                Description = "Shoots LEFT",
-                SpriteWidth = 32,
-                SpriteHeight = 32,
+                Description = "Shoots Left",
+                SpriteWidth = 50,
+                SpriteHeight = 34,
+                SpriteFramesPerRow = 3,
                 MaxHealth = 45,
                 Defense = Double.MaxValue,
                 CollisionDamage = 10,
                 CollisionKnockback = 500,
-                CanSeeThruWalls = true,
+                CanSeeThruWalls = false,
                 IsFlying = true,
-                CoolDown = 1000,
+                RotateRender = true,
+                ShootingOffset = 15,
                 OnSpawn = (enemy, tier) => {
-                    enemy.Direction = (float)Math.PI;
+                    enemy.IsFacingLeft = true;
+                    enemy.Direction = Utility.LeftDirection;
                 },
                 OnThink = (enemy) => {
-                    if (enemy.Target != null && enemy.IsTargetCloserThan(1000)) {
-                        enemy.ShootAtAngle(ProjectileId.LaserRifle, (float)Math.PI);
-                    }
-                },
-                GetFrame = (animation, age) => {
-                    switch (animation) {
-                        case Animation.Move:
-                            return age / 100 % 9;
-                        default:
-                            return 0;
-                    }
-                },
-            });
-
-            EnemyBase.AddItem(new EnemyType {
-                Id = 20,
-                Name = "Spitter",
-                SoundName = "Floater",
-                Description = "Shoots RIGHT",
-                SpriteWidth = 32,
-                SpriteHeight = 32,
-                MaxHealth = 45,
-                Defense = Double.MaxValue,
-                CollisionDamage = 10,
-                CollisionKnockback = 500,
-                CanSeeThruWalls = true,
-                IsFlying = true,
-                CoolDown = 1000,
-                OnSpawn = (enemy, tier) => {
-                    enemy.Direction = 0.0F;
-                },
-                OnThink = (enemy) => {
-                    if (enemy.Target != null && enemy.IsTargetCloserThan(1000)) {
-                        enemy.ShootAtAngle(ProjectileId.LaserRifle, 0);
-                    }
-                },
-                GetFrame = (animation, age) => {
-                    switch (animation) {
-                        case Animation.Move:
-                            return age / 100 % 9;
-                        default:
-                            return 0;
-                    }
-                },
-            });
-
-            EnemyBase.AddItem(new EnemyType {
-                Id = 21,
-                Name = "Spitter",
-                SoundName = "Floater",
-                Description = "Shoots UP",
-                SpriteWidth = 32,
-                SpriteHeight = 32,
-                MaxHealth = 45,
-                Defense = Double.MaxValue,
-                CollisionDamage = 10,
-                CollisionKnockback = 500,
-                CanSeeThruWalls = true,
-                IsFlying = true,
-                CoolDown = 1000,
-                OnSpawn = (enemy, tier) => {
-                    enemy.Direction = (float)(3 * (Math.PI / 2));
-                },
-                OnThink = (enemy) => {
-                    if (enemy.Target != null && enemy.IsTargetCloserThan(1000)) {
-                        enemy.ShootAtAngle(ProjectileId.LaserRifle, (float)(3 * (Math.PI / 2)));//up
-                    }
-                },
-                GetFrame = (animation, age) => {
-                    switch (animation) {
-                        case Animation.Move:
-                            return age / 100 % 9;
-                        default:
-                            return 0;
-                    }
-                },
-            });
-
-            EnemyBase.AddItem(new EnemyType {
-                Id = 22,
-                Name = "Spitter",
-                SoundName = "Floater",
-                Description = "Shoots DOWN",
-                SpriteWidth = 32,
-                SpriteHeight = 32,
-                MaxHealth = 45,
-                Defense = Double.MaxValue,
-                CollisionDamage = 10,
-                CollisionKnockback = 500,
-                CanSeeThruWalls = true,
-                IsFlying = true,
-                CoolDown = 1000,
-                OnSpawn = (enemy, tier) => {
-                    enemy.Direction = (float)(Math.PI / 2);
-                },
-                OnThink = (enemy) => {
-                    if (enemy.Target != null && enemy.IsTargetCloserThan(1000)) {
-                        enemy.ShootAtAngle(ProjectileId.LaserRifle, (float)(Math.PI / 2));//down
+                    if (enemy.Animation == Animation.None && enemy.Target != null && enemy.IsTargetCloserThan(1000)) {
+                        enemy.SetAnimation(Animation.Attack1, true, 900);
+                        enemy.Delay(450, () => {
+                            enemy.ShootAtAngle(ProjectileId.LaserRifle, enemy.Direction);
+                        });
                     }
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
                         case Animation.Attack1:
-                            return age / 100 % 9;
+                            return Utility.Oscillate(age / 50, 9);
                         default:
-                            return Utility.Oscillate(age / 100, 9);
+                            return 0;
                     }
                 },
             });
+
+            var rightSpitter = EnemyBase.Get("Spitter").Clone();
+            rightSpitter.Id = 20;
+            rightSpitter.Description = "Shoots Right";
+            rightSpitter.OnSpawn = (enemy, tier) => {
+                enemy.Direction = Utility.RightDirection;
+            };
+            EnemyBase.AddItem(rightSpitter);
+
+            var upSpitter = EnemyBase.Get("Spitter").Clone();
+            upSpitter.Id = 21;
+            upSpitter.Description = "Shoots Up";
+            upSpitter.OnSpawn = (enemy, tier) => {
+                enemy.Direction = Utility.UpDirection;
+            };
+            EnemyBase.AddItem(upSpitter);
+
+            var downSpitter = EnemyBase.Get("Spitter").Clone();
+            downSpitter.Id = 22;
+            downSpitter.Description = "Shoots Down";
+            downSpitter.OnSpawn = (enemy, tier) => {
+                enemy.IsFacingLeft = true;
+                enemy.Direction = Utility.DownDirection;
+            };
+            EnemyBase.AddItem(downSpitter);
 
             EnemyBase.AddItem(new EnemyType {
                 Id = 23,
@@ -1466,9 +1409,8 @@ namespace HD.Asteria
                 IsAutoSpawn = true,
                 SpawnRateLimitInSeconds = 300,
                 RotateRender = true,
-                IsRotationFixed = true,
-                //UpperRotationBounds = (float)(Math.PI / 4),
-                //LowerRotationBounds = (float)(3 * (Math.PI / 4)),
+                UpperRotationBounds = (float)(Math.PI / 6),
+                LowerRotationBounds = (float)(5 * Math.PI / 6),
                 Light = Color.FromNonPremultiplied(200, 0, 0, 150),
                 OnSpawn = (enemy, tier) => {
                     enemy.SetRandomAngle();
@@ -1514,8 +1456,6 @@ namespace HD.Asteria
                     if (Utility.Roll4())
                         MonsterLoot(enemy);
 
-                    if (Utility.Roll4())
-                        enemy.Drop(ItemId.GunnDiode);
                     if (Utility.Roll32())
                         enemy.Drop(ItemId.PhotovoltaicCell, 1);
                 },
@@ -1738,8 +1678,10 @@ namespace HD.Asteria
                 Name = "Point Defense Drone",
                 SoundName = "Turret",
                 Description = "Standard Alien patrol unit.",
-                SpriteWidth = 24,
-                SpriteHeight = 24,
+                SpriteWidth = 50,
+                SpriteHeight = 50,
+                RotateRender = true,
+                ShootingOffset = 16,
                 MaxHealth = 10,
                 Speed = 50,
                 CollisionDamage = 1,
@@ -1747,38 +1689,37 @@ namespace HD.Asteria
                 IsAutoSpawn = true,
                 MinSpawnTier = 3,
                 IsFlying = true,
+                BloodColor = Color.Black,
                 OnSpawn = (enemy, tier) => {
                     enemy.IsFacingLeft = Utility.Flip();
                 },
-                OnLongThink = (enemy) => {
-                    if (enemy.IsBlocked)
-                        enemy.IsFacingLeft = !enemy.IsFacingLeft;
-
-                    //Stay next to player
-                    if (!enemy.IsTargetCloserThan(300)) {
-                        enemy.Speed = 175;
-                        enemy.SetAngleToTarget();
-                    }
-
-                    if (enemy.IsTargetCloserThan(300)) {
-                        enemy.Speed = 0;
-                    }
-
-                    if (enemy.IsTargetCloserThan(200)) {
-                        enemy.Speed = 175;
-                        enemy.SetAngleAwayFromTarget();
-                    }
-
-                    if (enemy.Target == null) {
+                OnThink = (enemy) => {
+                    if (enemy.Target == null && enemy.CooldownCheck(900)) {
                         enemy.SetRandomAngle();
                         enemy.Speed = 50;
+                    } else {
+                        //Stay next to player
+                        enemy.SetAngleToTarget();
+
+                        if (!enemy.IsTargetCloserThan(300)) {
+                            enemy.Speed = 175;
+                        }
+
+                        if (enemy.IsTargetCloserThan(300)) {
+                            enemy.Speed = 0;
+                        }
+
+                        if (enemy.IsTargetCloserThan(200)) {
+                            enemy.Speed = 175;
+                            enemy.SetAngleAwayFromTarget();
+                        }
+
+                        if (enemy.IsTargetCloserThan(420) && enemy.CooldownCheck(900))
+                            enemy.ShootAtTarget(ProjectileId.Blaster);
+
+                        if (enemy.IsBlocked)
+                            enemy.SetRandomAngle();
                     }
-
-                    if (enemy.IsTargetCloserThan(420) && enemy.CooldownCheck(900))
-                        enemy.ShootAtTarget(ProjectileId.Blaster);
-
-                    if (enemy.IsBlocked)
-                        enemy.SetRandomAngle();
                 },
                 OnDie = (enemy) => {
                     enemy.Map.AddEntity(new ParticleEmitter() { Position = enemy.Position + Utility.RandomVector() * 200, Type = ParticleEffect.SmallExplosion });
@@ -1869,8 +1810,9 @@ namespace HD.Asteria
                             enemy.Speed = 0;
                     }
                 },
-                OnDraw = (enemy, spriteBatch, position, frame) => {
+                OnDraw = (enemy, spriteBatch, position, frame, drawColor) => {
                     Particles.Add(new Particle() { Position = enemy.Position, Color = Color.FromNonPremultiplied(121, 253, 151, 250), Velocity = Utility.RandomVector() * 0.1f, MaxAge = 0.5, Scale = 0.5f });
+                    return true;
                 },
                 GetFrame = (animation, age) => {
                     return Utility.Oscillate(age / 100, 4);
@@ -2035,13 +1977,15 @@ namespace HD.Asteria
                 Id = 109,
                 Name = "Gladys",
                 Description = "Turret that shoots fire at platforms forcing the player to move",
-                SpriteWidth = 71,
-                SpriteHeight = 64,
-                SpriteFramesPerRow = 5,
+                SpriteWidth = 170,
+                SpriteHeight = 170,
+                SpriteFramesPerRow = 1,
                 AlternateTextureName = "Gladys Gun",
-                ShootingOrigin = new Vector2(0, -33),
-                ShootingOffset = 110,
-                MaxHealth = 400,
+                SecondAlternateTextureName = "Gladys Turret",
+                ThirdAlternateTextureName = "Gladys Turret Gun",
+                ShootingOrigin = new Vector2(0, 0),
+                ShootingOffset = 130,
+                MaxHealth = 350,
                 CollisionDamage = 100,
                 CollisionKnockback = 1000,
                 IsFlying = true,
@@ -2055,15 +1999,17 @@ namespace HD.Asteria
                     enemy.PlayingSound = Sound.None;
                 },
                 OnDrawTop = (enemy, spriteBatch, position, frame) => {
-                    spriteBatch.Draw(enemy.Type.AlternateTexture, position + new Vector2(0, -36), null, Color.White, enemy.Direction, new Vector2(enemy.Type.AlternateTexture.Width / 2, enemy.Type.AlternateTexture.Height / 2), 1, Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 0);
+                    spriteBatch.Draw(enemy.Type.AlternateTexture, position, null, Color.White, enemy.Direction, new Vector2(enemy.Type.AlternateTexture.Width / 2, enemy.Type.AlternateTexture.Height / 2), 1, Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 0);
                 },
                 OnLongThink = (enemy) => {
                     enemy.Direction = enemy.GetShootingAngle();
 
-                    if (enemy.Target == null)
+                    if (enemy.Target == null) {
                         enemy.PlayingSound = Sound.None;
+                        enemy.Health = enemy.MaxHealth;
+                    }
 
-                    if (enemy.Target != null && enemy.IsTargetCloserThan(680)) {
+                    if (enemy.Target != null && enemy.IsTargetCloserThan(1000)) {
                         if ((float)enemy.Health / (float)enemy.MaxHealth >= .50) {
                             enemy.ShootAtTarget(ProjectileId.SlowBlaster);
                         } else if ((float)enemy.Health / (float)enemy.MaxHealth >= .25 && (float)enemy.Health / (float)enemy.MaxHealth <= .49) {
@@ -2082,6 +2028,12 @@ namespace HD.Asteria
                                 enemy.ShootAtAngle(ProjectileId.BallLightning, shootingDir);
                                 //enemy.ShootAtAngle(ProjectileId.BallLightning, (float)Utility.Next());
                             }
+                        }
+
+                        if (Utility.Roll32()) {
+                            var spawnedCount = (from e in (List<Enemy>)enemy.Bag.Spawned where !e.IsDead select e).Count();
+                            if (spawnedCount < 2)
+                                enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(EnemyBase.Get("Gladys Turret"), enemy.Position));
                         }
 
                         if (enemy.CooldownCheck(5000)) {
@@ -2127,6 +2079,9 @@ namespace HD.Asteria
                     enemy.PlayingSound = Sound.None;
                     enemy.Map.Explode(enemy.Position, 15);
 
+                    foreach (var spawned in (List<Enemy>)enemy.Bag.Spawned)
+                        spawned.Remove();
+
                     //Loot
                     var LootLocation = enemy.Map.FindPlaceables("TurretChest").FirstOrDefault();
                     var bossDoor = enemy.Map.FindPlaceables("bossDoor").FirstOrDefault();
@@ -2143,6 +2098,68 @@ namespace HD.Asteria
                         chest.AddItem(new Item() { TypeId = ItemId.MajorEnergyCell, Amount = 5 });
                         chest.AddItem(new Item() { TypeId = ItemId.EchoCrystal, Amount = 1 });
                     }
+                },
+                GetFrame = (animation, age) => {
+                    switch (animation) {
+                        case Animation.Move:
+                            return Math.Min(age / 100, 4);
+                        default:
+                            return 0;
+                    }
+                },
+            });
+
+            EnemyBase.AddItem(new EnemyType {
+                Id = 38,
+                Name = "Gladys Turret",
+                Description = "Spawned by Turret Boss",
+                SpriteWidth = 43,
+                SpriteHeight = 43,
+                SpriteFramesPerRow = 1,
+                AlternateTextureName = "Gladys Turret Gun",
+                ShootingOffset = 30,
+                MaxHealth = 10,
+                CollisionDamage = 100,
+                CollisionKnockback = 50,
+                IsFlying = true,
+                IsHoming = true,
+                Speed = 50,
+                CoolDown = 0,
+                DeathAnimationLengthInSeconds = 0,
+                OnSpawn = (enemy, tier) => {
+                    enemy.Bag.Spawned = new List<Enemy>();
+                    enemy.SetAnimation(Animation.None, true);
+                    enemy.PlayingSound = Sound.None;
+                },
+                OnDrawTop = (enemy, spriteBatch, position, frame) => {
+                    spriteBatch.Draw(enemy.Type.AlternateTexture, position, null, Color.White, enemy.Direction, new Vector2(enemy.Type.AlternateTexture.Width / 2, enemy.Type.AlternateTexture.Height / 2), 1, Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 0);
+                },
+                OnLongThink = (enemy) => {
+
+                    //fly around Gladys
+                    var target = enemy.Map.FindTargetEnemy(enemy.Position, "Gladys");
+                    enemy.TargetEnemy = target;
+                    if (target == null)
+                        enemy.Speed = 0;
+
+                    enemy.TurningRateInRadiansPerSecond = 1f;
+
+                    if (enemy.Target == null)
+                        enemy.PlayingSound = Sound.None;
+
+                    if (enemy.Target != null && enemy.IsTargetCloserThan(680)) {
+                        if ((float)enemy.Health / (float)enemy.MaxHealth >= .50) {
+                            enemy.ShootAtTarget(ProjectileId.SlowBlaster);
+                        } else if ((float)enemy.Health / (float)enemy.MaxHealth >= .25 && (float)enemy.Health / (float)enemy.MaxHealth <= .49) {
+                            enemy.ShootAtTarget(ProjectileId.SlowBlaster, (float)-Math.PI / 18);
+                            enemy.ShootAtTarget(ProjectileId.SlowBlaster);
+                            enemy.ShootAtTarget(ProjectileId.SlowBlaster, (float)Math.PI / 18);
+                        }
+                    }
+                },
+                OnDie = (enemy) => {
+                    enemy.PlayingSound = Sound.None;
+                    enemy.Map.Explode(enemy.Position, 15);
                 },
                 GetFrame = (animation, age) => {
                     switch (animation) {
@@ -2262,7 +2279,7 @@ namespace HD.Asteria
                 AlternateTextureName = "Sky Boss Gun",
                 ShootingOrigin = new Vector2(0, 78),
                 ShootingOffset = 178,
-                MaxHealth = 600,
+                MaxHealth = 500,
                 CollisionDamage = 100,
                 CollisionKnockback = 1000,
                 IsBoss = true,
@@ -2272,8 +2289,9 @@ namespace HD.Asteria
                 IsImmuneToKnockback = true,
                 CanSeeThruWalls = true,
                 BloodColor = Color.Black,
-                OnDraw = (enemy, spriteBatch, position, frame) => {
+                OnDraw = (enemy, spriteBatch, position, frame, drawColor) => {
                     spriteBatch.Draw(enemy.Type.AlternateTexture, position + new Vector2(0, 78), null, Color.White, enemy.Direction, new Vector2(enemy.Type.AlternateTexture.Width / 2, enemy.Type.AlternateTexture.Height / 2), 1, Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 0);
+                    return true;
                 },
                 OnThink = (enemy) => {
                     if (enemy.Target != null) {
@@ -2283,11 +2301,9 @@ namespace HD.Asteria
                     }
                 },
                 OnLongThink = (enemy) => {
-                    if (enemy.Target == null) {
-                        enemy.Health = enemy.MaxHealth;
-                    } else {
+                    if (enemy.IsTargetCloserThan(800)) {
                         enemy.Velocity = Vector2.Zero;
-                        if (enemy.CooldownCheck(1000))
+                        if (Utility.Flip())
                             enemy.ShootAtTarget(ProjectileId.DiggingAndDamaging);
 
                         if (Utility.Roll16()) {
@@ -2334,9 +2350,10 @@ namespace HD.Asteria
                 Id = 103,
                 Name = "Dragon",
                 Description = "Boss for the Vesuvius Dungeon",
-                SpriteWidth = 320,
-                SpriteHeight = 320,
-                MaxHealth = 900,
+                SpriteWidth = 219,
+                SpriteHeight = 356,
+                SpriteFramesPerRow = 4,
+                MaxHealth = 1000,
                 CollisionDamage = 25,
                 CollisionKnockback = 1000,
                 IsBoss = true,
@@ -2347,10 +2364,15 @@ namespace HD.Asteria
                 CanMoveWhileDead = true,
                 IsImmuneToKnockback = true,
                 CanSeeThruWalls = true,
+                ShootingOrigin = new Vector2(66, -15),
                 OnSpawn = (enemy, tier) => {
                     enemy.SetAnimation(Animation.Hovering);
                 },
                 OnLongThink = (enemy) => {
+                    //check facing dir
+                    if (enemy.Target != null)
+                        enemy.IsFacingLeft = enemy.Target.Position.X < enemy.Position.X;
+
                     switch (enemy.Animation) {
                         case Animation.Hovering:
                             enemy.Speed = 300;
@@ -2426,7 +2448,21 @@ namespace HD.Asteria
                             break;
                     }
                 },
+                GetFrame = (animation, age) => {
+                    switch (animation) {
+                        case Animation.Idle1:
+                            return age / 100 % 14;
+                        case Animation.Hovering:
+                            return age / 100 % 14;
+                        case Animation.Attack1:
+                            return (age / 40 % 6) + 14;
+                        default:
+                            return 0;
+                    }
+                },
                 OnDie = (enemy) => {
+                    enemy.Map.AddEntity(new ParticleEmitter() { Position = enemy.Position, Type = ParticleEffect.DragonExplode, Color = enemy.Type.BloodColor, Value = 2 });
+
                     var chestPoI = enemy.Map.FindPlaceables("Death").FirstOrDefault();
                     if (chestPoI != null) {
                         var chest = enemy.Map.AddPlaceable(null, ItemBase.Get(ItemId.RewardHypercube), chestPoI.Position);
@@ -2540,7 +2576,7 @@ namespace HD.Asteria
                             return Utility.Oscillate(age / 100, 4) + 21;
                     }
                 },
-                OnDraw = (enemy, spriteBatch, position, frame) => {
+                OnDraw = (enemy, spriteBatch, position, frame, drawColor) => {
                     if (enemy.Animation == Animation.Attack1) // diving
                         frame = Math.Min(enemy.AnimationAge / 100, 3) + 10;
                     else
@@ -2548,6 +2584,7 @@ namespace HD.Asteria
 
                     // 991x1085 at 4x4 sprites = 247.75x271.25 sprite size
                     spriteBatch.Draw(enemy.Type.SecondAlternateTexture, position + new Vector2(0, -15), Utility.GetFrameSourceRectangle(248, 271, 4, frame), Color.White, 0, new Vector2(248 / 2, 271 / 2), 1, enemy.IsFacingLeft ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+                    return true;
                 },
                 OnDrawTop = (enemy, spriteBatch, position, frame) => {
                     if (enemy.Animation == Animation.Attack1) // diving
@@ -2588,42 +2625,64 @@ namespace HD.Asteria
                 Id = 105,
                 Name = "Basilisk",
                 Description = "Stationary monster that shoots fire.",
-                SpriteWidth = 280,
-                SpriteHeight = 300,
+                SpriteWidth = 287,
+                SpriteHeight = 200,
+                SpriteFramesPerRow = 4,
+                ShootingOrigin = new Vector2(42, -24),
                 MaxHealth = 200,
                 Defense = 3,
                 CollisionDamage = 100,
                 CollisionKnockback = 1000,
-                CoolDown = 1000,
+                CoolDown = 0,
                 IsBoss = true,
                 Speed = 0,
-                DeathAnimationLengthInSeconds = 10,
+                DeathAnimationLengthInSeconds = 0,
                 OnSpawn = (enemy, tier) => {
-                    enemy.Bag.Spawned = new List<Enemy>();
+                    enemy.IsFacingLeft = true;
                 },
                 OnLongThink = (enemy) => {
-
-                    var bossDoor = enemy.Map.FindPlaceables("mini2").FirstOrDefault();
                     if (enemy.Target == null || enemy.Target.IsDead) {
                         enemy.Health = enemy.MaxHealth;
-                        if (bossDoor != null) {
-                            bossDoor.IsSolid = false;
-                        }
                     } else {
-                        if (bossDoor != null)
-                            bossDoor.IsSolid = true;
+                        switch (enemy.Animation) {
+                            case Animation.None:
+                                enemy.SetAnimation(Animation.Idle1);
+                                break;
+                            case Animation.Idle1:
+                                if (enemy.Target != null) {
+                                    if (Utility.Roll4()) {
+                                        enemy.LobObjectAtTarget(ProjectileId.Comet);
+                                        enemy.Delay(100, () => { enemy.LobObjectAtTarget(ProjectileId.Comet); });
+                                        enemy.Delay(200, () => { enemy.LobObjectAtTarget(ProjectileId.Comet); });
+                                        enemy.Delay(300, () => { enemy.LobObjectAtTarget(ProjectileId.Comet); });
+                                    }
 
-                        if (enemy.Target != null && enemy.IsTargetCloserThan(800)) {
-                            enemy.LobObjectAtTarget(ProjectileId.Comet);
-                        }
-
-                        if (Utility.Roll8()) {
-                            enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)2.9, false);
-                            enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)3.5, false);
+                                    if (Utility.Roll8()) {
+                                        enemy.SetAnimation(Animation.Attack1, true, 360);
+                                        enemy.Delay(280, () => {
+                                            enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)2.9, false);
+                                            enemy.ShootAtAngle(ProjectileId.MiniFlame_2, Utility.LeftDirection, false);
+                                            enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)3.5, false);
+                                        });
+                                    }
+                                }
+                                break;
                         }
                     }
                 },
+                GetFrame = (animation, age) => {
+                    switch (animation) {
+                        case Animation.Idle1:
+                            return Utility.LongOscillate(age / 100, 6);
+                        case Animation.Attack1:
+                            return (age / 40 % 9) + 6;
+                        default:
+                            return 0;
+                    }
+                },
                 OnDie = (enemy) => {
+                    enemy.Map.AddEntity(new ParticleEmitter() { Position = enemy.Position, Type = ParticleEffect.BasiliskExplode, Color = enemy.Type.BloodColor, Value = 2 });
+
                     //Botanica Version Loot
                     var lootLocation = enemy.Map.FindPlaceables("BotanicaLoot2").FirstOrDefault();
                     if (lootLocation != null) {
@@ -2652,11 +2711,11 @@ namespace HD.Asteria
             EnemyBase.AddItem(new EnemyType {
                 Id = 106,
                 Name = "Syra",
-                Description = "A female faerie like monster that spawns sprout-lings on the ground either by dropping them or placing them. She spawns these at a steady pace and it is her main attack.",
-                SpriteWidth = 120,
-                SpriteHeight = 120,
-                MaxHealth = 200,
-                Defense = 40,
+                Description = "A boss that spawns sprout-lings on the ground either by dropping them or placing them. She spawns these at a steady pace and it is her main attack.",
+                SpriteWidth = 59,
+                SpriteHeight = 105,
+                SpriteFramesPerRow = 5,
+                MaxHealth = 300,
                 CollisionDamage = 20,
                 CollisionKnockback = 1000,
                 IsBoss = true,
@@ -2670,82 +2729,61 @@ namespace HD.Asteria
                     enemy.Bag.Targets = enemy.Map.FindPlaceables("Pathing").ToArray();
                 },
                 OnLongThink = (enemy) => {
-                    var bossDoor = enemy.Map.FindPlaceables("syraDoor").FirstOrDefault();
-
-                    if ((float)enemy.Health / enemy.MaxHealth <= .25)
-                        enemy.Speed = 450;
-                    else if ((float)enemy.Health / enemy.MaxHealth <= .5)
-                        enemy.Speed = 400;
-                    else if ((float)enemy.Health / enemy.MaxHealth <= .75)
-                        enemy.Speed = 350;
 
                     if (enemy.Target == null || enemy.Target.IsDead) {
-                        if (bossDoor != null) {
-                            bossDoor.IsSolid = false;
-                        }
                         enemy.Health = enemy.MaxHealth;
+                        enemy.IsFlying = true;
+                        enemy.SetAnimation(Animation.Hovering);
+                        enemy.Speed = 300;
 
                         var spawn = enemy.Map.FindPlaceables("syraSpawn").FirstOrDefault();
                         if (spawn != null) {
-                            enemy.TargetPlaceable = spawn;
+                            if (enemy.WithinRange(spawn))
+                                enemy.Speed = 0;
+                            else {
+                                enemy.TargetPlaceable = spawn;
+                                enemy.SetAngleToTargetPlaceable();
+                            }
                         }
-
-                        if (enemy.TargetPlaceable != null)
-                            enemy.SetAngleToTargetPlaceable();
 
                         foreach (Enemy spawned in enemy.Bag.Spawned) {
                             spawned.Remove();
                         }
-
-
-                        if (enemy.IsOnGround || enemy.IsAgainstCeiling || enemy.IsBlocked)
-                            enemy.SetAngleAwayFromTarget();
-
                         enemy.Bag.Spawned.Clear();
                     } else {
-                        if (bossDoor != null) {
-                            bossDoor.IsSolid = true;
-                        }
-
                         switch (enemy.Animation) {
-                            case Animation.Hovering:
-                                enemy.Speed = 300; {
+                            case Animation.Hovering: {
                                     enemy.IsFlying = true;
                                     enemy.Speed = 300;
-                                    enemy.Defense = 80;
+                                    enemy.Defense = Int32.MaxValue;
 
-                                    ///Hover over player
-                                    if (!enemy.IsTargetCloserThan(550))
-                                        enemy.SetAngleToTarget();
+                                    if (enemy.Bag.Targets.Length > 0) {
+                                        if (Utility.Roll4())
+                                            enemy.TargetPlaceable = enemy.Bag.Targets[Utility.Next(enemy.Bag.Targets.Length)];
 
-                                    if (enemy.IsTargetCloserThan(300))
-                                        enemy.SetAngleToTarget();
-
-                                    if (enemy.IsBlocked) {
-                                        enemy.Direction = -enemy.Direction;
-                                    }
-
-                                    //pathing 
-                                    if (enemy.AnimationAge >= 2000 || enemy.TargetPlaceable == null) // clear target placeable occasionally
-                                    {
-                                        enemy.SetAnimation(Animation.Idle1);
-                                    } else {
-                                        enemy.SetAngleToTargetPlaceable();
-                                    }
-                                    enemy.Velocity = Vector2.Zero;
-
-                                    if (Utility.Roll16()) {
-                                        var spawnedCount = (from e in (List<Enemy>)enemy.Bag.Spawned where !e.IsDead select e).Count();
-
-                                        if (spawnedCount < 3) {
-                                            var enemyType = EnemyBase.Get("Sprout");
-                                            Enemy sprout;
-                                            sprout = enemy.Map.AddEnemy(enemyType, enemy.Position);
-                                            enemy.Bag.Spawned.Add(sprout);
+                                        if (enemy.TargetPlaceable != null) {
+                                            if (enemy.WithinRange(enemy.TargetPlaceable)) {
+                                                enemy.Speed = 0;
+                                                enemy.TargetPlaceable = enemy.Bag.Targets[Utility.Next(enemy.Bag.Targets.Length)];
+                                            } else {
+                                                enemy.SetAngleToTargetPlaceable();
+                                            }
                                         }
                                     }
 
-                                    if (Utility.Roll4())
+                                    if (enemy.AnimationAge >= 3000) {
+                                        // drop on player
+                                        if (Math.Abs(enemy.Position.X - enemy.Target.Position.X) <= 50.0)
+                                            enemy.SetAnimation(Animation.Attack1);
+                                    }
+
+                                    if (Utility.Roll16()) {
+                                        var spawnedCount = (from e in (List<Enemy>)enemy.Bag.Spawned where !e.IsDead select e).Count();
+                                        if (spawnedCount < 3)
+                                            enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(EnemyBase.Get("Sprout"), enemy.Position));
+                                    }
+
+                                    if (Utility.Roll8())
                                         enemy.ShootAtTarget(ProjectileId.Spike);
                                     break;
                                 }
@@ -2754,31 +2792,30 @@ namespace HD.Asteria
                                     enemy.Speed = 0;
                                     enemy.Defense = 0;
 
-                                    var spawnedCount = (from e in (List<Enemy>)enemy.Bag.Spawned where !e.IsDead select e).Count();
-
-                                    if (spawnedCount < 3) {
-                                        var enemyType = EnemyBase.Get("Valee");
-                                        Enemy valee;
-                                        valee = enemy.Map.AddEnemy(enemyType, enemy.Position + new Vector2(0, -60));
-                                        enemy.Bag.Spawned.Add(valee);
+                                    if (Utility.Flip()) {
+                                        var spawnedCount = (from e in (List<Enemy>)enemy.Bag.Spawned where !e.IsDead select e).Count();
+                                        if (spawnedCount < 4)
+                                            enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(EnemyBase.Get("Valee"), enemy.Position + new Vector2(0, -60)));
                                     }
-                                    if (enemy.AnimationAge >= 8000)
-                                        enemy.SetAnimation(Animation.Hovering);
-                                    break;
-                                }
-                            case Animation.Idle1: {
-                                    //enemy.Speed = 0;
-                                    if (enemy.Bag.Targets.Length > 0)
-                                        enemy.TargetPlaceable = enemy.Bag.Targets[Utility.Next(enemy.Bag.Targets.Length)];
 
-                                    //drop on player
-                                    if (Math.Abs(enemy.Position.X - enemy.Target.Position.X) <= 150.0 || Utility.Roll16())
-                                        enemy.SetAnimation(Animation.Attack1);
-                                    else
+                                    if (enemy.AnimationAge >= 4000)
                                         enemy.SetAnimation(Animation.Hovering);
                                     break;
                                 }
                         }
+                    }
+                },
+                GetFrame = (animation, age) => {
+                    switch (animation) {
+                        case Animation.Hovering:
+                            return age / 100 % 15;
+                        case Animation.Attack1://when she drops
+                            var dropFrame = age / 100;
+                            if (dropFrame > 9)
+                                return ((dropFrame - 10) % 5) + 25;
+                            return dropFrame + 15;
+                        default:
+                            return 0;
                     }
                 },
                 OnDie = (enemy) => {
@@ -2818,19 +2855,21 @@ namespace HD.Asteria
 
             EnemyBase.AddItem(new EnemyType {
                 Id = 108,
-                Name = "Acid Boss",
+                Name = "Acid Beast",
                 Description = "Acid boss that follows a path and shoots acid spit that explodes acid.",
-                SpriteWidth = 192,
-                SpriteHeight = 192,
+                SpriteWidth = 252,
+                SpriteHeight = 203,
+                SpriteFramesPerRow = 5,
                 MaxHealth = 1000,
                 Speed = 200,
-                CollisionDamage = 40,
+                CollisionDamage = 30,
                 CollisionKnockback = 500,
                 IsFlying = true,
                 IsBoss = true,
                 PenetrateWalls = true,
                 CanSeeThruWalls = true,
                 OnSpawn = (enemy, tier) => {
+                    enemy.SetAnimation(Animation.Attack1);
                     enemy.Bag.Targets = new Queue<Placeable>();
                     foreach (var target in (from t in enemy.Map.FindPlaceables("Pathing") orderby t.Id select t)) {
                         enemy.Bag.Targets.Enqueue(target);
@@ -2857,7 +2896,8 @@ namespace HD.Asteria
 
                     enemy.SetAngleToTargetPlaceable();
 
-                    enemy.Map.RenderBrush(enemy.Position, Brush.Size6, Material.Acid, 1);
+                    if (Utility.Flip())
+                        enemy.Map.RenderBrush(enemy.Position, Brush.Size6, Material.Acid, 1);
 
                     if (Utility.Roll8()) {
                         // toggle acid falls
@@ -2866,7 +2906,17 @@ namespace HD.Asteria
                         }
                     }
                 },
+                GetFrame = (animation, age) => {
+                    switch (animation) {
+                        case Animation.Attack1://run
+                            return age / 100 % 25;
+                        default:
+                            return 0;
+                    }
+                },
                 OnDie = (enemy) => {
+                    enemy.Map.AddEntity(new ParticleEmitter() { Position = enemy.Position, Type = ParticleEffect.AcidBeastExplode, Color = enemy.Type.BloodColor, Value = 2 });
+
                     // turn off acid falls
                     foreach (var placable in enemy.Map.FindPlaceables("BossSpawn")) {
                         placable.Flag = true;
@@ -2894,9 +2944,11 @@ namespace HD.Asteria
 
             EnemyBase.AddItem(new EnemyType {
                 Id = 110,
-                Name = "Burrower Boss",
-                SpriteWidth = 192,
-                SpriteHeight = 192,
+                Name = "Burrower",
+                SpriteWidth = 194,
+                SpriteHeight = 200,
+                SpriteFramesPerRow = 3,
+                RotateRender = true,
                 MaxHealth = 250,
                 Speed = 175,
                 CollisionDamage = 20,
@@ -2906,6 +2958,7 @@ namespace HD.Asteria
                 PenetrateWalls = true,
                 CanSeeThruWalls = true,
                 OnSpawn = (enemy, tier) => {
+                    enemy.SetAnimation(Animation.Attack1);
                     enemy.Bag.Spawned = new List<Enemy>();
                     enemy.Bag.DrakeSpawned = new List<Enemy>();
                     enemy.Bag.Targets = new Queue<Placeable>();
@@ -2951,7 +3004,16 @@ namespace HD.Asteria
                         }
                     }
                 },
+                GetFrame = (animation, age) => {
+                    switch (animation) {
+                        case Animation.Attack1://run
+                            return age / 100 % 9;
+                        default:
+                            return 0;
+                    }
+                },
                 OnDie = (enemy) => {
+                    enemy.Map.AddEntity(new ParticleEmitter() { Position = enemy.Position, Type = ParticleEffect.BurrowerExplode, Color = enemy.Type.BloodColor, Value = 2 });
                     enemy.Map.Explode(enemy.Position, 100, 7);
 
                     foreach (Enemy spawned in enemy.Bag.Spawned) {
@@ -2988,6 +3050,7 @@ namespace HD.Asteria
                 Description = "Phase 1 of the final boss",
                 SpriteWidth = 1024,
                 SpriteHeight = 1024,
+                AlternateTextureName = "Final Boss Part 1 Gun",
                 MaxHealth = 500,
                 CollisionDamage = 100,
                 CollisionKnockback = 1000,
@@ -2995,7 +3058,16 @@ namespace HD.Asteria
                 CanSeeThruWalls = true,
                 DeathAnimationLengthInSeconds = 10,
                 Speed = 0,
-                // ShootingOrigin = new Vector2(512, 256),
+                ShootingOrigin = new Vector2(-225, 32),
+                BoundingBox = new Rectangle(-350, -375, 700, 750),
+                OnDrawTop = (enemy, spriteBatch, position, frame) => {
+                    spriteBatch.Draw(enemy.Type.AlternateTexture, position, null, Color.White, enemy.Direction, new Vector2(enemy.Type.AlternateTexture.Width / 2, enemy.Type.AlternateTexture.Height / 2), 1, Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 0);
+                },
+                OnDraw = (enemy, spriteBatch, position, frame, drawColor) => {
+                    // do the draw manually in order for it to line up correctly because of the bounding box.
+                    spriteBatch.Draw(enemy.Type.Texture, position + new Vector2(-512, -512), null, drawColor);
+                    return false;
+                },
                 OnLongThink = (enemy) => {
                     if (enemy.Target == null || enemy.Target.IsDead) {
                         enemy.Health = enemy.MaxHealth;
@@ -3054,8 +3126,10 @@ namespace HD.Asteria
                 Id = 201,
                 Name = "Final Boss Part 2",
                 Description = "Phase 2, Follows player destroying the landscape as he moves",
-                SpriteWidth = 512,
-                SpriteHeight = 512,
+                SpriteWidth = 484,
+                SpriteHeight = 544,
+                SpriteFramesPerRow = 4,
+                RotateRender = true,
                 MaxHealth = 10,
                 Defense = Double.MaxValue,
                 CollisionDamage = 50,
@@ -3066,7 +3140,7 @@ namespace HD.Asteria
                 CanSeeThruWalls = true,
                 Speed = 100,
                 OnSpawn = (enemy, tier) => {
-                    enemy.Bag.Explode = true;
+                    enemy.SetAnimation(Animation.Attack1);
                 },
                 OnLongThink = (enemy) => {
                     if (enemy.Target == null || enemy.Target.IsDead) {
@@ -3080,60 +3154,39 @@ namespace HD.Asteria
                         if (enemy.IsTargetCloserThan(1000))
                             enemy.Speed = 60;
 
-                        if (enemy.Bag.Explode) {
-                            if (enemy.Map.GetMaterialAtPixel(enemy.FacePosition) != Material.Air) {
-                                enemy.ShootAtTarget(ProjectileId.Grenade, 0);
-                                enemy.ShootAtTarget(ProjectileId.Grenade, 15);
-                                enemy.ShootAtTarget(ProjectileId.Grenade, 30);
-                                enemy.ShootAtTarget(ProjectileId.Grenade, 45);
-                                enemy.ShootAtTarget(ProjectileId.Grenade, 60);
-                                enemy.ShootAtTarget(ProjectileId.Grenade, 75);
-                                enemy.ShootAtTarget(ProjectileId.Grenade, 90);
-                                enemy.ShootAtTarget(ProjectileId.Grenade, 105);
-                                enemy.ShootAtTarget(ProjectileId.Grenade, 120);
-                                enemy.ShootAtTarget(ProjectileId.Grenade, 135);
-                                enemy.ShootAtTarget(ProjectileId.Grenade, 150);
-                                enemy.ShootAtTarget(ProjectileId.Grenade, 165);
-                                enemy.ShootAtTarget(ProjectileId.Grenade, 180);
-
-                                ////left
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X - 512, enemy.Position.Y), Brush.Mega, Material.NaturalGas, 9);
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X - 512, enemy.Position.Y - 412), Brush.Mega, Material.NaturalGas, 9);
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X - 512, enemy.Position.Y - 512), Brush.Mega, Material.NaturalGas, 9);
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X - 512, enemy.Position.Y - 612), Brush.Mega, Material.NaturalGas, 9);
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X - 412, enemy.Position.Y - 612), Brush.Mega, Material.NaturalGas, 9);
-
-                                ////top
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X - 412, enemy.Position.Y - 612), Brush.Mega, Material.NaturalGas, 9);
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X - 212, enemy.Position.Y - 612), Brush.Mega, Material.NaturalGas, 9);
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X + 212, enemy.Position.Y - 612), Brush.Mega, Material.NaturalGas, 9);
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X + 412, enemy.Position.Y - 612), Brush.Mega, Material.NaturalGas, 9);
-
-                                ////right
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X + 412, enemy.Position.Y - 612), Brush.Mega, Material.NaturalGas, 9);
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X + 512, enemy.Position.Y - 612), Brush.Mega, Material.NaturalGas, 9);
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X + 512, enemy.Position.Y - 512), Brush.Mega, Material.NaturalGas, 9);
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X + 512, enemy.Position.Y - 412), Brush.Mega, Material.NaturalGas, 9);
-                                //enemy.Map.RenderBrush(new Vector2(enemy.Position.X + 512, enemy.Position.Y), Brush.Mega, Material.NaturalGas, 9);
-                            }
-                            enemy.Bag.Explode = false;
-                        }
-
                         if (Utility.Roll4()) {
                             if (enemy.Map.GetMaterialAtPixel(enemy.FacePosition) != Material.Air)
                                 enemy.Map.RenderBrush(enemy.FacePosition, Brush.Size10, Material.NaturalGas, 9);
                         }
 
                         enemy.SetAngleToTarget();
+
                         if (Utility.Roll4())
                             enemy.ShootAtTarget(ProjectileId.Grenade);
 
-                        if (Utility.Roll32())
-                            enemy.Bag.Explode = true;
-
-                        //enemy.ShootAtTarget(ProjectileId.DiggingAndDamaging, Utility.RandomAngle(45));
-                        //enemy.ShootAtTarget(ProjectileId.DiggingAndDamaging, Utility.RandomAngle(45));
-                        //enemy.ShootAtTarget(ProjectileId.DiggingAndDamaging, Utility.RandomAngle(45));
+                        if (Utility.Roll32() && enemy.Map.GetMaterialAtPixel(enemy.FacePosition) != Material.Air) {
+                            enemy.ShootAtTarget(ProjectileId.Grenade, 0);
+                            enemy.ShootAtTarget(ProjectileId.Grenade, 15);
+                            enemy.ShootAtTarget(ProjectileId.Grenade, 30);
+                            enemy.ShootAtTarget(ProjectileId.Grenade, 45);
+                            enemy.ShootAtTarget(ProjectileId.Grenade, 60);
+                            enemy.ShootAtTarget(ProjectileId.Grenade, 75);
+                            enemy.ShootAtTarget(ProjectileId.Grenade, 90);
+                            enemy.ShootAtTarget(ProjectileId.Grenade, 105);
+                            enemy.ShootAtTarget(ProjectileId.Grenade, 120);
+                            enemy.ShootAtTarget(ProjectileId.Grenade, 135);
+                            enemy.ShootAtTarget(ProjectileId.Grenade, 150);
+                            enemy.ShootAtTarget(ProjectileId.Grenade, 165);
+                            enemy.ShootAtTarget(ProjectileId.Grenade, 180);
+                        }
+                    }
+                },
+                GetFrame = (animation, age) => {
+                    switch (animation) {
+                        case Animation.Attack1:
+                            return (age / 120 % 20);
+                        default:
+                            return 0;
                     }
                 },
             });
@@ -3142,8 +3195,9 @@ namespace HD.Asteria
                 Id = 202,
                 Name = "Final Boss Part 3",
                 Description = "Phase 3, Attack Player in his personal room",
-                SpriteWidth = 512,
-                SpriteHeight = 512,
+                SpriteWidth = 495,
+                SpriteHeight = 355,
+                SpriteFramesPerRow = 5,
                 MaxHealth = 1000,
                 Defense = 100,
                 CollisionDamage = 50,
@@ -3153,6 +3207,7 @@ namespace HD.Asteria
                 PenetrateWalls = true,
                 CanSeeThruWalls = true,
                 IsImmuneToKnockback = true,
+                ShootingOrigin = new Vector2(0, 20),
                 Speed = 175,
                 DeathAnimationLengthInSeconds = 8,
                 OnSpawn = (enemy, tier) => {
@@ -3189,6 +3244,9 @@ namespace HD.Asteria
                     }
 
                     switch (enemy.Animation) {
+                        case Animation.None:
+                            enemy.SetAnimation(Animation.Attack2);
+                            break;
                         case Animation.Hovering: //His standard attacks pre-enrage
                             enemy.Defense = 100;
                             enemy.Speed = 175;
@@ -3211,8 +3269,23 @@ namespace HD.Asteria
                             else if (Utility.Roll4())
                                 enemy.ShootAtTarget(ProjectileId.Fireball_2);
 
-                            if (enemy.AnimationAge > 5000)
-                                enemy.SetAnimation(Animation.Attack1);
+                            if (enemy.AnimationAge > 5000) {
+                                enemy.SetAnimation(Animation.Attack1, true, 800);
+                                enemy.Delay(480, () => {
+                                    var drakeType = EnemyBase.Get("Penetrating Flame Drake");
+                                    enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(drakeType, enemy.Position + new Vector2(-20, 20)));
+                                    enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(drakeType, enemy.Position + new Vector2(0, 20)));
+                                    enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(drakeType, enemy.Position + new Vector2(20, 20)));
+
+                                    if (Utility.Roll8()) {
+                                        enemy.ShootAtAngle(ProjectileId.MiniFlame_2, 0, false);//right
+                                        enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)(Math.PI / 4), false);//right down
+                                        enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)(Math.PI / 2), false);//down
+                                        enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)(3 * (Math.PI / 4)), false);//left down
+                                        enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)Math.PI, false);//left
+                                    }
+                                });
+                            }
                             break;
                         case Animation.Enrage: //When hp reaches 25% he besereks
                             enemy.Defense = 0;
@@ -3249,23 +3322,20 @@ namespace HD.Asteria
                                 enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)Math.PI, false);//left
                             }
                             break;
-                        case Animation.Attack1: //Becomes shielded and spawns adds and waits for the player to kill the adds
+                        case Animation.Attack1: // Becomes shielded and spawns adds and waits for the player to kill the adds
                             enemy.Defense = 2500;
                             enemy.Speed = 0;
-
-                            var drakeType = EnemyBase.Get("Penetrating Flame Drake");
-                            enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(drakeType, enemy.Position + new Vector2(160, -160)));
-                            enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(drakeType, enemy.Position + new Vector2(160, 160)));
-                            enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(drakeType, enemy.Position + new Vector2(160, 0)));
-                            enemy.SetAnimation(Animation.Attack2);
                             break;
-                        case Animation.Attack2: //Randomly shoot out AoE
+                        case Animation.Attack2: // Turtled
                             if (Utility.Roll8()) {
-                                enemy.ShootAtAngle(ProjectileId.MiniFlame_2, 0, false);//right
-                                enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)(Math.PI / 4), false);//right down
-                                enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)(Math.PI / 2), false);//down
-                                enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)(3 * (Math.PI / 4)), false);//left down
-                                enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)Math.PI, false);//left
+                                enemy.SetAnimation(Animation.Attack2, true);
+                                enemy.Delay(480, () => {
+                                    enemy.ShootAtAngle(ProjectileId.MiniFlame_2, 0, false);//right
+                                    enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)(Math.PI / 4), false);//right down
+                                    enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)(Math.PI / 2), false);//down
+                                    enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)(3 * (Math.PI / 4)), false);//left down
+                                    enemy.ShootAtAngle(ProjectileId.MiniFlame_2, (float)Math.PI, false);//left
+                                });
                             }
 
                             if (spawnedCount == 0)
@@ -3290,9 +3360,9 @@ namespace HD.Asteria
                                     enemy.Health -= enemy.MaxHealth / 20;
 
                                     var drakeType2 = EnemyBase.Get("Penetrating Flame Drake");
-                                    enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(drakeType2, enemy.Position + new Vector2(160, -160)));
-                                    enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(drakeType2, enemy.Position + new Vector2(160, 160)));
-                                    enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(drakeType2, enemy.Position + new Vector2(160, 0)));
+                                    enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(drakeType2, enemy.Position + new Vector2(-20, 20)));
+                                    enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(drakeType2, enemy.Position + new Vector2(0, 20)));
+                                    enemy.Bag.Spawned.Add(enemy.Map.AddEnemy(drakeType2, enemy.Position + new Vector2(20, 20)));
                                 }
 
                                 if (spawnedCountGround <= 1) {
@@ -3319,7 +3389,7 @@ namespace HD.Asteria
 
                                 if (deathCount % 10 == 0 && miniCount == 0) {
                                     var crawlerType = EnemyBase.Get("Brunnen");
-                                    var brun = enemy.Map.AddEnemy(crawlerType, enemy.Position + new Vector2(-200, 80));
+                                    var brun = enemy.Map.AddEnemy(crawlerType, enemy.Position);
                                     brun.Velocity += new Vector2(-700, 500);
                                     brun.IsFacingLeft = false;
                                     enemy.Bag.Ground.Add(brun);
@@ -3333,8 +3403,25 @@ namespace HD.Asteria
                             break;
                     }
                 },
-                OnDie = (enemy) =>
-                {
+                GetFrame = (animation, age) => {
+                    switch (animation) {
+                        case Animation.Idle1:
+                            return age / 120 % 14;
+                        case Animation.Hovering:
+                            return age / 100 % 14;
+                        case Animation.Attack1:
+                            return (age / 80 % 10) + 15;
+                        case Animation.Attack2:
+                            return Math.Min(age / 80, 9) + 15;
+                        case Animation.Enrage:
+                            return (age / 40 % 10) + 15;
+                        default:
+                            return 0;
+                    }
+                },
+                OnDie = (enemy) => {
+                    enemy.Map.AddEntity(new ParticleEmitter() { Position = enemy.Position, Type = ParticleEffect.FinalBossExplode, Color = enemy.Type.BloodColor, Value = 2 });
+
                     for (var i = 0; i < 8000; i += 250) {
                         enemy.Delay(i, () => { enemy.Map.Explode(enemy.Position, 200, 8); });
                     }
@@ -3408,14 +3495,12 @@ namespace HD.Asteria
                     case 0:
                         if (enemy.Map.ExtraLives > 0)
                             enemy.Drop(ItemId.ExtraLife);
-                        else
-                            enemy.Drop(ItemId.GunnDiode);
                         return;
                     case 1:
                         enemy.Drop(ItemId.FieldEffectTransistor);
                         return;
                     case 2:
-                        enemy.Drop(ItemId.GreenCrystal);
+                        enemy.Drop(ItemId.RedCrystal);
                         return;
                     case 3:
                         enemy.Drop(ItemId.BlueCrystal);
@@ -3427,10 +3512,14 @@ namespace HD.Asteria
                         enemy.Drop(ItemId.MercuryCell);
                         return;
                     case 6:
-                        enemy.Drop(ItemId.Thyratron);
+                        if (Utility.Flip())
+                            enemy.Drop(ItemId.Thyratron);
                         return;
                     case 7:
-                        enemy.Drop(ItemId.Thermistor);
+                        if (Utility.Flip())
+                            enemy.Drop(ItemId.GunnDiode);
+                        else
+                            enemy.Drop(ItemId.Thermistor);
                         return;
                     case 8:
                     case 9:

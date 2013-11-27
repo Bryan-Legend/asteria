@@ -188,7 +188,7 @@ namespace HD
 
             portal = AddPortal(new Vector2(Utility.Next(1000, map.PixelWidth - 1000), map.GetTierAltitude(7) - Utility.Next(300, sectionHeight * Map.BlockHeight - 300)), Material.Bone);
             portal.Name = "Dungeon Tier 7";
-            portal.Value = "Water";
+            portal.Value = "Burrower";
 
             portal = AddPortal(new Vector2(Utility.Next(1000, map.PixelWidth - 1000), map.GetTierAltitude(8) - Utility.Next(300, sectionHeight * Map.BlockHeight - 300)), Material.Bone);
             portal.Name = "Dungeon Tier 8";
