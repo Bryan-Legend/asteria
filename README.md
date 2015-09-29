@@ -46,3 +46,5 @@ Here's a quick introduction to the map generator code that you can use as a base
 Use our development forum for any questions or problems that come up: http://forum.playasteria.com/category/development
 
 If you create a mod please announce it on or mod forum: http://forum.playasteria.com/category/mods
+
+:spade:
