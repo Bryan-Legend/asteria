@@ -1,13 +1,13 @@
 Asteria
 =======
 
-Official Shared Source from the Asteria Game - http://playasteria.com
+Official Shared Source from the Asteria Game - https://legendstudio.com/asteria/ & https://store.steampowered.com/app/307130/Asteria/
 
 This is the source for the core of the game. It builds into a .net assembly dll thst is loaded at runtime by the game engine.
 
 The language is C#, which is the same language the game is built in so it's very tightly integrated. It's not so much a scripting language like JS but actually loading code directly into the core of the game. There's no scripting plugin barrier, everything is exposed directly to you. And strong typing and intellisense will make your life a lot easier.
 
-We're using a very loose hacky Javascript style of coding though. It looks a lot like JSON with all the Object Initalizers and has pretty heavy use of lambda expressions (Anonymous Methods in .Net lingo). Check it out: https://github.com/Lone-Coder/asteria/blob/master/HD.Asteria/Items.cs
+We're using a very loose hacky Javascript style of coding though. It looks a lot like JSON with all the Object Initalizers and has pretty heavy use of lambda expressions (Anonymous Methods in .Net lingo). Check it out: https://github.com/Bryan-Legend/asteria/blob/master/HD.Asteria/Items.cs
 
 Feel free to use any of this code in your own Asteria mods.
 
@@ -40,9 +40,3 @@ I know I said "uh" way too much in that video. I've not done a lot of videos and
 Here's a quick introduction to the map generator code that you can use as a base to build your own procedurally generated worlds with.
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=mn_wW8uZ6eQ" target="_blank"><img src="http://img.youtube.com/vi/mn_wW8uZ6eQ/0.jpg" width="480" height="360" border="10" /></a>
-
-## Support
-
-Use our development forum for any questions or problems that come up: http://forum.playasteria.com/category/development
-
-If you create a mod please announce it on or mod forum: http://forum.playasteria.com/category/mods
