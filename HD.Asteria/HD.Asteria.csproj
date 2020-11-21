@@ -67,6 +67,7 @@
     <Compile Include="Commands\Admin\AddCommand.cs" />
     <Compile Include="Commands\Admin\ClearCommand.cs" />
     <Compile Include="Commands\Admin\ClearFlagsCommand.cs" />
+    <Compile Include="Commands\Admin\ResetAchievementsCommand.cs" />
     <Compile Include="Commands\Admin\Maps\MapAmbientCommand.cs" />
     <Compile Include="Commands\Admin\SwitchCommand.cs" />
     <Compile Include="Commands\Admin\GiveCommand.cs" />
@@ -108,7 +109,9 @@
     <Compile Include="Commands\StuckCommand.cs" />
     <Compile Include="Commands\TimeCommand.cs" />
     <Compile Include="Commands\WhoCommand.cs" />
-    <Compile Include="Enemies.cs" />
+    <Compile Include="Enemies.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Items.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Projectiles.cs" />
@@ -118,6 +121,10 @@
     <ProjectReference Include="..\HD.Core\HD.Core.csproj">
       <Project>{235F12D2-872E-4DC1-8D34-A922AE33A785}</Project>
       <Name>HD.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\References\Steamworks.NET-master\Standalone\Steamworks.NET.csproj">
+      <Project>{B3543600-587C-4FDC-994A-CB0BDC629A7E}</Project>
+      <Name>Steamworks.NET</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

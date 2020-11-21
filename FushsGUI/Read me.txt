@@ -1,0 +1,2 @@
+FuchsGUI v1.1 (XNA4)
+Just fixed the issue where some text is being blurry when rendered.

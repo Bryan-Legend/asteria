@@ -28,11 +28,11 @@ namespace HD.Asteria
                 Id = ItemId.Energy,
                 Category = ItemCategory.Useable,
                 Light = Color.FromNonPremultiplied(53, 246, 243, 100),
-                Description = "Heals you for 5% of your energy.",
+                Description = "Heals you for 10% of your energy.",
                 IsConsumed = true,
                 IsUsedImmediately = true,
                 CoolDown = 0,
-                OnUse = (item) => { item.Player.Heal(item.Player.MaxHealth / 20); }
+                OnUse = (item) => { item.Player.Heal(item.Player.MaxHealth / 10); }
             });
 
             ItemBase.AddItem(new ItemType() {
@@ -321,49 +321,49 @@ namespace HD.Asteria
             var seeker = ItemBase.Get(ItemId.PortalSeeker2).Clone();
             seeker.Id = ItemId.PortalSeeker3;
             seeker.Tier = 3;
-            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Copper, 5), new Component(ItemId.Detector, 1), } };
+            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Copper, 5), } };
             ItemBase.AddItem(seeker);
 
             seeker = ItemBase.Get(ItemId.PortalSeeker2).Clone();
             seeker.Id = ItemId.PortalSeeker4;
             seeker.Tier = 4;
-            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Silver, 5), new Component(ItemId.Detector, 1), } };
+            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Silver, 5), } };
             ItemBase.AddItem(seeker);
 
             seeker = ItemBase.Get(ItemId.PortalSeeker2).Clone();
             seeker.Id = ItemId.PortalSeeker5;
             seeker.Tier = 5;
-            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Gold, 5), new Component(ItemId.Detector, 1), } };
+            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Gold, 5), } };
             ItemBase.AddItem(seeker);
 
             seeker = ItemBase.Get(ItemId.PortalSeeker2).Clone();
             seeker.Id = ItemId.PortalSeeker6;
             seeker.Tier = 6;
-            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Darksteel, 5), new Component(ItemId.Detector, 1), } };
+            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Darksteel, 5), } };
             ItemBase.AddItem(seeker);
 
             seeker = ItemBase.Get(ItemId.PortalSeeker2).Clone();
             seeker.Id = ItemId.PortalSeeker7;
             seeker.Tier = 7;
-            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Adamantium, 5), new Component(ItemId.Detector, 1), } };
+            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Adamantium, 5), } };
             ItemBase.AddItem(seeker);
 
             seeker = ItemBase.Get(ItemId.PortalSeeker2).Clone();
             seeker.Id = ItemId.PortalSeeker8;
             seeker.Tier = 8;
-            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Adamantium, 5), new Component(ItemId.Obsidian, 150), new Component(ItemId.Diamond, 5), new Component(ItemId.Detector, 1), } };
+            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Adamantium, 5), new Component(ItemId.Obsidian, 150), new Component(ItemId.Diamond, 5), } };
             ItemBase.AddItem(seeker);
 
             seeker = ItemBase.Get(ItemId.PortalSeeker2).Clone();
             seeker.Id = ItemId.PortalSeeker9;
             seeker.Tier = 9;
-            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Adamantium, 15), new Component(ItemId.Obsidian, 300), new Component(ItemId.Diamond, 15), new Component(ItemId.Detector, 1), } };
+            seeker.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EchoCrystal, 1), new Component(ItemId.Adamantium, 15), new Component(ItemId.Obsidian, 300), new Component(ItemId.Diamond, 15), } };
             ItemBase.AddItem(seeker);
         }
 
         static void AddComponents()
         {
-            foreach (var itemId in (ItemId[])Enum.GetValues(typeof(ItemId))) {
+            foreach (var itemId in  Utility.GetEnumValues<ItemId>()) {
                 if (!ItemBase.TypesById.ContainsKey(itemId) && !itemId.ToString().StartsWith("Reserved")) {
                     ItemBase.AddItem(new ItemType() {
                         Id = itemId,
@@ -381,7 +381,7 @@ namespace HD.Asteria
             ItemBase.TypesById[ItemId.Ectoplasm].Tier = 1;
             ItemBase.TypesById[ItemId.Ectoplasm].ListPriority = 61;
             ItemBase.TypesById[ItemId.EctoplasmCore].Tier = 2;
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EctoplasmCore }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Ectoplasm, 20), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EctoplasmCore }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Ectoplasm, 10), } });
 
             ItemBase.TypesById[ItemId.RedCrystal].Tier = 1;
             ItemBase.TypesById[ItemId.RedCrystal].Description = "A red crystal found on earth based monsters.";
@@ -402,10 +402,10 @@ namespace HD.Asteria
             ItemBase.TypesById[ItemId.EchoCrystal].Description = "A combination of red, blue and green crystals.";
             ItemBase.TypesById[ItemId.EchoCrystal].ListPriority = 61;
             ItemBase.TypesById[ItemId.EchoCrystal].Light = Color.FromNonPremultiplied(255, 0, 255, 100);
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EchoCrystal }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.RedCrystal, 1), new Component(ItemId.BlueCrystal, 1), new Component(ItemId.GreenCrystal, 1), }, CreateAmount = 2 });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EchoCrystal }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.RedCrystal, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EchoCrystal }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.BlueCrystal, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EchoCrystal }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.GreenCrystal, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EchoCrystal }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.RedCrystal, 1), new Component(ItemId.BlueCrystal, 1), new Component(ItemId.GreenCrystal, 1), }, CreateAmount = 2 });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EchoCrystal }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.RedCrystal, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EchoCrystal }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.BlueCrystal, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EchoCrystal }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.GreenCrystal, 2), } });
 
             ItemBase.TypesById[ItemId.GunnDiode].Tier = 1;
             ItemBase.TypesById[ItemId.GunnDiode].ListPriority = 61;
@@ -424,12 +424,12 @@ namespace HD.Asteria
 
             ItemBase.TypesById[ItemId.Accelerometer].Tier = 1;
             ItemBase.TypesById[ItemId.Accelerometer].ListPriority = 61;
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Accelerometer }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Wiring, 1), new Component(ItemId.Thermistor, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Accelerometer }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Wiring, 1), new Component(ItemId.Thermistor, 1), } });
 
             ItemBase.TypesById[ItemId.Wiring].Tier = 1;
             ItemBase.TypesById[ItemId.Wiring].ListPriority = 61;
 
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Detector }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Thyratron, 1), new Component(ItemId.FieldEffectTransistor, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Detector }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Thyratron, 1), new Component(ItemId.FieldEffectTransistor, 1), } });
             ItemBase.TypesById[ItemId.Detector].ListPriority = 61;
             ItemBase.TypesById[ItemId.Detector].Tier = 2;
             //RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Detector }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.PortalSeeker2, 1), } });
@@ -440,7 +440,7 @@ namespace HD.Asteria
             //RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Detector }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.PortalSeeker7, 1), } });
             //RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Detector }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.PortalSeeker8, 1), } });
 
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.MercuryArcRectifier }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 1), new Component(ItemId.GunnDiode, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.MercuryArcRectifier }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 1), new Component(ItemId.GunnDiode, 1), } });
             ItemBase.TypesById[ItemId.MercuryArcRectifier].ListPriority = 61;
             ItemBase.TypesById[ItemId.MercuryArcRectifier].Tier = 6;
 
@@ -499,55 +499,55 @@ namespace HD.Asteria
             ItemBase.TypesById[ItemId.Uranium].Tier = 8;
             ItemBase.TypesById[ItemId.Uranium].Light = Color.FromNonPremultiplied(42, 226, 67, 100);
             ItemBase.TypesById[ItemId.Obsidian].Tier = 7;
-            ItemBase.TypesById[ItemId.TurboSuperconductor].Tier = 8;
-            ItemBase.TypesById[ItemId.TurboSuperconductor].ListPriority = 63;
-            ItemBase.TypesById[ItemId.TurboSuperconductor].AltCategory = ItemCategory.KeyComponent;
+            ItemBase.TypesById[ItemId.ObsidianSuperconductor].Tier = 8;
+            ItemBase.TypesById[ItemId.ObsidianSuperconductor].ListPriority = 63;
+            ItemBase.TypesById[ItemId.ObsidianSuperconductor].AltCategory = ItemCategory.KeyComponent;
 
             ItemBase.TypesById[ItemId.Plutonium].Tier = 9;
             ItemBase.TypesById[ItemId.Einsteinium].Tier = 9;
-            ItemBase.TypesById[ItemId.UltraSuperconductor].Tier = 9;
-            ItemBase.TypesById[ItemId.UltraSuperconductor].ListPriority = 63;
-            ItemBase.TypesById[ItemId.UltraSuperconductor].AltCategory = ItemCategory.KeyComponent;
+            ItemBase.TypesById[ItemId.EinsteiniumSuperconductor].Tier = 9;
+            ItemBase.TypesById[ItemId.EinsteiniumSuperconductor].ListPriority = 63;
+            ItemBase.TypesById[ItemId.EinsteiniumSuperconductor].AltCategory = ItemCategory.KeyComponent;
 
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Glass }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Sand, 5), new Component(ItemId.Sodium, 1), new Component(ItemId.Coal, 1), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Iron }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.IronOre, 5), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Glass }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Sand, 5), new Component(ItemId.Sodium, 1), new Component(ItemId.Coal, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Iron }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.IronOre, 5), } });
 
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Steel }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Iron, 1), new Component(ItemId.Coal, 1), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Aluminum }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.AluminumOre, 5), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Steel }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Iron, 1), new Component(ItemId.Coal, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Aluminum }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.AluminumOre, 5), } });
 
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Copper }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.CopperOre, 5), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Silver }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.SilverOre, 5), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Gold }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.GoldOre, 5), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Copper }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.CopperOre, 5), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Silver }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.SilverOre, 5), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Gold }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.GoldOre, 5), } });
 
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Radium }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.RadiumOre, 5), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Darksteel }, Location = ItemId.ChemicalReactor, Components = new Component[] { new Component(ItemId.Steel, 10), new Component(ItemId.Dilithium, 5), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Battery }, Location = ItemId.ChemicalReactor, Components = new Component[] { new Component(ItemId.MercuryCell, 1), new Component(ItemId.Darksteel, 1), new Component(ItemId.Sodium, 5), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Magnet }, Location = ItemId.ChemicalReactor, Components = new Component[] { new Component(ItemId.Darksteel, 4), new Component(ItemId.Aluminum, 5), new Component(ItemId.Accelerometer, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Radium }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.RadiumOre, 5), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Darksteel }, Location = ItemId.ChemicalReactor, Components = new Component[] { new Component(ItemId.Steel, 5), new Component(ItemId.Dilithium, 5), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Battery }, Location = ItemId.ChemicalReactor, Components = new Component[] { new Component(ItemId.MercuryCell, 1), new Component(ItemId.Darksteel, 1), new Component(ItemId.Sodium, 5), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Magnet }, Location = ItemId.ChemicalReactor, Components = new Component[] { new Component(ItemId.Darksteel, 4), new Component(ItemId.Aluminum, 5), new Component(ItemId.Accelerometer, 1), } });
             ItemBase.TypesById[ItemId.Magnet].ListPriority = 62;
 
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.LaserGlass }, Location = ItemId.NuclearReactor, Components = new Component[] { new Component(ItemId.Dilithium, 1), new Component(ItemId.Glass, 5), new Component(ItemId.Sodium, 15), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Uranium }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.UraniumOre, 5), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Plutonium }, Location = ItemId.NuclearReactor, Components = new Component[] { new Component(ItemId.Uranium, 1), new Component(ItemId.Sodium, 10), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Adamantium }, Location = ItemId.NuclearReactor, Components = new Component[] { new Component(ItemId.Darksteel, 1), new Component(ItemId.Radium, 3), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Einsteinium }, Location = ItemId.NuclearReactor, Components = new Component[] { new Component(ItemId.Adamantium, 1), new Component(ItemId.Plutonium, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.LaserGlass }, Location = ItemId.NuclearReactor, Components = new Component[] { new Component(ItemId.Dilithium, 1), new Component(ItemId.Glass, 5), new Component(ItemId.Sodium, 15), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Uranium }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.UraniumOre, 5), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Plutonium }, Location = ItemId.NuclearReactor, Components = new Component[] { new Component(ItemId.Uranium, 1), new Component(ItemId.Sodium, 10), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Adamantium }, Location = ItemId.NuclearReactor, Components = new Component[] { new Component(ItemId.Darksteel, 1), new Component(ItemId.Radium, 3), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Einsteinium }, Location = ItemId.NuclearReactor, Components = new Component[] { new Component(ItemId.Adamantium, 1), new Component(ItemId.Plutonium, 2), } });
 
             ItemBase.TypesById[ItemId.AmethystScope].Tier = 4;
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.AmethystScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Silver, 2), new Component(ItemId.OcularLens, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.AmethystScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Silver, 2), new Component(ItemId.OcularLens, 1), } });
             ItemBase.TypesById[ItemId.AmethystScope].ListPriority = 61;
             ItemBase.TypesById[ItemId.EmeraldScope].Tier = 5;
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EmeraldScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Gold, 2), new Component(ItemId.OcularLens, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.EmeraldScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Gold, 2), new Component(ItemId.OcularLens, 1), } });
             ItemBase.TypesById[ItemId.EmeraldScope].ListPriority = 61;
             ItemBase.TypesById[ItemId.SapphireScope].Tier = 6;
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.SapphireScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Darksteel, 2), new Component(ItemId.OcularLens, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.SapphireScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Darksteel, 2), new Component(ItemId.OcularLens, 1), } });
             ItemBase.TypesById[ItemId.SapphireScope].ListPriority = 61;
             ItemBase.TypesById[ItemId.RubyScope].Tier = 7;
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.RubyScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Adamantium, 2), new Component(ItemId.OcularLens, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.RubyScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Adamantium, 2), new Component(ItemId.OcularLens, 1), } });
             ItemBase.TypesById[ItemId.RubyScope].ListPriority = 61;
             ItemBase.TypesById[ItemId.DiamondScope].Tier = 8;
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.DiamondScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Diamond, 30), new Component(ItemId.OcularLens, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.DiamondScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Diamond, 30), new Component(ItemId.OcularLens, 1), } });
             ItemBase.TypesById[ItemId.DiamondScope].ListPriority = 61;
             ItemBase.TypesById[ItemId.DiamondTacticalScope].Tier = 9;
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.DiamondTacticalScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Einsteinium, 5), new Component(ItemId.OcularLens, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.DiamondTacticalScope }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.MercuryCell, 5), new Component(ItemId.Einsteinium, 5), new Component(ItemId.OcularLens, 1), } });
             ItemBase.TypesById[ItemId.DiamondTacticalScope].ListPriority = 61;
             ItemBase.TypesById[ItemId.Refrigerant].ListPriority = 61;
             ItemBase.TypesById[ItemId.Refrigerant].Tier = 4;
@@ -557,30 +557,30 @@ namespace HD.Asteria
             ItemBase.TypesById[ItemId.EctoplasmCore].Light = Color.FromNonPremultiplied(65, 254, 110, 100);
 
             //Bricks
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.BlackBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.DarkGrayBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.LightGrayBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.WhiteBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.BlueBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.LightBlueBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.CyanBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.GreenBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.LightGreenBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.YellowBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.BrownBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.OrangeBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.TanBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.RedBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.PurpleBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.PinkBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.BlackBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.DarkGrayBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.LightGrayBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.WhiteBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.BlueBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.LightBlueBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.CyanBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.GreenBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.LightGreenBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.YellowBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.BrownBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.OrangeBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.TanBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.RedBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.PurpleBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.PinkBrick }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 2), } });
 
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.GrayMetal }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 1), new Component(ItemId.Steel, 1), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.DarkGrayMetal }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 1), new Component(ItemId.Steel, 1), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.BlackMetal }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 1), new Component(ItemId.Steel, 1), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.RedMetal }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 1), new Component(ItemId.Steel, 1), } });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.WhiteMetal }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 1), new Component(ItemId.Steel, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.GrayMetal }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 1), new Component(ItemId.Steel, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.DarkGrayMetal }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 1), new Component(ItemId.Steel, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.BlackMetal }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 1), new Component(ItemId.Steel, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.RedMetal }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 1), new Component(ItemId.Steel, 1), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.WhiteMetal }, Location = ItemId.Furnace, Components = new Component[] { new Component(ItemId.Basalt, 1), new Component(ItemId.Steel, 1), } });
 
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Platform, Amount = 25 }, CreateAmount = 25, Components = new Component[] { new Component(ItemId.Iron, 25) }, });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Platform, Amount = 25 }, CreateAmount = 25, Components = new Component[] { new Component(ItemId.Iron, 25) }, });
         }
 
         static void AddPlaceables()
@@ -597,7 +597,7 @@ namespace HD.Asteria
                 ListPriority = 0,
                 Recipe = new Recipe() { Components = new Component[] { new Component(ItemId.Iron, 1), new Component(ItemId.Coal, 1), }, CreateAmount = 5 },
             });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.LightOrb, Amount = 5 }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Iron, 1), new Component(ItemId.Coal, 1), }, CreateAmount = 5 });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.LightOrb, Amount = 5 }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Iron, 1), new Component(ItemId.Coal, 1), }, CreateAmount = 5 });
 
             ItemBase.AddItem(new ItemType() {
                 Id = ItemId.BlueLightOrb,
@@ -875,7 +875,7 @@ namespace HD.Asteria
 
             ItemBase.AddItem(new ItemType() {
                 Id = ItemId.PersonalHypercube,
-                Description = "Holds up to 24 items and is only usable by it's owner.",
+                Description = "Holds up to 24 items and is only usable by its owner.",
                 Category = ItemCategory.Placable,
                 SpriteAnimation = SpriteAnimation.Cycle10,
                 IsDematerializable = true,
@@ -1401,7 +1401,11 @@ namespace HD.Asteria
                 Rarity = Rarity.Heroic,
                 Tier = 9,
                 ListPriority = 98,
-                OnEquip = (p, i) => { p.IsAdmin = true; }
+                OnEquip = (p, i) =>
+                {
+                    p.GiveAchievement(Achievement.WhereTheGodsDwell);
+                    p.IsAdmin = true;
+                }
             });
 
             ItemBase.AddItem(new ItemType() {
@@ -1414,7 +1418,7 @@ namespace HD.Asteria
                 OnEquip = (p, i) => { p.MaxHealth += 80; },
                 Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Steel, 15), } },
             });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Suit2 }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Steel, 15), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Suit2 }, Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Steel, 15), } });
 
             var suit = ItemBase.Get(ItemId.Suit2).Clone();
             suit.Id = ItemId.Suit3;
@@ -1873,7 +1877,7 @@ namespace HD.Asteria
             weapon.Tier = 2;
             weapon.Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.Steel, 10), } };
             ItemBase.AddItem(weapon);
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Blaster2 }, Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Steel, 10), } });
+            RecipeBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.Blaster2 }, Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Steel, 10), } });
 
             weapon = ItemBase.Get(ItemId.Blaster1).Clone();
             weapon.Id = ItemId.Blaster3;
@@ -1933,43 +1937,88 @@ namespace HD.Asteria
                     Projectile.Shoot(ProjectileId.Disruptor, item.Player, item.GetTier());
                     Projectile.Shoot(ProjectileId.Disruptor, item.Player, item.GetTier(), (float)Math.PI / 18);
                 },
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Copper, 15), new Component(ItemId.Topaz, 15), new Component(ItemId.Thermistor, 3), } },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.Copper, 15), new Component(ItemId.Topaz, 15), new Component(ItemId.Thermistor, 3), },
+                    OnCraftAchievement = Achievement.Disruptor
+                },
             });
 
             weapon = ItemBase.Get(ItemId.Disruptor3).Clone();
             weapon.Id = ItemId.Disruptor4;
             weapon.Tier = 4;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Silver, 15), new Component(ItemId.Amethyst, 15), new Component(ItemId.Thermistor, 3), } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Silver, 15), new Component(ItemId.Amethyst, 15), new Component(ItemId.Thermistor, 3), },
+                OnCraftAchievement = Achievement.Disruptor
+            };
             ItemBase.AddItem(weapon);
 
             weapon = ItemBase.Get(ItemId.Disruptor3).Clone();
             weapon.Id = ItemId.Disruptor5;
             weapon.Tier = 5;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Gold, 15), new Component(ItemId.Emerald, 15), new Component(ItemId.Thermistor, 3), } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Gold, 15), new Component(ItemId.Emerald, 15), new Component(ItemId.Thermistor, 3), },
+                OnCraftAchievement = Achievement.Disruptor
+            };
             ItemBase.AddItem(weapon);
 
             weapon = ItemBase.Get(ItemId.Disruptor3).Clone();
             weapon.Id = ItemId.Disruptor6;
             weapon.Tier = 6;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Magnet, 1), new Component(ItemId.Darksteel, 15), new Component(ItemId.Sapphire, 15), new Component(ItemId.Thermistor, 3), } };
+            weapon.OnUse = (item) => {
+                Projectile.Shoot(ProjectileId.MidRangeDisruptor, item.Player, item.GetTier(), (float)-Math.PI / 18);
+                Projectile.Shoot(ProjectileId.MidRangeDisruptor, item.Player, item.GetTier());
+                Projectile.Shoot(ProjectileId.MidRangeDisruptor, item.Player, item.GetTier(), (float)Math.PI / 18);
+            };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Magnet, 1), new Component(ItemId.Darksteel, 15), new Component(ItemId.Sapphire, 15), new Component(ItemId.Thermistor, 3), },
+                OnCraftAchievement = Achievement.Disruptor
+            };
             ItemBase.AddItem(weapon);
 
-            weapon = ItemBase.Get(ItemId.Disruptor3).Clone();
+            weapon = ItemBase.Get(ItemId.Disruptor6).Clone();
             weapon.Id = ItemId.Disruptor7;
             weapon.Tier = 7;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Magnet, 1), new Component(ItemId.Adamantium, 15), new Component(ItemId.Ruby, 15), new Component(ItemId.Thermistor, 3), } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Magnet, 1), new Component(ItemId.Adamantium, 15), new Component(ItemId.Ruby, 15), new Component(ItemId.Thermistor, 3), },
+                OnCraftAchievement = Achievement.Disruptor
+            };
             ItemBase.AddItem(weapon);
 
-            weapon = ItemBase.Get(ItemId.Disruptor3).Clone();
+            weapon = ItemBase.Get(ItemId.Disruptor6).Clone();
             weapon.Id = ItemId.Disruptor8;
             weapon.Tier = 8;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Magnet, 2), new Component(ItemId.Obsidian, 150), new Component(ItemId.Diamond, 15), new Component(ItemId.Thermistor, 3), } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Magnet, 2), new Component(ItemId.Obsidian, 150), new Component(ItemId.Diamond, 15), new Component(ItemId.Thermistor, 3), },
+                OnCraftAchievement = Achievement.Disruptor
+            };
             ItemBase.AddItem(weapon);
 
-            weapon = ItemBase.Get(ItemId.Disruptor3).Clone();
+            weapon = ItemBase.Get(ItemId.Disruptor6).Clone();
             weapon.Id = ItemId.Disruptor9;
             weapon.Tier = 9;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Magnet, 2), new Component(ItemId.Einsteinium, 10), new Component(ItemId.Diamond, 15), new Component(ItemId.Thermistor, 3), } };
+            weapon.OnUse = (item) => {
+                Projectile.Shoot(ProjectileId.LongRangeDisruptor, item.Player, item.GetTier(), (float)-Math.PI / 18);
+                Projectile.Shoot(ProjectileId.LongRangeDisruptor, item.Player, item.GetTier());
+                Projectile.Shoot(ProjectileId.LongRangeDisruptor, item.Player, item.GetTier(), (float)Math.PI / 18);
+            };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Magnet, 2), new Component(ItemId.Einsteinium, 10), new Component(ItemId.Diamond, 15), new Component(ItemId.Thermistor, 3), },
+                OnCraftAchievement = Achievement.Disruptor
+            };
             ItemBase.AddItem(weapon);
 
             ItemBase.AddItem(new ItemType() {
@@ -1986,37 +2035,67 @@ namespace HD.Asteria
                 OnUse = (item) => {
                     Projectile.Shoot(ProjectileId.LaserRifle, item.Player, item.GetTier());
                 },
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EctoplasmCore, 2), new Component(ItemId.Silver, 15), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.AmethystScope, 1), } },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.EctoplasmCore, 2), new Component(ItemId.Silver, 15), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.AmethystScope, 1), },
+                    OnCraftAchievement = Achievement.LaserRifle
+                },
             });
 
             weapon = ItemBase.Get(ItemId.LaserRifle4).Clone();
             weapon.Id = ItemId.LaserRifle5;
             weapon.Tier = 5;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EctoplasmCore, 4), new Component(ItemId.Gold, 15), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.EmeraldScope, 1), } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.EctoplasmCore, 4), new Component(ItemId.Gold, 15), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.EmeraldScope, 1), },
+                OnCraftAchievement = Achievement.LaserRifle
+            };
             ItemBase.AddItem(weapon);
 
             weapon = ItemBase.Get(ItemId.LaserRifle4).Clone();
             weapon.Id = ItemId.LaserRifle6;
             weapon.Tier = 6;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Magnet, 1), new Component(ItemId.Darksteel, 15), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.SapphireScope, 1), } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Magnet, 1), new Component(ItemId.Darksteel, 15), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.SapphireScope, 1), },
+                OnCraftAchievement = Achievement.LaserRifle
+            };
             ItemBase.AddItem(weapon);
 
             weapon = ItemBase.Get(ItemId.LaserRifle4).Clone();
             weapon.Id = ItemId.LaserRifle7;
             weapon.Tier = 7;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Magnet, 1), new Component(ItemId.Adamantium, 15), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.RubyScope, 1), } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Magnet, 1), new Component(ItemId.Adamantium, 15), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.RubyScope, 1), },
+                OnCraftAchievement = Achievement.LaserRifle
+            };
             ItemBase.AddItem(weapon);
 
             weapon = ItemBase.Get(ItemId.LaserRifle4).Clone();
             weapon.Id = ItemId.LaserRifle8;
             weapon.Tier = 8;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Magnet, 2), new Component(ItemId.Obsidian, 150), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.DiamondScope, 1), } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Magnet, 2), new Component(ItemId.Obsidian, 150), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.DiamondScope, 1), },
+                OnCraftAchievement = Achievement.LaserRifle
+            };
             ItemBase.AddItem(weapon);
 
             weapon = ItemBase.Get(ItemId.LaserRifle4).Clone();
             weapon.Id = ItemId.LaserRifle9;
             weapon.Tier = 9;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Magnet, 3), new Component(ItemId.Einsteinium, 10), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.DiamondTacticalScope, 1), } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Magnet, 3), new Component(ItemId.Einsteinium, 10), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.DiamondTacticalScope, 1), },
+                OnCraftAchievement = Achievement.LaserRifle
+            };
             ItemBase.AddItem(weapon);
 
             ItemBase.AddItem(new ItemType() {
@@ -2033,30 +2112,56 @@ namespace HD.Asteria
                 OnUse = (item) => {
                     Projectile.Shoot(ProjectileId.HomingMissile, item.Player, item.GetTier());
                 },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.Gold, 20), new Component(ItemId.Emerald, 20), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.Detector, 1) },
+                    OnCraftAchievement = Achievement.HomingMissile
+                }
             });
 
             weapon = ItemBase.Get(ItemId.Homing5).Clone();
             weapon.Id = ItemId.Homing6;
             weapon.Tier = 6;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Darksteel, 20), new Component(ItemId.Sapphire, 20), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.Detector, 1) } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Darksteel, 20), new Component(ItemId.Sapphire, 20), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.Detector, 1) },
+                OnCraftAchievement = Achievement.HomingMissile
+            };
             ItemBase.AddItem(weapon);
 
             weapon = ItemBase.Get(ItemId.Homing5).Clone();
             weapon.Id = ItemId.Homing7;
             weapon.Tier = 7;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Adamantium, 20), new Component(ItemId.Ruby, 20), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.Detector, 1) } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Adamantium, 20), new Component(ItemId.Ruby, 20), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.Detector, 1) },
+                OnCraftAchievement = Achievement.HomingMissile
+            };
             ItemBase.AddItem(weapon);
 
             weapon = ItemBase.Get(ItemId.Homing5).Clone();
             weapon.Id = ItemId.Homing8;
             weapon.Tier = 8;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Obsidian, 200), new Component(ItemId.Diamond, 20), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.Detector, 1) } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Obsidian, 200), new Component(ItemId.Diamond, 20), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.Detector, 1) },
+                OnCraftAchievement = Achievement.HomingMissile
+            };
             ItemBase.AddItem(weapon);
 
             weapon = ItemBase.Get(ItemId.Homing5).Clone();
             weapon.Id = ItemId.Homing9;
             weapon.Tier = 9;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Einsteinium, 10), new Component(ItemId.Diamond, 20), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.Detector, 1) } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.Einsteinium, 10), new Component(ItemId.Diamond, 20), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.Detector, 1) },
+                OnCraftAchievement = Achievement.HomingMissile
+            };
             ItemBase.AddItem(weapon);
 
             ItemBase.AddItem(new ItemType() {
@@ -2075,7 +2180,12 @@ namespace HD.Asteria
                 OnStopUsing = (item) => {
                     item.Player.PlayingSound = Sound.None;
                 },
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Darksteel, 20), new Component(ItemId.Thermistor, 10), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.FuelTank, 1), } },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.Darksteel, 20), new Component(ItemId.Thermistor, 10), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.FuelTank, 1), },
+                    OnCraftAchievement = Achievement.FlameThrower
+                },
             });
 
             ItemBase.AddItem(new ItemType() {
@@ -2091,7 +2201,12 @@ namespace HD.Asteria
                 OnUse = (item) => {
                     Projectile.Shoot(ProjectileId.BoseEinsteinCondenser, item.Player, item.GetTier());
                 },
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Aluminum, 20), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.Thermistor, 10), new Component(ItemId.Refrigerant, 1), } },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.Aluminum, 20), new Component(ItemId.RifleBarrel, 1), new Component(ItemId.Thermistor, 10), new Component(ItemId.Refrigerant, 1), },
+                    OnCraftAchievement = Achievement.BoseEinsteinCondenser
+                },
             });
 
             ItemBase.AddItem(new ItemType() {
@@ -2105,7 +2220,12 @@ namespace HD.Asteria
                 PlaceAndActivateRange = 10000,
                 IsManualFire = true,
                 Light = Color.White,
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.GrenadeBarrel), new Component(ItemId.Darksteel, 20), new Component(ItemId.Sapphire, 20), new Component(ItemId.GunnDiode, 3), } },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.GrenadeBarrel), new Component(ItemId.Darksteel, 20), new Component(ItemId.Sapphire, 20), new Component(ItemId.GunnDiode, 3), },
+                    OnCraftAchievement = Achievement.GrenadeLauncher
+                },
                 OnUse = (item) => {
                     Projectile.Shoot(ProjectileId.Grenade_2, item.Player, item.GetTier());
                 },
@@ -2113,19 +2233,34 @@ namespace HD.Asteria
             weapon = ItemBase.Get(ItemId.GrenadeLauncher6).Clone();
             weapon.Id = ItemId.GrenadeLauncher7;
             weapon.Tier = 7;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.GrenadeBarrel), new Component(ItemId.Adamantium, 20), new Component(ItemId.Ruby, 20), new Component(ItemId.GunnDiode, 3), } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.GrenadeBarrel), new Component(ItemId.Adamantium, 20), new Component(ItemId.Ruby, 20), new Component(ItemId.GunnDiode, 3), },
+                OnCraftAchievement = Achievement.GrenadeLauncher
+            };
             ItemBase.AddItem(weapon);
 
             weapon = ItemBase.Get(ItemId.GrenadeLauncher6).Clone();
             weapon.Id = ItemId.GrenadeLauncher8;
             weapon.Tier = 8;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.GrenadeBarrel), new Component(ItemId.MercuryCell, 1), new Component(ItemId.Obsidian, 200), new Component(ItemId.Diamond, 20), new Component(ItemId.GunnDiode, 3), } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.GrenadeBarrel), new Component(ItemId.MercuryCell, 1), new Component(ItemId.Obsidian, 200), new Component(ItemId.Diamond, 20), new Component(ItemId.GunnDiode, 3), },
+                OnCraftAchievement = Achievement.GrenadeLauncher
+            };
             ItemBase.AddItem(weapon);
 
             weapon = ItemBase.Get(ItemId.GrenadeLauncher6).Clone();
             weapon.Id = ItemId.GrenadeLauncher9;
             weapon.Tier = 9;
-            weapon.Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.GrenadeBarrel), new Component(ItemId.MercuryCell, 1), new Component(ItemId.Einsteinium, 10), new Component(ItemId.Diamond, 20), new Component(ItemId.GunnDiode, 3), } };
+            weapon.Recipe = new Recipe()
+            {
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.GrenadeBarrel), new Component(ItemId.MercuryCell, 1), new Component(ItemId.Einsteinium, 10), new Component(ItemId.Diamond, 20), new Component(ItemId.GunnDiode, 3), },
+                OnCraftAchievement = Achievement.GrenadeLauncher
+            };
             ItemBase.AddItem(weapon);
         }
 
@@ -2145,7 +2280,10 @@ namespace HD.Asteria
                     item.Player.PlaySound(Sound.MiningToolFire);
                     Projectile.Shoot(ProjectileId.DigSmall, item.Player, item.Type.Tier);
                 },
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Ectoplasm, 10), new Component(ItemId.Iron, 15), new Component(ItemId.IronSuperconductor, 1), } },
+                Recipe = new Recipe() {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.Ectoplasm, 10), new Component(ItemId.Iron, 15), new Component(ItemId.IronSuperconductor, 1), },
+                    OnCraftAchievement = Achievement.IronMiningTool },
             });
 
             ItemBase.AddItem(new ItemType() {
@@ -2162,9 +2300,20 @@ namespace HD.Asteria
                     item.Player.PlaySound(Sound.MiningToolFire);
                     Projectile.Shoot(ProjectileId.DigMedium, item.Player, item.Type.Tier);
                 },
-                Recipe = new Recipe() { Location = ItemId.Workbench, Components = new Component[] { new Component(ItemId.EctoplasmCore, 1), new Component(ItemId.Steel, 15), new Component(ItemId.SteelSuperconductor, 1), } },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.Workbench,
+                    Components = new Component[] { new Component(ItemId.EctoplasmCore, 1), new Component(ItemId.Steel, 15), new Component(ItemId.SteelSuperconductor, 1), },
+                    OnCraftAchievement = Achievement.SteelMiningTool
+                },
             });
-            RecipieBase.AddRecipe(new Recipe() { Creates = new Item() { TypeId = ItemId.MiningTool2 }, Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EctoplasmCore, 1), new Component(ItemId.Steel, 15), new Component(ItemId.SteelSuperconductor, 1), } });
+            RecipeBase.AddRecipe(new Recipe()
+            {
+                Creates = new Item() { TypeId = ItemId.MiningTool2 },
+                Location = ItemId.MillingMachine,
+                Components = new Component[] { new Component(ItemId.EctoplasmCore, 1), new Component(ItemId.Steel, 15), new Component(ItemId.SteelSuperconductor, 1), },
+                OnCraftAchievement = Achievement.SteelMiningTool
+            });
 
             ItemBase.AddItem(new ItemType() {
                 Id = ItemId.MiningTool3,
@@ -2180,7 +2329,12 @@ namespace HD.Asteria
                     item.Player.PlaySound(Sound.MiningToolFire);
                     Projectile.Shoot(ProjectileId.DigMedium, item.Player, item.Type.Tier);
                 },
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EctoplasmCore, 2), new Component(ItemId.Copper, 15), new Component(ItemId.Topaz, 10), new Component(ItemId.CopperSuperconductor, 1) } },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.EctoplasmCore, 2), new Component(ItemId.Copper, 15), new Component(ItemId.Topaz, 10), new Component(ItemId.CopperSuperconductor, 1) },
+                    OnCraftAchievement = Achievement.CopperMiningTool
+                },
             });
 
             ItemBase.AddItem(new ItemType() {
@@ -2197,7 +2351,12 @@ namespace HD.Asteria
                     item.Player.PlaySound(Sound.MiningToolFire);
                     Projectile.Shoot(ProjectileId.DigLarge, item.Player, item.Type.Tier);
                 },
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EctoplasmCore, 2), new Component(ItemId.Silver, 15), new Component(ItemId.Amethyst, 10), new Component(ItemId.SilverSuperconductor, 1) } },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.EctoplasmCore, 2), new Component(ItemId.Silver, 15), new Component(ItemId.Amethyst, 10), new Component(ItemId.SilverSuperconductor, 1) },
+                    OnCraftAchievement = Achievement.SilverMiningTool
+                },
             });
 
             ItemBase.AddItem(new ItemType() {
@@ -2214,7 +2373,12 @@ namespace HD.Asteria
                     item.Player.PlaySound(Sound.MiningToolFire);
                     Projectile.Shoot(ProjectileId.DigLarge, item.Player, item.Type.Tier);
                 },
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.EctoplasmCore, 2), new Component(ItemId.Gold, 15), new Component(ItemId.Emerald, 10), new Component(ItemId.GoldSuperconductor, 1) } },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.EctoplasmCore, 2), new Component(ItemId.Gold, 15), new Component(ItemId.Emerald, 10), new Component(ItemId.GoldSuperconductor, 1) },
+                    OnCraftAchievement = Achievement.GoldMiningTool
+                },
             });
 
             ItemBase.AddItem(new ItemType() {
@@ -2231,7 +2395,12 @@ namespace HD.Asteria
                     item.Player.PlaySound(Sound.MiningToolFire);
                     Projectile.Shoot(ProjectileId.DigExtraLarge, item.Player, item.Type.Tier);
                 },
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Battery, 4), new Component(ItemId.Darksteel, 15), new Component(ItemId.DarksteelSuperconductor, 1) } },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.Battery, 4), new Component(ItemId.Darksteel, 15), new Component(ItemId.DarksteelSuperconductor, 1) },
+                    OnCraftAchievement = Achievement.DarksteelMiningTool
+                },
             });
 
             ItemBase.AddItem(new ItemType() {
@@ -2249,7 +2418,12 @@ namespace HD.Asteria
                     Projectile.Shoot(ProjectileId.DigExtraLarge, item.Player, item.Type.Tier, -(float)Math.PI / 32f);
                     Projectile.Shoot(ProjectileId.DigExtraLarge, item.Player, item.Type.Tier, (float)Math.PI / 32f);
                 },
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Battery, 5), new Component(ItemId.Adamantium, 15), new Component(ItemId.AdamantiumSuperconductor, 1) } },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.Battery, 5), new Component(ItemId.Adamantium, 15), new Component(ItemId.AdamantiumSuperconductor, 1) },
+                    OnCraftAchievement = Achievement.AdamantiumMiningTool
+                },
             });
 
             ItemBase.AddItem(new ItemType() {
@@ -2267,7 +2441,12 @@ namespace HD.Asteria
                     Projectile.Shoot(ProjectileId.DigExtraLarge, item.Player, item.Type.Tier, -(float)Math.PI / 32f);
                     Projectile.Shoot(ProjectileId.DigExtraLarge, item.Player, item.Type.Tier, (float)Math.PI / 32f);
                 },
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Battery, 5), new Component(ItemId.Obsidian, 150), new Component(ItemId.Diamond, 10), new Component(ItemId.TurboSuperconductor, 1), } },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.Battery, 5), new Component(ItemId.Obsidian, 150), new Component(ItemId.Diamond, 10), new Component(ItemId.ObsidianSuperconductor, 1), },
+                    OnCraftAchievement = Achievement.ObsidianMiningTool
+                },
             });
 
             ItemBase.AddItem(new ItemType() {
@@ -2286,7 +2465,12 @@ namespace HD.Asteria
                     Projectile.Shoot(ProjectileId.DigExtraLarge, item.Player, item.Type.Tier);
                     Projectile.Shoot(ProjectileId.DigExtraLarge, item.Player, item.Type.Tier, +(float)Math.PI / 16f);
                 },
-                Recipe = new Recipe() { Location = ItemId.MillingMachine, Components = new Component[] { new Component(ItemId.Battery, 5), new Component(ItemId.Einsteinium, 15), new Component(ItemId.Diamond, 20), new Component(ItemId.RifleBarrel, 3), new Component(ItemId.UltraSuperconductor, 1), } },
+                Recipe = new Recipe()
+                {
+                    Location = ItemId.MillingMachine,
+                    Components = new Component[] { new Component(ItemId.Battery, 5), new Component(ItemId.Einsteinium, 15), new Component(ItemId.Diamond, 20), new Component(ItemId.RifleBarrel, 3), new Component(ItemId.EinsteiniumSuperconductor, 1), },
+                    OnCraftAchievement = Achievement.EinsteiniumMiningTool
+                },
             });
 
             ItemBase.AddItem(new ItemType() {

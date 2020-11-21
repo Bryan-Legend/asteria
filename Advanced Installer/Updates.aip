@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="9.9" version="9.9" Modules="update" RootPath="." Language="en" Id="{6FD56D4A-29FA-4B71-886E-C33E3703DCE7}">
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;aiu-ue.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;aiu-ue_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.UpdaterEditorComponent">
+    <ROW Section="0.1.9" Key="ProductVersion" Value="0.1.9.0"/>
+    <ROW Section="0.1.9" Key="Name" Value="Asteria"/>
+    <ROW Section="0.1.9" Key="URL" Value="http://www.example.com/downloads/Asteria-0.1.9.0.exe"/>
+    <ROW Section="0.1.9" Key="Size" Value="..\Website\PrecompiledWeb\Download\Asteria-0.1.9.0.exe"/>
+    <ROW Section="0.1.9" Key="MD5" Value="..\Website\PrecompiledWeb\Download\Asteria-0.1.9.0.exe"/>
+    <ROW Section="0.1.9" Key="ServerFileName" Value="Asteria-0.1.9.0.exe"/>
+    <ROW Section="0.1.9" Key="RegistryKey" Value="HKUD\Software\Legend Studio\Asteria\Version"/>
+    <ROW Section="0.1.9" Key="Version" Value="0.1.9.0"/>
+    <ROW Section="0.1.19" Key="Name" Value="Asteria 0.1.19"/>
+    <ROW Section="0.1.19" Key="ProductVersion" Value="0.1.19.0"/>
+    <ROW Section="0.1.19" Key="URL" Value="http://download.playasteria.com/Asteria-0.1.19.0.exe"/>
+    <ROW Section="0.1.19" Key="Size" Value="..\Website\PrecompiledWeb\Download\Asteria-0.1.19.0.exe"/>
+    <ROW Section="0.1.19" Key="ServerFileName" Value="Asteria-0.1.19.0.exe"/>
+    <ROW Section="0.1.19" Key="Flags" Value="NoCache"/>
+    <ROW Section="0.1.19" Key="RegistryKey" Value="HKUD\Software\Legend Studio\Asteria\Version"/>
+    <ROW Section="0.1.19" Key="Version" Value="0.1.19.0"/>
+    <ROW Section="0.1.19" Key="Replaces" Value="0.1.9"/>
+    <ATTRIBUTE name="OutputFileName" value="updates.txt"/>
+    <ATTRIBUTE name="OutputFolder" value="..\Website\PrecompiledWeb\Download"/>
+  </COMPONENT>
+</DOCUMENT>

@@ -1,0 +1,44 @@
+Asteria is a fast paced indie platformer, wrapped up in a sandbox sci-fi world where everything is destructible, mineable, collectable, craftable and creatable. You play Ryker: the only surviving human colonist after your people were wiped out by local aliens. Now you’re stranded on Asteria, with no means of escape. This isn’t just about survival, it’s about revenge. Build your safe haven and go track down the aliens who destroyed your colony.
+It’s a platformer wrapped in a sandbox sandwich
+
+Procedurally generated world maps for unique replays are mixed with handcrafted dungeons to discover and defeat. Throughout Asteria are alien strongholds. Seek these places out to discover treasure, upgrade your equipment and exact your revenge.
+
+ -- In the future, everything is ranged.
+
+Ranged Mining with more than one block per shot. No more pickaxes. Tunneling is faster, and as you create better mining equipment you can mine faster taking apart huge chunks of terrain in a single shot. Get the mats you need and get back to exploring, building, crafting and creating.
+
+Ranged fighting, with blasters. Yes, blasters. No clunky 2D melee fighting, just classic run and gun action.
+
+ -- 100+ items over 9 tiers of gear
+
+Craft new battle suits for more life, new lasers for more damage and better mining tools for faster mining.
+
+ -- 900 Slot “Hypercube of Holding” Inventory with unlimited stack amounts
+
+No more item micromanagement. No more bag restrictions. Get your items, keep your items, create your world, and get back to the gameplay. Ever seen a stack of 1 million chunks of dirt? Ryker has.
+
+ -- Waypoints & instant deaths for classic platformer gameplay
+
+There’s no death penalty and no wandering back to where you died to recollect your inventory. Quick respawns and waypoints are built in so you can get back to the gameplay. Asteria isn’t about inventory management and survival, it’s about exploring and getting back to the action.
+
+
+**110% Mod Community Support**
+
+We will support the mod community with providing source code and easy capabilities to extend the game, add items, add terrain and whatever else you can imagine. The only thing that is going to prevent you from building your own Asteria worlds are your own skill and imagination. We’re as excited to release Asteria as we are to see the creative things modders out there can do with the game.
+
+Creative Mode: After completing the game you unlock creative mode and will have 100% control over how your want to shape your world including easy to use copy and paste functionalities.
+
+
+**Multiplayer Functionality**
+
+Play with your friends, explore and build together. With server hosting you can have as many players as you have bandwidth.
+
+No fighting over loot. Just looting. Each player in Asteria get’s their own unique copy of loot drops and chest spawns to avoid dissolving life long friendships over purple-pixel disputes. Get your loot and get back to it!
+
+Automatic difficulty scaling for multiplayer where the difficulty increases with the more players you add to keep things challenging.
+
+Lockable terrain areas, so you can preserve your own home base and have complete control over your world before inviting people into it.
+
+Personal Chests that only you can open to avoid loot thieves from the land of internet trolls.
+
+Server based savegames to prevent cheating and give complete control to server operators.

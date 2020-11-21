@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{ADAF85F8-6BE0-404E-B59C-C9384D57BF9E}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Xbox 360</Platform>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HD</RootNamespace>
+    <AssemblyName>Asteria</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Xbox 360</XnaPlatform>
+    <XnaProfile>HiDef</XnaProfile>
+    <XnaCrossPlatformGroupID>1c939453-4ca6-4132-ae62-5cd67189297c</XnaCrossPlatformGroupID>
+    <XnaOutputType>Game</XnaOutputType>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
+    <Thumbnail>GameThumbnail.png</Thumbnail>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Xbox 360' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Xbox 360\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XBOX;XBOX360;PORTABLE;FEAT_SAFE;NETCF</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <XnaCompressContent>true</XnaCompressContent>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Xbox 360' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Xbox 360\Release</OutputPath>
+    <DefineConstants>TRACE;XBOX;XBOX360;PORTABLE;FEAT_SAFE;NETCF</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <XnaCompressContent>true</XnaCompressContent>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Steam|Xbox 360'">
+    <OutputPath>bin\Xbox 360\Steam\</OutputPath>
+    <DefineConstants>TRACE;XBOX;XBOX360;PORTABLE;FEAT_SAFE;NETCF</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>default</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.GamerServices">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Xact">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Video">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Avatar">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Net">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Storage">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ParallelTasks">
+      <HintPath>..\..\References\ParallelTasks\ParallelTasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\FushsGUI\GUI\Button.cs">
+      <Link>FuchsGUI\Button.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FushsGUI\GUI\CheckBox.cs">
+      <Link>FuchsGUI\CheckBox.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FushsGUI\GUI\CircleButton.cs">
+      <Link>FuchsGUI\CircleButton.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FushsGUI\GUI\Control.cs">
+      <Link>FuchsGUI\Control.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FushsGUI\GUI\DomainLeftRight.cs">
+      <Link>FuchsGUI\DomainLeftRight.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FushsGUI\GUI\Form.cs">
+      <Link>FuchsGUI\Form.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FushsGUI\GUI\KeyboardUtils.cs">
+      <Link>FuchsGUI\KeyboardUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FushsGUI\GUI\Label.cs">
+      <Link>FuchsGUI\Label.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FushsGUI\GUI\PictureBox.cs">
+      <Link>FuchsGUI\PictureBox.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FushsGUI\GUI\RadioButton.cs">
+      <Link>FuchsGUI\RadioButton.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FushsGUI\GUI\Slider.cs">
+      <Link>FuchsGUI\Slider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\FushsGUI\GUI\TextBox.cs">
+      <Link>FuchsGUI\TextBox.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Asteria\Commands\Admin\Maps\MapGenerateCommand.cs">
+      <Link>Asteria\Commands\MapGenerateCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Asteria\Enemies.cs">
+      <Link>Asteria\Enemies.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Asteria\Global.cs">
+      <Link>Asteria\Global.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Asteria\Items.cs">
+      <Link>Asteria\Items.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Asteria\Projectiles.cs">
+      <Link>Asteria\Projectiles.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Commands\AdminCommand.cs">
+      <Link>Core\Commands\AdminCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Commands\Command.cs">
+      <Link>Core\Commands\Command.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Commands\IMapGenerator.cs">
+      <Link>Core\Commands\IMapGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Commands\MultiplayerCommand.cs">
+      <Link>Core\Commands\MultiplayerCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\DelayedAction.cs">
+      <Link>Core\DelayedAction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\EnemyBase.cs">
+      <Link>Core\EnemyBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\EnemyType.cs">
+      <Link>Core\EnemyType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Entities\CombatText.cs">
+      <Link>Core\Entities\CombatText.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Entities\Enemy.cs">
+      <Link>Core\Entities\Enemy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Entities\Entity.cs">
+      <Link>Core\Entities\Entity.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Entities\Living.cs">
+      <Link>Core\Entities\Living.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Entities\ParticleEmitter.cs">
+      <Link>Core\Entities\ParticleEmitter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Entities\Pickup.cs">
+      <Link>Core\Entities\Pickup.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Entities\Placeable.cs">
+      <Link>Core\Entities\Placeable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Entities\Player.cs">
+      <Link>Core\Entities\Player.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Entities\Projectile.cs">
+      <Link>Core\Entities\Projectile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\Animation.cs">
+      <Link>Core\Enums\Animation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\Brush.cs">
+      <Link>Core\Enums\Brush.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\CopySelectionMode.cs">
+      <Link>Core\Enums\CopySelectionMode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\CreativeMode.cs">
+      <Link>Core\Enums\CreativeMode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\Direction.cs">
+      <Link>Core\Enums\Direction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\EquipmentSlot.cs">
+      <Link>Core\Enums\EquipmentSlot.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\ItemCategory.cs">
+      <Link>Core\Enums\ItemCategory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\ItemId.cs">
+      <Link>Core\Enums\ItemId.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\Material.cs">
+      <Link>Core\Enums\Material.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\MessageType.cs">
+      <Link>Core\Enums\MessageType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\ParticleEffect.cs">
+      <Link>Core\Enums\ParticleEffect.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\ProjectileId.cs">
+      <Link>Core\Enums\ProjectileId.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\Rarity.cs">
+      <Link>Core\Enums\Rarity.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\SlotType.cs">
+      <Link>Core\Enums\SlotType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\Sound.cs">
+      <Link>Core\Enums\Sound.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Enums\SpriteAnimation.cs">
+      <Link>Core\Enums\SpriteAnimation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Flag.cs">
+      <Link>Core\Flag.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Gibb.cs">
+      <Link>Core\Gibb.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Item.cs">
+      <Link>Core\Item.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\ItemBase.cs">
+      <Link>Core\ItemBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\ItemType.cs">
+      <Link>Core\ItemType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Map.cs">
+      <Link>Core\Map.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\MapRenderer.cs">
+      <Link>Core\MapRenderer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\MaterialInfo.cs">
+      <Link>Core\MaterialInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Message.cs">
+      <Link>Core\Message.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Network\FileTransfer.cs">
+      <Link>Core\Network\FileTransfer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Network\SoundEvent.cs">
+      <Link>Core\Network\SoundEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Particles.cs">
+      <Link>Core\Particles.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\ProjectileBase.cs">
+      <Link>Core\ProjectileBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\ProjectileType.cs">
+      <Link>Core\ProjectileType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Properties\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Recipe.cs">
+      <Link>Core\Recipe.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\RecipeBase.cs">
+      <Link>Core\RecipeBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\RecipeComponent.cs">
+      <Link>Core\RecipeComponent.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Spawn.cs">
+      <Link>Core\Spawn.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Utility\BrushWalker.cs">
+      <Link>Core\Utility\BrushWalker.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Utility\Utility.cs">
+      <Link>Core\Utility\Utility.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\Utility\Vector2Converter.cs">
+      <Link>Core\Utility\Vector2Converter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD.Core\World.cs">
+      <Link>Core\World.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Audio.cs">
+      <Link>Audio.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Background.cs">
+      <Link>Background.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\BackgroundFloater.cs">
+      <Link>BackgroundFloater.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Controls\Button.cs">
+      <Link>Controls\Button.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Controls\CharacterSelectMenuItem.cs">
+      <Link>Controls\CharacterSelectMenuItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Controls\ListMenuItem.cs">
+      <Link>Controls\ListMenuItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Controls\Menu.cs">
+      <Link>Controls\Menu.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Controls\MenuItem.cs">
+      <Link>Controls\MenuItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Controls\SliderMenuItem.cs">
+      <Link>Controls\SliderMenuItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Controls\TextBoxMenuItem.cs">
+      <Link>Controls\TextBoxMenuItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Controls\TextureMenuItem.cs">
+      <Link>Controls\TextureMenuItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\GameClient.cs">
+      <Link>GameClient.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Lighting.cs">
+      <Link>Lighting.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Main.cs">
+      <Link>Main.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Service\LoginResult.cs">
+      <Link>Service\LoginResult.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HD\HD\Service\WebServiceClient.cs">
+      <Link>Service\WebServiceClient.cs</Link>
+    </Compile>
+    <Compile Include="DotNetZip\Zlib\Crc32.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DotNetZip\Zlib\Deflate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DotNetZip\Zlib\DeflateStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DotNetZip\Zlib\GZipStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DotNetZip\Zlib\Inflate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DotNetZip\Zlib\InfTree.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DotNetZip\Zlib\Tree.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DotNetZip\Zlib\Zlib.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DotNetZip\Zlib\ZlibBaseStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DotNetZip\Zlib\ZlibCodec.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DotNetZip\Zlib\ZlibConstants.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DotNetZip\Zlib\ZlibStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameSettings.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Game1.cs" />
+    <Compile Include="protobuf-net\BclHelpers.cs" />
+    <Compile Include="protobuf-net\BufferExtension.cs" />
+    <Compile Include="protobuf-net\BufferPool.cs" />
+    <Compile Include="protobuf-net\CallbackAttributes.cs" />
+    <Compile Include="protobuf-net\Compiler\CompilerContext.cs" />
+    <Compile Include="protobuf-net\Compiler\CompilerDelegates.cs" />
+    <Compile Include="protobuf-net\Compiler\Local.cs" />
+    <Compile Include="protobuf-net\DataFormat.cs" />
+    <Compile Include="protobuf-net\Extensible.cs" />
+    <Compile Include="protobuf-net\ExtensibleUtil.cs" />
+    <Compile Include="protobuf-net\GlobalSuppressions.cs" />
+    <Compile Include="protobuf-net\Helpers.cs" />
+    <Compile Include="protobuf-net\IExtensible.cs" />
+    <Compile Include="protobuf-net\IExtension.cs" />
+    <Compile Include="protobuf-net\ImplicitFields.cs" />
+    <Compile Include="protobuf-net\KeyValuePairProxy.cs" />
+    <Compile Include="protobuf-net\Meta\AttributeMap.cs" />
+    <Compile Include="protobuf-net\Meta\BasicList.cs" />
+    <Compile Include="protobuf-net\Meta\CallbackSet.cs" />
+    <Compile Include="protobuf-net\Meta\MetaType.cs" />
+    <Compile Include="protobuf-net\Meta\RuntimeTypeModel.cs" />
+    <Compile Include="protobuf-net\Meta\SubType.cs" />
+    <Compile Include="protobuf-net\Meta\TypeFormatEventArgs.cs" />
+    <Compile Include="protobuf-net\Meta\TypeModel.cs" />
+    <Compile Include="protobuf-net\Meta\ValueMember.cs" />
+    <Compile Include="protobuf-net\NetObjectCache.cs" />
+    <Compile Include="protobuf-net\PrefixStyle.cs" />
+    <Compile Include="protobuf-net\ProtoContractAttribute.cs" />
+    <Compile Include="protobuf-net\ProtoConverterAttribute.cs" />
+    <Compile Include="protobuf-net\ProtoEnumAttribute.cs" />
+    <Compile Include="protobuf-net\ProtoException.cs" />
+    <Compile Include="protobuf-net\ProtoIgnoreAttribute.cs" />
+    <Compile Include="protobuf-net\ProtoIncludeAttribute.cs" />
+    <Compile Include="protobuf-net\ProtoMemberAttribute.cs" />
+    <Compile Include="protobuf-net\ProtoReader.cs" />
+    <Compile Include="protobuf-net\ProtoWriter.cs" />
+    <Compile Include="protobuf-net\SerializationContext.cs" />
+    <Compile Include="protobuf-net\Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\ArrayDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\BlobSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\BooleanSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\ByteSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\CharSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\CompiledSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\DateTimeSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\DecimalSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\DefaultValueDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\DoubleSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\EnumSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\FieldDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\GuidSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\ImmutableCollectionDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\Int16Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\Int32Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\Int64Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\IProtoSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\IProtoTypeSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\ISerializerProxy.cs" />
+    <Compile Include="protobuf-net\Serializers\KeyValuePairDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\ListDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\MemberSpecifiedDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\NetObjectSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\NullDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\ParseableSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\PropertyDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\ProtoDecoratorBase.cs" />
+    <Compile Include="protobuf-net\Serializers\SByteSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\SingleSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\StringSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\SubItemSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\SurrogateSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\SystemTypeSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\TagDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\TimeSpanSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\TupleSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\TypeSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\UInt16Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\UInt32Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\UInt64Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\UriDecorator.cs" />
+    <Compile Include="protobuf-net\ServiceModel\ProtoBehaviorAttribute.cs" />
+    <Compile Include="protobuf-net\ServiceModel\ProtoBehaviorExtensionElement.cs" />
+    <Compile Include="protobuf-net\ServiceModel\ProtoEndpointBehavior.cs" />
+    <Compile Include="protobuf-net\ServiceModel\ProtoOperationBehavior.cs" />
+    <Compile Include="protobuf-net\ServiceModel\XmlProtoSerializer.cs" />
+    <Compile Include="protobuf-net\SubItemToken.cs" />
+    <Compile Include="protobuf-net\WireType.cs" />
+    <Compile Include="Stubbs\HashSet.cs" />
+    <Compile Include="Stubbs\StringCollection.cs" />
+    <Compile Include="Stubbs\Stubbs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DotNetZip\Zlib\LocalTestRun.testrunconfig" />
+    <None Include="DotNetZip\Zlib\zlib-10.vsmdi" />
+    <None Include="Game.ico" />
+    <Content Include="DotNetZip\Zlib\LICENSE.txt" />
+    <Content Include="GameThumbnail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Asteria-XboxContent\Asteria-XboxContent.contentproj">
+      <Name>Asteria_XboxContent</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
+</Project>

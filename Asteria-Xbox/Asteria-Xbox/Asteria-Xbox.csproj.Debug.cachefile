@@ -1,0 +1,512 @@
+Content\Brushes.xnb
+Content\Button.xnb
+Content\Character.xnb
+Content\Chat Box.xnb
+Content\Crosshair.xnb
+Content\Cursor.xnb
+Content\DayNightGradient.xnb
+Content\Empty Slot.xnb
+Content\Filled Slot.xnb
+Content\GUI Bottom.xnb
+Content\GUI Top.xnb
+Content\Hero Style 1 Arm.xnb
+Content\Hero Style 1.xnb
+Content\Hero Style 2 Arm.xnb
+Content\Hero Style 2.xnb
+Content\Hero Style 3 Arm.xnb
+Content\Hero Style 3.xnb
+Content\Hero Style 4 Arm.xnb
+Content\Hero Style 4.xnb
+Content\Hero Style 5 Arm.xnb
+Content\Hero Style 5.xnb
+Content\Hero Style 6 Arm.xnb
+Content\Hero Style 6.xnb
+Content\Hero Style 7 Arm.xnb
+Content\Hero Style 7.xnb
+Content\Hero Style 8 Arm.xnb
+Content\Hero Style 8.xnb
+Content\Legend Studio Logo.xnb
+Content\Life Counter.xnb
+Content\Menu Text Box.xnb
+Content\Starfield.xnb
+Content\Title Logo.xnb
+Content\Medium Font.xnb
+Content\Small Font.xnb
+Content\Large Font.xnb
+Content\Particles\Blood 1.xnb
+Content\Particles\Blood 2.xnb
+Content\Particles\Blood 3.xnb
+Content\Particles\Blood 4.xnb
+Content\Particles\Blood 5.xnb
+Content\Particles\Blood 6.xnb
+Content\Particles\Blood 7.xnb
+Content\Particles\Blood 8.xnb
+Content\Particles\Blood 9.xnb
+Content\Particles\Blood.xnb
+Content\Items\1UP Icon.xnb
+Content\Items\1UP.xnb
+Content\Items\Accelerometer.xnb
+Content\Items\Adamantium Blaster.xnb
+Content\Items\Adamantium Disruptor.xnb
+Content\Items\Adamantium Energy Cell.xnb
+Content\Items\Adamantium Grenade Launcher.xnb
+Content\Items\Adamantium Helmet.xnb
+Content\Items\Adamantium Homing Missile.xnb
+Content\Items\Adamantium Jump Amplifier.xnb
+Content\Items\Adamantium Laser Rifle.xnb
+Content\Items\Adamantium Mining Tool.xnb
+Content\Items\Adamantium Portal Seeker.xnb
+Content\Items\Adamantium Power core.xnb
+Content\Items\Adamantium Suit.xnb
+Content\Items\Adamantium Superconductor.xnb
+Content\Items\Adamantium.xnb
+Content\Items\Advanced Energy Refill.xnb
+Content\Items\Aegis Energy Tank.xnb
+Content\Items\Air Tank.xnb
+Content\Items\Aluminum Energy Cell.xnb
+Content\Items\Aluminum.xnb
+Content\Items\Amethyst Scope.xnb
+Content\Items\Battery.xnb
+Content\Items\Blue Crystal.xnb
+Content\Items\Blue Light Orb Icon.xnb
+Content\Items\Blue Light Orb.xnb
+Content\Items\Bose Einstein Condenser.xnb
+Content\Items\Carbonite.xnb
+Content\Items\Chemical Reactor Icon.xnb
+Content\Items\Chemical Reactor.xnb
+Content\Items\Convector.xnb
+Content\Items\Copper Blaster.xnb
+Content\Items\Copper Disruptor.xnb
+Content\Items\Copper Energy Cell.xnb
+Content\Items\Copper Helmet.xnb
+Content\Items\Copper Mining Tool.xnb
+Content\Items\Copper Portal Seeker.xnb
+Content\Items\Copper Power Core.xnb
+Content\Items\Copper Suit.xnb
+Content\Items\Copper Superconductor.xnb
+Content\Items\Copper.xnb
+Content\Items\Corrupted Energy Shield.xnb
+Content\Items\DarkSteel Blaster.xnb
+Content\Items\Darksteel Disruptor.xnb
+Content\Items\Darksteel Energy Cell.xnb
+Content\Items\Darksteel Energy Refill.xnb
+Content\Items\Darksteel Energy Shield.xnb
+Content\Items\Darksteel Energy Tank.xnb
+Content\Items\Darksteel Grenade Launcher.xnb
+Content\Items\Darksteel Helmet.xnb
+Content\Items\Darksteel Homing Missile.xnb
+Content\Items\Darksteel Jump Amplifier.xnb
+Content\Items\Darksteel Laser Rifle.xnb
+Content\Items\DarkSteel Mining Tool.xnb
+Content\Items\DarkSteel Portal Seeker.xnb
+Content\Items\Darksteel Power Core.xnb
+Content\Items\Darksteel Suit.xnb
+Content\Items\Darksteel Superconductor.xnb
+Content\Items\Darksteel.xnb
+Content\Items\Dematerializer.xnb
+Content\Items\Detector.xnb
+Content\Items\Diamond Scope.xnb
+Content\Items\Diamond Tactical Scope.xnb
+Content\Items\Diode.xnb
+Content\Items\Door Icon.xnb
+Content\Items\Door.xnb
+Content\Items\Dynamite Icon.xnb
+Content\Items\Dynamite.xnb
+Content\Items\Echo Crystal.xnb
+Content\Items\Echo Energy Refill.xnb
+Content\Items\Ectoplasm Core.xnb
+Content\Items\Ectoplasm.xnb
+Content\Items\Einsteinium Blaster.xnb
+Content\Items\Einsteinium Disruptor.xnb
+Content\Items\Einsteinium Grenade Launcher.xnb
+Content\Items\Einsteinium Helmet.xnb
+Content\Items\Einsteinium Homing Missile.xnb
+Content\Items\Einsteinium Laser Rifle.xnb
+Content\Items\Einsteinium Mining Tool.xnb
+Content\Items\Einsteinium Portal Seeker.xnb
+Content\Items\Einsteinium power core.xnb
+Content\Items\Einsteinium Suit.xnb
+Content\Items\Einsteinium Superconductor.xnb
+Content\Items\Einsteinium.xnb
+Content\Items\Emerald Scope.xnb
+Content\Items\Energy Cell.xnb
+Content\Items\Energy.xnb
+Content\Items\Enforced Energy Shield.xnb
+Content\Items\Entropy.xnb
+Content\Items\Field Effect Transistor.xnb
+Content\Items\Flame Thrower.xnb
+Content\Items\Fuel Tank.xnb
+Content\Items\Furnace Icon.xnb
+Content\Items\Furnace.xnb
+Content\Items\Gold Blaster.xnb
+Content\Items\Gold Disruptor.xnb
+Content\Items\Gold Energy Cell.xnb
+Content\Items\Gold Helmet.xnb
+Content\Items\Gold Homing Missile.xnb
+Content\Items\Gold Jump Amplifier.xnb
+Content\Items\Gold Laser Rifle.xnb
+Content\Items\Gold Mining Tool.xnb
+Content\Items\Gold Portal Seeker.xnb
+Content\Items\Gold Power Core.xnb
+Content\Items\Gold Suit.xnb
+Content\Items\Gold Superconductor.xnb
+Content\Items\Gold.xnb
+Content\Items\Green Crystal.xnb
+Content\Items\Green Light Orb Icon.xnb
+Content\Items\Green Light Orb.xnb
+Content\Items\Grenade Barrel.xnb
+Content\Items\Gunn Diode.xnb
+Content\Items\Head Lamp.xnb
+Content\Items\Hidden Light.xnb
+Content\Items\Home Portal Icon.xnb
+Content\Items\Home Portal.xnb
+Content\Items\Hypercube Icon.xnb
+Content\Items\Hypercube.xnb
+Content\Items\Iron Blaster.xnb
+Content\Items\Iron Mining Tool.xnb
+Content\Items\Iron Suit.xnb
+Content\Items\Iron Superconductor.xnb
+Content\Items\Iron.xnb
+Content\Items\Laser Glass.xnb
+Content\Items\Leap Treads.xnb
+Content\Items\Light Drone.xnb
+Content\Items\Light Orb Icon.xnb
+Content\Items\Light Orb.xnb
+Content\Items\Locked Door Icon.xnb
+Content\Items\Locked Door.xnb
+Content\Items\Magnet.xnb
+Content\Items\Material Sink.xnb
+Content\Items\Material Source.xnb
+Content\Items\Mercury Arc Rectifier.xnb
+Content\Items\Mercury Cell.xnb
+Content\Items\Milling Machine Icon.xnb
+Content\Items\Milling Machine.xnb
+Content\Items\Mining Drone.xnb
+Content\Items\Missing.xnb
+Content\Items\Nuclear Bomb Icon.xnb
+Content\Items\Nuclear Bomb.xnb
+Content\Items\Nuclear Reactor Icon.xnb
+Content\Items\Nuclear Reactor.xnb
+Content\Items\Obsidian Blaster.xnb
+Content\Items\Obsidian Disruptor.xnb
+Content\Items\Obsidian Energy Cell.xnb
+Content\Items\Obsidian energy refill.xnb
+Content\Items\Obsidian Energy Shield.xnb
+Content\Items\Obsidian Energy Tank.xnb
+Content\Items\Obsidian Grenade Launcher.xnb
+Content\Items\Obsidian Helmet.xnb
+Content\Items\Obsidian Homing Missile.xnb
+Content\Items\Obsidian Laser Rifle.xnb
+Content\Items\Obsidian Mining Tool.xnb
+Content\Items\Obsidian Portal Seeker.xnb
+Content\Items\Obsidian Power core.xnb
+Content\Items\Obsidian Suit.xnb
+Content\Items\Obsidian Superconductor.xnb
+Content\Items\Ocular Lens.xnb
+Content\Items\Overworld Rift Creator.xnb
+Content\Items\Overworld Rift.xnb
+Content\Items\Oxygen Tank.xnb
+Content\Items\Personal Hypercube Icon.xnb
+Content\Items\Personal Hypercube.xnb
+Content\Items\Photovoltaic Cell.xnb
+Content\Items\Plutonium.xnb
+Content\Items\Point of Interest.xnb
+Content\Items\Portable Waypoint Icon.xnb
+Content\Items\Portable Waypoint.xnb
+Content\Items\Portal Blue.xnb
+Content\Items\Portal Green.xnb
+Content\Items\Portal Yellow.xnb
+Content\Items\Portal.xnb
+Content\Items\Radium.xnb
+Content\Items\Red Crystal.xnb
+Content\Items\Red Light Orb Icon.xnb
+Content\Items\Red Light Orb.xnb
+Content\Items\Refrigerant.xnb
+Content\Items\Reward Hypercube Icon.xnb
+Content\Items\Reward Hypercube.xnb
+Content\Items\Rifle Barrel.xnb
+Content\Items\Rift Creator.xnb
+Content\Items\Rift.xnb
+Content\Items\Ruby Scope.xnb
+Content\Items\Sapphire Scope.xnb
+Content\Items\Shock Absorbers.xnb
+Content\Items\Sign Icon.xnb
+Content\Items\Sign.xnb
+Content\Items\Silver Blaster.xnb
+Content\Items\Silver Disruptor.xnb
+Content\Items\Silver Energy Cell.xnb
+Content\Items\Silver Energy Refill.xnb
+Content\Items\Silver Energy Shield.xnb
+Content\Items\Silver Energy Tank.xnb
+Content\Items\Silver Helmet.xnb
+Content\Items\Silver Laser Rifle.xnb
+Content\Items\Silver Mining Tool.xnb
+Content\Items\Silver Portal Seeker.xnb
+Content\Items\Silver Power Core.xnb
+Content\Items\Silver Suit.xnb
+Content\Items\Silver Superconductor.xnb
+Content\Items\Silver.xnb
+Content\Items\Speed Boots.xnb
+Content\Items\Steel Blaster.xnb
+Content\Items\Steel Energy Tank.xnb
+Content\Items\Steel Mining Tool.xnb
+Content\Items\Steel Portal Seeker.xnb
+Content\Items\Steel power core.xnb
+Content\Items\Steel Suit.xnb
+Content\Items\Steel Superconductor.xnb
+Content\Items\Steel.xnb
+Content\Items\Switch Icon.xnb
+Content\Items\Switch.xnb
+Content\Items\The Keys of the Kingdom.xnb
+Content\Items\Thermistor.xnb
+Content\Items\Thyratron.xnb
+Content\Items\Timed Switch Icon.xnb
+Content\Items\Timed Switch.xnb
+Content\Items\Triggered Material Source.xnb
+Content\Items\Uranium.xnb
+Content\Items\Vigor Energy Tank.xnb
+Content\Items\Wall Switch Active.xnb
+Content\Items\Wall Switch.xnb
+Content\Items\Waypoint Icon.xnb
+Content\Items\Waypoint.xnb
+Content\Items\Wire.xnb
+Content\Items\Wiring.xnb
+Content\Items\Workbench.xnb
+Content\Items\World Hypercube Icon.xnb
+Content\Items\World Hypercube.xnb
+Content\Tiles\Acid.xnb
+Content\Tiles\Air.xnb
+Content\Tiles\AluminumOre.xnb
+Content\Tiles\Amethyst.xnb
+Content\Tiles\Ash.xnb
+Content\Tiles\Basalt.xnb
+Content\Tiles\BlackBrick.xnb
+Content\Tiles\BlackMetal.xnb
+Content\Tiles\BlueBrick.xnb
+Content\Tiles\BlueFire.xnb
+Content\Tiles\Bone.xnb
+Content\Tiles\BrownBrick.xnb
+Content\Tiles\Clay.xnb
+Content\Tiles\Coal.xnb
+Content\Tiles\CopperOre.xnb
+Content\Tiles\CyanBrick.xnb
+Content\Tiles\DarkGrayBrick.xnb
+Content\Tiles\DarkGrayMetal.xnb
+Content\Tiles\Diamond.xnb
+Content\Tiles\Dilithium.xnb
+Content\Tiles\Dirt.xnb
+Content\Tiles\Emerald.xnb
+Content\Tiles\Fire.xnb
+Content\Tiles\Glass.xnb
+Content\Tiles\GoldOre.xnb
+Content\Tiles\Granite.xnb
+Content\Tiles\Grass.xnb
+Content\Tiles\Gravel.xnb
+Content\Tiles\GrayMetal.xnb
+Content\Tiles\GreenBrick.xnb
+Content\Tiles\Ice.xnb
+Content\Tiles\IronOre.xnb
+Content\Tiles\Lava.xnb
+Content\Tiles\Life.xnb
+Content\Tiles\LightBlueBrick.xnb
+Content\Tiles\LightGrayBrick.xnb
+Content\Tiles\LightGreenBrick.xnb
+Content\Tiles\Limestone.xnb
+Content\Tiles\Marble.xnb
+Content\Tiles\NaturalGas.xnb
+Content\Tiles\Obsidian.xnb
+Content\Tiles\Oil.xnb
+Content\Tiles\OrangeBrick.xnb
+Content\Tiles\PinkBrick.xnb
+Content\Tiles\Pipe.xnb
+Content\Tiles\Plastic.xnb
+Content\Tiles\Platform.xnb
+Content\Tiles\PoisonGas.xnb
+Content\Tiles\PurpleBrick.xnb
+Content\Tiles\Quartzite.xnb
+Content\Tiles\RadiumOre.xnb
+Content\Tiles\RedBrick.xnb
+Content\Tiles\RedMetal.xnb
+Content\Tiles\Rhyolite.xnb
+Content\Tiles\Ruby.xnb
+Content\Tiles\Sand.xnb
+Content\Tiles\Sandstone.xnb
+Content\Tiles\Sapphire.xnb
+Content\Tiles\SilverOre.xnb
+Content\Tiles\Slime.xnb
+Content\Tiles\Smoke.xnb
+Content\Tiles\Snow.xnb
+Content\Tiles\Sodium.xnb
+Content\Tiles\Spike.xnb
+Content\Tiles\Steam.xnb
+Content\Tiles\Sulfur.xnb
+Content\Tiles\TanBrick.xnb
+Content\Tiles\Tar.xnb
+Content\Tiles\Topaz.xnb
+Content\Tiles\UraniumOre.xnb
+Content\Tiles\Vacuum.xnb
+Content\Tiles\Water.xnb
+Content\Tiles\WhiteBrick.xnb
+Content\Tiles\WhiteMetal.xnb
+Content\Tiles\Wire.xnb
+Content\Tiles\Wood.xnb
+Content\Tiles\YellowBrick.xnb
+Content\Background\GasGiant.xnb
+Content\Background\Sun.xnb
+Content\BlendEffect.xnb
+Content\LightSpreadEffect.xnb
+Content\Sounds\AcidSplat.xnb
+Content\Sounds\BlasterCharge 30.xnb
+Content\Sounds\BlasterChargedFire.xnb
+Content\Sounds\BlasterFire 30.xnb
+Content\Sounds\BlasterHit.xnb
+Content\Sounds\BomberWarning.xnb
+Content\Sounds\BoseEinsteinCondenserFire.xnb
+Content\Sounds\BoseEinsteinCondenserHit.xnb
+Content\Sounds\Botanica Mini Boss 2Die.xnb
+Content\Sounds\Botanica Mini Boss 2Spawn 50.xnb
+Content\Sounds\BrunnenAttack.xnb
+Content\Sounds\BrunnenDie.xnb
+Content\Sounds\BrunnenSpawn 50.xnb
+Content\Sounds\Bulletproof CrawlerDie.xnb
+Content\Sounds\Bulletproof CrawlerSpawn 50.xnb
+Content\Sounds\ChemicalReactor.xnb
+Content\Sounds\Craft.xnb
+Content\Sounds\CrawlerDie.xnb
+Content\Sounds\CrawlerSpawn 50.xnb
+Content\Sounds\Crystalline LarvaDie.xnb
+Content\Sounds\Crystalline LarvaSpawn 50.xnb
+Content\Sounds\CrystallineDie.xnb
+Content\Sounds\CrystallineSpawn 50.xnb
+Content\Sounds\Dematerialize.xnb
+Content\Sounds\DigSmall 25.xnb
+Content\Sounds\DisruptorFire 40.xnb
+Content\Sounds\DisruptorHit.xnb
+Content\Sounds\DoorClosed.xnb
+Content\Sounds\DoorOpen.xnb
+Content\Sounds\DrakeDie.xnb
+Content\Sounds\EelAttack.xnb
+Content\Sounds\EelDie.xnb
+Content\Sounds\EelSpawn.xnb
+Content\Sounds\ElectricityHit.xnb
+Content\Sounds\EnterAcid.xnb
+Content\Sounds\EnterLava.xnb
+Content\Sounds\EnterSlime.xnb
+Content\Sounds\EnterTar.xnb
+Content\Sounds\EnterWater.xnb
+Content\Sounds\Equip.xnb
+Content\Sounds\Equip2 40.xnb
+Content\Sounds\Error.xnb
+Content\Sounds\ExitAcid.xnb
+Content\Sounds\ExitLava.xnb
+Content\Sounds\ExitSlime.xnb
+Content\Sounds\ExitTar.xnb
+Content\Sounds\ExitWater.xnb
+Content\Sounds\ExploderDie.xnb
+Content\Sounds\ExploderSpawn 50.xnb
+Content\Sounds\ExploderWarning 60.xnb
+Content\Sounds\Explosion1 60.xnb
+Content\Sounds\Explosion2.xnb
+Content\Sounds\Explosion3 60.xnb
+Content\Sounds\Explosion4 60.xnb
+Content\Sounds\Explosion5 60.xnb
+Content\Sounds\Final Boss Part 1Damage 20.xnb
+Content\Sounds\Final Boss Part 1Die.xnb
+Content\Sounds\Final Boss Part 1Spawn.xnb
+Content\Sounds\Final Boss Part 2Spawn.xnb
+Content\Sounds\FireBreath 40.xnb
+Content\Sounds\FireflyDie.xnb
+Content\Sounds\FloaterAttack 40.xnb
+Content\Sounds\Forge.xnb
+Content\Sounds\Furnace.xnb
+Content\Sounds\GrenadeFire 75.xnb
+Content\Sounds\Ground TrooperDie 60.xnb
+Content\Sounds\Ground TrooperSpawn 50.xnb
+Content\Sounds\GunFlameThrower.xnb
+Content\Sounds\GunFreeze 99.xnb
+Content\Sounds\HarpyDie 60.xnb
+Content\Sounds\HarpySpawn 40.xnb
+Content\Sounds\HomingMissileFire.xnb
+Content\Sounds\HomingMissileHit.xnb
+Content\Sounds\HoverTick 30.xnb
+Content\Sounds\HypercubeOfHoldingLocked.xnb
+Content\Sounds\HypercubeOfHoldingOpen.xnb
+Content\Sounds\Jungle BossDie.xnb
+Content\Sounds\Jungle BossSpawn.xnb
+Content\Sounds\KrawnixAttack.xnb
+Content\Sounds\KrawnixDie.xnb
+Content\Sounds\KrawnixSpawn.xnb
+Content\Sounds\LaserRifleFire 5.xnb
+Content\Sounds\LaserRifleHit 50.xnb
+Content\Sounds\LeaperAttack.xnb
+Content\Sounds\LeaperDie.xnb
+Content\Sounds\LeaperSpawn.xnb
+Content\Sounds\Light DroneDie.xnb
+Content\Sounds\Light DroneSpawn.xnb
+Content\Sounds\Material EaterDie 90.xnb
+Content\Sounds\Material EaterSpawn 15.xnb
+Content\Sounds\Mind FeederAttack.xnb
+Content\Sounds\Mind FeederDie.xnb
+Content\Sounds\Mind FeederSpawn 99.xnb
+Content\Sounds\MiniFlame.xnb
+Content\Sounds\MiningToolFire 30.xnb
+Content\Sounds\Montra RayDie.xnb
+Content\Sounds\Montra RaySpawn 50.xnb
+Content\Sounds\Pickup 50.xnb
+Content\Sounds\PickupKeyComponet.xnb
+Content\Sounds\PickupUseable.xnb
+Content\Sounds\PlaceItem 50.xnb
+Content\Sounds\PlaceMaterial 50.xnb
+Content\Sounds\PlayerDamaged 60.xnb
+Content\Sounds\PlayerDamaged2 60.xnb
+Content\Sounds\PlayerDamaged3 50.xnb
+Content\Sounds\PlayerDie 90.xnb
+Content\Sounds\PlayerJump 20.xnb
+Content\Sounds\PlayerLand.xnb
+Content\Sounds\PlayerRun 30.xnb
+Content\Sounds\PlayerSpawn 50.xnb
+Content\Sounds\PlayerSwim 30.xnb
+Content\Sounds\Portal 90.xnb
+Content\Sounds\Portal SeekerSpawn 50.xnb
+Content\Sounds\Sky BossDamage 20.xnb
+Content\Sounds\Sky BossDie 99.xnb
+Content\Sounds\Sky BossSpawn.xnb
+Content\Sounds\Sky Realm Mini 1Damage.xnb
+Content\Sounds\Sky Realm Mini 1Die.xnb
+Content\Sounds\Sky Realm Mini 1Spawn 99.xnb
+Content\Sounds\Slime RayDie.xnb
+Content\Sounds\SmallTick 20.xnb
+Content\Sounds\SpaceShipBlaster 15.xnb
+Content\Sounds\Spike 40.xnb
+Content\Sounds\SproutDie.xnb
+Content\Sounds\Static.xnb
+Content\Sounds\Switch 60.xnb
+Content\Sounds\Tick 15.xnb
+Content\Sounds\TimedSwitchActive.xnb
+Content\Sounds\TurretActivate.xnb
+Content\Sounds\TurretDamage 20.xnb
+Content\Sounds\TurretDeactivate.xnb
+Content\Sounds\TurretDie 61.xnb
+Content\Sounds\TurretSpawn.xnb
+Content\Sounds\Valee HiveDie.xnb
+Content\Sounds\Valee HiveSpawn.xnb
+Content\Sounds\ValeeAttack.xnb
+Content\Sounds\ValeeDie.xnb
+Content\Sounds\ValeeSpawn.xnb
+Content\Sounds\WaypointActivated.xnb
+Content\Sounds\WeaponMissed.xnb
+Content\Sounds\WorkBench 75.xnb
+Content\Particles\Basic.xnb
+Content\Particles\Explosion.xnb
+Content\Background\CaveBack.xnb
+Content\Background\CaveFore.xnb
+Content\Background\CaveMid.xnb
+Content\Background\Grass.xnb
+Content\Background\LavaBack.xnb
+Content\Background\LavaFore1.xnb
+Content\Background\LavaMid.xnb
+Content\Background\LavaTop.xnb
+Content\Background\MountainFore.xnb
+Content\Background\MountainForeNight.xnb
+Content\Background\MountainMid.xnb
+Content\Background\Starfield.xnb

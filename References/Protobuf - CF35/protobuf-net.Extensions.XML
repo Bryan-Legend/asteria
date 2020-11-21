@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>protobuf-net.Extensions</name>
+    </assembly>
+    <members>
+        <member name="T:System.Linq.Expressions.ExpressionType">
+            <summary>
+            The type of expression (used as a discriminator)
+            </summary>
+        </member>
+        <member name="F:System.Linq.Expressions.ExpressionType.Constant">
+            <summary>
+            Represents a constant value
+            </summary>
+        </member>
+        <member name="F:System.Linq.Expressions.ExpressionType.Call">
+            <summary>
+            Represents a call to a method
+            </summary>
+        </member>
+        <member name="F:System.Linq.Expressions.ExpressionType.Lambda">
+            <summary>
+            Represents a lambda expression, complete with arguments
+            </summary>
+        </member>
+        <member name="F:System.Linq.Expressions.ExpressionType.Parameter">
+            <summary>
+            Represents a parameter used in an expression
+            </summary>
+        </member>
+        <member name="F:System.Linq.Expressions.ExpressionType.MemberAccess">
+            <summary>
+            Represents field/property access
+            </summary>
+        </member>
+        <member name="T:System.Linq.Expressions.Expression">
+            <summary>
+            Represents a node in an expression tree
+            </summary>
+        </member>
+        <member name="M:System.Linq.Expressions.Expression.Constant(System.Object)">
+            <summary>
+            Creates a new expression node represnting a constant value
+            </summary>
+        </member>
+        <member name="M:System.Linq.Expressions.Expression.Constant(System.Object,System.Type)">
+            <summary>
+            Creates a new expression node represnting a constant value
+            </summary>
+        </member>
+        <member name="M:System.Linq.Expressions.Expression.Parameter(System.Type,System.String)">
+            <summary>
+            Creates a new parameter for use in an expression tree
+            </summary>
+        </member>
+        <member name="M:System.Linq.Expressions.Expression.Call(System.Linq.Expressions.Expression,System.Reflection.MethodInfo,System.Linq.Expressions.Expression[])">
+            <summary>
+            Creates a new expression node representing method invokation 
+            </summary>
+        </member>
+        <member name="M:System.Linq.Expressions.Expression.Lambda(System.Linq.Expressions.Expression,System.Linq.Expressions.ParameterExpression[])">
+            <summary>
+            Creates a completed expression tree
+            </summary>
+        </member>
+        <member name="M:System.Linq.Expressions.Expression.Lambda``1(System.Linq.Expressions.Expression,System.Linq.Expressions.ParameterExpression[])">
+            <summary>
+            Creates a completed expression tree
+            </summary>
+        </member>
+        <member name="M:System.Linq.Expressions.Expression.Field(System.Linq.Expressions.Expression,System.Reflection.FieldInfo)">
+            <summary>
+            Creates a new expression node reading a value from a field
+            </summary>
+        </member>
+        <member name="M:System.Linq.Expressions.Expression.Property(System.Linq.Expressions.Expression,System.Reflection.PropertyInfo)">
+            <summary>
+            Creates a new expression node reading a value from a property
+            </summary>
+        </member>
+        <member name="M:System.Linq.Expressions.Expression.Property(System.Linq.Expressions.Expression,System.Reflection.MethodInfo)">
+            <summary>
+            Creates a new expression node reading a value from a property
+            </summary>
+        </member>
+        <member name="P:System.Linq.Expressions.Expression.NodeType">
+            <summary>
+            Indicates the type of the concrete expression
+            </summary>
+        </member>
+        <member name="T:System.Linq.Expressions.MethodCallExpression">
+            <summary>
+            Represents method invokation as an expression-tree node
+            </summary>
+        </member>
+        <member name="P:System.Linq.Expressions.MethodCallExpression.Method">
+            <summary>
+            The method to be invoked
+            </summary>
+        </member>
+        <member name="P:System.Linq.Expressions.MethodCallExpression.Object">
+            <summary>
+            The target object for the method (null if static)
+            </summary>
+        </member>
+        <member name="P:System.Linq.Expressions.MethodCallExpression.Arguments">
+            <summary>
+            The arguments to be passed to the method
+            </summary>
+        </member>
+        <member name="T:System.Linq.Expressions.MemberExpression">
+            <summary>
+            Represents member access as an expression-tree node
+            </summary>
+        </member>
+        <member name="P:System.Linq.Expressions.MemberExpression.Member">
+            <summary>
+            The member to be accessed
+            </summary>
+        </member>
+        <member name="P:System.Linq.Expressions.MemberExpression.Expression">
+            <summary>
+            The target instance holding the value (null if static)
+            </summary>
+        </member>
+        <member name="T:System.Linq.Expressions.ConstantExpression">
+            <summary>
+            Represents a constant value as an expression-tree node
+            </summary>
+        </member>
+        <member name="P:System.Linq.Expressions.ConstantExpression.Type">
+            <summary>
+            The type of value represented
+            </summary>
+        </member>
+        <member name="P:System.Linq.Expressions.ConstantExpression.Value">
+            <summary>
+            The value represented
+            </summary>
+        </member>
+        <member name="T:System.Linq.Expressions.ParameterExpression">
+            <summary>
+            Represents a parameter used in a lambda as an expression-tree node
+            </summary>
+        </member>
+        <member name="P:System.Linq.Expressions.ParameterExpression.Type">
+            <summary>
+            The type of value represented by this parameter
+            </summary>
+        </member>
+        <member name="P:System.Linq.Expressions.ParameterExpression.Name">
+            <summary>
+            The name of the parameter
+            </summary>
+        </member>
+        <member name="T:System.Linq.Expressions.LambdaExpression">
+            <summary>
+            Represents an expression-tree
+            </summary>
+        </member>
+        <member name="P:System.Linq.Expressions.LambdaExpression.Body">
+            <summary>
+            The root operation for the expression to perform
+            </summary>
+        </member>
+        <member name="P:System.Linq.Expressions.LambdaExpression.Parameters">
+            <summary>
+            The parameters used in the expression (at any level)
+            </summary>
+        </member>
+        <member name="T:System.Linq.Expressions.Expression`1">
+            <summary>
+            Represents an expression-tree
+            </summary>
+        </member>
+        <member name="T:ProtoBuf.ServiceModel.Client.ProtoClientExtensions">
+            <summary>
+            Provides extension methods for interacting with RPC via expressions, rather than
+            code-generation or reflection.
+            </summary>
+        </member>
+        <member name="M:ProtoBuf.ServiceModel.Client.ProtoClientExtensions.Invoke``2(ProtoBuf.ServiceModel.Client.ProtoClient{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Performs a synchronous RPC operation on the given service.
+            </summary>
+            <typeparam name="TService">The service being used.</typeparam>
+            <typeparam name="TResult">The result of the RPC call.</typeparam>
+            <param name="client">The client to use to invoke the RPC call.</param>
+            <param name="operation">An expression indicating the operation to perform.</param>
+            <returns>The value of the RPC call.</returns>
+        </member>
+        <member name="M:ProtoBuf.ServiceModel.Client.ProtoClientExtensions.Invoke``1(ProtoBuf.ServiceModel.Client.ProtoClient{``0},System.Linq.Expressions.Expression{System.Action{``0}})">
+            <summary>
+            Performs a synchronous RPC operation on the given service.
+            </summary>
+            <typeparam name="TService">The service being used.</typeparam>
+            <param name="client">The client to use to invoke the RPC call.</param>
+            <param name="operation">An expression indicating the operation to perform.</param>
+        </member>
+        <member name="M:ProtoBuf.ServiceModel.Client.ProtoClientExtensions.InvokeAsync``2(ProtoBuf.ServiceModel.Client.ProtoClient{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Action{System.Func{``1}})">
+            <summary>
+            Performs an asynchronous RPC operation on the given service.
+            </summary>
+            <typeparam name="TService">The service being used.</typeparam>
+            <typeparam name="TResult">The result of the RPC call.</typeparam>
+            <param name="client">The client to use to invoke the RPC call.</param>
+            <param name="operation">An expression indicating the operation to perform.</param>
+            <param name="callback">A delegate that is invoked when the operation is complete. The
+            callback is additionally given an `Action` that can be invoked to obtain the return
+            value of the call, or to raise any exception
+            associated with the call.</param>
+        </member>
+        <member name="M:ProtoBuf.ServiceModel.Client.ProtoClientExtensions.InvokeAsync``1(ProtoBuf.ServiceModel.Client.ProtoClient{``0},System.Linq.Expressions.Expression{System.Action{``0}},System.Action{System.Action})">
+            <summary>
+            Performs an asynchronous RPC operation on the given service.
+            </summary>
+            <typeparam name="TService">The service being used.</typeparam>
+            <param name="client">The client to use to invoke the RPC call.</param>
+            <param name="operation">An expression indicating the operation to perform.</param>
+            <param name="callback">A delegate that is invoked when the operation is complete. The
+            callback is additionally given an `Action` that can be invoked to raise any exception
+            associated with the call.</param>
+        </member>
+        <member name="M:ProtoBuf.ServiceModel.Client.ProtoClientExtensions.TryResolveField(System.Linq.Expressions.Expression,System.Reflection.FieldInfo@,System.Object@)">
+            <summary>
+            Checks that the expression is a field-based member-access operation; if so, it attempts
+            to resolve the instance hosting the field. This is used as the basis of by-ref arguments.
+            </summary>
+        </member>
+    </members>
+</doc>

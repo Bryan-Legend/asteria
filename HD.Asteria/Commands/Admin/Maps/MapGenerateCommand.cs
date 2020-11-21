@@ -282,9 +282,9 @@ namespace HD
             }
 
             Utility.StatusMessage = "Let there be coal.";
-            map.SprinkleVeins(Material.Coal, map.SeaLevel - 300, map.Height, 50000, 50, Brush.Size4);
+            map.SprinkleVeins(Material.Coal, map.SeaLevel - 300, map.Height, 10000, 50, Brush.Size4);
             Utility.StatusMessage = "Let there be iron.";
-            map.SprinkleVeins(Material.IronOre, map.SeaLevel - 300, map.SeaLevel + sectionHeight * 5, 10000, 100);
+            map.SprinkleVeins(Material.IronOre, map.SeaLevel - 300, map.SeaLevel + sectionHeight * 8, 8000, 100);
             Utility.StatusMessage = "Let there be aluminum.";
             map.SprinkleVeins(Material.AluminumOre, sandstoneHeight, sandstoneHeight + sectionHeight * 5, 15000, 100);
             Utility.StatusMessage = "Let there be copper.";

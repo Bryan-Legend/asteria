@@ -86,6 +86,32 @@ namespace HD.Asteria
                 HitSound = Sound.DisruptorHit,
             });
 
+            ProjectileBase.AddType(new ProjectileType()
+            {
+                Id = ProjectileId.MidRangeDisruptor,
+                BaseDamage = 6,
+                MaxAge = 250,
+                Speed = 750,
+                InitialParticleBurst = 5,
+                UseTierTextures = true,
+                UseTierParticleColor = true,
+                FireSound = Sound.DisruptorFire,
+                HitSound = Sound.DisruptorHit,
+            });
+
+            ProjectileBase.AddType(new ProjectileType()
+            {
+                Id = ProjectileId.LongRangeDisruptor,
+                BaseDamage = 6,
+                MaxAge = 300,
+                Speed = 750,
+                InitialParticleBurst = 5,
+                UseTierTextures = true,
+                UseTierParticleColor = true,
+                FireSound = Sound.DisruptorFire,
+                HitSound = Sound.DisruptorHit,
+            });
+
             ProjectileBase.AddType(new ProjectileType() {
                 Id = ProjectileId.LaserRifle,
                 BaseDamage = 13,
@@ -112,7 +138,7 @@ namespace HD.Asteria
 
             ProjectileBase.AddType(new ProjectileType() {
                 Id = ProjectileId.HomingMissile,
-                BaseDamage = 11,
+                BaseDamage = 15,
                 MaxAge = 3000,
                 Speed = 500,
                 IsHoming = true,
@@ -122,7 +148,13 @@ namespace HD.Asteria
                 ParticleStream = true,
                 FireSound = Sound.HomingMissileFire,
                 HitSound = Sound.HomingMissileHit,
-                OnHitParticleBurst = 75,
+                //OnHitParticleBurst = 75,
+                OnProjectileHitTerrain = (projectile, material) => {
+                    projectile.Map.Explode(projectile.Position, 1, 0);
+                },
+                OnProjectileHit = (projectile, target, amount) => {
+                    projectile.Map.Explode(projectile.Position, 1, 0);
+                }
             });
 
             var acidSpit = ProjectileBase.Get(ProjectileId.HomingMissile).Clone();

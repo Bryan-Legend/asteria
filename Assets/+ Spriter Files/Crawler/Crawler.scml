@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="b2">
+    <folder id="0">
+        <file id="0" name="HeadSmall.png" width="16" height="20"/>
+        <file id="1" name="LeftLegSmall.png" width="17" height="31"/>
+        <file id="2" name="RightLegSmall.png" width="17" height="31"/>
+    </folder>
+    <entity id="0" name="entity_000">
+        <animation id="0" name="NewAnimation" length="400">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="1" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="2" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="3" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="4" key="0" z_index="3"/>
+                    <object_ref id="4" timeline="0" key="0" z_index="4"/>
+                </key>
+                <key id="1" time="101">
+                    <object_ref id="0" timeline="1" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="2" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="3" key="1" z_index="2"/>
+                    <object_ref id="3" timeline="4" key="0" z_index="3"/>
+                    <object_ref id="4" timeline="0" key="0" z_index="4"/>
+                </key>
+                <key id="2" time="200">
+                    <object_ref id="0" timeline="1" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="2" key="2" z_index="1"/>
+                    <object_ref id="2" timeline="3" key="2" z_index="2"/>
+                    <object_ref id="3" timeline="4" key="1" z_index="3"/>
+                    <object_ref id="4" timeline="0" key="1" z_index="4"/>
+                </key>
+                <key id="3" time="300">
+                    <object_ref id="0" timeline="1" key="2" z_index="0"/>
+                    <object_ref id="1" timeline="2" key="2" z_index="1"/>
+                    <object_ref id="2" timeline="3" key="2" z_index="2"/>
+                    <object_ref id="3" timeline="4" key="2" z_index="3"/>
+                    <object_ref id="4" timeline="0" key="1" z_index="4"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="HeadSmall">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-7.820513" y="22.179487"/>
+                </key>
+                <key id="1" time="200" spin="0">
+                    <object folder="0" file="0" x="-7.820513" y="22.179487"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="LeftLegSmall">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="-6.402146" y="18.485202" pivot_x="0.773114" pivot_y="0.724475" angle="336.467741" scale_y="1"/>
+                </key>
+                <key id="1" time="200" spin="-1">
+                    <object folder="0" file="1" x="-6.402146" y="18.485202" pivot_x="0.773114" pivot_y="0.724475" angle="336.467741" scale_y="1"/>
+                </key>
+                <key id="2" time="300">
+                    <object folder="0" file="1" x="-6.402146" y="18.485202" pivot_x="0.773114" pivot_y="0.724475" angle="324.32867" scale_x="1"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="RightLegSmall">
+                <key id="0">
+                    <object folder="0" file="2" x="7.442918" y="16.663748" pivot_x="0.199939" pivot_y="0.693395" angle="25.961779" scale_x="1" scale_y="1"/>
+                </key>
+                <key id="1" time="101" spin="-1">
+                    <object folder="0" file="2" x="7.442918" y="16.663748" pivot_x="0.199939" pivot_y="0.693395" angle="40.976906" scale_y="1"/>
+                </key>
+                <key id="2" time="200" spin="0">
+                    <object folder="0" file="2" x="7.442918" y="16.663748" pivot_x="0.199939" pivot_y="0.693395" angle="25.961779" scale_x="1" scale_y="1"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="LeftLegSmall_000">
+                <key id="0" spin="-1">
+                    <object folder="0" file="1" x="-5.283076" y="10.553024" pivot_x="0.815401" pivot_y="0.687698" scale_x="0.451828" scale_y="0.516967"/>
+                </key>
+                <key id="1" time="101">
+                    <object folder="0" file="1" x="-5.283076" y="12.26731" pivot_x="0.815401" pivot_y="0.687698" angle="343.898496" scale_x="0.451828" scale_y="0.516967"/>
+                </key>
+                <key id="2" time="200" spin="0">
+                    <object folder="0" file="1" x="-5.283076" y="10.553024" pivot_x="0.815401" pivot_y="0.687698" scale_x="0.451828" scale_y="0.516967"/>
+                </key>
+            </timeline>
+            <timeline id="4" name="RightLegSmall_000">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" x="5.94944" y="10.467115" pivot_x="0.210619" pivot_y="0.723299" scale_x="0.463783" scale_y="0.463783"/>
+                </key>
+                <key id="1" time="200">
+                    <object folder="0" file="2" x="5.94944" y="10.467115" pivot_x="0.210619" pivot_y="0.723299" scale_x="0.463783" scale_y="0.463783"/>
+                </key>
+                <key id="2" time="300" spin="-1">
+                    <object folder="0" file="2" x="5.94944" y="10.467115" pivot_x="0.210619" pivot_y="0.723299" angle="24.661712" scale_x="0.463783" scale_y="0.463783"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

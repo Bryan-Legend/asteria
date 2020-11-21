@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="9.9" version="10.0" Modules="professional" RootPath="." Language="en" Id="{6223E19F-2841-4505-8CC1-9EEB6707CF7C}">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiValidationComponent">
+    <ROW Table="File" Column="Sequence" MinValue="1" MaxValue="32767" Description="Sequence with respect to the media images; order must track cabinet order." Options="0" ColumnType="2" ColumnIndex="7" ColumnSize="2" MsiKey="File#Sequence"/>
+    <ROW Table="Media" Column="LastSequence" MinValue="0" MaxValue="32767" Description="File sequence number for the last file for this media." Options="0" ColumnType="2" ColumnIndex="1" ColumnSize="2" MsiKey="Media#LastSequence"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="ALLUSERS" Value="1" MultiBuildValue="DefaultBuild:2"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPCONTACT" Value="support@playasteria.com"/>
+    <ROW Property="ARPHELPLINK" Value="http://playasteria.com/Support"/>
+    <ROW Property="ARPNOMODIFY" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPNOREPAIR" Value="1"/>
+    <ROW Property="ARPPRODUCTICON" Value="Game.exe" Type="8"/>
+    <ROW Property="ARPURLINFOABOUT" Value="http://playasteria.com"/>
+    <ROW Property="AiPreferFastOem" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="AiSkipExitDlg" Value="1"/>
+    <ROW Property="CTRLS" Value="2"/>
+    <ROW Property="MSIFASTINSTALL" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="Manufacturer" Value="Legend Studio"/>
+    <ROW Property="MsiLogging" MultiBuildValue="DefaultBuild:v"/>
+    <ROW Property="ProductCode" Value="1033:{F7456DFA-78C9-460B-9698-414DFB0074D5} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="Asteria"/>
+    <ROW Property="ProductVersion" Value="0.8.1.0" Type="32" TargetFile="HD.Core.dll"/>
+    <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="UpgradeCode" Value="{C6EA9AB7-EE84-4C32-9151-EB3B4F82733F}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows NT 4.0, Windows NT 4.0 Service Pack 1, Windows NT 4.0 Service Pack 2, Windows NT 4.0 Service Pack 3, Windows NT 4.0 Service Pack 4, Windows NT 4.0 Service Pack 5, Windows NT 4.0 Service Pack 6, Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4, Windows XP x86, Windows XP x86 Service Pack 1, Windows XP x86 Service Pack 2, Windows XP x86 Service Pack 3, Windows Server 2003 x86, Windows Server 2003 x86 Service Pack 1, Windows Server 2003 x86 Service Pack 2" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64" MultiBuildValue="DefaultBuild:Windows XP x64, Windows XP x64 Service Pack 1, Windows XP x64 Service Pack 2, Windows Server 2003 x64, Windows Server 2003 x64 Service Pack 1, Windows Server 2003 x64 Service Pack 2" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64Display" MultiBuildValue="DefaultBuild:Windows XP x64, Windows Server 2003 x64" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNTDisplay" MultiBuildValue="DefaultBuild:Windows NT 4.0, Windows 2000, Windows XP x86, Windows Server 2003 x86" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="Background_Dir" Directory_Parent="Content_Dir" DefaultDir="Backgr~1|Background"/>
+    <ROW Directory="Content_Dir" Directory_Parent="APPDIR" DefaultDir="Content"/>
+    <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="Deskto~1|DesktopFolder" IsPseudoRoot="1"/>
+    <ROW Directory="Enemies_Dir" Directory_Parent="Content_Dir" DefaultDir="Enemies"/>
+    <ROW Directory="Items_Dir" Directory_Parent="Content_Dir" DefaultDir="Items"/>
+    <ROW Directory="Maps_Dir" Directory_Parent="Content_Dir" DefaultDir="Maps"/>
+    <ROW Directory="Music_Dir" Directory_Parent="Content_Dir" DefaultDir="Music"/>
+    <ROW Directory="Particles_Dir" Directory_Parent="Content_Dir" DefaultDir="Partic~1|Particles"/>
+    <ROW Directory="Projectiles_Dir" Directory_Parent="Content_Dir" DefaultDir="Projec~1|Projectiles"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="Sounds_Dir" Directory_Parent="Content_Dir" DefaultDir="Sounds"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="Tiles_Dir" Directory_Parent="Content_Dir" DefaultDir="Tiles"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_ExePath" ComponentId="{85FE5852-528B-41E8-BCEF-E1D0F8750F55}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
+    <ROW Component="Acid.png" ComponentId="{CE90E9D7-98B7-4596-BE4A-19E7B9E73F65}" Directory_="Tiles_Dir" Attributes="0" KeyPath="Acid.png" Type="0"/>
+    <ROW Component="Arm.png" ComponentId="{068FB201-91BF-4107-972C-FEBBCB207F3D}" Directory_="Content_Dir" Attributes="0" KeyPath="Arm.png" Type="0"/>
+    <ROW Component="Asteria.exe" ComponentId="{514A3B4E-B22D-479B-B9D7-8DD98D832348}" Directory_="APPDIR" Attributes="0" KeyPath="Asteria.exe"/>
+    <ROW Component="Asteria.exe.config" ComponentId="{AA949969-FBC2-4EB3-9DE6-9B0E469AD0D6}" Directory_="APPDIR" Attributes="0" KeyPath="Asteria.exe.config" Type="0"/>
+    <ROW Component="Basic.png" ComponentId="{CE0E148E-6305-46F3-A1FD-9F205B6BA7B9}" Directory_="Particles_Dir" Attributes="0" KeyPath="Basic.png" Type="0"/>
+    <ROW Component="Blaster.png" ComponentId="{065A0122-1643-4D3E-BB46-1EB3472BBF14}" Directory_="Projectiles_Dir" Attributes="0" KeyPath="Blaster.png" Type="0"/>
+    <ROW Component="BlasterFire15.wav" ComponentId="{E6445A71-FA0D-4A52-B881-48ADFB1E8D79}" Directory_="Sounds_Dir" Attributes="0" KeyPath="BlasterHit.wav" Type="0"/>
+    <ROW Component="Boss2.Map" ComponentId="{228A4AFB-B28B-44BC-8BF9-B317522473CF}" Directory_="Maps_Dir" Attributes="0" KeyPath="DungeonSelect.Map" Type="0"/>
+    <ROW Component="CaveBack.png" ComponentId="{A994354E-0C9F-4766-964A-4863B77C58CD}" Directory_="Background_Dir" Attributes="0" KeyPath="CaveBack.png" Type="0"/>
+    <ROW Component="Chest.png" ComponentId="{F6874F9D-E6A5-44CA-8315-AFC3DC49DB0F}" Directory_="Items_Dir" Attributes="0" KeyPath="Chest.png" Type="0"/>
+    <ROW Component="Crawler.png" ComponentId="{09C70866-1CA4-40A3-A301-32BDDED2D92A}" Directory_="Enemies_Dir" Attributes="0" KeyPath="Crawler.png" Type="0"/>
+    <ROW Component="FuchsGUI.dll" ComponentId="{FD12DAD1-EC16-4BE5-B919-61FF556A6BEF}" Directory_="APPDIR" Attributes="0" KeyPath="FuchsGUI.dll"/>
+    <ROW Component="HD.Core.dll" ComponentId="{D41CEE7B-DE4A-4A41-9ABD-05C8915726BD}" Directory_="APPDIR" Attributes="0" KeyPath="HD.Core.dll"/>
+    <ROW Component="Ionic.Zip.dll" ComponentId="{E3D19AFD-77A7-4318-9FBF-7EF979C153CB}" Directory_="APPDIR" Attributes="0" KeyPath="Ionic.Zip.dll"/>
+    <ROW Component="Newtonsoft.Json.dll" ComponentId="{D076F853-FE08-4FBA-A7E5-DC243923393A}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="ProductInformation" ComponentId="{104496E4-089D-48E6-9539-1CAD883E4C81}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{5AF9979E-4B1C-4B10-B46D-8D6F380DF796}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="Server.exe" ComponentId="{FDCFC8FF-F051-4603-A7EF-922486AA165B}" Directory_="APPDIR" Attributes="0" KeyPath="Server.exe"/>
+    <ROW Component="__royal__cavernwind.xnb" ComponentId="{F642358B-3E79-4D60-B146-4A94C0B2A5F0}" Directory_="Music_Dir" Attributes="0" KeyPath="__royal__cavernwind.xnb" Type="0"/>
+    <ROW Component="protobufnet.dll" ComponentId="{C0D26F2D-6401-4CD8-8D96-BB12A8C29A4C}" Directory_="APPDIR" Attributes="0" KeyPath="protobufnet.dll"/>
+    <ROW Component="updater.exe" ComponentId="{4A633F55-92DC-4C1A-B141-0EFC635FB0C1}" Directory_="APPDIR" Attributes="0" KeyPath="updater.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_ExePath Acid.png Arm.png Asteria.exe Asteria.exe.config Basic.png Blaster.png BlasterFire15.wav Boss2.Map CaveBack.png Chest.png Crawler.png FuchsGUI.dll HD.Core.dll Ionic.Zip.dll Newtonsoft.Json.dll ProductInformation SHORTCUTDIR Server.exe __royal__cavernwind.xnb protobufnet.dll updater.exe"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="Acid.png" Component_="Acid.png" FileName="Acid.png" Attributes="0" SourcePath="build\Content\Tiles\Acid.png" SelfReg="false" NextFile="Air.png"/>
+    <ROW File="AcidSpit.png" Component_="Blaster.png" FileName="AcidSpit.png" Attributes="0" SourcePath="build\Content\Projectiles\AcidSpit.png" SelfReg="false" NextFile="BallLightning.png"/>
+    <ROW File="AdamantiumBlaster.png" Component_="Chest.png" FileName="Adaman~2.png|Adamantium Blaster.png" Attributes="0" SourcePath="build\Content\Items\Adamantium Blaster.png" SelfReg="false" NextFile="CooperMiningTool.png"/>
+    <ROW File="AdamantiumSuperconductor.png" Component_="Chest.png" FileName="Adaman~1.png|Adamantium Superconductor.png" Attributes="0" SourcePath="build\Content\Items\Adamantium Superconductor.png" SelfReg="false" NextFile="Battery.png"/>
+    <ROW File="Air.png" Component_="Acid.png" FileName="Air.png" Attributes="0" SourcePath="build\Content\Tiles\Air.png" SelfReg="false" NextFile="Amethyst.png"/>
+    <ROW File="AluminumOre.png" Component_="Acid.png" FileName="Alumin~1.png|AluminumOre.png" Attributes="0" SourcePath="build\Content\Tiles\AluminumOre.png" SelfReg="false" NextFile="BlackMetal.png"/>
+    <ROW File="Amethyst.png" Component_="Acid.png" FileName="Amethyst.png" Attributes="0" SourcePath="build\Content\Tiles\Amethyst.png" SelfReg="false" NextFile="Ash.png"/>
+    <ROW File="Arm.png" Component_="Arm.png" FileName="Arm.png" Attributes="0" SourcePath="build\Content\Arm.png" SelfReg="false" NextFile="CaveBack.png"/>
+    <ROW File="Ash.png" Component_="Acid.png" FileName="Ash.png" Attributes="0" SourcePath="build\Content\Tiles\Ash.png" SelfReg="false" NextFile="Basalt.png"/>
+    <ROW File="Asteria.exe" Component_="Asteria.exe" FileName="Asteria.exe" Attributes="0" SourcePath="build\Asteria.exe" SelfReg="false" NextFile="Asteria.exe.config" DigSign="true"/>
+    <ROW File="Asteria.exe.config" Component_="Asteria.exe.config" FileName="Asteri~1.con|Asteria.exe.config" Attributes="0" SourcePath="build\Asteria.exe.config" SelfReg="false" NextFile="FuchsGUI.dll"/>
+    <ROW File="BallLightning.png" Component_="Blaster.png" FileName="BallLi~1.png|BallLightning.png" Attributes="0" SourcePath="build\Content\Projectiles\BallLightning.png" SelfReg="false" NextFile="Digging.png"/>
+    <ROW File="Basalt.png" Component_="Acid.png" FileName="Basalt.png" Attributes="0" SourcePath="build\Content\Tiles\Basalt.png" SelfReg="false" NextFile="BlackBrick.png"/>
+    <ROW File="Basic.png" Component_="Basic.png" FileName="Basic.png" Attributes="0" SourcePath="build\Content\Particles\Basic.png" SelfReg="false" NextFile="Blood1.png"/>
+    <ROW File="Battery.png" Component_="Chest.png" FileName="Battery.png" Attributes="0" SourcePath="build\Content\Items\Battery.png" SelfReg="false" NextFile="BlueCrystal.png"/>
+    <ROW File="Birds.wma" Component_="__royal__cavernwind.xnb" FileName="Birds.wma" Attributes="0" SourcePath="build\Content\Music\Birds.wma" SelfReg="false" NextFile="EpicCinematicTrailerMusicCE320kbit.wma"/>
+    <ROW File="Birds.xnb" Component_="__royal__cavernwind.xnb" FileName="Birds.xnb" Attributes="0" SourcePath="build\Content\Music\Birds.xnb" SelfReg="false" NextFile="EpicCinematicTrailerMusicCE320kbit.xnb"/>
+    <ROW File="BlackBrick.png" Component_="Acid.png" FileName="BlackB~1.png|BlackBrick.png" Attributes="0" SourcePath="build\Content\Tiles\BlackBrick.png" SelfReg="false" NextFile="BlueBrick.png"/>
+    <ROW File="BlackMetal.png" Component_="Acid.png" FileName="BlackM~1.png|BlackMetal.png" Attributes="0" SourcePath="build\Content\Tiles\BlackMetal.png" SelfReg="false" NextFile="BlueFire.png"/>
+    <ROW File="Blaster.png" Component_="Blaster.png" FileName="Blaster.png" Attributes="0" SourcePath="build\Content\Projectiles\Blaster.png" SelfReg="false" NextFile="DigExtraLarge.png"/>
+    <ROW File="BlasterFire.wav" Component_="BlasterFire15.wav" FileName="Blaste~2.wav|BlasterFire.wav" Attributes="0" SourcePath="build\Content\Sounds\BlasterFire.wav" SelfReg="false" NextFile="BlasterHit.wav"/>
+    <ROW File="BlasterHit.wav" Component_="BlasterFire15.wav" FileName="Blaste~3.wav|BlasterHit.wav" Attributes="0" SourcePath="build\Content\Sounds\BlasterHit.wav" SelfReg="false" NextFile="CrawlerAttack.wav"/>
+    <ROW File="BlendEffect.xnb" Component_="Arm.png" FileName="BlendE~1.xnb|BlendEffect.xnb" Attributes="0" SourcePath="build\Content\BlendEffect.xnb" SelfReg="false" NextFile="Newtonsoft.Json.dll"/>
+    <ROW File="Blood.png" Component_="Basic.png" FileName="Blood.png" Attributes="0" SourcePath="build\Content\Particles\Blood.png" SelfReg="false" NextFile="KrawnixGut1.png"/>
+    <ROW File="Blood1.png" Component_="Basic.png" FileName="Blood1~1.png|Blood 1.png" Attributes="0" SourcePath="build\Content\Particles\Blood 1.png" SelfReg="false" NextFile="Blood2.png"/>
+    <ROW File="Blood2.png" Component_="Basic.png" FileName="Blood2~1.png|Blood 2.png" Attributes="0" SourcePath="build\Content\Particles\Blood 2.png" SelfReg="false" NextFile="Blood3.png"/>
+    <ROW File="Blood3.png" Component_="Basic.png" FileName="Blood3~1.png|Blood 3.png" Attributes="0" SourcePath="build\Content\Particles\Blood 3.png" SelfReg="false" NextFile="Blood4.png"/>
+    <ROW File="Blood4.png" Component_="Basic.png" FileName="Blood4~1.png|Blood 4.png" Attributes="0" SourcePath="build\Content\Particles\Blood 4.png" SelfReg="false" NextFile="Blood5.png"/>
+    <ROW File="Blood5.png" Component_="Basic.png" FileName="Blood5~1.png|Blood 5.png" Attributes="0" SourcePath="build\Content\Particles\Blood 5.png" SelfReg="false" NextFile="Blood6.png"/>
+    <ROW File="Blood6.png" Component_="Basic.png" FileName="Blood6~1.png|Blood 6.png" Attributes="0" SourcePath="build\Content\Particles\Blood 6.png" SelfReg="false" NextFile="Blood7.png"/>
+    <ROW File="Blood7.png" Component_="Basic.png" FileName="Blood7~1.png|Blood 7.png" Attributes="0" SourcePath="build\Content\Particles\Blood 7.png" SelfReg="false" NextFile="Blood8.png"/>
+    <ROW File="Blood8.png" Component_="Basic.png" FileName="Blood8~1.png|Blood 8.png" Attributes="0" SourcePath="build\Content\Particles\Blood 8.png" SelfReg="false" NextFile="Blood9.png"/>
+    <ROW File="Blood9.png" Component_="Basic.png" FileName="Blood9~1.png|Blood 9.png" Attributes="0" SourcePath="build\Content\Particles\Blood 9.png" SelfReg="false" NextFile="Blood.png"/>
+    <ROW File="BlueBrick.png" Component_="Acid.png" FileName="BlueBr~1.png|BlueBrick.png" Attributes="0" SourcePath="build\Content\Tiles\BlueBrick.png" SelfReg="false" NextFile="Bone.png"/>
+    <ROW File="BlueCrystal.png" Component_="Chest.png" FileName="BlueCr~1.png|Blue Crystal.png" Attributes="0" SourcePath="build\Content\Items\Blue Crystal.png" SelfReg="false" NextFile="BoseEinsteinCondenser.png_1"/>
+    <ROW File="BlueFire.png" Component_="Acid.png" FileName="BlueFire.png" Attributes="0" SourcePath="build\Content\Tiles\BlueFire.png" SelfReg="false" NextFile="DarkGrayMetal.png"/>
+    <ROW File="Bone.png" Component_="Acid.png" FileName="Bone.png" Attributes="0" SourcePath="build\Content\Tiles\Bone.png" SelfReg="false" NextFile="BrownBrick.png"/>
+    <ROW File="BoseEinsteinCondenser.png" Component_="Blaster.png" FileName="BoseEi~1.png|BoseEinsteinCondenser.png" Attributes="0" SourcePath="build\Content\Projectiles\BoseEinsteinCondenser.png" SelfReg="false" NextFile="DiggingAndDamaging.png"/>
+    <ROW File="BoseEinsteinCondenser.png_1" Component_="Chest.png" FileName="BoseEi~1.png|Bose Einstein Condenser.png" Attributes="0" SourcePath="build\Content\Items\Bose Einstein Condenser.png" SelfReg="false" NextFile="Claw.png"/>
+    <ROW File="BossFlameThrower.png" Component_="Blaster.png" FileName="BossFl~1.png|BossFlameThrower.png" Attributes="0" SourcePath="build\Content\Projectiles\BossFlameThrower.png" SelfReg="false" NextFile="Comet.png"/>
+    <ROW File="Botanica.Map" Component_="Boss2.Map" FileName="Botanica.Map" Attributes="0" SourcePath="build\Content\Maps\Botanica.Map" SelfReg="false" NextFile="KrawnixLair.Map"/>
+    <ROW File="BotanicaMiniBoss2Die.wav" Component_="BlasterFire15.wav" FileName="Botani~1.wav|Botanica Mini Boss 2Die.wav" Attributes="0" SourcePath="build\Content\Sounds\Botanica Mini Boss 2Die.wav" SelfReg="false" NextFile="BotanicaMiniBoss2Spawn50.wav"/>
+    <ROW File="BotanicaMiniBoss2Spawn50.wav" Component_="BlasterFire15.wav" FileName="Botani~2.wav|Botanica Mini Boss 2Spawn 50.wav" Attributes="0" SourcePath="build\Content\Sounds\Botanica Mini Boss 2Spawn 50.wav" SelfReg="false" NextFile="BrunnenAttack.wav"/>
+    <ROW File="BrainSucker.png" Component_="Crawler.png" FileName="BrainS~2.png|Brain Sucker.png" Attributes="0" SourcePath="build\Content\Enemies\Brain Sucker.png" SelfReg="false" NextFile="FloaterHelpSheet.png"/>
+    <ROW File="BrainSuckerAnimationHelp.png" Component_="Crawler.png" FileName="BrainS~1.png|Brain Sucker Animation Help.png" Attributes="0" SourcePath="build\Content\Enemies\Brain Sucker Animation Help.png" SelfReg="false" NextFile="BrainSucker.png"/>
+    <ROW File="BrownBrick.png" Component_="Acid.png" FileName="BrownB~1.png|BrownBrick.png" Attributes="0" SourcePath="build\Content\Tiles\BrownBrick.png" SelfReg="false" NextFile="Clay.png"/>
+    <ROW File="BrunnenAttack.wav" Component_="BlasterFire15.wav" FileName="Brunne~5.wav|BrunnenAttack.wav" Attributes="0" SourcePath="build\Content\Sounds\BrunnenAttack.wav" SelfReg="false" NextFile="BrunnenDie.wav"/>
+    <ROW File="BrunnenDie.wav" Component_="BlasterFire15.wav" FileName="Brunne~6.wav|BrunnenDie.wav" Attributes="0" SourcePath="build\Content\Sounds\BrunnenDie.wav" SelfReg="false" NextFile="BrunnenSpawn99.wav"/>
+    <ROW File="BrunnenSpawn99.wav" Component_="BlasterFire15.wav" FileName="Brunne~7.wav|BrunnenSpawn 99.wav" Attributes="0" SourcePath="build\Content\Sounds\BrunnenSpawn 99.wav" SelfReg="false" NextFile="ChemicalReactor.wav"/>
+    <ROW File="Brushes.png" Component_="Arm.png" FileName="Brushes.png" Attributes="0" SourcePath="build\Content\Brushes.png" SelfReg="false" NextFile="Button.png"/>
+    <ROW File="Button.png" Component_="Arm.png" FileName="Button.png" Attributes="0" SourcePath="build\Content\Button.png" SelfReg="false" NextFile="Character.png"/>
+    <ROW File="CaveBack.png" Component_="CaveBack.png" FileName="CaveBack.png" Attributes="0" SourcePath="build\Content\Background\CaveBack.png" SelfReg="false" NextFile="CaveFore.png"/>
+    <ROW File="CaveFore.png" Component_="CaveBack.png" FileName="CaveFore.png" Attributes="0" SourcePath="build\Content\Background\CaveFore.png" SelfReg="false" NextFile="CaveMid.png"/>
+    <ROW File="CaveMid.png" Component_="CaveBack.png" FileName="CaveMid.png" Attributes="0" SourcePath="build\Content\Background\CaveMid.png" SelfReg="false" NextFile="Cloud1.png"/>
+    <ROW File="Character.png" Component_="Arm.png" FileName="Charac~1.png|Character.png" Attributes="0" SourcePath="build\Content\Character.png" SelfReg="false" NextFile="ChatBox.png"/>
+    <ROW File="ChatBox.png" Component_="Arm.png" FileName="ChatBo~1.png|Chat Box.png" Attributes="0" SourcePath="build\Content\Chat Box.png" SelfReg="false" NextFile="Cursor.png"/>
+    <ROW File="ChemicalReactor.wav" Component_="BlasterFire15.wav" FileName="Chemic~1.wav|ChemicalReactor.wav" Attributes="0" SourcePath="build\Content\Sounds\ChemicalReactor.wav" SelfReg="false" NextFile="ChestLocked.wav"/>
+    <ROW File="Chest.png" Component_="Chest.png" FileName="Chest.png" Attributes="0" SourcePath="build\Content\Items\Chest.png" SelfReg="false" NextFile="HiddenLight.png"/>
+    <ROW File="ChestLocked.wav" Component_="BlasterFire15.wav" FileName="ChestL~2.wav|ChestLocked.wav" Attributes="0" SourcePath="build\Content\Sounds\ChestLocked.wav" SelfReg="false" NextFile="ChestOpen.wav"/>
+    <ROW File="ChestOpen.wav" Component_="BlasterFire15.wav" FileName="ChestO~2.wav|ChestOpen.wav" Attributes="0" SourcePath="build\Content\Sounds\ChestOpen.wav" SelfReg="false" NextFile="CrawlerSpawn35.wav"/>
+    <ROW File="Claw.png" Component_="Chest.png" FileName="Claw.png" Attributes="0" SourcePath="build\Content\Items\Claw.png" SelfReg="false" NextFile="CopperSuperconductor.png"/>
+    <ROW File="Clay.png" Component_="Acid.png" FileName="Clay.png" Attributes="0" SourcePath="build\Content\Tiles\Clay.png" SelfReg="false" NextFile="Coal.png"/>
+    <ROW File="Cloud1.png" Component_="CaveBack.png" FileName="Cloud1.png" Attributes="0" SourcePath="build\Content\Background\Cloud1.png" SelfReg="false" NextFile="Cloud10.png"/>
+    <ROW File="Cloud10.png" Component_="CaveBack.png" FileName="Cloud10.png" Attributes="0" SourcePath="build\Content\Background\Cloud10.png" SelfReg="false" NextFile="Cloud10Night.png"/>
+    <ROW File="Cloud10Night.png" Component_="CaveBack.png" FileName="Cloud1~1.png|Cloud10Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud10Night.png" SelfReg="false" NextFile="Cloud11.png"/>
+    <ROW File="Cloud11.png" Component_="CaveBack.png" FileName="Cloud11.png" Attributes="0" SourcePath="build\Content\Background\Cloud11.png" SelfReg="false" NextFile="Cloud11Night.png"/>
+    <ROW File="Cloud11Night.png" Component_="CaveBack.png" FileName="Cloud1~2.png|Cloud11Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud11Night.png" SelfReg="false" NextFile="Cloud12.png"/>
+    <ROW File="Cloud12.png" Component_="CaveBack.png" FileName="Cloud12.png" Attributes="0" SourcePath="build\Content\Background\Cloud12.png" SelfReg="false" NextFile="Cloud12Night.png"/>
+    <ROW File="Cloud12Night.png" Component_="CaveBack.png" FileName="Cloud1~3.png|Cloud12Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud12Night.png" SelfReg="false" NextFile="Cloud13.png"/>
+    <ROW File="Cloud13.png" Component_="CaveBack.png" FileName="Cloud13.png" Attributes="0" SourcePath="build\Content\Background\Cloud13.png" SelfReg="false" NextFile="Cloud13Night.png"/>
+    <ROW File="Cloud13Night.png" Component_="CaveBack.png" FileName="Cloud1~4.png|Cloud13Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud13Night.png" SelfReg="false" NextFile="Cloud14.png"/>
+    <ROW File="Cloud14.png" Component_="CaveBack.png" FileName="Cloud14.png" Attributes="0" SourcePath="build\Content\Background\Cloud14.png" SelfReg="false" NextFile="Cloud14Night.png"/>
+    <ROW File="Cloud14Night.png" Component_="CaveBack.png" FileName="Cloud1~5.png|Cloud14Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud14Night.png" SelfReg="false" NextFile="Cloud1Night.png"/>
+    <ROW File="Cloud1Night.png" Component_="CaveBack.png" FileName="Cloud1~8.png|Cloud1Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud1Night.png" SelfReg="false" NextFile="Cloud2.png"/>
+    <ROW File="Cloud2.png" Component_="CaveBack.png" FileName="Cloud2.png" Attributes="0" SourcePath="build\Content\Background\Cloud2.png" SelfReg="false" NextFile="Cloud2Night.png"/>
+    <ROW File="Cloud2Night.png" Component_="CaveBack.png" FileName="Cloud2~1.png|Cloud2Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud2Night.png" SelfReg="false" NextFile="Cloud3.png"/>
+    <ROW File="Cloud3.png" Component_="CaveBack.png" FileName="Cloud3.png" Attributes="0" SourcePath="build\Content\Background\Cloud3.png" SelfReg="false" NextFile="Cloud3Night.png"/>
+    <ROW File="Cloud3Night.png" Component_="CaveBack.png" FileName="Cloud3~1.png|Cloud3Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud3Night.png" SelfReg="false" NextFile="Cloud4.png"/>
+    <ROW File="Cloud4.png" Component_="CaveBack.png" FileName="Cloud4.png" Attributes="0" SourcePath="build\Content\Background\Cloud4.png" SelfReg="false" NextFile="Cloud4Night.png"/>
+    <ROW File="Cloud4Night.png" Component_="CaveBack.png" FileName="Cloud4~1.png|Cloud4Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud4Night.png" SelfReg="false" NextFile="Cloud5.png"/>
+    <ROW File="Cloud5.png" Component_="CaveBack.png" FileName="Cloud5.png" Attributes="0" SourcePath="build\Content\Background\Cloud5.png" SelfReg="false" NextFile="Cloud5Night.png"/>
+    <ROW File="Cloud5Night.png" Component_="CaveBack.png" FileName="Cloud5~1.png|Cloud5Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud5Night.png" SelfReg="false" NextFile="Cloud6.png"/>
+    <ROW File="Cloud6.png" Component_="CaveBack.png" FileName="Cloud6.png" Attributes="0" SourcePath="build\Content\Background\Cloud6.png" SelfReg="false" NextFile="Cloud6Night.png"/>
+    <ROW File="Cloud6Night.png" Component_="CaveBack.png" FileName="Cloud6~1.png|Cloud6Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud6Night.png" SelfReg="false" NextFile="Cloud7.png"/>
+    <ROW File="Cloud7.png" Component_="CaveBack.png" FileName="Cloud7.png" Attributes="0" SourcePath="build\Content\Background\Cloud7.png" SelfReg="false" NextFile="Cloud7Night.png"/>
+    <ROW File="Cloud7Night.png" Component_="CaveBack.png" FileName="Cloud7~1.png|Cloud7Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud7Night.png" SelfReg="false" NextFile="Cloud8.png"/>
+    <ROW File="Cloud8.png" Component_="CaveBack.png" FileName="Cloud8.png" Attributes="0" SourcePath="build\Content\Background\Cloud8.png" SelfReg="false" NextFile="Cloud8Night.png"/>
+    <ROW File="Cloud8Night.png" Component_="CaveBack.png" FileName="Cloud8~1.png|Cloud8Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud8Night.png" SelfReg="false" NextFile="Cloud9.png"/>
+    <ROW File="Cloud9.png" Component_="CaveBack.png" FileName="Cloud9.png" Attributes="0" SourcePath="build\Content\Background\Cloud9.png" SelfReg="false" NextFile="Cloud9Night.png"/>
+    <ROW File="Cloud9Night.png" Component_="CaveBack.png" FileName="Cloud9~1.png|Cloud9Night.png" Attributes="0" SourcePath="build\Content\Background\Cloud9Night.png" SelfReg="false" NextFile="DaySky.png"/>
+    <ROW File="Coal.png" Component_="Acid.png" FileName="Coal.png" Attributes="0" SourcePath="build\Content\Tiles\Coal.png" SelfReg="false" NextFile="CopperOre.png"/>
+    <ROW File="Comet.png" Component_="Blaster.png" FileName="Comet.png" Attributes="0" SourcePath="build\Content\Projectiles\Comet.png" SelfReg="false" NextFile="Fireball.png"/>
+    <ROW File="CooperMiningTool.png" Component_="Chest.png" FileName="Cooper~1.png|Cooper MiningTool.png" Attributes="0" SourcePath="build\Content\Items\Cooper MiningTool.png" SelfReg="false" NextFile="CopperBlaster.png"/>
+    <ROW File="CopperBlaster.png" Component_="Chest.png" FileName="Copper~2.png|Copper Blaster.png" Attributes="0" SourcePath="build\Content\Items\Copper Blaster.png" SelfReg="false" NextFile="DarkSteelBlaster.png"/>
+    <ROW File="CopperOre.png" Component_="Acid.png" FileName="Copper~1.png|CopperOre.png" Attributes="0" SourcePath="build\Content\Tiles\CopperOre.png" SelfReg="false" NextFile="CyanBrick.png"/>
+    <ROW File="CopperSuperconductor.png" Component_="Chest.png" FileName="Copper~1.png|Copper Superconductor.png" Attributes="0" SourcePath="build\Content\Items\Copper Superconductor.png" SelfReg="false" NextFile="DarksteelSuperconductor.png"/>
+    <ROW File="Crawler.png" Component_="Crawler.png" FileName="Crawler.png" Attributes="0" SourcePath="build\Content\Enemies\Crawler.png" SelfReg="false" NextFile="Ectoplasm.png"/>
+    <ROW File="CrawlerAttack.wav" Component_="BlasterFire15.wav" FileName="Crawle~1.wav|CrawlerAttack.wav" Attributes="0" SourcePath="build\Content\Sounds\CrawlerAttack.wav" SelfReg="false" NextFile="CrawlerDie.wav"/>
+    <ROW File="CrawlerDie.wav" Component_="BlasterFire15.wav" FileName="Crawle~2.wav|CrawlerDie.wav" Attributes="0" SourcePath="build\Content\Sounds\CrawlerDie.wav" SelfReg="false" NextFile="DrakeAttack.wav"/>
+    <ROW File="CrawlerSpawn35.wav" Component_="BlasterFire15.wav" FileName="Crawle~4.wav|CrawlerSpawn 35.wav" Attributes="0" SourcePath="build\Content\Sounds\CrawlerSpawn 35.wav" SelfReg="false" NextFile="CrystallineLarvaAttack.wav"/>
+    <ROW File="Crystalline.png" Component_="Crawler.png" FileName="Crysta~2.png|Crystalline.png" Attributes="0" SourcePath="build\Content\Enemies\Crystalline.png" SelfReg="false" NextFile="Drake.png"/>
+    <ROW File="CrystallineAttack.wav" Component_="BlasterFire15.wav" FileName="Cryst~12.wav|CrystallineAttack.wav" Attributes="0" SourcePath="build\Content\Sounds\CrystallineAttack.wav" SelfReg="false" NextFile="CrystallineDie.wav"/>
+    <ROW File="CrystallineDie.wav" Component_="BlasterFire15.wav" FileName="Cryst~13.wav|CrystallineDie.wav" Attributes="0" SourcePath="build\Content\Sounds\CrystallineDie.wav" SelfReg="false" NextFile="CrystallineSpawn99.wav"/>
+    <ROW File="CrystallineLarva.png" Component_="Crawler.png" FileName="Crysta~1.png|Crystalline Larva.png" Attributes="0" SourcePath="build\Content\Enemies\Crystalline Larva.png" SelfReg="false" NextFile="Crystalline.png"/>
+    <ROW File="CrystallineLarvaAttack.wav" Component_="BlasterFire15.wav" FileName="Crysta~9.wav|Crystalline LarvaAttack.wav" Attributes="0" SourcePath="build\Content\Sounds\Crystalline LarvaAttack.wav" SelfReg="false" NextFile="CrystallineLarvaDie.wav"/>
+    <ROW File="CrystallineLarvaDie.wav" Component_="BlasterFire15.wav" FileName="Cryst~10.wav|Crystalline LarvaDie.wav" Attributes="0" SourcePath="build\Content\Sounds\Crystalline LarvaDie.wav" SelfReg="false" NextFile="CrystallineLarvaSpawn99.wav"/>
+    <ROW File="CrystallineLarvaSpawn99.wav" Component_="BlasterFire15.wav" FileName="Cryst~11.wav|Crystalline LarvaSpawn 99.wav" Attributes="0" SourcePath="build\Content\Sounds\Crystalline LarvaSpawn 99.wav" SelfReg="false" NextFile="CrystallineAttack.wav"/>
+    <ROW File="CrystallineSpawn99.wav" Component_="BlasterFire15.wav" FileName="Cryst~14.wav|CrystallineSpawn 99.wav" Attributes="0" SourcePath="build\Content\Sounds\CrystallineSpawn 99.wav" SelfReg="false" NextFile="Dematerialize.wav"/>
+    <ROW File="Cursor.png" Component_="Arm.png" FileName="Cursor.png" Attributes="0" SourcePath="build\Content\Cursor.png" SelfReg="false" NextFile="DayNightGradient.png"/>
+    <ROW File="CyanBrick.png" Component_="Acid.png" FileName="CyanBr~1.png|CyanBrick.png" Attributes="0" SourcePath="build\Content\Tiles\CyanBrick.png" SelfReg="false" NextFile="DarkGrayBrick.png"/>
+    <ROW File="DPComic12.xnb" Component_="Arm.png" FileName="DPComi~1.xnb|DP Comic 12.xnb" Attributes="0" SourcePath="build\Content\DP Comic 12.xnb" SelfReg="false" NextFile="DPComic18.xnb"/>
+    <ROW File="DPComic18.xnb" Component_="Arm.png" FileName="DPComi~2.xnb|DP Comic 18.xnb" Attributes="0" SourcePath="build\Content\DP Comic 18.xnb" SelfReg="false" NextFile="DPComic24.xnb"/>
+    <ROW File="DPComic24.xnb" Component_="Arm.png" FileName="DPComi~3.xnb|DP Comic 24.xnb" Attributes="0" SourcePath="build\Content\DP Comic 24.xnb" SelfReg="false" NextFile="ShadowMap.xnb"/>
+    <ROW File="DarkGrayBrick.png" Component_="Acid.png" FileName="DarkGr~1.png|DarkGrayBrick.png" Attributes="0" SourcePath="build\Content\Tiles\DarkGrayBrick.png" SelfReg="false" NextFile="Diamond.png"/>
+    <ROW File="DarkGrayMetal.png" Component_="Acid.png" FileName="DarkGr~2.png|DarkGrayMetal.png" Attributes="0" SourcePath="build\Content\Tiles\DarkGrayMetal.png" SelfReg="false" NextFile="GrayMetal.png"/>
+    <ROW File="DarkSteelBlaster.png" Component_="Chest.png" FileName="DarkSt~2.png|DarkSteel Blaster.png" Attributes="0" SourcePath="build\Content\Items\DarkSteel Blaster.png" SelfReg="false" NextFile="DarkSteelMiningTool.png"/>
+    <ROW File="DarkSteelMiningTool.png" Component_="Chest.png" FileName="DarkSt~3.png|DarkSteel Mining Tool.png" Attributes="0" SourcePath="build\Content\Items\DarkSteel Mining Tool.png" SelfReg="false" NextFile="GoldBlaster.png"/>
+    <ROW File="DarksteelSuperconductor.png" Component_="Chest.png" FileName="Darkst~1.png|Darksteel Superconductor.png" Attributes="0" SourcePath="build\Content\Items\Darksteel Superconductor.png" SelfReg="false" NextFile="EchoCrystal.png"/>
+    <ROW File="DayNightGradient.png" Component_="Arm.png" FileName="DayNig~1.png|DayNightGradient.png" Attributes="0" SourcePath="build\Content\DayNightGradient.png" SelfReg="false" NextFile="EmptySlot.png"/>
+    <ROW File="DaySky.png" Component_="CaveBack.png" FileName="DaySky.png" Attributes="0" SourcePath="build\Content\Background\DaySky.png" SelfReg="false" NextFile="FloaterBack1.png"/>
+    <ROW File="Dematerialize.wav" Component_="BlasterFire15.wav" FileName="Demate~2.wav|Dematerialize.wav" Attributes="0" SourcePath="build\Content\Sounds\Dematerialize.wav" SelfReg="false" NextFile="DisruptorFire.wav"/>
+    <ROW File="Diamond.png" Component_="Acid.png" FileName="Diamond.png" Attributes="0" SourcePath="build\Content\Tiles\Diamond.png" SelfReg="false" NextFile="Dilithium.png"/>
+    <ROW File="DigExtraLarge.png" Component_="Blaster.png" FileName="DigExt~1.png|DigExtraLarge.png" Attributes="0" SourcePath="build\Content\Projectiles\DigExtraLarge.png" SelfReg="false" NextFile="DigLarge.png"/>
+    <ROW File="DigLarge.png" Component_="Blaster.png" FileName="DigLarge.png" Attributes="0" SourcePath="build\Content\Projectiles\DigLarge.png" SelfReg="false" NextFile="DigMedium.png"/>
+    <ROW File="DigMedium.png" Component_="Blaster.png" FileName="DigMed~1.png|DigMedium.png" Attributes="0" SourcePath="build\Content\Projectiles\DigMedium.png" SelfReg="false" NextFile="DigSmall.png"/>
+    <ROW File="DigSmall.png" Component_="Blaster.png" FileName="DigSmall.png" Attributes="0" SourcePath="build\Content\Projectiles\DigSmall.png" SelfReg="false" NextFile="Disruptor.png"/>
+    <ROW File="Digging.png" Component_="Blaster.png" FileName="Digging.png" Attributes="0" SourcePath="build\Content\Projectiles\Digging.png" SelfReg="false" NextFile="MiniFlame_2.png"/>
+    <ROW File="DiggingAndDamaging.png" Component_="Blaster.png" FileName="Diggin~1.png|DiggingAndDamaging.png" Attributes="0" SourcePath="build\Content\Projectiles\DiggingAndDamaging.png" SelfReg="false" NextFile="FlameThrower.png"/>
+    <ROW File="Dilithium.png" Component_="Acid.png" FileName="Dilith~1.png|Dilithium.png" Attributes="0" SourcePath="build\Content\Tiles\Dilithium.png" SelfReg="false" NextFile="Dirt.png"/>
+    <ROW File="Dirt.png" Component_="Acid.png" FileName="Dirt.png" Attributes="0" SourcePath="build\Content\Tiles\Dirt.png" SelfReg="false" NextFile="Emerald.png"/>
+    <ROW File="Disruptor.png" Component_="Blaster.png" FileName="Disrup~1.png|Disruptor.png" Attributes="0" SourcePath="build\Content\Projectiles\Disruptor.png" SelfReg="false" NextFile="HomingMissile.png"/>
+    <ROW File="DisruptorFire.wav" Component_="BlasterFire15.wav" FileName="Disrup~3.wav|DisruptorFire.wav" Attributes="0" SourcePath="build\Content\Sounds\DisruptorFire.wav" SelfReg="false" NextFile="DisruptorHit.wav"/>
+    <ROW File="DisruptorHit.wav" Component_="BlasterFire15.wav" FileName="Disrup~4.wav|DisruptorHit.wav" Attributes="0" SourcePath="build\Content\Sounds\DisruptorHit.wav" SelfReg="false" NextFile="DoorClosed.wav"/>
+    <ROW File="Door.png" Component_="Chest.png" FileName="Door.png" Attributes="0" SourcePath="build\Content\Items\Door.png" SelfReg="false" NextFile="MenuTextBox.png"/>
+    <ROW File="DoorClosed.wav" Component_="BlasterFire15.wav" FileName="DoorCl~2.wav|DoorClosed.wav" Attributes="0" SourcePath="build\Content\Sounds\DoorClosed.wav" SelfReg="false" NextFile="DoorOpen.wav"/>
+    <ROW File="DoorOpen.wav" Component_="BlasterFire15.wav" FileName="DoorOpen.wav" Attributes="0" SourcePath="build\Content\Sounds\DoorOpen.wav" SelfReg="false" NextFile="DrakeSpawn99.wav"/>
+    <ROW File="Drake.png" Component_="Crawler.png" FileName="Drake.png" Attributes="0" SourcePath="build\Content\Enemies\Drake.png" SelfReg="false" NextFile="Dritt.png"/>
+    <ROW File="DrakeAttack.wav" Component_="BlasterFire15.wav" FileName="DrakeA~1.wav|DrakeAttack.wav" Attributes="0" SourcePath="build\Content\Sounds\DrakeAttack.wav" SelfReg="false" NextFile="DrakeDie.wav"/>
+    <ROW File="DrakeDie.wav" Component_="BlasterFire15.wav" FileName="DrakeDie.wav" Attributes="0" SourcePath="build\Content\Sounds\DrakeDie.wav" SelfReg="false" NextFile="Explosion175.wav"/>
+    <ROW File="DrakeSpawn99.wav" Component_="BlasterFire15.wav" FileName="DrakeS~2.wav|DrakeSpawn 99.wav" Attributes="0" SourcePath="build\Content\Sounds\DrakeSpawn 99.wav" SelfReg="false" NextFile="DrathurlDie.wav"/>
+    <ROW File="DrathurlDie.wav" Component_="BlasterFire15.wav" FileName="Drathu~1.wav|DrathurlDie.wav" Attributes="0" SourcePath="build\Content\Sounds\DrathurlDie.wav" SelfReg="false" NextFile="DrathurlSpawn.wav"/>
+    <ROW File="DrathurlSpawn.wav" Component_="BlasterFire15.wav" FileName="Drathu~2.wav|DrathurlSpawn.wav" Attributes="0" SourcePath="build\Content\Sounds\DrathurlSpawn.wav" SelfReg="false" NextFile="DruthurlDamage20.wav"/>
+    <ROW File="Dritt.png" Component_="Crawler.png" FileName="Dritt.png" Attributes="0" SourcePath="build\Content\Enemies\Dritt.png" SelfReg="false" NextFile="Exploder.png"/>
+    <ROW File="DruthurlDamage20.wav" Component_="BlasterFire15.wav" FileName="Druthu~1.wav|DruthurlDamage 20.wav" Attributes="0" SourcePath="build\Content\Sounds\DruthurlDamage 20.wav" SelfReg="false" NextFile="EnterLava.wav"/>
+    <ROW File="DungeonSelect.Map" Component_="Boss2.Map" FileName="Dungeo~1.Map|DungeonSelect.Map" Attributes="0" SourcePath="build\Content\Maps\DungeonSelect.Map" SelfReg="false" NextFile="Start.Map"/>
+    <ROW File="EchoCrystal.png" Component_="Chest.png" FileName="EchoCr~1.png|Echo Crystal.png" Attributes="0" SourcePath="build\Content\Items\Echo Crystal.png" SelfReg="false" NextFile="EctoplasmCore.png"/>
+    <ROW File="Ectoplasm.png" Component_="Chest.png" FileName="Ectopl~1.png|Ectoplasm.png" Attributes="0" SourcePath="build\Content\Items\Ectoplasm.png" SelfReg="false" NextFile="Energy.png"/>
+    <ROW File="EctoplasmCore.png" Component_="Chest.png" FileName="Ectopl~2.png|Ectoplasm Core.png" Attributes="0" SourcePath="build\Content\Items\Ectoplasm Core.png" SelfReg="false" NextFile="Furnace.png"/>
+    <ROW File="Emerald.png" Component_="Acid.png" FileName="Emerald.png" Attributes="0" SourcePath="build\Content\Tiles\Emerald.png" SelfReg="false" NextFile="Fire.png"/>
+    <ROW File="EmptySlot.png" Component_="Arm.png" FileName="EmptyS~1.png|Empty Slot.png" Attributes="0" SourcePath="build\Content\Empty Slot.png" SelfReg="false" NextFile="Chest.png"/>
+    <ROW File="Energy.png" Component_="Chest.png" FileName="Energy.png" Attributes="0" SourcePath="build\Content\Items\Energy.png" SelfReg="false" NextFile="FinalBoss.Map"/>
+    <ROW File="EnterLava.wav" Component_="BlasterFire15.wav" FileName="EnterL~2.wav|EnterLava.wav" Attributes="0" SourcePath="build\Content\Sounds\EnterLava.wav" SelfReg="false" NextFile="EnterWater.wav"/>
+    <ROW File="EnterWater.wav" Component_="BlasterFire15.wav" FileName="EnterW~2.wav|EnterWater.wav" Attributes="0" SourcePath="build\Content\Sounds\EnterWater.wav" SelfReg="false" NextFile="Error.wav"/>
+    <ROW File="EpicCinematicTrailerMusicCE320kbit.wma" Component_="__royal__cavernwind.xnb" FileName="EpicCi~1.wma|Epic Cinematic Trailer Music (CE) 320kbit.wma" Attributes="0" SourcePath="build\Content\Music\Epic Cinematic Trailer Music (CE) 320kbit.wma" SelfReg="false" NextFile="BlendEffect.xnb"/>
+    <ROW File="EpicCinematicTrailerMusicCE320kbit.xnb" Component_="__royal__cavernwind.xnb" FileName="EpicCi~1.xnb|Epic Cinematic Trailer Music (CE) 320kbit.xnb" Attributes="0" SourcePath="build\Content\Music\Epic Cinematic Trailer Music (CE) 320kbit.xnb" SelfReg="false" NextFile="Furnace.wav"/>
+    <ROW File="Error.wav" Component_="BlasterFire15.wav" FileName="Error.wav" Attributes="0" SourcePath="build\Content\Sounds\Error.wav" SelfReg="false" NextFile="ExitLava.wav"/>
+    <ROW File="ExitLava.wav" Component_="BlasterFire15.wav" FileName="ExitLava.wav" Attributes="0" SourcePath="build\Content\Sounds\ExitLava.wav" SelfReg="false" NextFile="ExitWater.wav"/>
+    <ROW File="ExitWater.wav" Component_="BlasterFire15.wav" FileName="ExitWa~2.wav|ExitWater.wav" Attributes="0" SourcePath="build\Content\Sounds\ExitWater.wav" SelfReg="false" NextFile="ExploderDie25.wav"/>
+    <ROW File="Exploder.png" Component_="Crawler.png" FileName="Exploder.png" Attributes="0" SourcePath="build\Content\Enemies\Exploder.png" SelfReg="false" NextFile="Floater.png"/>
+    <ROW File="ExploderDie25.wav" Component_="BlasterFire15.wav" FileName="Explod~1.wav|ExploderDie 25.wav" Attributes="0" SourcePath="build\Content\Sounds\ExploderDie 25.wav" SelfReg="false" NextFile="ExploderSpawn15.wav"/>
+    <ROW File="ExploderSpawn15.wav" Component_="BlasterFire15.wav" FileName="Explod~5.wav|ExploderSpawn 15.wav" Attributes="0" SourcePath="build\Content\Sounds\ExploderSpawn 15.wav" SelfReg="false" NextFile="ExploderWarning15.wav"/>
+    <ROW File="ExploderWarning15.wav" Component_="BlasterFire15.wav" FileName="Explod~6.wav|ExploderWarning 15.wav" Attributes="0" SourcePath="build\Content\Sounds\ExploderWarning 15.wav" SelfReg="false" NextFile="FloaterAttack40.wav"/>
+    <ROW File="Explosion175.wav" Component_="BlasterFire15.wav" FileName="Explos~1.wav|Explosion1 75.wav" Attributes="0" SourcePath="build\Content\Sounds\Explosion1 75.wav" SelfReg="false" NextFile="Explosion275.wav"/>
+    <ROW File="Explosion275.wav" Component_="BlasterFire15.wav" FileName="Explos~2.wav|Explosion2 75.wav" Attributes="0" SourcePath="build\Content\Sounds\Explosion2 75.wav" SelfReg="false" NextFile="Explosion375.wav"/>
+    <ROW File="Explosion375.wav" Component_="BlasterFire15.wav" FileName="Explos~3.wav|Explosion3 75.wav" Attributes="0" SourcePath="build\Content\Sounds\Explosion3 75.wav" SelfReg="false" NextFile="Explosion475.wav"/>
+    <ROW File="Explosion475.wav" Component_="BlasterFire15.wav" FileName="Explos~4.wav|Explosion4 75.wav" Attributes="0" SourcePath="build\Content\Sounds\Explosion4 75.wav" SelfReg="false" NextFile="Explosion575.wav"/>
+    <ROW File="Explosion575.wav" Component_="BlasterFire15.wav" FileName="Explos~5.wav|Explosion5 75.wav" Attributes="0" SourcePath="build\Content\Sounds\Explosion5 75.wav" SelfReg="false" NextFile="FireflyDie.wav"/>
+    <ROW File="FinalBoss.Map" Component_="Boss2.Map" FileName="FinalB~1.Map|FinalBoss.Map" Attributes="0" SourcePath="build\Content\Maps\FinalBoss.Map" SelfReg="false" NextFile="BoseEinsteinCondenser.png"/>
+    <ROW File="Fire.png" Component_="Acid.png" FileName="Fire.png" Attributes="0" SourcePath="build\Content\Tiles\Fire.png" SelfReg="false" NextFile="Glass.png"/>
+    <ROW File="Fireball.png" Component_="Blaster.png" FileName="Fireball.png" Attributes="0" SourcePath="build\Content\Projectiles\Fireball.png" SelfReg="false" NextFile="Fireball_2.png"/>
+    <ROW File="Fireball_2.png" Component_="Blaster.png" FileName="Fireba~1.png|Fireball_2.png" Attributes="0" SourcePath="build\Content\Projectiles\Fireball_2.png" SelfReg="false" NextFile="Grenade.png"/>
+    <ROW File="FireflyDie.wav" Component_="BlasterFire15.wav" FileName="Firefl~1.wav|FireflyDie.wav" Attributes="0" SourcePath="build\Content\Sounds\FireflyDie.wav" SelfReg="false" NextFile="GunFlameThrower25.wav"/>
+    <ROW File="FlameThrower.png" Component_="Blaster.png" FileName="FlameT~1.png|FlameThrower.png" Attributes="0" SourcePath="build\Content\Projectiles\FlameThrower.png" SelfReg="false" NextFile="FlameThrower_2.png"/>
+    <ROW File="FlameThrower_2.png" Component_="Blaster.png" FileName="FlameT~2.png|FlameThrower_2.png" Attributes="0" SourcePath="build\Content\Projectiles\FlameThrower_2.png" SelfReg="false" NextFile="Starfield.jpg"/>
+    <ROW File="Floater.png" Component_="Crawler.png" FileName="Floater.png" Attributes="0" SourcePath="build\Content\Enemies\Floater.png" SelfReg="false" NextFile="FloatingTurret.png"/>
+    <ROW File="FloaterAttack40.wav" Component_="BlasterFire15.wav" FileName="Floate~1.wav|FloaterAttack 40.wav" Attributes="0" SourcePath="build\Content\Sounds\FloaterAttack 40.wav" SelfReg="false" NextFile="Forge.wav"/>
+    <ROW File="FloaterBack1.png" Component_="CaveBack.png" FileName="Floate~1.png|FloaterBack1.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack1.png" SelfReg="false" NextFile="FloaterBack1n.png"/>
+    <ROW File="FloaterBack1n.png" Component_="CaveBack.png" FileName="Floate~2.png|FloaterBack1n.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack1n.png" SelfReg="false" NextFile="FloaterBack2.png"/>
+    <ROW File="FloaterBack2.png" Component_="CaveBack.png" FileName="Floate~3.png|FloaterBack2.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack2.png" SelfReg="false" NextFile="FloaterBack2n.png"/>
+    <ROW File="FloaterBack2n.png" Component_="CaveBack.png" FileName="Floate~4.png|FloaterBack2n.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack2n.png" SelfReg="false" NextFile="FloaterBack3.png"/>
+    <ROW File="FloaterBack3.png" Component_="CaveBack.png" FileName="Floate~5.png|FloaterBack3.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack3.png" SelfReg="false" NextFile="FloaterBack3n.png"/>
+    <ROW File="FloaterBack3n.png" Component_="CaveBack.png" FileName="Floate~6.png|FloaterBack3n.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack3n.png" SelfReg="false" NextFile="FloaterBack4.png"/>
+    <ROW File="FloaterBack4.png" Component_="CaveBack.png" FileName="Floate~7.png|FloaterBack4.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack4.png" SelfReg="false" NextFile="FloaterBack4n.png"/>
+    <ROW File="FloaterBack4n.png" Component_="CaveBack.png" FileName="Floate~8.png|FloaterBack4n.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack4n.png" SelfReg="false" NextFile="FloaterBack5.png"/>
+    <ROW File="FloaterBack5.png" Component_="CaveBack.png" FileName="Floate~9.png|FloaterBack5.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack5.png" SelfReg="false" NextFile="FloaterBack5n.png"/>
+    <ROW File="FloaterBack5n.png" Component_="CaveBack.png" FileName="Float~10.png|FloaterBack5n.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack5n.png" SelfReg="false" NextFile="FloaterBack6.png"/>
+    <ROW File="FloaterBack6.png" Component_="CaveBack.png" FileName="Float~11.png|FloaterBack6.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack6.png" SelfReg="false" NextFile="FloaterBack6n.png"/>
+    <ROW File="FloaterBack6n.png" Component_="CaveBack.png" FileName="Float~12.png|FloaterBack6n.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack6n.png" SelfReg="false" NextFile="FloaterBack7.png"/>
+    <ROW File="FloaterBack7.png" Component_="CaveBack.png" FileName="Float~13.png|FloaterBack7.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack7.png" SelfReg="false" NextFile="FloaterBack7n.png"/>
+    <ROW File="FloaterBack7n.png" Component_="CaveBack.png" FileName="Float~14.png|FloaterBack7n.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack7n.png" SelfReg="false" NextFile="FloaterBack8.png"/>
+    <ROW File="FloaterBack8.png" Component_="CaveBack.png" FileName="Float~15.png|FloaterBack8.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack8.png" SelfReg="false" NextFile="FloaterBack8n.png"/>
+    <ROW File="FloaterBack8n.png" Component_="CaveBack.png" FileName="Float~16.png|FloaterBack8n.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack8n.png" SelfReg="false" NextFile="FloaterBack9.png"/>
+    <ROW File="FloaterBack9.png" Component_="CaveBack.png" FileName="Float~17.png|FloaterBack9.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack9.png" SelfReg="false" NextFile="FloaterBack9n.png"/>
+    <ROW File="FloaterBack9n.png" Component_="CaveBack.png" FileName="Float~18.png|FloaterBack9n.png" Attributes="0" SourcePath="build\Content\Background\FloaterBack9n.png" SelfReg="false" NextFile="FloaterFore1.png"/>
+    <ROW File="FloaterFore1.png" Component_="CaveBack.png" FileName="Float~19.png|FloaterFore1.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore1.png" SelfReg="false" NextFile="FloaterFore1m.png"/>
+    <ROW File="FloaterFore1m.png" Component_="CaveBack.png" FileName="Float~20.png|FloaterFore1m.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore1m.png" SelfReg="false" NextFile="FloaterFore1n.png"/>
+    <ROW File="FloaterFore1n.png" Component_="CaveBack.png" FileName="Float~21.png|FloaterFore1n.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore1n.png" SelfReg="false" NextFile="FloaterFore2.png"/>
+    <ROW File="FloaterFore2.png" Component_="CaveBack.png" FileName="Float~22.png|FloaterFore2.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore2.png" SelfReg="false" NextFile="FloaterFore2m.png"/>
+    <ROW File="FloaterFore2m.png" Component_="CaveBack.png" FileName="Float~23.png|FloaterFore2m.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore2m.png" SelfReg="false" NextFile="FloaterFore2n.png"/>
+    <ROW File="FloaterFore2n.png" Component_="CaveBack.png" FileName="Float~24.png|FloaterFore2n.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore2n.png" SelfReg="false" NextFile="FloaterFore3.png"/>
+    <ROW File="FloaterFore3.png" Component_="CaveBack.png" FileName="Float~25.png|FloaterFore3.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore3.png" SelfReg="false" NextFile="FloaterFore3m.png"/>
+    <ROW File="FloaterFore3m.png" Component_="CaveBack.png" FileName="Float~26.png|FloaterFore3m.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore3m.png" SelfReg="false" NextFile="FloaterFore3n.png"/>
+    <ROW File="FloaterFore3n.png" Component_="CaveBack.png" FileName="Float~27.png|FloaterFore3n.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore3n.png" SelfReg="false" NextFile="FloaterFore4.png"/>
+    <ROW File="FloaterFore4.png" Component_="CaveBack.png" FileName="Float~28.png|FloaterFore4.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore4.png" SelfReg="false" NextFile="FloaterFore4m.png"/>
+    <ROW File="FloaterFore4m.png" Component_="CaveBack.png" FileName="Float~29.png|FloaterFore4m.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore4m.png" SelfReg="false" NextFile="FloaterFore4n.png"/>
+    <ROW File="FloaterFore4n.png" Component_="CaveBack.png" FileName="Float~30.png|FloaterFore4n.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore4n.png" SelfReg="false" NextFile="FloaterFore5.png"/>
+    <ROW File="FloaterFore5.png" Component_="CaveBack.png" FileName="Float~31.png|FloaterFore5.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore5.png" SelfReg="false" NextFile="FloaterFore5m.png"/>
+    <ROW File="FloaterFore5m.png" Component_="CaveBack.png" FileName="Float~32.png|FloaterFore5m.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore5m.png" SelfReg="false" NextFile="FloaterFore5n.png"/>
+    <ROW File="FloaterFore5n.png" Component_="CaveBack.png" FileName="Float~33.png|FloaterFore5n.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore5n.png" SelfReg="false" NextFile="FloaterFore6.png"/>
+    <ROW File="FloaterFore6.png" Component_="CaveBack.png" FileName="Float~34.png|FloaterFore6.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore6.png" SelfReg="false" NextFile="FloaterFore6m.png"/>
+    <ROW File="FloaterFore6m.png" Component_="CaveBack.png" FileName="Float~35.png|FloaterFore6m.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore6m.png" SelfReg="false" NextFile="FloaterFore6n.png"/>
+    <ROW File="FloaterFore6n.png" Component_="CaveBack.png" FileName="Float~36.png|FloaterFore6n.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore6n.png" SelfReg="false" NextFile="FloaterFore7.png"/>
+    <ROW File="FloaterFore7.png" Component_="CaveBack.png" FileName="Float~37.png|FloaterFore7.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore7.png" SelfReg="false" NextFile="FloaterFore7m.png"/>
+    <ROW File="FloaterFore7m.png" Component_="CaveBack.png" FileName="Float~38.png|FloaterFore7m.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore7m.png" SelfReg="false" NextFile="FloaterFore7n.png"/>
+    <ROW File="FloaterFore7n.png" Component_="CaveBack.png" FileName="Float~39.png|FloaterFore7n.png" Attributes="0" SourcePath="build\Content\Background\FloaterFore7n.png" SelfReg="false" NextFile="FloaterMid1.png"/>
+    <ROW File="FloaterHelpSheet.png" Component_="Crawler.png" FileName="Floate~1.png|Floater Help Sheet.png" Attributes="0" SourcePath="build\Content\Enemies\Floater Help Sheet.png" SelfReg="false" NextFile="JellyFishAnimationGuide.png"/>
+    <ROW File="FloaterMid1.png" Component_="CaveBack.png" FileName="Float~40.png|FloaterMid1.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid1.png" SelfReg="false" NextFile="FloaterMid1n.png"/>
+    <ROW File="FloaterMid1n.png" Component_="CaveBack.png" FileName="Float~41.png|FloaterMid1n.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid1n.png" SelfReg="false" NextFile="FloaterMid2.png"/>
+    <ROW File="FloaterMid2.png" Component_="CaveBack.png" FileName="Float~42.png|FloaterMid2.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid2.png" SelfReg="false" NextFile="FloaterMid2n.png"/>
+    <ROW File="FloaterMid2n.png" Component_="CaveBack.png" FileName="Float~43.png|FloaterMid2n.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid2n.png" SelfReg="false" NextFile="FloaterMid3.png"/>
+    <ROW File="FloaterMid3.png" Component_="CaveBack.png" FileName="Float~44.png|FloaterMid3.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid3.png" SelfReg="false" NextFile="FloaterMid3n.png"/>
+    <ROW File="FloaterMid3n.png" Component_="CaveBack.png" FileName="Float~45.png|FloaterMid3n.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid3n.png" SelfReg="false" NextFile="FloaterMid4.png"/>
+    <ROW File="FloaterMid4.png" Component_="CaveBack.png" FileName="Float~46.png|FloaterMid4.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid4.png" SelfReg="false" NextFile="FloaterMid4n.png"/>
+    <ROW File="FloaterMid4n.png" Component_="CaveBack.png" FileName="Float~47.png|FloaterMid4n.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid4n.png" SelfReg="false" NextFile="FloaterMid5.png"/>
+    <ROW File="FloaterMid5.png" Component_="CaveBack.png" FileName="Float~48.png|FloaterMid5.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid5.png" SelfReg="false" NextFile="FloaterMid5n.png"/>
+    <ROW File="FloaterMid5n.png" Component_="CaveBack.png" FileName="Float~49.png|FloaterMid5n.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid5n.png" SelfReg="false" NextFile="FloaterMid6.png"/>
+    <ROW File="FloaterMid6.png" Component_="CaveBack.png" FileName="Float~50.png|FloaterMid6.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid6.png" SelfReg="false" NextFile="FloaterMid6n.png"/>
+    <ROW File="FloaterMid6n.png" Component_="CaveBack.png" FileName="Float~51.png|FloaterMid6n.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid6n.png" SelfReg="false" NextFile="FloaterMid7.png"/>
+    <ROW File="FloaterMid7.png" Component_="CaveBack.png" FileName="Float~52.png|FloaterMid7.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid7.png" SelfReg="false" NextFile="FloaterMid7n.png"/>
+    <ROW File="FloaterMid7n.png" Component_="CaveBack.png" FileName="Float~53.png|FloaterMid7n.png" Attributes="0" SourcePath="build\Content\Background\FloaterMid7n.png" SelfReg="false" NextFile="GasGiant.png"/>
+    <ROW File="FloatingTurret.png" Component_="Crawler.png" FileName="Floati~1.png|Floating Turret.png" Attributes="0" SourcePath="build\Content\Enemies\Floating Turret.png" SelfReg="false" NextFile="Geophage.png"/>
+    <ROW File="Forge.wav" Component_="BlasterFire15.wav" FileName="Forge.wav" Attributes="0" SourcePath="build\Content\Sounds\Forge.wav" SelfReg="false" NextFile="GroundTrooperDie15.wav"/>
+    <ROW File="FuchsGUI.dll" Component_="FuchsGUI.dll" FileName="FuchsGUI.dll" Attributes="0" SourcePath="build\FuchsGUI.dll" SelfReg="false" NextFile="HD.Core.dll"/>
+    <ROW File="Furnace.png" Component_="Chest.png" FileName="Furnace.png" Attributes="0" SourcePath="build\Content\Items\Furnace.png" SelfReg="false" NextFile="GoldSuperconductor.png"/>
+    <ROW File="Furnace.wav" Component_="BlasterFire15.wav" FileName="Furnace.wav" Attributes="0" SourcePath="build\Content\Sounds\Furnace.wav" SelfReg="false" NextFile="MiningToolFire15.wav"/>
+    <ROW File="GasGiant.png" Component_="CaveBack.png" FileName="GasGiant.png" Attributes="0" SourcePath="build\Content\Background\GasGiant.png" SelfReg="false" NextFile="Grass.png"/>
+    <ROW File="Geophage.png" Component_="Crawler.png" FileName="Geophage.png" Attributes="0" SourcePath="build\Content\Enemies\Geophage.png" SelfReg="false" NextFile="MontraRay.png"/>
+    <ROW File="Glass.png" Component_="Acid.png" FileName="Glass.png" Attributes="0" SourcePath="build\Content\Tiles\Glass.png" SelfReg="false" NextFile="GoldOre.png"/>
+    <ROW File="Gold.png" Component_="Chest.png" FileName="Gold.png" Attributes="0" SourcePath="build\Content\Items\Gold.png" SelfReg="false" NextFile="IronMiningTool.png"/>
+    <ROW File="GoldBlaster.png" Component_="Chest.png" FileName="GoldBl~1.png|Gold Blaster.png" Attributes="0" SourcePath="build\Content\Items\Gold Blaster.png" SelfReg="false" NextFile="GoldMiningTool.png"/>
+    <ROW File="GoldMiningTool.png" Component_="Chest.png" FileName="GoldMi~1.png|Gold Mining Tool.png" Attributes="0" SourcePath="build\Content\Items\Gold Mining Tool.png" SelfReg="false" NextFile="Gold.png"/>
+    <ROW File="GoldOre.png" Component_="Acid.png" FileName="GoldOre.png" Attributes="0" SourcePath="build\Content\Tiles\GoldOre.png" SelfReg="false" NextFile="Granite.png"/>
+    <ROW File="GoldSuperconductor.png" Component_="Chest.png" FileName="GoldSu~1.png|Gold Superconductor.png" Attributes="0" SourcePath="build\Content\Items\Gold Superconductor.png" SelfReg="false" NextFile="GreenCrystal.png"/>
+    <ROW File="Granite.png" Component_="Acid.png" FileName="Granite.png" Attributes="0" SourcePath="build\Content\Tiles\Granite.png" SelfReg="false" NextFile="Grass.png_1"/>
+    <ROW File="Grass.png" Component_="CaveBack.png" FileName="Grass.png" Attributes="0" SourcePath="build\Content\Background\Grass.png" SelfReg="false" NextFile="GrassNight.png"/>
+    <ROW File="Grass.png_1" Component_="Acid.png" FileName="Grass.png" Attributes="0" SourcePath="build\Content\Tiles\Grass.png" SelfReg="false" NextFile="Gravel.png"/>
+    <ROW File="GrassNight.png" Component_="CaveBack.png" FileName="GrassN~1.png|GrassNight.png" Attributes="0" SourcePath="build\Content\Background\GrassNight.png" SelfReg="false" NextFile="LavaBack.png"/>
+    <ROW File="Gravel.png" Component_="Acid.png" FileName="Gravel.png" Attributes="0" SourcePath="build\Content\Tiles\Gravel.png" SelfReg="false" NextFile="GreenBrick.png"/>
+    <ROW File="GrayMetal.png" Component_="Acid.png" FileName="GrayMe~1.png|GrayMetal.png" Attributes="0" SourcePath="build\Content\Tiles\GrayMetal.png" SelfReg="false" NextFile="GreenFire.png"/>
+    <ROW File="GreenBrick.png" Component_="Acid.png" FileName="GreenB~1.png|GreenBrick.png" Attributes="0" SourcePath="build\Content\Tiles\GreenBrick.png" SelfReg="false" NextFile="Ice.png"/>
+    <ROW File="GreenCrystal.png" Component_="Chest.png" FileName="GreenC~1.png|Green Crystal.png" Attributes="0" SourcePath="build\Content\Items\Green Crystal.png" SelfReg="false" NextFile="IronBlaster.png"/>
+    <ROW File="GreenFire.png" Component_="Acid.png" FileName="GreenF~1.png|GreenFire.png" Attributes="0" SourcePath="build\Content\Tiles\GreenFire.png" SelfReg="false" NextFile="RedLED.png"/>
+    <ROW File="Grenade.png" Component_="Blaster.png" FileName="Grenade.png" Attributes="0" SourcePath="build\Content\Projectiles\Grenade.png" SelfReg="false" NextFile="Grenade_2.png"/>
+    <ROW File="Grenade_2.png" Component_="Blaster.png" FileName="Grenad~1.png|Grenade_2.png" Attributes="0" SourcePath="build\Content\Projectiles\Grenade_2.png" SelfReg="false" NextFile="Grenade_3.png"/>
+    <ROW File="Grenade_3.png" Component_="Blaster.png" FileName="Grenad~2.png|Grenade_3.png" Attributes="0" SourcePath="build\Content\Projectiles\Grenade_3.png" SelfReg="false" NextFile="HomingMissile_2.png"/>
+    <ROW File="GroundTrooperDie15.wav" Component_="BlasterFire15.wav" FileName="Ground~1.wav|Ground TrooperDie 15.wav" Attributes="0" SourcePath="build\Content\Sounds\Ground TrooperDie 15.wav" SelfReg="false" NextFile="GroundTrooperSpawn16.wav"/>
+    <ROW File="GroundTrooperSpawn16.wav" Component_="BlasterFire15.wav" FileName="Ground~2.wav|Ground TrooperSpawn 16.wav" Attributes="0" SourcePath="build\Content\Sounds\Ground TrooperSpawn 16.wav" SelfReg="false" NextFile="HarpyDie60.wav"/>
+    <ROW File="GunFlameThrower25.wav" Component_="BlasterFire15.wav" FileName="GunFla~1.wav|GunFlameThrower 25.wav" Attributes="0" SourcePath="build\Content\Sounds\GunFlameThrower 25.wav" SelfReg="false" NextFile="GunFreeze99.wav"/>
+    <ROW File="GunFreeze99.wav" Component_="BlasterFire15.wav" FileName="GunFre~1.wav|GunFreeze 99.wav" Attributes="0" SourcePath="build\Content\Sounds\GunFreeze 99.wav" SelfReg="false" NextFile="HomingMissileFire50.wav"/>
+    <ROW File="HD.Core.dll" Component_="HD.Core.dll" FileName="HDCore~1.dll|HD.Core.dll" Attributes="0" SourcePath="build\HD.Core.dll" SelfReg="false" NextFile="Ionic.Zip.dll"/>
+    <ROW File="HarpyDie60.wav" Component_="BlasterFire15.wav" FileName="HarpyD~1.wav|HarpyDie 60.wav" Attributes="0" SourcePath="build\Content\Sounds\HarpyDie 60.wav" SelfReg="false" NextFile="HarpySpawn.wav"/>
+    <ROW File="HarpySpawn.wav" Component_="BlasterFire15.wav" FileName="HarpyS~1.wav|HarpySpawn.wav" Attributes="0" SourcePath="build\Content\Sounds\HarpySpawn.wav" SelfReg="false" NextFile="KrawnixAttack.wav"/>
+    <ROW File="HiddenLight.png" Component_="Chest.png" FileName="Hidden~1.png|Hidden Light.png" Attributes="0" SourcePath="build\Content\Items\Hidden Light.png" SelfReg="false" NextFile="HomePortal.png"/>
+    <ROW File="HomePortal.png" Component_="Chest.png" FileName="HomePo~1.png|Home Portal.png" Attributes="0" SourcePath="build\Content\Items\Home Portal.png" SelfReg="false" NextFile="Missing.png"/>
+    <ROW File="HomingMissile.png" Component_="Blaster.png" FileName="Homing~1.png|HomingMissile.png" Attributes="0" SourcePath="build\Content\Projectiles\HomingMissile.png" SelfReg="false" NextFile="LaserRifle.png"/>
+    <ROW File="HomingMissileFire50.wav" Component_="BlasterFire15.wav" FileName="Homing~1.wav|HomingMissileFire 50.wav" Attributes="0" SourcePath="build\Content\Sounds\HomingMissileFire 50.wav" SelfReg="false" NextFile="HomingMissileHit40.wav"/>
+    <ROW File="HomingMissileHit40.wav" Component_="BlasterFire15.wav" FileName="Homing~2.wav|HomingMissileHit 40.wav" Attributes="0" SourcePath="build\Content\Sounds\HomingMissileHit 40.wav" SelfReg="false" NextFile="LaserRifleFire5.wav"/>
+    <ROW File="HomingMissile_2.png" Component_="Blaster.png" FileName="Homing~2.png|HomingMissile_2.png" Attributes="0" SourcePath="build\Content\Projectiles\HomingMissile_2.png" SelfReg="false" NextFile="LongRangeBlaster.png"/>
+    <ROW File="HoverTick30.wav" Component_="BlasterFire15.wav" FileName="HoverT~1.wav|HoverTick 30.wav" Attributes="0" SourcePath="build\Content\Sounds\HoverTick 30.wav" SelfReg="false" NextFile="Platform.png"/>
+    <ROW File="Ice.png" Component_="Acid.png" FileName="Ice.png" Attributes="0" SourcePath="build\Content\Tiles\Ice.png" SelfReg="false" NextFile="IronOre.png"/>
+    <ROW File="Ionic.Zip.dll" Component_="Ionic.Zip.dll" FileName="IonicZ~1.dll|Ionic.Zip.dll" Attributes="0" SourcePath="build\Ionic.Zip.dll" SelfReg="false" NextFile="protobufnet.dll"/>
+    <ROW File="Iron.png" Component_="Chest.png" FileName="Iron.png" Attributes="0" SourcePath="build\Content\Items\Iron.png" SelfReg="false" NextFile="LightDrone.png_1"/>
+    <ROW File="IronBlaster.png" Component_="Chest.png" FileName="IronBl~1.png|Iron Blaster.png" Attributes="0" SourcePath="build\Content\Items\Iron Blaster.png" SelfReg="false" NextFile="LightOrbIcon.png"/>
+    <ROW File="IronMiningTool.png" Component_="Chest.png" FileName="IronMi~1.png|Iron Mining Tool.png" Attributes="0" SourcePath="build\Content\Items\Iron Mining Tool.png" SelfReg="false" NextFile="Iron.png"/>
+    <ROW File="IronOre.png" Component_="Acid.png" FileName="IronOre.png" Attributes="0" SourcePath="build\Content\Tiles\IronOre.png" SelfReg="false" NextFile="Lava.png"/>
+    <ROW File="JellyFish.png" Component_="Crawler.png" FileName="JellyF~2.png|Jelly Fish.png" Attributes="0" SourcePath="build\Content\Enemies\Jelly Fish.png" SelfReg="false" NextFile="Krawnix.png"/>
+    <ROW File="JellyFishAnimationGuide.png" Component_="Crawler.png" FileName="JellyF~1.png|Jelly Fish Animation Guide.png" Attributes="0" SourcePath="build\Content\Enemies\Jelly Fish Animation Guide.png" SelfReg="false" NextFile="JellyFish.png"/>
+    <ROW File="Krawnix.png" Component_="Crawler.png" FileName="Krawnix.png" Attributes="0" SourcePath="build\Content\Enemies\Krawnix.png" SelfReg="false" NextFile="LightDrone.png"/>
+    <ROW File="KrawnixAttack.wav" Component_="BlasterFire15.wav" FileName="Krawni~6.wav|KrawnixAttack.wav" Attributes="0" SourcePath="build\Content\Sounds\KrawnixAttack.wav" SelfReg="false" NextFile="KrawnixDie.wav"/>
+    <ROW File="KrawnixDie.wav" Component_="BlasterFire15.wav" FileName="Krawni~7.wav|KrawnixDie.wav" Attributes="0" SourcePath="build\Content\Sounds\KrawnixDie.wav" SelfReg="false" NextFile="KrawnixSpawn99.wav"/>
+    <ROW File="KrawnixGut1.png" Component_="Basic.png" FileName="Krawni~1.png|Krawnix Gut 1.png" Attributes="0" SourcePath="build\Content\Particles\Krawnix Gut 1.png" SelfReg="false" NextFile="KrawnixGut2.png"/>
+    <ROW File="KrawnixGut2.png" Component_="Basic.png" FileName="Krawni~2.png|Krawnix Gut 2.png" Attributes="0" SourcePath="build\Content\Particles\Krawnix Gut 2.png" SelfReg="false" NextFile="KrawnixGut3.png"/>
+    <ROW File="KrawnixGut3.png" Component_="Basic.png" FileName="Krawni~3.png|Krawnix Gut 3.png" Attributes="0" SourcePath="build\Content\Particles\Krawnix Gut 3.png" SelfReg="false" NextFile="KrawnixGut4.png"/>
+    <ROW File="KrawnixGut4.png" Component_="Basic.png" FileName="Krawni~4.png|Krawnix Gut 4.png" Attributes="0" SourcePath="build\Content\Particles\Krawnix Gut 4.png" SelfReg="false" NextFile="KrawnixGut5.png"/>
+    <ROW File="KrawnixGut5.png" Component_="Basic.png" FileName="Krawni~5.png|Krawnix Gut 5.png" Attributes="0" SourcePath="build\Content\Particles\Krawnix Gut 5.png" SelfReg="false" NextFile="KrawnixGut6.png"/>
+    <ROW File="KrawnixGut6.png" Component_="Basic.png" FileName="Krawni~6.png|Krawnix Gut 6.png" Attributes="0" SourcePath="build\Content\Particles\Krawnix Gut 6.png" SelfReg="false" NextFile="KrawnixGut7.png"/>
+    <ROW File="KrawnixGut7.png" Component_="Basic.png" FileName="Krawni~7.png|Krawnix Gut 7.png" Attributes="0" SourcePath="build\Content\Particles\Krawnix Gut 7.png" SelfReg="false" NextFile="KrawnixGut8.png"/>
+    <ROW File="KrawnixGut8.png" Component_="Basic.png" FileName="Krawni~8.png|Krawnix Gut 8.png" Attributes="0" SourcePath="build\Content\Particles\Krawnix Gut 8.png" SelfReg="false" NextFile="AcidSpit.png"/>
+    <ROW File="KrawnixLair.Map" Component_="Boss2.Map" FileName="Krawni~1.Map|KrawnixLair.Map" Attributes="0" SourcePath="build\Content\Maps\KrawnixLair.Map" SelfReg="false" NextFile="Oberon.Map"/>
+    <ROW File="KrawnixSpawn99.wav" Component_="BlasterFire15.wav" FileName="Krawni~8.wav|KrawnixSpawn 99.wav" Attributes="0" SourcePath="build\Content\Sounds\KrawnixSpawn 99.wav" SelfReg="false" NextFile="LeaperAttack.wav"/>
+    <ROW File="LargeFont.xnb" Component_="Arm.png" FileName="LargeF~1.xnb|Large Font.xnb" Attributes="0" SourcePath="build\Content\Large Font.xnb" SelfReg="false" NextFile="MediumFont.xnb"/>
+    <ROW File="LaserRifle.png" Component_="Blaster.png" FileName="LaserR~1.png|LaserRifle.png" Attributes="0" SourcePath="build\Content\Projectiles\LaserRifle.png" SelfReg="false" NextFile="HoverTick30.wav"/>
+    <ROW File="LaserRifleFire5.wav" Component_="BlasterFire15.wav" FileName="LaserR~1.wav|LaserRifleFire 5.wav" Attributes="0" SourcePath="build\Content\Sounds\LaserRifleFire 5.wav" SelfReg="false" NextFile="LaserRifleHit50.wav"/>
+    <ROW File="LaserRifleHit50.wav" Component_="BlasterFire15.wav" FileName="LaserR~2.wav|LaserRifleHit 50.wav" Attributes="0" SourcePath="build\Content\Sounds\LaserRifleHit 50.wav" SelfReg="false" NextFile="MindFeederAttack90.wav"/>
+    <ROW File="Lava.png" Component_="Acid.png" FileName="Lava.png" Attributes="0" SourcePath="build\Content\Tiles\Lava.png" SelfReg="false" NextFile="Life.png"/>
+    <ROW File="LavaBack.png" Component_="CaveBack.png" FileName="LavaBack.png" Attributes="0" SourcePath="build\Content\Background\LavaBack.png" SelfReg="false" NextFile="LavaBottom.png"/>
+    <ROW File="LavaBottom.png" Component_="CaveBack.png" FileName="LavaBo~1.png|LavaBottom.png" Attributes="0" SourcePath="build\Content\Background\LavaBottom.png" SelfReg="false" NextFile="LavaFore1.png"/>
+    <ROW File="LavaFore1.png" Component_="CaveBack.png" FileName="LavaFo~1.png|LavaFore1.png" Attributes="0" SourcePath="build\Content\Background\LavaFore1.png" SelfReg="false" NextFile="LavaMid.png"/>
+    <ROW File="LavaMid.png" Component_="CaveBack.png" FileName="LavaMid.png" Attributes="0" SourcePath="build\Content\Background\LavaMid.png" SelfReg="false" NextFile="LavaTop.png"/>
+    <ROW File="LavaTop.png" Component_="CaveBack.png" FileName="LavaTop.png" Attributes="0" SourcePath="build\Content\Background\LavaTop.png" SelfReg="false" NextFile="MountainBack.png"/>
+    <ROW File="LeaperAttack.wav" Component_="BlasterFire15.wav" FileName="Leaper~1.wav|LeaperAttack.wav" Attributes="0" SourcePath="build\Content\Sounds\LeaperAttack.wav" SelfReg="false" NextFile="LeaperDie.wav"/>
+    <ROW File="LeaperDie.wav" Component_="BlasterFire15.wav" FileName="Leaper~2.wav|LeaperDie.wav" Attributes="0" SourcePath="build\Content\Sounds\LeaperDie.wav" SelfReg="false" NextFile="LeaperSpawn50.wav"/>
+    <ROW File="LeaperSpawn50.wav" Component_="BlasterFire15.wav" FileName="Leaper~3.wav|LeaperSpawn 50.wav" Attributes="0" SourcePath="build\Content\Sounds\LeaperSpawn 50.wav" SelfReg="false" NextFile="LightDroneDie.wav"/>
+    <ROW File="Life.png" Component_="Acid.png" FileName="Life.png" Attributes="0" SourcePath="build\Content\Tiles\Life.png" SelfReg="false" NextFile="LightBlueBrick.png"/>
+    <ROW File="LightBlueBrick.png" Component_="Acid.png" FileName="LightB~1.png|LightBlueBrick.png" Attributes="0" SourcePath="build\Content\Tiles\LightBlueBrick.png" SelfReg="false" NextFile="LightGrayBrick.png"/>
+    <ROW File="LightDrone.png" Component_="Crawler.png" FileName="LightD~1.png|Light Drone.png" Attributes="0" SourcePath="build\Content\Enemies\Light Drone.png" SelfReg="false" NextFile="MiningDrone.png"/>
+    <ROW File="LightDrone.png_1" Component_="Chest.png" FileName="LightD~1.png|Light Drone.png" Attributes="0" SourcePath="build\Content\Items\Light Drone.png" SelfReg="false" NextFile="MiningDrone.png_1"/>
+    <ROW File="LightDroneDie.wav" Component_="BlasterFire15.wav" FileName="LightD~1.wav|Light DroneDie.wav" Attributes="0" SourcePath="build\Content\Sounds\Light DroneDie.wav" SelfReg="false" NextFile="LightDroneSpawn.wav"/>
+    <ROW File="LightDroneSpawn.wav" Component_="BlasterFire15.wav" FileName="LightD~2.wav|Light DroneSpawn.wav" Attributes="0" SourcePath="build\Content\Sounds\Light DroneSpawn.wav" SelfReg="false" NextFile="MaterialEaterDie14.wav"/>
+    <ROW File="LightGrayBrick.png" Component_="Acid.png" FileName="LightG~1.png|LightGrayBrick.png" Attributes="0" SourcePath="build\Content\Tiles\LightGrayBrick.png" SelfReg="false" NextFile="LightGreenBrick.png"/>
+    <ROW File="LightGreenBrick.png" Component_="Acid.png" FileName="LightG~2.png|LightGreenBrick.png" Attributes="0" SourcePath="build\Content\Tiles\LightGreenBrick.png" SelfReg="false" NextFile="Limestone.png"/>
+    <ROW File="LightOrb.png" Component_="Chest.png" FileName="LightO~2.png|Light Orb.png" Attributes="0" SourcePath="build\Content\Items\Light Orb.png" SelfReg="false" NextFile="LockedDoor.png"/>
+    <ROW File="LightOrbIcon.png" Component_="Chest.png" FileName="LightO~1.png|Light Orb Icon.png" Attributes="0" SourcePath="build\Content\Items\Light Orb Icon.png" SelfReg="false" NextFile="LightOrb.png"/>
+    <ROW File="Limestone.png" Component_="Acid.png" FileName="Limest~1.png|Limestone.png" Attributes="0" SourcePath="build\Content\Tiles\Limestone.png" SelfReg="false" NextFile="Marble.png"/>
+    <ROW File="LockedDoor.png" Component_="Chest.png" FileName="Locked~1.png|Locked Door.png" Attributes="0" SourcePath="build\Content\Items\Locked Door.png" SelfReg="false" NextFile="MithrilSuperconductor.png"/>
+    <ROW File="LongRangeBlaster.png" Component_="Blaster.png" FileName="LongRa~1.png|LongRangeBlaster.png" Attributes="0" SourcePath="build\Content\Projectiles\LongRangeBlaster.png" SelfReg="false" NextFile="MiniFlame.png"/>
+    <ROW File="Marble.png" Component_="Acid.png" FileName="Marble.png" Attributes="0" SourcePath="build\Content\Tiles\Marble.png" SelfReg="false" NextFile="NaturalGas.png"/>
+    <ROW File="MaterialEaterDie14.wav" Component_="BlasterFire15.wav" FileName="Materi~1.wav|Material EaterDie 14.wav" Attributes="0" SourcePath="build\Content\Sounds\Material EaterDie 14.wav" SelfReg="false" NextFile="MaterialEaterSpawn15.wav"/>
+    <ROW File="MaterialEaterSpawn15.wav" Component_="BlasterFire15.wav" FileName="Materi~2.wav|Material EaterSpawn 15.wav" Attributes="0" SourcePath="build\Content\Sounds\Material EaterSpawn 15.wav" SelfReg="false" NextFile="MindFeederSpawn99.wav"/>
+    <ROW File="MediumFont.xnb" Component_="Arm.png" FileName="Medium~1.xnb|Medium Font.xnb" Attributes="0" SourcePath="build\Content\Medium Font.xnb" SelfReg="false" NextFile="SmallFont.xnb"/>
+    <ROW File="MenuTextBox.png" Component_="Arm.png" FileName="MenuTe~1.png|Menu Text Box.png" Attributes="0" SourcePath="build\Content\Menu Text Box.png" SelfReg="false" NextFile="Blaster.png"/>
+    <ROW File="MessageBox.png" Component_="Arm.png" FileName="Messag~1.png|Message Box.png" Attributes="0" SourcePath="build\Content\Message Box.png" SelfReg="false" NextFile="__royal__cavernwind.xnb"/>
+    <ROW File="MindFeederAttack90.wav" Component_="BlasterFire15.wav" FileName="MindFe~1.wav|Mind FeederAttack 90.wav" Attributes="0" SourcePath="build\Content\Sounds\Mind FeederAttack 90.wav" SelfReg="false" NextFile="MindFeederDie90.wav"/>
+    <ROW File="MindFeederDie90.wav" Component_="BlasterFire15.wav" FileName="MindFe~3.wav|Mind FeederDie 90.wav" Attributes="0" SourcePath="build\Content\Sounds\Mind FeederDie 90.wav" SelfReg="false" NextFile="MontraRayAttack90.wav"/>
+    <ROW File="MindFeederSpawn99.wav" Component_="BlasterFire15.wav" FileName="MindFe~5.wav|Mind FeederSpawn 99.wav" Attributes="0" SourcePath="build\Content\Sounds\Mind FeederSpawn 99.wav" SelfReg="false" NextFile="PlayerRun.wav"/>
+    <ROW File="MiniFlame.png" Component_="Blaster.png" FileName="MiniFl~1.png|MiniFlame.png" Attributes="0" SourcePath="build\Content\Projectiles\MiniFlame.png" SelfReg="false" NextFile="PoisonDart.png"/>
+    <ROW File="MiniFlame_2.png" Component_="Blaster.png" FileName="MiniFl~2.png|MiniFlame_2.png" Attributes="0" SourcePath="build\Content\Projectiles\MiniFlame_2.png" SelfReg="false" NextFile="BotanicaMiniBoss2Die.wav"/>
+    <ROW File="MiningDrone.png" Component_="Crawler.png" FileName="Mining~1.png|Mining Drone.png" Attributes="0" SourcePath="build\Content\Enemies\Mining Drone.png" SelfReg="false" NextFile="MontraRayAnimationGuide.png"/>
+    <ROW File="MiningDrone.png_1" Component_="Chest.png" FileName="Mining~1.png|Mining Drone.png" Attributes="0" SourcePath="build\Content\Items\Mining Drone.png" SelfReg="false" NextFile="PortalSeeker.png_1"/>
+    <ROW File="MiningToolFire15.wav" Component_="BlasterFire15.wav" FileName="Mining~1.wav|MiningToolFire 15.wav" Attributes="0" SourcePath="build\Content\Sounds\MiningToolFire 15.wav" SelfReg="false" NextFile="Pickup15.wav"/>
+    <ROW File="Missing.png" Component_="Chest.png" FileName="Missing.png" Attributes="0" SourcePath="build\Content\Items\Missing.png" SelfReg="false" NextFile="PersonalChest.png"/>
+    <ROW File="MithrilSuperconductor.png" Component_="Chest.png" FileName="Mithri~1.png|Mithril Superconductor.png" Attributes="0" SourcePath="build\Content\Items\Mithril Superconductor.png" SelfReg="false" NextFile="ObsidianSuperconductor.png"/>
+    <ROW File="MontraRay.png" Component_="Crawler.png" FileName="Montra~1.png|Montra Ray.png" Attributes="0" SourcePath="build\Content\Enemies\Montra Ray.png" SelfReg="false" NextFile="Turret.png"/>
+    <ROW File="MontraRayAnimationGuide.png" Component_="Crawler.png" FileName="Montra~2.png|Montra Ray Animation Guide.png" Attributes="0" SourcePath="build\Content\Enemies\Montra Ray Animation Guide.png" SelfReg="false" NextFile="PortalSeeker.png"/>
+    <ROW File="MontraRayAttack90.wav" Component_="BlasterFire15.wav" FileName="Montra~1.wav|Montra RayAttack 90.wav" Attributes="0" SourcePath="build\Content\Sounds\Montra RayAttack 90.wav" SelfReg="false" NextFile="MontraRayDie60.wav"/>
+    <ROW File="MontraRayDie60.wav" Component_="BlasterFire15.wav" FileName="Montra~3.wav|Montra RayDie 60.wav" Attributes="0" SourcePath="build\Content\Sounds\Montra RayDie 60.wav" SelfReg="false" NextFile="PlaceItem50.wav"/>
+    <ROW File="MountainBack.png" Component_="CaveBack.png" FileName="Mounta~1.png|MountainBack.png" Attributes="0" SourcePath="build\Content\Background\MountainBack.png" SelfReg="false" NextFile="MountainBackNight.png"/>
+    <ROW File="MountainBackNight.png" Component_="CaveBack.png" FileName="Mounta~2.png|MountainBackNight.png" Attributes="0" SourcePath="build\Content\Background\MountainBackNight.png" SelfReg="false" NextFile="MountainFore.png"/>
+    <ROW File="MountainFore.png" Component_="CaveBack.png" FileName="Mounta~3.png|MountainFore.png" Attributes="0" SourcePath="build\Content\Background\MountainFore.png" SelfReg="false" NextFile="MountainForeNight.png"/>
+    <ROW File="MountainForeNight.png" Component_="CaveBack.png" FileName="Mounta~4.png|MountainForeNight.png" Attributes="0" SourcePath="build\Content\Background\MountainForeNight.png" SelfReg="false" NextFile="MountainMid.png"/>
+    <ROW File="MountainMid.png" Component_="CaveBack.png" FileName="Mounta~5.png|MountainMid.png" Attributes="0" SourcePath="build\Content\Background\MountainMid.png" SelfReg="false" NextFile="MountainMidNight.png"/>
+    <ROW File="MountainMidNight.png" Component_="CaveBack.png" FileName="Mounta~6.png|MountainMidNight.png" Attributes="0" SourcePath="build\Content\Background\MountainMidNight.png" SelfReg="false" NextFile="Sun.png"/>
+    <ROW File="NaturalGas.png" Component_="Acid.png" FileName="Natura~1.png|NaturalGas.png" Attributes="0" SourcePath="build\Content\Tiles\NaturalGas.png" SelfReg="false" NextFile="Obsidian.png"/>
+    <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="Newton~1.dll|Newtonsoft.Json.dll" Attributes="0" SourcePath="build\Newtonsoft.Json.dll" SelfReg="false" NextFile="Workbench.png"/>
+    <ROW File="Oberon.Map" Component_="Boss2.Map" FileName="Oberon.Map" Attributes="0" SourcePath="build\Content\Maps\Oberon.Map" SelfReg="false" NextFile="SkyBoss.Map"/>
+    <ROW File="Obsidian.png" Component_="Acid.png" FileName="Obsidian.png" Attributes="0" SourcePath="build\Content\Tiles\Obsidian.png" SelfReg="false" NextFile="Oil.png"/>
+    <ROW File="ObsidianSuperconductor.png" Component_="Chest.png" FileName="Obsidi~1.png|Obsidian Superconductor.png" Attributes="0" SourcePath="build\Content\Items\Obsidian Superconductor.png" SelfReg="false" NextFile="RedCrystal.png"/>
+    <ROW File="Oil.png" Component_="Acid.png" FileName="Oil.png" Attributes="0" SourcePath="build\Content\Tiles\Oil.png" SelfReg="false" NextFile="OrangeBrick.png"/>
+    <ROW File="OrangeBrick.png" Component_="Acid.png" FileName="Orange~1.png|OrangeBrick.png" Attributes="0" SourcePath="build\Content\Tiles\OrangeBrick.png" SelfReg="false" NextFile="PinkBrick.png"/>
+    <ROW File="PersonalChest.png" Component_="Chest.png" FileName="Person~1.png|Personal Chest.png" Attributes="0" SourcePath="build\Content\Items\Personal Chest.png" SelfReg="false" NextFile="Portal.png"/>
+    <ROW File="Pickup15.wav" Component_="BlasterFire15.wav" FileName="Pickup~1.wav|Pickup 15.wav" Attributes="0" SourcePath="build\Content\Sounds\Pickup 15.wav" SelfReg="false" NextFile="PlayerDie25.wav"/>
+    <ROW File="PinkBrick.png" Component_="Acid.png" FileName="PinkBr~1.png|PinkBrick.png" Attributes="0" SourcePath="build\Content\Tiles\PinkBrick.png" SelfReg="false" NextFile="Pipe.png"/>
+    <ROW File="Pipe.png" Component_="Acid.png" FileName="Pipe.png" Attributes="0" SourcePath="build\Content\Tiles\Pipe.png" SelfReg="false" NextFile="Plastic.png"/>
+    <ROW File="PlaceItem50.wav" Component_="BlasterFire15.wav" FileName="PlaceI~1.wav|PlaceItem 50.wav" Attributes="0" SourcePath="build\Content\Sounds\PlaceItem 50.wav" SelfReg="false" NextFile="PlaceMaterial50.wav"/>
+    <ROW File="PlaceMaterial50.wav" Component_="BlasterFire15.wav" FileName="PlaceM~1.wav|PlaceMaterial 50.wav" Attributes="0" SourcePath="build\Content\Sounds\PlaceMaterial 50.wav" SelfReg="false" NextFile="PlayerDamaged60.wav"/>
+    <ROW File="Plastic.png" Component_="Acid.png" FileName="Plastic.png" Attributes="0" SourcePath="build\Content\Tiles\Plastic.png" SelfReg="false" NextFile="PoisonGas.png"/>
+    <ROW File="Platform.png" Component_="Acid.png" FileName="Platform.png" Attributes="0" SourcePath="build\Content\Tiles\Platform.png" SelfReg="false" NextFile="Crawler.png"/>
+    <ROW File="PlayerDamaged260.wav" Component_="BlasterFire15.wav" FileName="Player~8.wav|PlayerDamaged2 60.wav" Attributes="0" SourcePath="build\Content\Sounds\PlayerDamaged2 60.wav" SelfReg="false" NextFile="PlayerDamaged360.wav"/>
+    <ROW File="PlayerDamaged360.wav" Component_="BlasterFire15.wav" FileName="Player~9.wav|PlayerDamaged3 60.wav" Attributes="0" SourcePath="build\Content\Sounds\PlayerDamaged3 60.wav" SelfReg="false" NextFile="PlayerSwim30.wav"/>
+    <ROW File="PlayerDamaged60.wav" Component_="BlasterFire15.wav" FileName="Player~7.wav|PlayerDamaged 60.wav" Attributes="0" SourcePath="build\Content\Sounds\PlayerDamaged 60.wav" SelfReg="false" NextFile="PlayerDamaged260.wav"/>
+    <ROW File="PlayerDie25.wav" Component_="BlasterFire15.wav" FileName="Player~2.wav|PlayerDie 25.wav" Attributes="0" SourcePath="build\Content\Sounds\PlayerDie 25.wav" SelfReg="false" NextFile="PlayerJump15.wav"/>
+    <ROW File="PlayerJump15.wav" Component_="BlasterFire15.wav" FileName="Player~3.wav|PlayerJump 15.wav" Attributes="0" SourcePath="build\Content\Sounds\PlayerJump 15.wav" SelfReg="false" NextFile="PlayerLand80.wav"/>
+    <ROW File="PlayerLand80.wav" Component_="BlasterFire15.wav" FileName="Player~4.wav|PlayerLand 80.wav" Attributes="0" SourcePath="build\Content\Sounds\PlayerLand 80.wav" SelfReg="false" NextFile="PlayerSpawn50.wav"/>
+    <ROW File="PlayerRun.wav" Component_="BlasterFire15.wav" FileName="Player~1.wav|PlayerRun.wav" Attributes="0" SourcePath="build\Content\Sounds\PlayerRun.wav" SelfReg="false" NextFile="PortalSeekerSpawn10.wav"/>
+    <ROW File="PlayerSpawn50.wav" Component_="BlasterFire15.wav" FileName="Player~6.wav|PlayerSpawn 50.wav" Attributes="0" SourcePath="build\Content\Sounds\PlayerSpawn 50.wav" SelfReg="false" NextFile="SmallTick20.wav"/>
+    <ROW File="PlayerSwim30.wav" Component_="BlasterFire15.wav" FileName="Playe~11.wav|PlayerSwim 30.wav" Attributes="0" SourcePath="build\Content\Sounds\PlayerSwim 30.wav" SelfReg="false" NextFile="Portal90.wav"/>
+    <ROW File="PoisonDart.png" Component_="Blaster.png" FileName="Poison~1.png|PoisonDart.png" Attributes="0" SourcePath="build\Content\Projectiles\PoisonDart.png" SelfReg="false" NextFile="Spike.png_1"/>
+    <ROW File="PoisonGas.png" Component_="Acid.png" FileName="Poison~1.png|PoisonGas.png" Attributes="0" SourcePath="build\Content\Tiles\PoisonGas.png" SelfReg="false" NextFile="PurpleBrick.png"/>
+    <ROW File="Portal.png" Component_="Chest.png" FileName="Portal.png" Attributes="0" SourcePath="build\Content\Items\Portal.png" SelfReg="false" NextFile="Sign.png"/>
+    <ROW File="Portal90.wav" Component_="BlasterFire15.wav" FileName="Portal~2.wav|Portal 90.wav" Attributes="0" SourcePath="build\Content\Sounds\Portal 90.wav" SelfReg="false" NextFile="SurvivorSpawn90.wav"/>
+    <ROW File="PortalSeeker.png" Component_="Crawler.png" FileName="Portal~1.png|Portal Seeker.png" Attributes="0" SourcePath="build\Content\Enemies\Portal Seeker.png" SelfReg="false" NextFile="AdamantiumBlaster.png"/>
+    <ROW File="PortalSeeker.png_1" Component_="Chest.png" FileName="Portal~1.png|Portal Seeker.png" Attributes="0" SourcePath="build\Content\Items\Portal Seeker.png" SelfReg="false" NextFile="RiftCreator.png"/>
+    <ROW File="PortalSeekerSpawn10.wav" Component_="BlasterFire15.wav" FileName="Portal~1.wav|Portal SeekerSpawn 10.wav" Attributes="0" SourcePath="build\Content\Sounds\Portal SeekerSpawn 10.wav" SelfReg="false" NextFile="SkyRealmMini1Damage.wav"/>
+    <ROW File="PurpleBrick.png" Component_="Acid.png" FileName="Purple~1.png|PurpleBrick.png" Attributes="0" SourcePath="build\Content\Tiles\PurpleBrick.png" SelfReg="false" NextFile="Quartzite.png"/>
+    <ROW File="Quartzite.png" Component_="Acid.png" FileName="Quartz~1.png|Quartzite.png" Attributes="0" SourcePath="build\Content\Tiles\Quartzite.png" SelfReg="false" NextFile="RadiumOre.png"/>
+    <ROW File="RadiumOre.png" Component_="Acid.png" FileName="Radium~1.png|RadiumOre.png" Attributes="0" SourcePath="build\Content\Tiles\RadiumOre.png" SelfReg="false" NextFile="RedBrick.png"/>
+    <ROW File="RedBrick.png" Component_="Acid.png" FileName="RedBrick.png" Attributes="0" SourcePath="build\Content\Tiles\RedBrick.png" SelfReg="false" NextFile="Rhyolite.png"/>
+    <ROW File="RedCrystal.png" Component_="Chest.png" FileName="RedCry~1.png|Red Crystal.png" Attributes="0" SourcePath="build\Content\Items\Red Crystal.png" SelfReg="false" NextFile="RewardChest.png"/>
+    <ROW File="RedLED.png" Component_="Acid.png" FileName="RedLED.png" Attributes="0" SourcePath="build\Content\Tiles\RedLED.png" SelfReg="false" NextFile="Sodium.png"/>
+    <ROW File="RewardChest.png" Component_="Chest.png" FileName="Reward~1.png|Reward Chest.png" Attributes="0" SourcePath="build\Content\Items\Reward Chest.png" SelfReg="false" NextFile="Rift.png"/>
+    <ROW File="Rhyolite.png" Component_="Acid.png" FileName="Rhyolite.png" Attributes="0" SourcePath="build\Content\Tiles\Rhyolite.png" SelfReg="false" NextFile="Ruby.png"/>
+    <ROW File="Rift.png" Component_="Chest.png" FileName="Rift.png" Attributes="0" SourcePath="build\Content\Items\Rift.png" SelfReg="false" NextFile="SilverSuperconductor.png"/>
+    <ROW File="RiftCreator.png" Component_="Chest.png" FileName="RiftCr~1.png|Rift Creator.png" Attributes="0" SourcePath="build\Content\Items\Rift Creator.png" SelfReg="false" NextFile="SilverBlaster.png"/>
+    <ROW File="Ruby.png" Component_="Acid.png" FileName="Ruby.png" Attributes="0" SourcePath="build\Content\Tiles\Ruby.png" SelfReg="false" NextFile="Sand.png"/>
+    <ROW File="Sand.png" Component_="Acid.png" FileName="Sand.png" Attributes="0" SourcePath="build\Content\Tiles\Sand.png" SelfReg="false" NextFile="Sandstone.png"/>
+    <ROW File="Sandstone.png" Component_="Acid.png" FileName="Sandst~1.png|Sandstone.png" Attributes="0" SourcePath="build\Content\Tiles\Sandstone.png" SelfReg="false" NextFile="Sapphire.png"/>
+    <ROW File="Sapphire.png" Component_="Acid.png" FileName="Sapphire.png" Attributes="0" SourcePath="build\Content\Tiles\Sapphire.png" SelfReg="false" NextFile="SilverOre.png"/>
+    <ROW File="Server.exe" Component_="Server.exe" FileName="Server.exe" Attributes="0" SourcePath="build\Server.exe" SelfReg="false" NextFile="Arm.png" DigSign="true"/>
+    <ROW File="ShadowMap.xnb" Component_="Arm.png" FileName="Shadow~1.xnb|ShadowMap.xnb" Attributes="0" SourcePath="build\Content\ShadowMap.xnb" SelfReg="false" NextFile="Door.png"/>
+    <ROW File="Sign.png" Component_="Chest.png" FileName="Sign.png" Attributes="0" SourcePath="build\Content\Items\Sign.png" SelfReg="false" NextFile="WorldChest.png"/>
+    <ROW File="Silver.png" Component_="Chest.png" FileName="Silver.png" Attributes="0" SourcePath="build\Content\Items\Silver.png" SelfReg="false" NextFile="SteelBlaster.png"/>
+    <ROW File="SilverBlaster.png" Component_="Chest.png" FileName="Silver~2.png|Silver Blaster.png" Attributes="0" SourcePath="build\Content\Items\Silver Blaster.png" SelfReg="false" NextFile="SilverMiningTool.png"/>
+    <ROW File="SilverMiningTool.png" Component_="Chest.png" FileName="Silver~3.png|Silver Mining Tool.png" Attributes="0" SourcePath="build\Content\Items\Silver Mining Tool.png" SelfReg="false" NextFile="Silver.png"/>
+    <ROW File="SilverOre.png" Component_="Acid.png" FileName="Silver~1.png|SilverOre.png" Attributes="0" SourcePath="build\Content\Tiles\SilverOre.png" SelfReg="false" NextFile="Slime.png"/>
+    <ROW File="SilverSuperconductor.png" Component_="Chest.png" FileName="Silver~1.png|Silver Superconductor.png" Attributes="0" SourcePath="build\Content\Items\Silver Superconductor.png" SelfReg="false" NextFile="SteelSuperconductor.png"/>
+    <ROW File="SkyBoss.Map" Component_="Boss2.Map" FileName="SkyBoss.Map" Attributes="0" SourcePath="build\Content\Maps\SkyBoss.Map" SelfReg="false" NextFile="SkyRealm.Map"/>
+    <ROW File="SkyRealm.Map" Component_="Boss2.Map" FileName="SkyRealm.Map" Attributes="0" SourcePath="build\Content\Maps\SkyRealm.Map" SelfReg="false" NextFile="Vesuvius.Map"/>
+    <ROW File="SkyRealmMini1Damage.wav" Component_="BlasterFire15.wav" FileName="SkyRea~1.wav|Sky Realm Mini 1Damage.wav" Attributes="0" SourcePath="build\Content\Sounds\Sky Realm Mini 1Damage.wav" SelfReg="false" NextFile="SkyRealmMini1Die99.wav"/>
+    <ROW File="SkyRealmMini1Die99.wav" Component_="BlasterFire15.wav" FileName="SkyRea~2.wav|Sky Realm Mini 1Die 99.wav" Attributes="0" SourcePath="build\Content\Sounds\Sky Realm Mini 1Die 99.wav" SelfReg="false" NextFile="SkyRealmMini1Spawn99.wav"/>
+    <ROW File="SkyRealmMini1Spawn99.wav" Component_="BlasterFire15.wav" FileName="SkyRea~3.wav|Sky Realm Mini 1Spawn 99.wav" Attributes="0" SourcePath="build\Content\Sounds\Sky Realm Mini 1Spawn 99.wav" SelfReg="false" NextFile="SlimeRayDie.wav"/>
+    <ROW File="Slime.png" Component_="Acid.png" FileName="Slime.png" Attributes="0" SourcePath="build\Content\Tiles\Slime.png" SelfReg="false" NextFile="Smoke.png"/>
+    <ROW File="SlimeRayDie.wav" Component_="BlasterFire15.wav" FileName="SlimeR~1.wav|Slime RayDie.wav" Attributes="0" SourcePath="build\Content\Sounds\Slime RayDie.wav" SelfReg="false" NextFile="SpaceShipBlaster15.wav"/>
+    <ROW File="SmallFont.xnb" Component_="Arm.png" FileName="SmallF~1.xnb|Small Font.xnb" Attributes="0" SourcePath="build\Content\Small Font.xnb" SelfReg="false" NextFile="DPComic12.xnb"/>
+    <ROW File="SmallTick20.wav" Component_="BlasterFire15.wav" FileName="SmallT~1.wav|SmallTick 20.wav" Attributes="0" SourcePath="build\Content\Sounds\SmallTick 20.wav" SelfReg="false" NextFile="Tick15.wav"/>
+    <ROW File="Smoke.png" Component_="Acid.png" FileName="Smoke.png" Attributes="0" SourcePath="build\Content\Tiles\Smoke.png" SelfReg="false" NextFile="Snow.png"/>
+    <ROW File="Snow.png" Component_="Acid.png" FileName="Snow.png" Attributes="0" SourcePath="build\Content\Tiles\Snow.png" SelfReg="false" NextFile="Spike.png"/>
+    <ROW File="Sodium.png" Component_="Acid.png" FileName="Sodium.png" Attributes="0" SourcePath="build\Content\Tiles\Sodium.png" SelfReg="false" NextFile="WhiteMetal.png"/>
+    <ROW File="SpaceShipBlaster15.wav" Component_="BlasterFire15.wav" FileName="SpaceS~1.wav|SpaceShipBlaster 15.wav" Attributes="0" SourcePath="build\Content\Sounds\SpaceShipBlaster 15.wav" SelfReg="false" NextFile="SproutDie20.wav"/>
+    <ROW File="Spike.png" Component_="Acid.png" FileName="Spike.png" Attributes="0" SourcePath="build\Content\Tiles\Spike.png" SelfReg="false" NextFile="Steam.png"/>
+    <ROW File="Spike.png_1" Component_="Blaster.png" FileName="Spike.png" Attributes="0" SourcePath="build\Content\Projectiles\Spike.png" SelfReg="false" NextFile="BlasterFire.wav"/>
+    <ROW File="SproutDie20.wav" Component_="BlasterFire15.wav" FileName="Sprout~1.wav|SproutDie 20.wav" Attributes="0" SourcePath="build\Content\Sounds\SproutDie 20.wav" SelfReg="false" NextFile="TurretSpawn99.wav"/>
+    <ROW File="Starfield.jpg" Component_="CaveBack.png" FileName="Starfi~1.jpg|Starfield.jpg" Attributes="0" SourcePath="build\Content\Background\Starfield.jpg" SelfReg="false" NextFile="CrystallineLarva.png"/>
+    <ROW File="Starfield.jpg_1" Component_="Arm.png" FileName="Starfi~1.jpg|Starfield.jpg" Attributes="0" SourcePath="build\Content\Starfield.jpg" SelfReg="false" NextFile="BrainSuckerAnimationHelp.png"/>
+    <ROW File="Start.Map" Component_="Boss2.Map" FileName="Start.Map" Attributes="0" SourcePath="build\Content\Maps\Start.Map" SelfReg="false" NextFile="MessageBox.png"/>
+    <ROW File="Steam.png" Component_="Acid.png" FileName="Steam.png" Attributes="0" SourcePath="build\Content\Tiles\Steam.png" SelfReg="false" NextFile="Sulfur.png"/>
+    <ROW File="Steel.png" Component_="Chest.png" FileName="Steel.png" Attributes="0" SourcePath="build\Content\Items\Steel.png" SelfReg="false" NextFile="TurboBlaster.png"/>
+    <ROW File="SteelBlaster.png" Component_="Chest.png" FileName="SteelB~1.png|Steel Blaster.png" Attributes="0" SourcePath="build\Content\Items\Steel Blaster.png" SelfReg="false" NextFile="SteelMiningTool.png"/>
+    <ROW File="SteelMiningTool.png" Component_="Chest.png" FileName="SteelM~1.png|Steel Mining Tool.png" Attributes="0" SourcePath="build\Content\Items\Steel Mining Tool.png" SelfReg="false" NextFile="Steel.png"/>
+    <ROW File="SteelSuperconductor.png" Component_="Chest.png" FileName="SteelS~1.png|Steel Superconductor.png" Attributes="0" SourcePath="build\Content\Items\Steel Superconductor.png" SelfReg="false" NextFile="Waypoint.png"/>
+    <ROW File="Sulfur.png" Component_="Acid.png" FileName="Sulfur.png" Attributes="0" SourcePath="build\Content\Tiles\Sulfur.png" SelfReg="false" NextFile="TanBrick.png"/>
+    <ROW File="Sun.png" Component_="CaveBack.png" FileName="Sun.png" Attributes="0" SourcePath="build\Content\Background\Sun.png" SelfReg="false" NextFile="TwilightSky.png"/>
+    <ROW File="SurvivorSpawn90.wav" Component_="BlasterFire15.wav" FileName="Surviv~1.wav|SurvivorSpawn 90.wav" Attributes="0" SourcePath="build\Content\Sounds\SurvivorSpawn 90.wav" SelfReg="false" NextFile="Switch60.wav"/>
+    <ROW File="Switch60.wav" Component_="BlasterFire15.wav" FileName="Switch~1.wav|Switch 60.wav" Attributes="0" SourcePath="build\Content\Sounds\Switch 60.wav" SelfReg="false" NextFile="TimedSwitchActive90.wav"/>
+    <ROW File="TanBrick.png" Component_="Acid.png" FileName="TanBrick.png" Attributes="0" SourcePath="build\Content\Tiles\TanBrick.png" SelfReg="false" NextFile="Tar.png"/>
+    <ROW File="Tar.png" Component_="Acid.png" FileName="Tar.png" Attributes="0" SourcePath="build\Content\Tiles\Tar.png" SelfReg="false" NextFile="Topaz.png"/>
+    <ROW File="Tick15.wav" Component_="BlasterFire15.wav" FileName="Tick15~1.wav|Tick 15.wav" Attributes="0" SourcePath="build\Content\Sounds\Tick 15.wav" SelfReg="false" NextFile="Acid.png"/>
+    <ROW File="TimedSwitchActive90.wav" Component_="BlasterFire15.wav" FileName="TimedS~1.wav|TimedSwitchActive 90.wav" Attributes="0" SourcePath="build\Content\Sounds\TimedSwitchActive 90.wav" SelfReg="false" NextFile="TurretDamage20.wav"/>
+    <ROW File="TitleLogo.png" Component_="Arm.png" FileName="TitleL~1.png|Title Logo.png" Attributes="0" SourcePath="build\Content\Title Logo.png" SelfReg="false" NextFile="__royal__cavernwind.wma"/>
+    <ROW File="Topaz.png" Component_="Acid.png" FileName="Topaz.png" Attributes="0" SourcePath="build\Content\Tiles\Topaz.png" SelfReg="false" NextFile="UraniumOre.png"/>
+    <ROW File="TurboBlaster.png" Component_="Chest.png" FileName="TurboB~1.png|Turbo Blaster.png" Attributes="0" SourcePath="build\Content\Items\Turbo Blaster.png" SelfReg="false" NextFile="UltraBlaster.png"/>
+    <ROW File="Turret.png" Component_="Crawler.png" FileName="Turret.png" Attributes="0" SourcePath="build\Content\Enemies\Turret.png" SelfReg="false" NextFile="ValeeHive.png"/>
+    <ROW File="TurretDamage20.wav" Component_="BlasterFire15.wav" FileName="Turret~2.wav|TurretDamage 20.wav" Attributes="0" SourcePath="build\Content\Sounds\TurretDamage 20.wav" SelfReg="false" NextFile="TurretDie60.wav"/>
+    <ROW File="TurretDie60.wav" Component_="BlasterFire15.wav" FileName="Turret~3.wav|TurretDie 60.wav" Attributes="0" SourcePath="build\Content\Sounds\TurretDie 60.wav" SelfReg="false" NextFile="ValeeHiveAttack100.wav"/>
+    <ROW File="TurretSpawn99.wav" Component_="BlasterFire15.wav" FileName="Turret~5.wav|TurretSpawn 99.wav" Attributes="0" SourcePath="build\Content\Sounds\TurretSpawn 99.wav" SelfReg="false" NextFile="ValeeHiveDie100.wav"/>
+    <ROW File="TwilightSky.png" Component_="CaveBack.png" FileName="Twilig~1.png|TwilightSky.png" Attributes="0" SourcePath="build\Content\Background\TwilightSky.png" SelfReg="false" NextFile="Brushes.png"/>
+    <ROW File="UltraBlaster.png" Component_="Chest.png" FileName="UltraB~1.png|Ultra Blaster.png" Attributes="0" SourcePath="build\Content\Items\Ultra Blaster.png" SelfReg="false" NextFile="UltraMiningTool.png"/>
+    <ROW File="UltraMiningTool.png" Component_="Chest.png" FileName="UltraM~1.png|Ultra Mining Tool.png" Attributes="0" SourcePath="build\Content\Items\Ultra Mining Tool.png" SelfReg="false" NextFile="dungeon6.Map"/>
+    <ROW File="UraniumOre.png" Component_="Acid.png" FileName="Uraniu~1.png|UraniumOre.png" Attributes="0" SourcePath="build\Content\Tiles\UraniumOre.png" SelfReg="false" NextFile="Vacuum.png"/>
+    <ROW File="Vacuum.png" Component_="Acid.png" FileName="Vacuum.png" Attributes="0" SourcePath="build\Content\Tiles\Vacuum.png" SelfReg="false" NextFile="Water.png"/>
+    <ROW File="ValeeAttack100.wav" Component_="BlasterFire15.wav" FileName="ValeeA~1.wav|ValeeAttack 100.wav" Attributes="0" SourcePath="build\Content\Sounds\ValeeAttack 100.wav" SelfReg="false" NextFile="WeaponMissed75.wav"/>
+    <ROW File="ValeeDie100.wav" Component_="BlasterFire15.wav" FileName="ValeeD~3.wav|ValeeDie 100.wav" Attributes="0" SourcePath="build\Content\Sounds\ValeeDie 100.wav" SelfReg="false" NextFile="WorkBench.wav"/>
+    <ROW File="ValeeHive.png" Component_="Crawler.png" FileName="ValeeH~1.png|Valee Hive.png" Attributes="0" SourcePath="build\Content\Enemies\Valee Hive.png" SelfReg="false" NextFile="Zarbe.png"/>
+    <ROW File="ValeeHiveAttack100.wav" Component_="BlasterFire15.wav" FileName="ValeeH~1.wav|Valee HiveAttack 100.wav" Attributes="0" SourcePath="build\Content\Sounds\Valee HiveAttack 100.wav" SelfReg="false" NextFile="ValeeAttack100.wav"/>
+    <ROW File="ValeeHiveDie100.wav" Component_="BlasterFire15.wav" FileName="ValeeH~5.wav|Valee HiveDie 100.wav" Attributes="0" SourcePath="build\Content\Sounds\Valee HiveDie 100.wav" SelfReg="false" NextFile="ValeeHiveSpawn99.wav"/>
+    <ROW File="ValeeHiveSpawn99.wav" Component_="BlasterFire15.wav" FileName="ValeeH~6.wav|Valee HiveSpawn 99.wav" Attributes="0" SourcePath="build\Content\Sounds\Valee HiveSpawn 99.wav" SelfReg="false" NextFile="ValeeDie100.wav"/>
+    <ROW File="Vesuvius.Map" Component_="Boss2.Map" FileName="Vesuvius.Map" Attributes="0" SourcePath="build\Content\Maps\Vesuvius.Map" SelfReg="false" NextFile="Water.Map"/>
+    <ROW File="Water.Map" Component_="Boss2.Map" FileName="Water.Map" Attributes="0" SourcePath="build\Content\Maps\Water.Map" SelfReg="false" NextFile="BossFlameThrower.png"/>
+    <ROW File="Water.png" Component_="Acid.png" FileName="Water.png" Attributes="0" SourcePath="build\Content\Tiles\Water.png" SelfReg="false" NextFile="WhiteBrick.png"/>
+    <ROW File="Waypoint.png" Component_="Chest.png" FileName="Waypoint.png" Attributes="0" SourcePath="build\Content\Items\Waypoint.png" SelfReg="false" NextFile="Botanica.Map"/>
+    <ROW File="WeaponMissed75.wav" Component_="BlasterFire15.wav" FileName="Weapon~1.wav|WeaponMissed 75.wav" Attributes="0" SourcePath="build\Content\Sounds\WeaponMissed 75.wav" SelfReg="false" NextFile="Starfield.jpg_1"/>
+    <ROW File="WhiteBrick.png" Component_="Acid.png" FileName="WhiteB~1.png|WhiteBrick.png" Attributes="0" SourcePath="build\Content\Tiles\WhiteBrick.png" SelfReg="false" NextFile="Wire.png"/>
+    <ROW File="WhiteMetal.png" Component_="Acid.png" FileName="WhiteM~1.png|WhiteMetal.png" Attributes="0" SourcePath="build\Content\Tiles\WhiteMetal.png" SelfReg="false"/>
+    <ROW File="Wire.png" Component_="Acid.png" FileName="Wire.png" Attributes="0" SourcePath="build\Content\Tiles\Wire.png" SelfReg="false" NextFile="Wood.png"/>
+    <ROW File="Wood.png" Component_="Acid.png" FileName="Wood.png" Attributes="0" SourcePath="build\Content\Tiles\Wood.png" SelfReg="false" NextFile="YellowBrick.png"/>
+    <ROW File="WorkBench.wav" Component_="BlasterFire15.wav" FileName="WorkBe~1.wav|WorkBench.wav" Attributes="0" SourcePath="build\Content\Sounds\WorkBench.wav" SelfReg="false" NextFile="AluminumOre.png"/>
+    <ROW File="Workbench.png" Component_="Chest.png" FileName="Workbe~1.png|Workbench.png" Attributes="0" SourcePath="build\Content\Items\Workbench.png" SelfReg="false" NextFile="LargeFont.xnb"/>
+    <ROW File="WorldChest.png" Component_="Chest.png" FileName="WorldC~1.png|World Chest.png" Attributes="0" SourcePath="build\Content\Items\World Chest.png" SelfReg="false" NextFile="DungeonSelect.Map"/>
+    <ROW File="YellowBrick.png" Component_="Acid.png" FileName="Yellow~1.png|YellowBrick.png" Attributes="0" SourcePath="build\Content\Tiles\YellowBrick.png" SelfReg="false" NextFile="TitleLogo.png"/>
+    <ROW File="Zarbe.png" Component_="Crawler.png" FileName="Zarbe.png" Attributes="0" SourcePath="build\Content\Enemies\Zarbe.png" SelfReg="false" NextFile="AdamantiumSuperconductor.png"/>
+    <ROW File="__royal__cavernwind.wma" Component_="__royal__cavernwind.xnb" FileName="17729_~1.wma|17729__royal__cavern-wind.wma" Attributes="0" SourcePath="build\Content\Music\17729__royal__cavern-wind.wma" SelfReg="false" NextFile="Birds.wma"/>
+    <ROW File="__royal__cavernwind.xnb" Component_="__royal__cavernwind.xnb" FileName="17729_~1.xnb|17729__royal__cavern-wind.xnb" Attributes="0" SourcePath="build\Content\Music\17729__royal__cavern-wind.xnb" SelfReg="false" NextFile="Birds.xnb"/>
+    <ROW File="dungeon6.Map" Component_="Boss2.Map" FileName="dungeon6.Map" Attributes="0" SourcePath="build\Content\Maps\dungeon6.Map" SelfReg="false" NextFile="Basic.png"/>
+    <ROW File="protobufnet.dll" Component_="protobufnet.dll" FileName="protob~1.dll|protobuf-net.dll" Attributes="0" SourcePath="build\protobuf-net.dll" SelfReg="false" NextFile="Server.exe"/>
+    <ROW File="updater.exe" Component_="updater.exe" FileName="updater.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="&lt;AI_STUBS_32U&gt;updater.exe" SelfReg="false" NextFile="Asteria.exe" DigSign="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" GeneralOptions="h" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" EulaPathLocId="*"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="..\Website\PrecompiledWeb\Download" PackageFileName="Asteria-[|ProductVersion]" Languages="en" InstallationType="2" CabsLocation="1" CompressCabs="false" UseLzma="true" LzmaMethod="2" LzmaCompressionLevel="3" PackageType="1" FilesInsideExe="true" ExeIconPath="..\HD\HD\Game.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true"/>
+    <ATTRIBUTE name="CurrentBuild" value="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DigCertStoreComponent">
+    <ROW TimeStampUrl="http://timestamp.verisign.com/scripts/timstamp.dll" SignOptions="7" SignTool="0" Thumbprint="e21e808f13cc58a77f081e4d1cc76ee9bd34a597 Subject: Legend Studio&#10;Issuer: COMODO Code Signing CA 2&#10;Valid from 03/28/2013 to 03/03/2015"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
+    <ROW Dialog_="FolderDlg" Control="FolderDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
+    <ATTRIBUTE name="FixedSizeBitmaps" value="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="202" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="203" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_INSTALL AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="204" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="FolderDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_INSTALL" Ordering="0" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="FolderDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_INSTALL" Ordering="1" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="FolderDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_INSTALL" Ordering="2" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="FolderDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_INSTALL" Ordering="3" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_INSTALL" Ordering="2" Options="2"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_INSTALL" Ordering="3" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="AI_ExtractFiles" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_EstimateExtractFiles" Type="1" Source="Prereq.dll" Target="EstimateExtractFiles"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1025" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_FinishActions" Type="1" Source="aicustact.dll" Target="RunAllExitActions"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_LaunchApp" Type="1" Source="aicustact.dll" Target="[#Asteria.exe]"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_ResolveLocalizedCredentials" Type="1" Source="aicustact.dll" Target="GetLocalizedCredentials"/>
+    <ROW Action="AI_SETMIXINSTLOCATION" Type="1" Source="aicustact.dll" Target="MixedAllUsersInstallLocation"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="AI_UPDATER_UNINSTALL" Type="18" Source="updater.exe" Target="/clean silent"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[AI_UserProgramFiles][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="Game.exe" SourcePath="..\HD\HD\Game.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIniFileComponent">
+    <ROW IniFile="AppDir" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="AppDir" Value="[APPDIR]" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="ApplicationName" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="ApplicationName" Value="[ProductName]" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="ApplicationVersion" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="ApplicationVersion" Value="[ProductVersion]" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="CheckFrequency" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="CheckFrequency" Value="2" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="CompanyName" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="CompanyName" Value="[Manufacturer]" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="DefaultCommandLine" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="DefaultCommandLine" Value="/checknow -minuseractions" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="DownloadsFolder" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="DownloadsFolder" Value="[AppDataFolder]\[ProductName]\updates\" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="Flags" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="Flags" Value="NoDisableAutoCheck|VertSplitter" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="ID" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="ID" Value="[UpgradeCode]" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="URL" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="URL" Value="http://playasteria.com/Update-Check" Action="0" Component_="updater.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="747"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_ResolveLocalizedCredentials" Sequence="51"/>
+    <ROW Action="AI_UPDATER_UNINSTALL" Condition="($updater.exe = 2) AND (?updater.exe = 3) AND NOT (UPGRADINGPRODUCTCODE)" Sequence="1551"/>
+    <ROW Action="AI_AppSearchEx" Sequence="102"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="3998" Builds="DefaultBuild"/>
+    <ROW Action="AI_DATA_SETTER" Sequence="3997"/>
+    <ROW Action="AI_EstimateExtractFiles" Sequence="3999" Builds="DefaultBuild"/>
+    <ROW Action="AI_SETMIXINSTLOCATION" Sequence="746"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="ExecuteAction" Sequence="1298" SeqType="0" MsiKey="ExecuteAction"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="747"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_ResolveLocalizedCredentials" Sequence="51"/>
+    <ROW Action="AI_AppSearchEx" Sequence="102"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101"/>
+    <ROW Action="FolderDlg" Condition="AI_INSTALL" Sequence="1230" SeqType="3" MsiKey="WelcomeDlg"/>
+    <ROW Action="AI_FinishActions" Condition="AI_INSTALL AND AiSkipExitDlg" Sequence="1299"/>
+    <ROW Action="AI_SETMIXINSTLOCATION" Sequence="746"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="( Version9X OR ( NOT VersionNT64 ) OR ( VersionNT64 AND ((VersionNT64 &lt;&gt; 502) OR (((VersionNT64 = 502) AND (ServicePackLevel &gt;= 1)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 502) OR (((VersionNT64 = 502) AND (ServicePackLevel &lt;&gt; 1)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 502) OR (((VersionNT64 = 502) AND (ServicePackLevel &lt;&gt; 2)) OR (MsiNTProductType &lt;&gt; 1))) AND ((VersionNT64 &lt;&gt; 502) OR ((VersionNT64 = 502) AND ((MsiNTProductType = 1) OR (ServicePackLevel &gt;= 1)))) AND ((VersionNT64 &lt;&gt; 502) OR ((VersionNT64 = 502) AND ((MsiNTProductType = 1) OR (ServicePackLevel &lt;&gt; 1)))) AND ((VersionNT64 &lt;&gt; 502) OR ((VersionNT64 = 502) AND ((MsiNTProductType = 1) OR (ServicePackLevel &lt;&gt; 2)))) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNT64Display]" DescriptionLocId="AI.LaunchCondition.NoSpecificNT64" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="( Version9X OR VersionNT64 OR ( VersionNT AND ((VersionNT &lt;&gt; 400) OR ((VersionNT = 400) AND (ServicePackLevel &gt;= 1))) AND ((VersionNT &lt;&gt; 400) OR ((VersionNT = 400) AND (ServicePackLevel &lt;&gt; 1))) AND ((VersionNT &lt;&gt; 400) OR ((VersionNT = 400) AND (ServicePackLevel &lt;&gt; 2))) AND ((VersionNT &lt;&gt; 400) OR ((VersionNT = 400) AND (ServicePackLevel &lt;&gt; 3))) AND ((VersionNT &lt;&gt; 400) OR ((VersionNT = 400) AND (ServicePackLevel &lt;&gt; 4))) AND ((VersionNT &lt;&gt; 400) OR ((VersionNT = 400) AND (ServicePackLevel &lt;&gt; 5))) AND ((VersionNT &lt;&gt; 400) OR ((VersionNT = 400) AND (ServicePackLevel &lt;&gt; 6))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &gt;= 1))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 1))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 2))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 3))) AND ((VersionNT &lt;&gt; 500) OR ((VersionNT = 500) AND (ServicePackLevel &lt;&gt; 4))) AND (((VersionNT &lt;&gt; 501) OR ((VersionNT = 501) AND (ServicePackLevel &gt;= 1))) OR VersionNT64) AND (((VersionNT &lt;&gt; 501) OR ((VersionNT = 501) AND (ServicePackLevel &lt;&gt; 1))) OR VersionNT64) AND (((VersionNT &lt;&gt; 501) OR ((VersionNT = 501) AND (ServicePackLevel &lt;&gt; 2))) OR VersionNT64) AND (((VersionNT &lt;&gt; 501) OR ((VersionNT = 501) AND (ServicePackLevel &lt;&gt; 3))) OR VersionNT64) AND (((VersionNT &lt;&gt; 502) OR ((VersionNT = 502) AND (ServicePackLevel &gt;= 1))) OR VersionNT64) AND (((VersionNT &lt;&gt; 502) OR ((VersionNT = 502) AND (ServicePackLevel &lt;&gt; 1))) OR VersionNT64) AND (((VersionNT &lt;&gt; 502) OR ((VersionNT = 502) AND (ServicePackLevel &lt;&gt; 2))) OR VersionNT64) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNTDisplay]" DescriptionLocId="AI.LaunchCondition.NoSpecificNT" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]" DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="PlayAsteria" Directory_="DesktopFolder" Name="Asteria" Component_="Asteria.exe" Target="[#Asteria.exe]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="PlayAsteria_1" Directory_="SHORTCUTDIR" Name="Asteria" Component_="Asteria.exe" Target="[#Asteria.exe]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="StartServer" Directory_="SHORTCUTDIR" Name="StartS~1|Start Server" Component_="Server.exe" Target="[#Server.exe]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMax="[|ProductVersion]" Attributes="1025" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+    <ROW PrereqKey="AAFDE9CF_9E01_43FE_869C_F81D4708C0CF" DisplayName=".NET Framework 4.0 Client Profile" VersionMin="4.0" SetupFileUrl="http://download.microsoft.com/download/5/6/2/562A10F9-C9F4-4313-A044-9C94E0A8FAC8/dotNetFx40_Client_x86_x64.exe" Location="1" ExactSize="0" Win9xVersions="Windows 9x/ME" WinNTVersions="Windows NT 4.0, Windows NT 4.0 Service Pack 1, Windows NT 4.0 Service Pack 2, Windows NT 4.0 Service Pack 3, Windows NT 4.0 Service Pack 4, Windows NT 4.0 Service Pack 5, Windows NT 4.0 Service Pack 6, Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4, Windows XP x86, Windows XP x86 Service Pack 1, Windows XP x86 Service Pack 2" Operator="1"/>
+    <ROW PrereqKey="D3622AD6_F352_447D_8FBB_300448C7B465" DisplayName="XNA Framework 4.0" VersionMin="4.0" SetupFileUrl="http://download.microsoft.com/download/A/C/2/AC2C903B-E6E8-42C2-9FD7-BEBAC362A930/xnafx40_redist.msi" Location="1" ExactSize="0" Win9xVersions="Windows 9x/ME" WinNTVersions="Windows NT 4.0, Windows NT 4.0 Service Pack 1, Windows NT 4.0 Service Pack 2, Windows NT 4.0 Service Pack 3, Windows NT 4.0 Service Pack 4, Windows NT 4.0 Service Pack 5, Windows NT 4.0 Service Pack 6, Windows 2000, Windows 2000 Service Pack 1, Windows 2000 Service Pack 2, Windows 2000 Service Pack 3, Windows 2000 Service Pack 4, Windows XP x86, Windows XP x86 Service Pack 1, Windows XP x86 Service Pack 2" Operator="1"/>
+    <ATTRIBUTE name="PrereqsOrder" value="AAFDE9CF_9E01_43FE_869C_F81D4708C0CF D3622AD6_F352_447D_8FBB_300448C7B465"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
+    <ROW SearchKey="AAFDE9CF_9E01_43FE_869C_F81D4708C0CF_NET_40_CP_SEARCH" Prereq="AAFDE9CF_9E01_43FE_869C_F81D4708C0CF" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Client\Version" VerMin="4.0" Order="1" Property="AI_NET_40_CP_PREREQSEARCH_PROP"/>
+    <ROW SearchKey="AAFDE9CF_9E01_43FE_869C_F81D4708C0CF_NET_40_SEARCH" Prereq="AAFDE9CF_9E01_43FE_869C_F81D4708C0CF" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Version" VerMin="4.0" Order="2" Property="AI_NET_40_PREREQSEARCH_PROP"/>
+    <ROW SearchKey="AAFDE9CF_9E01_43FE_869C_F81D4708C0CF_NET_45_SEARCH" Prereq="AAFDE9CF_9E01_43FE_869C_F81D4708C0CF" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Version" VerMin="4.5" Order="3" Property="AI_NET_40CP_45_PREREQSEARCH_PROP"/>
+    <ROW SearchKey="D3622AD6_F352_447D_8FBB_300448C7B465v4.0" Prereq="D3622AD6_F352_447D_8FBB_300448C7B465" SearchType="5" SearchString="HKLM\SOFTWARE\Microsoft\XNA\Framework\v4.0" Order="1" Property="PREREQSEARCH_D3622AD6_F352_447D_8FBB_300448C7B465"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SynchronizedFolderComponent">
+    <ROW Directory_="Content_Dir" SourcePath="build\Content" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6"/>
+    <ROW Directory_="APPDIR" SourcePath="build" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.UpdaterComponent">
+    <ROW Updater="updater.exe" URL="URL" SearchFreq="CheckFrequency" DownloadsFolder="DownloadsFolder" ID="ID" TargetDir="AppDir" AppName="ApplicationName" AppVersion="ApplicationVersion" CompanyName="CompanyName" DefCommandLine="DefaultCommandLine" Flags="Flags" IconIndex="0" UnistallCASeq="AI_UPDATER_UNINSTALL" Description="[|UpdaterName] [|ProductVersion] © [|Manufacturer], Inc, 2013"/>
+  </COMPONENT>
+</DOCUMENT>

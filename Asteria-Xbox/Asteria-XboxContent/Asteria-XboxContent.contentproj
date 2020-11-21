@@ -1,0 +1,3160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{009E26CD-6B77-429C-A8F9-8CE79FB98F14}</ProjectGuid>
+    <ProjectTypeGuids>{96E2B04D-8817-42c6-938A-82C39BA4D311};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
+    <ContentRootDirectory>Content</ContentRootDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Xbox 360'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Xbox 360'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Asteria_XboxContent</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.EffectImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.FBXImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.TextureImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.XImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.AudioImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Content\Brushes.png">
+      <Link>Brushes.png</Link>
+      <Name>Brushes</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Button.png">
+      <Link>Button.png</Link>
+      <Name>Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Character.png">
+      <Link>Character.png</Link>
+      <Name>Character</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Chat Box.png">
+      <Link>Chat Box.png</Link>
+      <Name>Chat Box</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Crosshair.png">
+      <Link>Crosshair.png</Link>
+      <Name>Crosshair</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Cursor.png">
+      <Link>Cursor.png</Link>
+      <Name>Cursor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\DayNightGradient.png">
+      <Link>DayNightGradient.png</Link>
+      <Name>DayNightGradient</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Empty Slot.png">
+      <Link>Empty Slot.png</Link>
+      <Name>Empty Slot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Filled Slot.png">
+      <Link>Filled Slot.png</Link>
+      <Name>Filled Slot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\GUI Bottom.png">
+      <Link>GUI Bottom.png</Link>
+      <Name>GUI Bottom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\GUI Top.png">
+      <Link>GUI Top.png</Link>
+      <Name>GUI Top</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 1 Arm.png">
+      <Link>Hero Style 1 Arm.png</Link>
+      <Name>Hero Style 1 Arm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 1.png">
+      <Link>Hero Style 1.png</Link>
+      <Name>Hero Style 1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 2 Arm.png">
+      <Link>Hero Style 2 Arm.png</Link>
+      <Name>Hero Style 2 Arm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 2.png">
+      <Link>Hero Style 2.png</Link>
+      <Name>Hero Style 2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 3 Arm.png">
+      <Link>Hero Style 3 Arm.png</Link>
+      <Name>Hero Style 3 Arm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 3.png">
+      <Link>Hero Style 3.png</Link>
+      <Name>Hero Style 3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 4 Arm.png">
+      <Link>Hero Style 4 Arm.png</Link>
+      <Name>Hero Style 4 Arm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 4.png">
+      <Link>Hero Style 4.png</Link>
+      <Name>Hero Style 4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 5 Arm.png">
+      <Link>Hero Style 5 Arm.png</Link>
+      <Name>Hero Style 5 Arm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 5.png">
+      <Link>Hero Style 5.png</Link>
+      <Name>Hero Style 5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 6 Arm.png">
+      <Link>Hero Style 6 Arm.png</Link>
+      <Name>Hero Style 6 Arm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 6.png">
+      <Link>Hero Style 6.png</Link>
+      <Name>Hero Style 6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 7 Arm.png">
+      <Link>Hero Style 7 Arm.png</Link>
+      <Name>Hero Style 7 Arm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 7.png">
+      <Link>Hero Style 7.png</Link>
+      <Name>Hero Style 7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 8 Arm.png">
+      <Link>Hero Style 8 Arm.png</Link>
+      <Name>Hero Style 8 Arm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Hero Style 8.png">
+      <Link>Hero Style 8.png</Link>
+      <Name>Hero Style 8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Legend Studio Logo.png">
+      <Link>Legend Studio Logo.png</Link>
+      <Name>Legend Studio Logo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Life Counter.png">
+      <Link>Life Counter.png</Link>
+      <Name>Life Counter</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Menu Text Box.png">
+      <Link>Menu Text Box.png</Link>
+      <Name>Menu Text Box</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Starfield.jpg">
+      <Link>Starfield.jpg</Link>
+      <Name>Starfield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Title Logo.png">
+      <Link>Title Logo.png</Link>
+      <Name>Title Logo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Medium Font.bmp">
+      <Name>Medium Font</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>FontTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Small Font.bmp">
+      <Name>Small Font</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>FontTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Large Font.bmp">
+      <Name>Large Font</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>FontTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\AsteriaContent\BlendEffect.fx">
+      <Link>BlendEffect.fx</Link>
+      <Name>BlendEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\AsteriaContent\LightSpreadEffect.fx">
+      <Link>LightSpreadEffect.fx</Link>
+      <Name>LightSpreadEffect</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Content\Particles\Basic.png">
+      <Link>Particles\Basic.png</Link>
+      <Name>Basic</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <ProcessorParameters_TextureFormat>DxtCompressed</ProcessorParameters_TextureFormat>
+    </Compile>
+    <Compile Include="..\..\Content\Particles\Blood 1.png">
+      <Link>Particles\Blood 1.png</Link>
+      <Name>Blood 1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Particles\Blood 2.png">
+      <Link>Particles\Blood 2.png</Link>
+      <Name>Blood 2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Particles\Blood 3.png">
+      <Link>Particles\Blood 3.png</Link>
+      <Name>Blood 3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Particles\Blood 4.png">
+      <Link>Particles\Blood 4.png</Link>
+      <Name>Blood 4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Particles\Blood 5.png">
+      <Link>Particles\Blood 5.png</Link>
+      <Name>Blood 5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Particles\Blood 6.png">
+      <Link>Particles\Blood 6.png</Link>
+      <Name>Blood 6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Particles\Blood 7.png">
+      <Link>Particles\Blood 7.png</Link>
+      <Name>Blood 7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Particles\Blood 8.png">
+      <Link>Particles\Blood 8.png</Link>
+      <Name>Blood 8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Particles\Blood 9.png">
+      <Link>Particles\Blood 9.png</Link>
+      <Name>Blood 9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Particles\Blood.png">
+      <Link>Particles\Blood.png</Link>
+      <Name>Blood</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Particles\Explosion.png">
+      <Link>Particles\Explosion.png</Link>
+      <Name>Explosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <ProcessorParameters_TextureFormat>DxtCompressed</ProcessorParameters_TextureFormat>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enemies\" />
+    <Folder Include="Maps\" />
+    <Folder Include="Music\" />
+    <Folder Include="Projectiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Content\Items\1UP Icon.png">
+      <Link>Items\1UP Icon.png</Link>
+      <Name>1UP Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\1UP.png">
+      <Link>Items\1UP.png</Link>
+      <Name>1UP</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Accelerometer.png">
+      <Link>Items\Accelerometer.png</Link>
+      <Name>Accelerometer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium Blaster.png">
+      <Link>Items\Adamantium Blaster.png</Link>
+      <Name>Adamantium Blaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium Disruptor.png">
+      <Link>Items\Adamantium Disruptor.png</Link>
+      <Name>Adamantium Disruptor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium Energy Cell.png">
+      <Link>Items\Adamantium Energy Cell.png</Link>
+      <Name>Adamantium Energy Cell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium Grenade Launcher.png">
+      <Link>Items\Adamantium Grenade Launcher.png</Link>
+      <Name>Adamantium Grenade Launcher</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium Helmet.png">
+      <Link>Items\Adamantium Helmet.png</Link>
+      <Name>Adamantium Helmet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium Homing Missile.png">
+      <Link>Items\Adamantium Homing Missile.png</Link>
+      <Name>Adamantium Homing Missile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium Jump Amplifier.png">
+      <Link>Items\Adamantium Jump Amplifier.png</Link>
+      <Name>Adamantium Jump Amplifier</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium Laser Rifle.png">
+      <Link>Items\Adamantium Laser Rifle.png</Link>
+      <Name>Adamantium Laser Rifle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium Mining Tool.png">
+      <Link>Items\Adamantium Mining Tool.png</Link>
+      <Name>Adamantium Mining Tool</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium Portal Seeker.png">
+      <Link>Items\Adamantium Portal Seeker.png</Link>
+      <Name>Adamantium Portal Seeker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium Power core.png">
+      <Link>Items\Adamantium Power core.png</Link>
+      <Name>Adamantium Power core</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium Suit.png">
+      <Link>Items\Adamantium Suit.png</Link>
+      <Name>Adamantium Suit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium Superconductor.png">
+      <Link>Items\Adamantium Superconductor.png</Link>
+      <Name>Adamantium Superconductor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Adamantium.png">
+      <Link>Items\Adamantium.png</Link>
+      <Name>Adamantium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Advanced Energy Refill.png">
+      <Link>Items\Advanced Energy Refill.png</Link>
+      <Name>Advanced Energy Refill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Aegis Energy Tank.png">
+      <Link>Items\Aegis Energy Tank.png</Link>
+      <Name>Aegis Energy Tank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Air Tank.png">
+      <Link>Items\Air Tank.png</Link>
+      <Name>Air Tank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Aluminum Energy Cell.png">
+      <Link>Items\Aluminum Energy Cell.png</Link>
+      <Name>Aluminum Energy Cell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Aluminum.png">
+      <Link>Items\Aluminum.png</Link>
+      <Name>Aluminum</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Amethyst Scope.png">
+      <Link>Items\Amethyst Scope.png</Link>
+      <Name>Amethyst Scope</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Battery.png">
+      <Link>Items\Battery.png</Link>
+      <Name>Battery</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Blue Crystal.png">
+      <Link>Items\Blue Crystal.png</Link>
+      <Name>Blue Crystal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Blue Light Orb Icon.png">
+      <Link>Items\Blue Light Orb Icon.png</Link>
+      <Name>Blue Light Orb Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Blue Light Orb.png">
+      <Link>Items\Blue Light Orb.png</Link>
+      <Name>Blue Light Orb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Bose Einstein Condenser.png">
+      <Link>Items\Bose Einstein Condenser.png</Link>
+      <Name>Bose Einstein Condenser</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Carbonite.png">
+      <Link>Items\Carbonite.png</Link>
+      <Name>Carbonite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Chemical Reactor Icon.png">
+      <Link>Items\Chemical Reactor Icon.png</Link>
+      <Name>Chemical Reactor Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Chemical Reactor.png">
+      <Link>Items\Chemical Reactor.png</Link>
+      <Name>Chemical Reactor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Convector.png">
+      <Link>Items\Convector.png</Link>
+      <Name>Convector</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Copper Blaster.png">
+      <Link>Items\Copper Blaster.png</Link>
+      <Name>Copper Blaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Copper Disruptor.png">
+      <Link>Items\Copper Disruptor.png</Link>
+      <Name>Copper Disruptor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Copper Energy Cell.png">
+      <Link>Items\Copper Energy Cell.png</Link>
+      <Name>Copper Energy Cell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Copper Helmet.png">
+      <Link>Items\Copper Helmet.png</Link>
+      <Name>Copper Helmet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Copper Mining Tool.png">
+      <Link>Items\Copper Mining Tool.png</Link>
+      <Name>Copper Mining Tool</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Copper Portal Seeker.png">
+      <Link>Items\Copper Portal Seeker.png</Link>
+      <Name>Copper Portal Seeker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Copper Power Core.png">
+      <Link>Items\Copper Power Core.png</Link>
+      <Name>Copper Power Core</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Copper Suit.png">
+      <Link>Items\Copper Suit.png</Link>
+      <Name>Copper Suit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Copper Superconductor.png">
+      <Link>Items\Copper Superconductor.png</Link>
+      <Name>Copper Superconductor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Copper.png">
+      <Link>Items\Copper.png</Link>
+      <Name>Copper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Corrupted Energy Shield.png">
+      <Link>Items\Corrupted Energy Shield.png</Link>
+      <Name>Corrupted Energy Shield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\DarkSteel Blaster.png">
+      <Link>Items\DarkSteel Blaster.png</Link>
+      <Name>DarkSteel Blaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel Disruptor.png">
+      <Link>Items\Darksteel Disruptor.png</Link>
+      <Name>Darksteel Disruptor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel Energy Cell.png">
+      <Link>Items\Darksteel Energy Cell.png</Link>
+      <Name>Darksteel Energy Cell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel Energy Refill.png">
+      <Link>Items\Darksteel Energy Refill.png</Link>
+      <Name>Darksteel Energy Refill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel Energy Shield.png">
+      <Link>Items\Darksteel Energy Shield.png</Link>
+      <Name>Darksteel Energy Shield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel Energy Tank.png">
+      <Link>Items\Darksteel Energy Tank.png</Link>
+      <Name>Darksteel Energy Tank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel Grenade Launcher.png">
+      <Link>Items\Darksteel Grenade Launcher.png</Link>
+      <Name>Darksteel Grenade Launcher</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel Helmet.png">
+      <Link>Items\Darksteel Helmet.png</Link>
+      <Name>Darksteel Helmet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel Homing Missile.png">
+      <Link>Items\Darksteel Homing Missile.png</Link>
+      <Name>Darksteel Homing Missile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel Jump Amplifier.png">
+      <Link>Items\Darksteel Jump Amplifier.png</Link>
+      <Name>Darksteel Jump Amplifier</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel Laser Rifle.png">
+      <Link>Items\Darksteel Laser Rifle.png</Link>
+      <Name>Darksteel Laser Rifle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\DarkSteel Mining Tool.png">
+      <Link>Items\DarkSteel Mining Tool.png</Link>
+      <Name>DarkSteel Mining Tool</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\DarkSteel Portal Seeker.png">
+      <Link>Items\DarkSteel Portal Seeker.png</Link>
+      <Name>DarkSteel Portal Seeker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel Power Core.png">
+      <Link>Items\Darksteel Power Core.png</Link>
+      <Name>Darksteel Power Core</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel Suit.png">
+      <Link>Items\Darksteel Suit.png</Link>
+      <Name>Darksteel Suit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel Superconductor.png">
+      <Link>Items\Darksteel Superconductor.png</Link>
+      <Name>Darksteel Superconductor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Darksteel.png">
+      <Link>Items\Darksteel.png</Link>
+      <Name>Darksteel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Dematerializer.png">
+      <Link>Items\Dematerializer.png</Link>
+      <Name>Dematerializer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Detector.png">
+      <Link>Items\Detector.png</Link>
+      <Name>Detector</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Diamond Scope.png">
+      <Link>Items\Diamond Scope.png</Link>
+      <Name>Diamond Scope</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Diamond Tactical Scope.png">
+      <Link>Items\Diamond Tactical Scope.png</Link>
+      <Name>Diamond Tactical Scope</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Diode.png">
+      <Link>Items\Diode.png</Link>
+      <Name>Diode</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Door Icon.png">
+      <Link>Items\Door Icon.png</Link>
+      <Name>Door Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Door.png">
+      <Link>Items\Door.png</Link>
+      <Name>Door</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Dynamite Icon.png">
+      <Link>Items\Dynamite Icon.png</Link>
+      <Name>Dynamite Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Dynamite.png">
+      <Link>Items\Dynamite.png</Link>
+      <Name>Dynamite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Echo Crystal.png">
+      <Link>Items\Echo Crystal.png</Link>
+      <Name>Echo Crystal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Echo Energy Refill.png">
+      <Link>Items\Echo Energy Refill.png</Link>
+      <Name>Echo Energy Refill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Ectoplasm Core.png">
+      <Link>Items\Ectoplasm Core.png</Link>
+      <Name>Ectoplasm Core</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Ectoplasm.png">
+      <Link>Items\Ectoplasm.png</Link>
+      <Name>Ectoplasm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Einsteinium Blaster.png">
+      <Link>Items\Einsteinium Blaster.png</Link>
+      <Name>Einsteinium Blaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Einsteinium Disruptor.png">
+      <Link>Items\Einsteinium Disruptor.png</Link>
+      <Name>Einsteinium Disruptor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Einsteinium Grenade Launcher.png">
+      <Link>Items\Einsteinium Grenade Launcher.png</Link>
+      <Name>Einsteinium Grenade Launcher</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Einsteinium Helmet.png">
+      <Link>Items\Einsteinium Helmet.png</Link>
+      <Name>Einsteinium Helmet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Einsteinium Homing Missile.png">
+      <Link>Items\Einsteinium Homing Missile.png</Link>
+      <Name>Einsteinium Homing Missile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Einsteinium Laser Rifle.png">
+      <Link>Items\Einsteinium Laser Rifle.png</Link>
+      <Name>Einsteinium Laser Rifle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Einsteinium Mining Tool.png">
+      <Link>Items\Einsteinium Mining Tool.png</Link>
+      <Name>Einsteinium Mining Tool</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Einsteinium Portal Seeker.png">
+      <Link>Items\Einsteinium Portal Seeker.png</Link>
+      <Name>Einsteinium Portal Seeker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Einsteinium power core.png">
+      <Link>Items\Einsteinium power core.png</Link>
+      <Name>Einsteinium power core</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Einsteinium Suit.png">
+      <Link>Items\Einsteinium Suit.png</Link>
+      <Name>Einsteinium Suit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Einsteinium Superconductor.png">
+      <Link>Items\Einsteinium Superconductor.png</Link>
+      <Name>Einsteinium Superconductor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Einsteinium.png">
+      <Link>Items\Einsteinium.png</Link>
+      <Name>Einsteinium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Emerald Scope.png">
+      <Link>Items\Emerald Scope.png</Link>
+      <Name>Emerald Scope</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Energy Cell.png">
+      <Link>Items\Energy Cell.png</Link>
+      <Name>Energy Cell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Energy.png">
+      <Link>Items\Energy.png</Link>
+      <Name>Energy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Enforced Energy Shield.png">
+      <Link>Items\Enforced Energy Shield.png</Link>
+      <Name>Enforced Energy Shield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Entropy.png">
+      <Link>Items\Entropy.png</Link>
+      <Name>Entropy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Field Effect Transistor.png">
+      <Link>Items\Field Effect Transistor.png</Link>
+      <Name>Field Effect Transistor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Flame Thrower.png">
+      <Link>Items\Flame Thrower.png</Link>
+      <Name>Flame Thrower</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Fuel Tank.png">
+      <Link>Items\Fuel Tank.png</Link>
+      <Name>Fuel Tank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Furnace Icon.png">
+      <Link>Items\Furnace Icon.png</Link>
+      <Name>Furnace Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Furnace.png">
+      <Link>Items\Furnace.png</Link>
+      <Name>Furnace</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gold Blaster.png">
+      <Link>Items\Gold Blaster.png</Link>
+      <Name>Gold Blaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gold Disruptor.png">
+      <Link>Items\Gold Disruptor.png</Link>
+      <Name>Gold Disruptor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gold Energy Cell.png">
+      <Link>Items\Gold Energy Cell.png</Link>
+      <Name>Gold Energy Cell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gold Helmet.png">
+      <Link>Items\Gold Helmet.png</Link>
+      <Name>Gold Helmet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gold Homing Missile.png">
+      <Link>Items\Gold Homing Missile.png</Link>
+      <Name>Gold Homing Missile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gold Jump Amplifier.png">
+      <Link>Items\Gold Jump Amplifier.png</Link>
+      <Name>Gold Jump Amplifier</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gold Laser Rifle.png">
+      <Link>Items\Gold Laser Rifle.png</Link>
+      <Name>Gold Laser Rifle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gold Mining Tool.png">
+      <Link>Items\Gold Mining Tool.png</Link>
+      <Name>Gold Mining Tool</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gold Portal Seeker.png">
+      <Link>Items\Gold Portal Seeker.png</Link>
+      <Name>Gold Portal Seeker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gold Power Core.png">
+      <Link>Items\Gold Power Core.png</Link>
+      <Name>Gold Power Core</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gold Suit.png">
+      <Link>Items\Gold Suit.png</Link>
+      <Name>Gold Suit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gold Superconductor.png">
+      <Link>Items\Gold Superconductor.png</Link>
+      <Name>Gold Superconductor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gold.png">
+      <Link>Items\Gold.png</Link>
+      <Name>Gold</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Green Crystal.png">
+      <Link>Items\Green Crystal.png</Link>
+      <Name>Green Crystal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Green Light Orb Icon.png">
+      <Link>Items\Green Light Orb Icon.png</Link>
+      <Name>Green Light Orb Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Green Light Orb.png">
+      <Link>Items\Green Light Orb.png</Link>
+      <Name>Green Light Orb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Grenade Barrel.png">
+      <Link>Items\Grenade Barrel.png</Link>
+      <Name>Grenade Barrel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Gunn Diode.png">
+      <Link>Items\Gunn Diode.png</Link>
+      <Name>Gunn Diode</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Head Lamp.png">
+      <Link>Items\Head Lamp.png</Link>
+      <Name>Head Lamp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Hidden Light.png">
+      <Link>Items\Hidden Light.png</Link>
+      <Name>Hidden Light</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Home Portal Icon.png">
+      <Link>Items\Home Portal Icon.png</Link>
+      <Name>Home Portal Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Home Portal.png">
+      <Link>Items\Home Portal.png</Link>
+      <Name>Home Portal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Hypercube Icon.png">
+      <Link>Items\Hypercube Icon.png</Link>
+      <Name>Hypercube Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Hypercube.png">
+      <Link>Items\Hypercube.png</Link>
+      <Name>Hypercube</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Iron Blaster.png">
+      <Link>Items\Iron Blaster.png</Link>
+      <Name>Iron Blaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Iron Mining Tool.png">
+      <Link>Items\Iron Mining Tool.png</Link>
+      <Name>Iron Mining Tool</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Iron Suit.png">
+      <Link>Items\Iron Suit.png</Link>
+      <Name>Iron Suit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Iron Superconductor.png">
+      <Link>Items\Iron Superconductor.png</Link>
+      <Name>Iron Superconductor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Iron.png">
+      <Link>Items\Iron.png</Link>
+      <Name>Iron</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Laser Glass.png">
+      <Link>Items\Laser Glass.png</Link>
+      <Name>Laser Glass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Leap Treads.png">
+      <Link>Items\Leap Treads.png</Link>
+      <Name>Leap Treads</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Light Drone.png">
+      <Link>Items\Light Drone.png</Link>
+      <Name>Light Drone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Light Orb Icon.png">
+      <Link>Items\Light Orb Icon.png</Link>
+      <Name>Light Orb Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Light Orb.png">
+      <Link>Items\Light Orb.png</Link>
+      <Name>Light Orb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Locked Door Icon.png">
+      <Link>Items\Locked Door Icon.png</Link>
+      <Name>Locked Door Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Locked Door.png">
+      <Link>Items\Locked Door.png</Link>
+      <Name>Locked Door</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Magnet.png">
+      <Link>Items\Magnet.png</Link>
+      <Name>Magnet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Material Sink.png">
+      <Link>Items\Material Sink.png</Link>
+      <Name>Material Sink</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Material Source.png">
+      <Link>Items\Material Source.png</Link>
+      <Name>Material Source</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Mercury Arc Rectifier.png">
+      <Link>Items\Mercury Arc Rectifier.png</Link>
+      <Name>Mercury Arc Rectifier</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Mercury Cell.png">
+      <Link>Items\Mercury Cell.png</Link>
+      <Name>Mercury Cell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Milling Machine Icon.png">
+      <Link>Items\Milling Machine Icon.png</Link>
+      <Name>Milling Machine Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Milling Machine.png">
+      <Link>Items\Milling Machine.png</Link>
+      <Name>Milling Machine</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Mining Drone.png">
+      <Link>Items\Mining Drone.png</Link>
+      <Name>Mining Drone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Missing.png">
+      <Link>Items\Missing.png</Link>
+      <Name>Missing</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Nuclear Bomb Icon.png">
+      <Link>Items\Nuclear Bomb Icon.png</Link>
+      <Name>Nuclear Bomb Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Nuclear Bomb.png">
+      <Link>Items\Nuclear Bomb.png</Link>
+      <Name>Nuclear Bomb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Nuclear Reactor Icon.png">
+      <Link>Items\Nuclear Reactor Icon.png</Link>
+      <Name>Nuclear Reactor Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Nuclear Reactor.png">
+      <Link>Items\Nuclear Reactor.png</Link>
+      <Name>Nuclear Reactor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Blaster.png">
+      <Link>Items\Obsidian Blaster.png</Link>
+      <Name>Obsidian Blaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Disruptor.png">
+      <Link>Items\Obsidian Disruptor.png</Link>
+      <Name>Obsidian Disruptor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Energy Cell.png">
+      <Link>Items\Obsidian Energy Cell.png</Link>
+      <Name>Obsidian Energy Cell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian energy refill.png">
+      <Link>Items\Obsidian energy refill.png</Link>
+      <Name>Obsidian energy refill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Energy Shield.png">
+      <Link>Items\Obsidian Energy Shield.png</Link>
+      <Name>Obsidian Energy Shield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Energy Tank.png">
+      <Link>Items\Obsidian Energy Tank.png</Link>
+      <Name>Obsidian Energy Tank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Grenade Launcher.png">
+      <Link>Items\Obsidian Grenade Launcher.png</Link>
+      <Name>Obsidian Grenade Launcher</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Helmet.png">
+      <Link>Items\Obsidian Helmet.png</Link>
+      <Name>Obsidian Helmet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Homing Missile.png">
+      <Link>Items\Obsidian Homing Missile.png</Link>
+      <Name>Obsidian Homing Missile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Laser Rifle.png">
+      <Link>Items\Obsidian Laser Rifle.png</Link>
+      <Name>Obsidian Laser Rifle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Mining Tool.png">
+      <Link>Items\Obsidian Mining Tool.png</Link>
+      <Name>Obsidian Mining Tool</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Portal Seeker.png">
+      <Link>Items\Obsidian Portal Seeker.png</Link>
+      <Name>Obsidian Portal Seeker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Power core.png">
+      <Link>Items\Obsidian Power core.png</Link>
+      <Name>Obsidian Power core</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Suit.png">
+      <Link>Items\Obsidian Suit.png</Link>
+      <Name>Obsidian Suit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Obsidian Superconductor.png">
+      <Link>Items\Obsidian Superconductor.png</Link>
+      <Name>Obsidian Superconductor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Ocular Lens.png">
+      <Link>Items\Ocular Lens.png</Link>
+      <Name>Ocular Lens</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Overworld Rift Creator.png">
+      <Link>Items\Overworld Rift Creator.png</Link>
+      <Name>Overworld Rift Creator</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Overworld Rift.png">
+      <Link>Items\Overworld Rift.png</Link>
+      <Name>Overworld Rift</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Oxygen Tank.png">
+      <Link>Items\Oxygen Tank.png</Link>
+      <Name>Oxygen Tank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Personal Hypercube Icon.png">
+      <Link>Items\Personal Hypercube Icon.png</Link>
+      <Name>Personal Hypercube Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Personal Hypercube.png">
+      <Link>Items\Personal Hypercube.png</Link>
+      <Name>Personal Hypercube</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Photovoltaic Cell.png">
+      <Link>Items\Photovoltaic Cell.png</Link>
+      <Name>Photovoltaic Cell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Plutonium.png">
+      <Link>Items\Plutonium.png</Link>
+      <Name>Plutonium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Point of Interest.png">
+      <Link>Items\Point of Interest.png</Link>
+      <Name>Point of Interest</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Portable Waypoint Icon.png">
+      <Link>Items\Portable Waypoint Icon.png</Link>
+      <Name>Portable Waypoint Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Portable Waypoint.png">
+      <Link>Items\Portable Waypoint.png</Link>
+      <Name>Portable Waypoint</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Portal Blue.png">
+      <Link>Items\Portal Blue.png</Link>
+      <Name>Portal Blue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Portal Green.png">
+      <Link>Items\Portal Green.png</Link>
+      <Name>Portal Green</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Portal Yellow.png">
+      <Link>Items\Portal Yellow.png</Link>
+      <Name>Portal Yellow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Portal.png">
+      <Link>Items\Portal.png</Link>
+      <Name>Portal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Radium.png">
+      <Link>Items\Radium.png</Link>
+      <Name>Radium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Red Crystal.png">
+      <Link>Items\Red Crystal.png</Link>
+      <Name>Red Crystal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Red Light Orb Icon.png">
+      <Link>Items\Red Light Orb Icon.png</Link>
+      <Name>Red Light Orb Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Red Light Orb.png">
+      <Link>Items\Red Light Orb.png</Link>
+      <Name>Red Light Orb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Refrigerant.png">
+      <Link>Items\Refrigerant.png</Link>
+      <Name>Refrigerant</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Reward Hypercube Icon.png">
+      <Link>Items\Reward Hypercube Icon.png</Link>
+      <Name>Reward Hypercube Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Reward Hypercube.png">
+      <Link>Items\Reward Hypercube.png</Link>
+      <Name>Reward Hypercube</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Rifle Barrel.png">
+      <Link>Items\Rifle Barrel.png</Link>
+      <Name>Rifle Barrel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Rift Creator.png">
+      <Link>Items\Rift Creator.png</Link>
+      <Name>Rift Creator</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Rift.png">
+      <Link>Items\Rift.png</Link>
+      <Name>Rift</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Ruby Scope.png">
+      <Link>Items\Ruby Scope.png</Link>
+      <Name>Ruby Scope</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Sapphire Scope.png">
+      <Link>Items\Sapphire Scope.png</Link>
+      <Name>Sapphire Scope</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Shock Absorbers.png">
+      <Link>Items\Shock Absorbers.png</Link>
+      <Name>Shock Absorbers</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Sign Icon.png">
+      <Link>Items\Sign Icon.png</Link>
+      <Name>Sign Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Sign.png">
+      <Link>Items\Sign.png</Link>
+      <Name>Sign</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver Blaster.png">
+      <Link>Items\Silver Blaster.png</Link>
+      <Name>Silver Blaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver Disruptor.png">
+      <Link>Items\Silver Disruptor.png</Link>
+      <Name>Silver Disruptor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver Energy Cell.png">
+      <Link>Items\Silver Energy Cell.png</Link>
+      <Name>Silver Energy Cell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver Energy Refill.png">
+      <Link>Items\Silver Energy Refill.png</Link>
+      <Name>Silver Energy Refill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver Energy Shield.png">
+      <Link>Items\Silver Energy Shield.png</Link>
+      <Name>Silver Energy Shield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver Energy Tank.png">
+      <Link>Items\Silver Energy Tank.png</Link>
+      <Name>Silver Energy Tank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver Helmet.png">
+      <Link>Items\Silver Helmet.png</Link>
+      <Name>Silver Helmet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver Laser Rifle.png">
+      <Link>Items\Silver Laser Rifle.png</Link>
+      <Name>Silver Laser Rifle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver Mining Tool.png">
+      <Link>Items\Silver Mining Tool.png</Link>
+      <Name>Silver Mining Tool</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver Portal Seeker.png">
+      <Link>Items\Silver Portal Seeker.png</Link>
+      <Name>Silver Portal Seeker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver Power Core.png">
+      <Link>Items\Silver Power Core.png</Link>
+      <Name>Silver Power Core</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver Suit.png">
+      <Link>Items\Silver Suit.png</Link>
+      <Name>Silver Suit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver Superconductor.png">
+      <Link>Items\Silver Superconductor.png</Link>
+      <Name>Silver Superconductor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Silver.png">
+      <Link>Items\Silver.png</Link>
+      <Name>Silver</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Speed Boots.png">
+      <Link>Items\Speed Boots.png</Link>
+      <Name>Speed Boots</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Steel Blaster.png">
+      <Link>Items\Steel Blaster.png</Link>
+      <Name>Steel Blaster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Steel Energy Tank.png">
+      <Link>Items\Steel Energy Tank.png</Link>
+      <Name>Steel Energy Tank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Steel Mining Tool.png">
+      <Link>Items\Steel Mining Tool.png</Link>
+      <Name>Steel Mining Tool</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Steel Portal Seeker.png">
+      <Link>Items\Steel Portal Seeker.png</Link>
+      <Name>Steel Portal Seeker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Steel power core.png">
+      <Link>Items\Steel power core.png</Link>
+      <Name>Steel power core</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Steel Suit.png">
+      <Link>Items\Steel Suit.png</Link>
+      <Name>Steel Suit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Steel Superconductor.png">
+      <Link>Items\Steel Superconductor.png</Link>
+      <Name>Steel Superconductor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Steel.png">
+      <Link>Items\Steel.png</Link>
+      <Name>Steel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Switch Icon.png">
+      <Link>Items\Switch Icon.png</Link>
+      <Name>Switch Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Switch.png">
+      <Link>Items\Switch.png</Link>
+      <Name>Switch</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\The Keys of the Kingdom.png">
+      <Link>Items\The Keys of the Kingdom.png</Link>
+      <Name>The Keys of the Kingdom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Thermistor.png">
+      <Link>Items\Thermistor.png</Link>
+      <Name>Thermistor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Thyratron.png">
+      <Link>Items\Thyratron.png</Link>
+      <Name>Thyratron</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Timed Switch Icon.png">
+      <Link>Items\Timed Switch Icon.png</Link>
+      <Name>Timed Switch Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Timed Switch.png">
+      <Link>Items\Timed Switch.png</Link>
+      <Name>Timed Switch</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Triggered Material Source.png">
+      <Link>Items\Triggered Material Source.png</Link>
+      <Name>Triggered Material Source</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Uranium.png">
+      <Link>Items\Uranium.png</Link>
+      <Name>Uranium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Vigor Energy Tank.png">
+      <Link>Items\Vigor Energy Tank.png</Link>
+      <Name>Vigor Energy Tank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Wall Switch Active.png">
+      <Link>Items\Wall Switch Active.png</Link>
+      <Name>Wall Switch Active</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Wall Switch.png">
+      <Link>Items\Wall Switch.png</Link>
+      <Name>Wall Switch</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Waypoint Icon.png">
+      <Link>Items\Waypoint Icon.png</Link>
+      <Name>Waypoint Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Waypoint.png">
+      <Link>Items\Waypoint.png</Link>
+      <Name>Waypoint</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Wire.png">
+      <Link>Items\Wire.png</Link>
+      <Name>Wire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Wiring.png">
+      <Link>Items\Wiring.png</Link>
+      <Name>Wiring</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\Workbench.png">
+      <Link>Items\Workbench.png</Link>
+      <Name>Workbench</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\World Hypercube Icon.png">
+      <Link>Items\World Hypercube Icon.png</Link>
+      <Name>World Hypercube Icon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Items\World Hypercube.png">
+      <Link>Items\World Hypercube.png</Link>
+      <Name>World Hypercube</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Content\Tiles\Acid.png">
+      <Link>Tiles\Acid.png</Link>
+      <Name>Acid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Air.png">
+      <Link>Tiles\Air.png</Link>
+      <Name>Air</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\AluminumOre.png">
+      <Link>Tiles\AluminumOre.png</Link>
+      <Name>AluminumOre</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Amethyst.png">
+      <Link>Tiles\Amethyst.png</Link>
+      <Name>Amethyst</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Ash.png">
+      <Link>Tiles\Ash.png</Link>
+      <Name>Ash</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Basalt.png">
+      <Link>Tiles\Basalt.png</Link>
+      <Name>Basalt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\BlackBrick.png">
+      <Link>Tiles\BlackBrick.png</Link>
+      <Name>BlackBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\BlackMetal.png">
+      <Link>Tiles\BlackMetal.png</Link>
+      <Name>BlackMetal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\BlueBrick.png">
+      <Link>Tiles\BlueBrick.png</Link>
+      <Name>BlueBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\BlueFire.png">
+      <Link>Tiles\BlueFire.png</Link>
+      <Name>BlueFire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Bone.png">
+      <Link>Tiles\Bone.png</Link>
+      <Name>Bone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\BrownBrick.png">
+      <Link>Tiles\BrownBrick.png</Link>
+      <Name>BrownBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Clay.png">
+      <Link>Tiles\Clay.png</Link>
+      <Name>Clay</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Coal.png">
+      <Link>Tiles\Coal.png</Link>
+      <Name>Coal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\CopperOre.png">
+      <Link>Tiles\CopperOre.png</Link>
+      <Name>CopperOre</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\CyanBrick.png">
+      <Link>Tiles\CyanBrick.png</Link>
+      <Name>CyanBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\DarkGrayBrick.png">
+      <Link>Tiles\DarkGrayBrick.png</Link>
+      <Name>DarkGrayBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\DarkGrayMetal.png">
+      <Link>Tiles\DarkGrayMetal.png</Link>
+      <Name>DarkGrayMetal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Diamond.png">
+      <Link>Tiles\Diamond.png</Link>
+      <Name>Diamond</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Dilithium.png">
+      <Link>Tiles\Dilithium.png</Link>
+      <Name>Dilithium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Dirt.png">
+      <Link>Tiles\Dirt.png</Link>
+      <Name>Dirt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Emerald.png">
+      <Link>Tiles\Emerald.png</Link>
+      <Name>Emerald</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Fire.png">
+      <Link>Tiles\Fire.png</Link>
+      <Name>Fire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Glass.png">
+      <Link>Tiles\Glass.png</Link>
+      <Name>Glass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\GoldOre.png">
+      <Link>Tiles\GoldOre.png</Link>
+      <Name>GoldOre</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Granite.png">
+      <Link>Tiles\Granite.png</Link>
+      <Name>Granite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Grass.png">
+      <Link>Tiles\Grass.png</Link>
+      <Name>Grass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Gravel.png">
+      <Link>Tiles\Gravel.png</Link>
+      <Name>Gravel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\GrayMetal.png">
+      <Link>Tiles\GrayMetal.png</Link>
+      <Name>GrayMetal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\GreenBrick.png">
+      <Link>Tiles\GreenBrick.png</Link>
+      <Name>GreenBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Ice.png">
+      <Link>Tiles\Ice.png</Link>
+      <Name>Ice</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\IronOre.png">
+      <Link>Tiles\IronOre.png</Link>
+      <Name>IronOre</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Lava.png">
+      <Link>Tiles\Lava.png</Link>
+      <Name>Lava</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Life.png">
+      <Link>Tiles\Life.png</Link>
+      <Name>Life</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\LightBlueBrick.png">
+      <Link>Tiles\LightBlueBrick.png</Link>
+      <Name>LightBlueBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\LightGrayBrick.png">
+      <Link>Tiles\LightGrayBrick.png</Link>
+      <Name>LightGrayBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\LightGreenBrick.png">
+      <Link>Tiles\LightGreenBrick.png</Link>
+      <Name>LightGreenBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Limestone.png">
+      <Link>Tiles\Limestone.png</Link>
+      <Name>Limestone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Marble.png">
+      <Link>Tiles\Marble.png</Link>
+      <Name>Marble</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\NaturalGas.png">
+      <Link>Tiles\NaturalGas.png</Link>
+      <Name>NaturalGas</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Obsidian.png">
+      <Link>Tiles\Obsidian.png</Link>
+      <Name>Obsidian</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Oil.png">
+      <Link>Tiles\Oil.png</Link>
+      <Name>Oil</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\OrangeBrick.png">
+      <Link>Tiles\OrangeBrick.png</Link>
+      <Name>OrangeBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\PinkBrick.png">
+      <Link>Tiles\PinkBrick.png</Link>
+      <Name>PinkBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Pipe.png">
+      <Link>Tiles\Pipe.png</Link>
+      <Name>Pipe</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Plastic.png">
+      <Link>Tiles\Plastic.png</Link>
+      <Name>Plastic</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Platform.png">
+      <Link>Tiles\Platform.png</Link>
+      <Name>Platform</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\PoisonGas.png">
+      <Link>Tiles\PoisonGas.png</Link>
+      <Name>PoisonGas</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\PurpleBrick.png">
+      <Link>Tiles\PurpleBrick.png</Link>
+      <Name>PurpleBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Quartzite.png">
+      <Link>Tiles\Quartzite.png</Link>
+      <Name>Quartzite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\RadiumOre.png">
+      <Link>Tiles\RadiumOre.png</Link>
+      <Name>RadiumOre</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\RedBrick.png">
+      <Link>Tiles\RedBrick.png</Link>
+      <Name>RedBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\RedMetal.png">
+      <Link>Tiles\RedMetal.png</Link>
+      <Name>RedMetal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Rhyolite.png">
+      <Link>Tiles\Rhyolite.png</Link>
+      <Name>Rhyolite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Ruby.png">
+      <Link>Tiles\Ruby.png</Link>
+      <Name>Ruby</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Sand.png">
+      <Link>Tiles\Sand.png</Link>
+      <Name>Sand</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Sandstone.png">
+      <Link>Tiles\Sandstone.png</Link>
+      <Name>Sandstone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Sapphire.png">
+      <Link>Tiles\Sapphire.png</Link>
+      <Name>Sapphire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\SilverOre.png">
+      <Link>Tiles\SilverOre.png</Link>
+      <Name>SilverOre</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Slime.png">
+      <Link>Tiles\Slime.png</Link>
+      <Name>Slime</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Smoke.png">
+      <Link>Tiles\Smoke.png</Link>
+      <Name>Smoke</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Snow.png">
+      <Link>Tiles\Snow.png</Link>
+      <Name>Snow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Sodium.png">
+      <Link>Tiles\Sodium.png</Link>
+      <Name>Sodium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Spike.png">
+      <Link>Tiles\Spike.png</Link>
+      <Name>Spike</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Steam.png">
+      <Link>Tiles\Steam.png</Link>
+      <Name>Steam</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Sulfur.png">
+      <Link>Tiles\Sulfur.png</Link>
+      <Name>Sulfur</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\TanBrick.png">
+      <Link>Tiles\TanBrick.png</Link>
+      <Name>TanBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Tar.png">
+      <Link>Tiles\Tar.png</Link>
+      <Name>Tar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Topaz.png">
+      <Link>Tiles\Topaz.png</Link>
+      <Name>Topaz</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\UraniumOre.png">
+      <Link>Tiles\UraniumOre.png</Link>
+      <Name>UraniumOre</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Vacuum.png">
+      <Link>Tiles\Vacuum.png</Link>
+      <Name>Vacuum</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Water.png">
+      <Link>Tiles\Water.png</Link>
+      <Name>Water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\WhiteBrick.png">
+      <Link>Tiles\WhiteBrick.png</Link>
+      <Name>WhiteBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\WhiteMetal.png">
+      <Link>Tiles\WhiteMetal.png</Link>
+      <Name>WhiteMetal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Wire.png">
+      <Link>Tiles\Wire.png</Link>
+      <Name>Wire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\Wood.png">
+      <Link>Tiles\Wood.png</Link>
+      <Name>Wood</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Tiles\YellowBrick.png">
+      <Link>Tiles\YellowBrick.png</Link>
+      <Name>YellowBrick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Content\Sounds\AcidSplat.wav">
+      <Link>Sounds\AcidSplat.wav</Link>
+      <Name>AcidSplat</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\BlasterCharge 30.wav">
+      <Link>Sounds\BlasterCharge 30.wav</Link>
+      <Name>BlasterCharge 30</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\BlasterChargedFire.wav">
+      <Link>Sounds\BlasterChargedFire.wav</Link>
+      <Name>BlasterChargedFire</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\BlasterFire 30.wav">
+      <Link>Sounds\BlasterFire 30.wav</Link>
+      <Name>BlasterFire 30</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\BlasterHit.wav">
+      <Link>Sounds\BlasterHit.wav</Link>
+      <Name>BlasterHit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\BomberWarning.wav">
+      <Link>Sounds\BomberWarning.wav</Link>
+      <Name>BomberWarning</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\BoseEinsteinCondenserFire.wav">
+      <Link>Sounds\BoseEinsteinCondenserFire.wav</Link>
+      <Name>BoseEinsteinCondenserFire</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\BoseEinsteinCondenserHit.wav">
+      <Link>Sounds\BoseEinsteinCondenserHit.wav</Link>
+      <Name>BoseEinsteinCondenserHit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Botanica Mini Boss 2Die.wav">
+      <Link>Sounds\Botanica Mini Boss 2Die.wav</Link>
+      <Name>Botanica Mini Boss 2Die</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Botanica Mini Boss 2Spawn 50.wav">
+      <Link>Sounds\Botanica Mini Boss 2Spawn 50.wav</Link>
+      <Name>Botanica Mini Boss 2Spawn 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\BrunnenAttack.wav">
+      <Link>Sounds\BrunnenAttack.wav</Link>
+      <Name>BrunnenAttack</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\BrunnenDie.wav">
+      <Link>Sounds\BrunnenDie.wav</Link>
+      <Name>BrunnenDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\BrunnenSpawn 50.wav">
+      <Link>Sounds\BrunnenSpawn 50.wav</Link>
+      <Name>BrunnenSpawn 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Bulletproof CrawlerDie.wav">
+      <Link>Sounds\Bulletproof CrawlerDie.wav</Link>
+      <Name>Bulletproof CrawlerDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Bulletproof CrawlerSpawn 50.wav">
+      <Link>Sounds\Bulletproof CrawlerSpawn 50.wav</Link>
+      <Name>Bulletproof CrawlerSpawn 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\ChemicalReactor.wav">
+      <Link>Sounds\ChemicalReactor.wav</Link>
+      <Name>ChemicalReactor</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Craft.wav">
+      <Link>Sounds\Craft.wav</Link>
+      <Name>Craft</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\CrawlerDie.wav">
+      <Link>Sounds\CrawlerDie.wav</Link>
+      <Name>CrawlerDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\CrawlerSpawn 50.wav">
+      <Link>Sounds\CrawlerSpawn 50.wav</Link>
+      <Name>CrawlerSpawn 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Crystalline LarvaDie.wav">
+      <Link>Sounds\Crystalline LarvaDie.wav</Link>
+      <Name>Crystalline LarvaDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Crystalline LarvaSpawn 50.wav">
+      <Link>Sounds\Crystalline LarvaSpawn 50.wav</Link>
+      <Name>Crystalline LarvaSpawn 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\CrystallineDie.wav">
+      <Link>Sounds\CrystallineDie.wav</Link>
+      <Name>CrystallineDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\CrystallineSpawn 50.wav">
+      <Link>Sounds\CrystallineSpawn 50.wav</Link>
+      <Name>CrystallineSpawn 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Dematerialize.wav">
+      <Link>Sounds\Dematerialize.wav</Link>
+      <Name>Dematerialize</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\DigSmall 25.wav">
+      <Link>Sounds\DigSmall 25.wav</Link>
+      <Name>DigSmall 25</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\DisruptorFire 40.wav">
+      <Link>Sounds\DisruptorFire 40.wav</Link>
+      <Name>DisruptorFire 40</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\DisruptorHit.wav">
+      <Link>Sounds\DisruptorHit.wav</Link>
+      <Name>DisruptorHit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\DoorClosed.wav">
+      <Link>Sounds\DoorClosed.wav</Link>
+      <Name>DoorClosed</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\DoorOpen.wav">
+      <Link>Sounds\DoorOpen.wav</Link>
+      <Name>DoorOpen</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\DrakeDie.wav">
+      <Link>Sounds\DrakeDie.wav</Link>
+      <Name>DrakeDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\EelAttack.wav">
+      <Link>Sounds\EelAttack.wav</Link>
+      <Name>EelAttack</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\EelDie.wav">
+      <Link>Sounds\EelDie.wav</Link>
+      <Name>EelDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\EelSpawn.wav">
+      <Link>Sounds\EelSpawn.wav</Link>
+      <Name>EelSpawn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\ElectricityHit.wav">
+      <Link>Sounds\ElectricityHit.wav</Link>
+      <Name>ElectricityHit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\EnterAcid.wav">
+      <Link>Sounds\EnterAcid.wav</Link>
+      <Name>EnterAcid</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\EnterLava.wav">
+      <Link>Sounds\EnterLava.wav</Link>
+      <Name>EnterLava</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\EnterSlime.wav">
+      <Link>Sounds\EnterSlime.wav</Link>
+      <Name>EnterSlime</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\EnterTar.wav">
+      <Link>Sounds\EnterTar.wav</Link>
+      <Name>EnterTar</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\EnterWater.wav">
+      <Link>Sounds\EnterWater.wav</Link>
+      <Name>EnterWater</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Equip.wav">
+      <Link>Sounds\Equip.wav</Link>
+      <Name>Equip</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Equip2 40.wav">
+      <Link>Sounds\Equip2 40.wav</Link>
+      <Name>Equip2 40</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Error.wav">
+      <Link>Sounds\Error.wav</Link>
+      <Name>Error</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\ExitAcid.wav">
+      <Link>Sounds\ExitAcid.wav</Link>
+      <Name>ExitAcid</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\ExitLava.wav">
+      <Link>Sounds\ExitLava.wav</Link>
+      <Name>ExitLava</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\ExitSlime.wav">
+      <Link>Sounds\ExitSlime.wav</Link>
+      <Name>ExitSlime</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\ExitTar.wav">
+      <Link>Sounds\ExitTar.wav</Link>
+      <Name>ExitTar</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\ExitWater.wav">
+      <Link>Sounds\ExitWater.wav</Link>
+      <Name>ExitWater</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\ExploderDie.wav">
+      <Link>Sounds\ExploderDie.wav</Link>
+      <Name>ExploderDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\ExploderSpawn 50.wav">
+      <Link>Sounds\ExploderSpawn 50.wav</Link>
+      <Name>ExploderSpawn 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\ExploderWarning 60.wav">
+      <Link>Sounds\ExploderWarning 60.wav</Link>
+      <Name>ExploderWarning 60</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Explosion1 60.wav">
+      <Link>Sounds\Explosion1 60.wav</Link>
+      <Name>Explosion1 60</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Explosion2.wav">
+      <Link>Sounds\Explosion2.wav</Link>
+      <Name>Explosion2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Explosion3 60.wav">
+      <Link>Sounds\Explosion3 60.wav</Link>
+      <Name>Explosion3 60</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Explosion4 60.wav">
+      <Link>Sounds\Explosion4 60.wav</Link>
+      <Name>Explosion4 60</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Explosion5 60.wav">
+      <Link>Sounds\Explosion5 60.wav</Link>
+      <Name>Explosion5 60</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Final Boss Part 1Damage 20.wav">
+      <Link>Sounds\Final Boss Part 1Damage 20.wav</Link>
+      <Name>Final Boss Part 1Damage 20</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Final Boss Part 1Die.wav">
+      <Link>Sounds\Final Boss Part 1Die.wav</Link>
+      <Name>Final Boss Part 1Die</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Final Boss Part 1Spawn.wav">
+      <Link>Sounds\Final Boss Part 1Spawn.wav</Link>
+      <Name>Final Boss Part 1Spawn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Final Boss Part 2Spawn.wav">
+      <Link>Sounds\Final Boss Part 2Spawn.wav</Link>
+      <Name>Final Boss Part 2Spawn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\FireBreath 40.wav">
+      <Link>Sounds\FireBreath 40.wav</Link>
+      <Name>FireBreath 40</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\FireflyDie.wav">
+      <Link>Sounds\FireflyDie.wav</Link>
+      <Name>FireflyDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\FloaterAttack 40.wav">
+      <Link>Sounds\FloaterAttack 40.wav</Link>
+      <Name>FloaterAttack 40</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Forge.wav">
+      <Link>Sounds\Forge.wav</Link>
+      <Name>Forge</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Furnace.wav">
+      <Link>Sounds\Furnace.wav</Link>
+      <Name>Furnace</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\GrenadeFire 75.wav">
+      <Link>Sounds\GrenadeFire 75.wav</Link>
+      <Name>GrenadeFire 75</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Ground TrooperDie 60.wav">
+      <Link>Sounds\Ground TrooperDie 60.wav</Link>
+      <Name>Ground TrooperDie 60</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Ground TrooperSpawn 50.wav">
+      <Link>Sounds\Ground TrooperSpawn 50.wav</Link>
+      <Name>Ground TrooperSpawn 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\GunFlameThrower.wav">
+      <Link>Sounds\GunFlameThrower.wav</Link>
+      <Name>GunFlameThrower</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\GunFreeze 99.wav">
+      <Link>Sounds\GunFreeze 99.wav</Link>
+      <Name>GunFreeze 99</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\HarpyDie 60.wav">
+      <Link>Sounds\HarpyDie 60.wav</Link>
+      <Name>HarpyDie 60</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\HarpySpawn 40.wav">
+      <Link>Sounds\HarpySpawn 40.wav</Link>
+      <Name>HarpySpawn 40</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\HomingMissileFire.wav">
+      <Link>Sounds\HomingMissileFire.wav</Link>
+      <Name>HomingMissileFire</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\HomingMissileHit.wav">
+      <Link>Sounds\HomingMissileHit.wav</Link>
+      <Name>HomingMissileHit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\HoverTick 30.wav">
+      <Link>Sounds\HoverTick 30.wav</Link>
+      <Name>HoverTick 30</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\HypercubeOfHoldingLocked.wav">
+      <Link>Sounds\HypercubeOfHoldingLocked.wav</Link>
+      <Name>HypercubeOfHoldingLocked</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\HypercubeOfHoldingOpen.wav">
+      <Link>Sounds\HypercubeOfHoldingOpen.wav</Link>
+      <Name>HypercubeOfHoldingOpen</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Jungle BossDie.wav">
+      <Link>Sounds\Jungle BossDie.wav</Link>
+      <Name>Jungle BossDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Jungle BossSpawn.wav">
+      <Link>Sounds\Jungle BossSpawn.wav</Link>
+      <Name>Jungle BossSpawn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\KrawnixAttack.wav">
+      <Link>Sounds\KrawnixAttack.wav</Link>
+      <Name>KrawnixAttack</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\KrawnixDie.wav">
+      <Link>Sounds\KrawnixDie.wav</Link>
+      <Name>KrawnixDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\KrawnixSpawn.wav">
+      <Link>Sounds\KrawnixSpawn.wav</Link>
+      <Name>KrawnixSpawn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\LaserRifleFire 5.wav">
+      <Link>Sounds\LaserRifleFire 5.wav</Link>
+      <Name>LaserRifleFire 5</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\LaserRifleHit 50.wav">
+      <Link>Sounds\LaserRifleHit 50.wav</Link>
+      <Name>LaserRifleHit 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\LeaperAttack.wav">
+      <Link>Sounds\LeaperAttack.wav</Link>
+      <Name>LeaperAttack</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\LeaperDie.wav">
+      <Link>Sounds\LeaperDie.wav</Link>
+      <Name>LeaperDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\LeaperSpawn.wav">
+      <Link>Sounds\LeaperSpawn.wav</Link>
+      <Name>LeaperSpawn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Light DroneDie.wav">
+      <Link>Sounds\Light DroneDie.wav</Link>
+      <Name>Light DroneDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Light DroneSpawn.wav">
+      <Link>Sounds\Light DroneSpawn.wav</Link>
+      <Name>Light DroneSpawn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Material EaterDie 90.wav">
+      <Link>Sounds\Material EaterDie 90.wav</Link>
+      <Name>Material EaterDie 90</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Material EaterSpawn 15.wav">
+      <Link>Sounds\Material EaterSpawn 15.wav</Link>
+      <Name>Material EaterSpawn 15</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Mind FeederAttack.wav">
+      <Link>Sounds\Mind FeederAttack.wav</Link>
+      <Name>Mind FeederAttack</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Mind FeederDie.wav">
+      <Link>Sounds\Mind FeederDie.wav</Link>
+      <Name>Mind FeederDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Mind FeederSpawn 99.wav">
+      <Link>Sounds\Mind FeederSpawn 99.wav</Link>
+      <Name>Mind FeederSpawn 99</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\MiniFlame.wav">
+      <Link>Sounds\MiniFlame.wav</Link>
+      <Name>MiniFlame</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\MiningToolFire 30.wav">
+      <Link>Sounds\MiningToolFire 30.wav</Link>
+      <Name>MiningToolFire 30</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Montra RayDie.wav">
+      <Link>Sounds\Montra RayDie.wav</Link>
+      <Name>Montra RayDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Montra RaySpawn 50.wav">
+      <Link>Sounds\Montra RaySpawn 50.wav</Link>
+      <Name>Montra RaySpawn 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Pickup 50.wav">
+      <Link>Sounds\Pickup 50.wav</Link>
+      <Name>Pickup 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\PickupKeyComponet.wav">
+      <Link>Sounds\PickupKeyComponet.wav</Link>
+      <Name>PickupKeyComponet</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\PickupUseable.wav">
+      <Link>Sounds\PickupUseable.wav</Link>
+      <Name>PickupUseable</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\PlaceItem 50.wav">
+      <Link>Sounds\PlaceItem 50.wav</Link>
+      <Name>PlaceItem 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\PlaceMaterial 50.wav">
+      <Link>Sounds\PlaceMaterial 50.wav</Link>
+      <Name>PlaceMaterial 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\PlayerDamaged 60.wav">
+      <Link>Sounds\PlayerDamaged 60.wav</Link>
+      <Name>PlayerDamaged 60</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\PlayerDamaged2 60.wav">
+      <Link>Sounds\PlayerDamaged2 60.wav</Link>
+      <Name>PlayerDamaged2 60</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\PlayerDamaged3 50.wav">
+      <Link>Sounds\PlayerDamaged3 50.wav</Link>
+      <Name>PlayerDamaged3 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\PlayerDie 90.wav">
+      <Link>Sounds\PlayerDie 90.wav</Link>
+      <Name>PlayerDie 90</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\PlayerJump 20.wav">
+      <Link>Sounds\PlayerJump 20.wav</Link>
+      <Name>PlayerJump 20</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\PlayerLand.wav">
+      <Link>Sounds\PlayerLand.wav</Link>
+      <Name>PlayerLand</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\PlayerRun 30.wav">
+      <Link>Sounds\PlayerRun 30.wav</Link>
+      <Name>PlayerRun 30</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\PlayerSpawn 50.wav">
+      <Link>Sounds\PlayerSpawn 50.wav</Link>
+      <Name>PlayerSpawn 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\PlayerSwim 30.wav">
+      <Link>Sounds\PlayerSwim 30.wav</Link>
+      <Name>PlayerSwim 30</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Portal 90.wav">
+      <Link>Sounds\Portal 90.wav</Link>
+      <Name>Portal 90</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Portal SeekerSpawn 50.wav">
+      <Link>Sounds\Portal SeekerSpawn 50.wav</Link>
+      <Name>Portal SeekerSpawn 50</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Sky BossDamage 20.wav">
+      <Link>Sounds\Sky BossDamage 20.wav</Link>
+      <Name>Sky BossDamage 20</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Sky BossDie 99.wav">
+      <Link>Sounds\Sky BossDie 99.wav</Link>
+      <Name>Sky BossDie 99</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Sky BossSpawn.wav">
+      <Link>Sounds\Sky BossSpawn.wav</Link>
+      <Name>Sky BossSpawn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Sky Realm Mini 1Damage.wav">
+      <Link>Sounds\Sky Realm Mini 1Damage.wav</Link>
+      <Name>Sky Realm Mini 1Damage</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Sky Realm Mini 1Die.wav">
+      <Link>Sounds\Sky Realm Mini 1Die.wav</Link>
+      <Name>Sky Realm Mini 1Die</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Sky Realm Mini 1Spawn 99.wav">
+      <Link>Sounds\Sky Realm Mini 1Spawn 99.wav</Link>
+      <Name>Sky Realm Mini 1Spawn 99</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Slime RayDie.wav">
+      <Link>Sounds\Slime RayDie.wav</Link>
+      <Name>Slime RayDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\SmallTick 20.wav">
+      <Link>Sounds\SmallTick 20.wav</Link>
+      <Name>SmallTick 20</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\SpaceShipBlaster 15.wav">
+      <Link>Sounds\SpaceShipBlaster 15.wav</Link>
+      <Name>SpaceShipBlaster 15</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Spike 40.wav">
+      <Link>Sounds\Spike 40.wav</Link>
+      <Name>Spike 40</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\SproutDie.wav">
+      <Link>Sounds\SproutDie.wav</Link>
+      <Name>SproutDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Static.wav">
+      <Link>Sounds\Static.wav</Link>
+      <Name>Static</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Switch 60.wav">
+      <Link>Sounds\Switch 60.wav</Link>
+      <Name>Switch 60</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Tick 15.wav">
+      <Link>Sounds\Tick 15.wav</Link>
+      <Name>Tick 15</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\TimedSwitchActive.wav">
+      <Link>Sounds\TimedSwitchActive.wav</Link>
+      <Name>TimedSwitchActive</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\TurretActivate.wav">
+      <Link>Sounds\TurretActivate.wav</Link>
+      <Name>TurretActivate</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\TurretDamage 20.wav">
+      <Link>Sounds\TurretDamage 20.wav</Link>
+      <Name>TurretDamage 20</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\TurretDeactivate.wav">
+      <Link>Sounds\TurretDeactivate.wav</Link>
+      <Name>TurretDeactivate</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\TurretDie 61.wav">
+      <Link>Sounds\TurretDie 61.wav</Link>
+      <Name>TurretDie 61</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\TurretSpawn.wav">
+      <Link>Sounds\TurretSpawn.wav</Link>
+      <Name>TurretSpawn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Valee HiveDie.wav">
+      <Link>Sounds\Valee HiveDie.wav</Link>
+      <Name>Valee HiveDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\Valee HiveSpawn.wav">
+      <Link>Sounds\Valee HiveSpawn.wav</Link>
+      <Name>Valee HiveSpawn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\ValeeAttack.wav">
+      <Link>Sounds\ValeeAttack.wav</Link>
+      <Name>ValeeAttack</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\ValeeDie.wav">
+      <Link>Sounds\ValeeDie.wav</Link>
+      <Name>ValeeDie</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\ValeeSpawn.wav">
+      <Link>Sounds\ValeeSpawn.wav</Link>
+      <Name>ValeeSpawn</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\WaypointActivated.wav">
+      <Link>Sounds\WaypointActivated.wav</Link>
+      <Name>WaypointActivated</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\WeaponMissed.wav">
+      <Link>Sounds\WeaponMissed.wav</Link>
+      <Name>WeaponMissed</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Sounds\WorkBench 75.wav">
+      <Link>Sounds\WorkBench 75.wav</Link>
+      <Name>WorkBench 75</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Content\Background\GasGiant.png">
+      <Link>Background\GasGiant.png</Link>
+      <Name>GasGiant</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Background\Sun.png">
+      <Link>Background\Sun.png</Link>
+      <Name>Sun</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Content\Background\CaveBack.png">
+      <Link>Background\CaveBack.png</Link>
+      <Name>CaveBack</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <ProcessorParameters_TextureFormat>DxtCompressed</ProcessorParameters_TextureFormat>
+    </Compile>
+    <Compile Include="..\..\Content\Background\CaveFore.png">
+      <Link>Background\CaveFore.png</Link>
+      <Name>CaveFore</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <ProcessorParameters_TextureFormat>DxtCompressed</ProcessorParameters_TextureFormat>
+    </Compile>
+    <Compile Include="..\..\Content\Background\CaveMid.png">
+      <Link>Background\CaveMid.png</Link>
+      <Name>CaveMid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <ProcessorParameters_TextureFormat>DxtCompressed</ProcessorParameters_TextureFormat>
+    </Compile>
+    <Compile Include="..\..\Content\Background\Grass.png">
+      <Link>Background\Grass.png</Link>
+      <Name>Grass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <ProcessorParameters_TextureFormat>DxtCompressed</ProcessorParameters_TextureFormat>
+    </Compile>
+    <Compile Include="..\..\Content\Background\LavaBack.png">
+      <Link>Background\LavaBack.png</Link>
+      <Name>LavaBack</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <ProcessorParameters_TextureFormat>DxtCompressed</ProcessorParameters_TextureFormat>
+    </Compile>
+    <Compile Include="..\..\Content\Background\LavaFore1.png">
+      <Link>Background\LavaFore1.png</Link>
+      <Name>LavaFore1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <ProcessorParameters_TextureFormat>DxtCompressed</ProcessorParameters_TextureFormat>
+    </Compile>
+    <Compile Include="..\..\Content\Background\LavaMid.png">
+      <Link>Background\LavaMid.png</Link>
+      <Name>LavaMid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <ProcessorParameters_TextureFormat>DxtCompressed</ProcessorParameters_TextureFormat>
+    </Compile>
+    <Compile Include="..\..\Content\Background\LavaTop.png">
+      <Link>Background\LavaTop.png</Link>
+      <Name>LavaTop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <ProcessorParameters_TextureFormat>DxtCompressed</ProcessorParameters_TextureFormat>
+    </Compile>
+    <Compile Include="..\..\Content\Background\MountainFore.png">
+      <Link>Background\MountainFore.png</Link>
+      <Name>MountainFore</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Background\MountainForeNight.png">
+      <Link>Background\MountainForeNight.png</Link>
+      <Name>MountainForeNight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Background\MountainMid.png">
+      <Link>Background\MountainMid.png</Link>
+      <Name>MountainMid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="..\..\Content\Background\Starfield.jpg">
+      <Link>Background\Starfield.jpg</Link>
+      <Name>Starfield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <ProcessorParameters_TextureFormat>DxtCompressed</ProcessorParameters_TextureFormat>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
+  <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

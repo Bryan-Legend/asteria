@@ -1,0 +1,4 @@
+[Error] 5/7/2012 6:03:04 PM There is an error in XML document (2, 2).
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(TextReader textReader)
+   at Nubik.Tools.SpriteFont.Pages.FontPage.LoadButton_Click(Object sender, RoutedEventArgs e)
